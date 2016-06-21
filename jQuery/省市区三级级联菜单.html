@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>省市区级联菜单</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wp {
+            width: 500px;
+            margin: 50px auto;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="wp">
+        <label for=""><select name="" id="province"></select>省</label>
+        <label for=""><select name="" id="city"></select>市</label>
+        <label for=""><select name="" id="area"></select>区/县</label>
+    </div>
+
+    <script src="../lib/jquery-1.12.1.min.js"></script>
+    
+    <script>
+        !function(window, document, $, undefined) {
+
+            var url = 'http://dohtml5.duapp.com/php/wbc2/getPlace.php?callback=?';
+
+            var init = function() {
+                initEvent();
+                getData();
+            };
+
+            var initEvent = function() {
+                $('#province').on('change', onProvinceChange);
+                $('#city').on('change', onCityChange);
+            };
+
+            var onProvinceChange = function() {
+                var val = this.value;
+                getData(val, 'city');
+                $('#area').html('<option value="0">请选择</option>');
+            };
+
+            var onCityChange = function() {
+                var val = this.value;
+                getData(val, 'area');
+            };
+
+            var getData = function(id, renderId) {
+
+                var param;
+                renderId = renderId || 'province';
+
+                if (id) {
+                    param = {id: id};
+                }
+
+                $.get(url, param, function(data) {
+                    render(data, renderId);
+                }, 'json');
+
+            };
+
+            var render = function(data, renderId) {
+                var opts = ['<option value="0">请选择</option>'];
+
+                $.each(data, function(i, obj) {
+                    opts.push('<option value="', obj[renderId + 'ID'], '">', obj[renderId], '</option>');
+                });
+
+                $('#' + renderId).html(opts.join(''));
+
+            };
+
+            init();
+
+        }(window, document, jQuery);
+    </script>
+</body>
+</html>

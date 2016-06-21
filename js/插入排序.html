@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>插入排序</title>
+</head>
+<body>
+
+    <h1>排序前</h1>
+    <div id="before"></div>
+
+    <h1>排序后</h1>
+    <div id="after"></div>
+
+    
+<script>
+
+    var arr = [5, 9, 20, 11, 29, 8, 5, 17, 15, 3];
+
+    document.getElementById('before').innerHTML = arr.join(' ');
+
+    function insertionSort(tmpArr) {
+        var tmp, j;
+        for (var i=3; i<tmpArr.length; i++) {
+            tmp = tmpArr[i];
+            j = i;
+            while (j>0 && tmpArr[j-1]>=tmp) {
+                tmpArr[j] = tmpArr[j-1];
+                --j;
+            }
+            tmpArr[j] = tmp;
+        }
+    }
+
+    insertionSort(arr);
+
+    document.getElementById('after').innerHTML = arr.join(' ');
+
+</script>
+</body>
+</html>

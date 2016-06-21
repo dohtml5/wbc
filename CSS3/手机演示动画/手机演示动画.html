@@ -1,0 +1,288 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>CSS3动画-手机用户操作示意</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 20px;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        .main-wp {
+            position: relative;
+        }
+
+        .img-wp {
+            width: 7.475rem;
+            margin-top: 1rem;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .img-wp img {
+            width: 7.475rem
+        }
+
+        .yellow-circle {
+            background-color: #ffe033;
+            width: 1.25rem;
+            height: 1.25rem;
+            border-radius: 1.25rem;
+            position: absolute;
+            bottom: 4.5rem;
+            left: 3.05rem;
+            -webkit-animation: yellow-circle-tap 1s 2s;
+        }
+
+        .blue-circle1 {
+            background-color: #55c2c2;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 1.25rem;
+            position: absolute;
+            bottom: 3.9rem;
+            left: 2.45rem;
+            opacity: 0;
+            -webkit-animation: blue-circle-fadein 10s 2.5s;
+        }
+
+        .blue-circle2 {
+            background-color: #4a8080;
+            width: 3.75rem;
+            height: 3.75rem;
+            border-radius: 2.5rem;
+            position: absolute;
+            bottom: 3.3rem;
+            left: 1.8rem;
+            opacity: 0;
+            -webkit-animation: blue-circle-fadein 10s 2.5s;
+        }
+
+        .hand {
+            background-image: url(img/hand.png);
+            background-size: 5.25rem 6.375rem;
+            width: 5.25rem;
+            height: 6.375rem;
+            position: absolute;
+            bottom: -1rem;
+            right: -1rem;
+            -webkit-animation: hand-move 5s linear;
+        }
+
+        .msg {
+            font-size: 0.6rem;
+            position: absolute;
+            top: 2.25rem;
+            right: -6.25rem;
+            text-align: right;
+            color: #fff;
+            -webkit-animation: msg-move 10s 2.8s;
+        }
+
+        .pic {
+            background-image: url(img/pz.png);
+            width: 6.625rem;
+            height: 11.65rem;
+            position: absolute;
+            top: 1.75rem;
+            /*left: 9px;*/
+            left: 7.45rem;
+            background-size: 6.625rem 11.65rem;
+            -webkit-animation: pic-move 10s 5.3s;
+        }
+
+        @-webkit-keyframes hand-move {
+            0%   {right: -1rem;}
+            43%  {right: 3.15rem;}
+            57%  {right: 3.15rem;}
+            100% {right: -1rem;}
+        }
+
+        @-webkit-keyframes yellow-circle-tap {
+            0%   {background-color: #ffe033;}
+            43%  {background-color: #867309;}
+            57%  {background-color: #867309;}
+            100% {background-color: #ffe033;}
+        }
+
+        @-webkit-keyframes blue-circle-fadein {
+            0%   {opacity: 0}
+            10%   {opacity: 1}
+            100% {opacity: 1}
+        }
+
+        @-webkit-keyframes msg-move {
+            0%   {right: -6.25rem;}
+            10%  {right: 0.5rem;}
+            100% {right: 0.5rem;}
+        }
+
+        @-webkit-keyframes pic-move {
+            0%   {left: 7.45rem;}
+            10%  {left: 0.45rem;}
+            100% {left: 0.45rem;}
+        }
+
+
+
+        /* * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            font-size: 20px;
+        }
+        
+        body {
+            overflow: hidden;
+        }
+        
+        .main-wp {
+            position: relative;
+        }
+        
+        .img-wp {
+            width: 149.5px;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .img-wp img {
+            width: 149.5px
+        }
+        
+        .yellow-circle {
+            background-color: #ffe033;
+            width: 25px;
+            height: 25px;
+            border-radius: 25px;
+            position: absolute;
+            bottom: 90px;
+            left: 61px;
+            -webkit-animation: yellow-circle-tap 1s 2s;
+        }
+        
+        .blue-circle1 {
+            background-color: #55c2c2;
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            position: absolute;
+            bottom: 78px;
+            left: 49px;
+            opacity: 0;
+            -webkit-animation: blue-circle-fadein 10s 2.5s;
+        }
+        
+        .blue-circle2 {
+            background-color: #4a8080;
+            width: 75px;
+            height: 75px;
+            border-radius: 50px;
+            position: absolute;
+            bottom: 66px;
+            left: 36px;
+            opacity: 0;
+            -webkit-animation: blue-circle-fadein 10s 2.5s;
+        }
+        
+        .hand {
+            background-image: url(img/hand.png);
+            background-size: 105px 127.5px;
+            width: 105px;
+            height: 127.5px;
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            -webkit-animation: hand-move 5s linear;
+        }
+        
+        .msg {
+            font-size: 12px;
+            position: absolute;
+            top: 45px;
+            right: -125px;
+            text-align: right;
+            color: #fff;
+            -webkit-animation: msg-move 10s 2.8s;
+        }
+        
+        .pic {
+            background-image: url(img/pz.png);
+            width: 132.5px;
+            height: 233px;
+            position: absolute;
+            top: 35px;
+            left: 9px;
+            left: 149px;
+            background-size: 132.5px 233px;
+            -webkit-animation: pic-move 10s 5.3s;
+        }
+        
+        @-webkit-keyframes hand-move {
+            0%   {right: -20px;}
+            43%  {right: 63px;}
+            57%  {right: 63px;}
+            100% {right: -20px;}
+        }
+        
+        @-webkit-keyframes yellow-circle-tap {
+            0%   {background-color: #ffe033;}
+            43%  {background-color: #867309;}
+            57%  {background-color: #867309;}
+            100% {background-color: #ffe033;}
+        }
+        
+        @-webkit-keyframes blue-circle-fadein {
+            0%   {opacity: 0}
+            10%   {opacity: 1}
+            100% {opacity: 1}
+        }
+        
+        @-webkit-keyframes msg-move {
+            0%   {right: -125px;}
+            10%  {right: 10px;}
+            100% {right: 10px;}
+        }
+        
+        @-webkit-keyframes pic-move {
+            0%   {left: 149px;}
+            10%  {left: 9px;}
+            100% {left: 9px;}
+        } */
+    </style>
+</head>
+<body>
+    <div class="main-wp">
+        <div class="img-wp">
+            <img src="img/phone_bg.png" alt="">
+            <div class="blue-circle2"></div>
+            <div class="blue-circle1"></div>
+            <div class="yellow-circle"></div>
+            
+            <div class="msg">
+                <div>收到XX单位销售款XX元</div>
+                <div>存入XX银行</div>
+            </div>
+            <div class="pic"></div>
+        </div>
+        <div class="hand"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script>
+		
+		var getType = function(v) {
+
+			var t;
+
+			t = typeof v;
+
+			if (t == 'object') {
+				if (v instanceof Array) {
+					t = 'array';
+				}
+				if (v == null) {
+					t = 'null';
+				}
+			}
+
+			return t;
+		};
+
+		// var type = getType(3); // number
+		// var type = getType('hello'); // string
+		// var type = getType([1]); // array
+		// var type = getType({name: 'test'}); // object
+		// var type = getType(false); // boolean
+		// var type = getType(undefined); // undefined
+		// var type = getType(null); // null
+
+		console.log(type)
+	</script>
+	
+</body>
+</html>

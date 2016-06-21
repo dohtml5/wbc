@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	.random-select {
+		width: 300px;
+		margin: 50px auto;
+	}
+
+	.title {
+		width: 300px;
+		height: 100px;
+		line-height: 100px;
+		text-align: center;
+		border-radius: 5px;
+		border: 1px solid red;
+	}
+
+	.btns {
+		text-align: center;
+		margin: 20px 0;
+	}
+	</style>
+</head>
+<body>
+
+	<div class="random-select">
+		<div id="titleDiv" class="title">
+			点击开始
+		</div>
+		<div class="btns">
+			<button id="startBtn">开始</button>
+			<button id="stopBtn">停止</button>
+		</div>
+		<div class="add-wp">
+			<input type="text">
+			<button id="addBtn">新增</button>
+		</div>
+	</div>
+	
+	<script>
+		var startBtn = document.getElementById('startBtn');
+		var stopBtn = document.getElementById('stopBtn');
+		var titleDiv = document.getElementById('titleDiv');
+		var addBtn = document.getElementById('addBtn');
+
+		var arr = '故宫 长城 十三陵 十渡 圆明园 颐和园'.split(' ');
+		var len;
+		var index;
+		var timer;
+
+		startBtn.onclick = function() {
+			len = arr.length;
+
+			startBtn.disabled = 'disabled';
+			// this.disabled = 'disabled';
+
+			/*console.log(timer);
+			if (timer) {
+				return;
+			}
+			console.log(timer);*/
+			timer = setInterval(function() {
+				index = Math.floor(Math.random() * len);
+				titleDiv.innerHTML = arr[index];
+			}, 100);
+			// console.log(timer);
+		};
+
+		stopBtn.onclick = function() {
+			clearInterval(timer);
+			startBtn.disabled = '';
+			// timer = undefined;
+		};
+
+		addBtn.onclick = function() {
+			var input = this.parentNode.getElementsByTagName('input')[0],
+				val = input.value,
+				newArr = val.split('|'),
+				i,
+				len = newArr.length;
+
+			for (i=0; i<len; i++) {
+				if (isInArray(newArr[i], arr)) {
+					alert(newArr[i] + '已经存在，不添加');
+				} else {
+					arr.push(newArr[i]);
+					alert(newArr[i] + '不存在，添加');
+				}
+			}
+			
+
+			// arr = arr.concat(newArr);
+
+			input.value = '';
+
+			// arr.push(val);
+			console.log(arr)
+		};
+
+		var isInArray = function(item, arr) {
+			var i, len = arr.length;
+			for (i=0; i<len; i++) {
+				if (arr[i] == item) {
+					return true;
+				}
+			}
+			return false;
+		};
+
+	</script>
+</body>
+</html>

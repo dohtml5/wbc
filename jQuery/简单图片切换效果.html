@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../lib/reset.css">
+	<style>
+		body {
+			background-color: pink;
+		}
+
+		.img-slider {
+			width: 500px;
+			height: 200px;
+			background-color: #fff;
+			margin: 20px auto;
+			overflow: hidden;
+			position: relative;
+		}
+
+		.img-slider li {
+			width: 500px;
+			height: 200px;
+		}
+
+		.img-slider a {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			width: 50px;
+			height: 50px;
+			background-color: #333;
+			margin-top: -25px;
+			opacity: 0.5;
+			filter: alpha(opacity=50);
+			display: none;
+		}
+
+		.img-slider a.next {
+			left: auto;
+			right: 0;
+		}
+
+		.img-slider:hover a {
+			display: block;
+		}
+	</style>
+	<script src="../lib/jquery-1.12.1.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('.img-slider > a').on('click', function() {
+				var $this = $(this),
+					$ul = $('.img-slider ul');
+				if ($this.hasClass('next')) { // next
+					$ul.append($ul.find('li:first'));
+				} else { // prev
+					$ul.prepend($ul.find('li:last'));
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+
+	<div class="img-slider">
+		<ul>
+			<li>item1</li>
+			<li>item2</li>
+			<li>item3</li>
+			<li>item4</li>
+			<li>item5</li>
+		</ul>
+		<a href="javascript:;" class="prev"></a>
+		<a href="javascript:;" class="next"></a>
+	</div>
+	
+</body>
+</html>

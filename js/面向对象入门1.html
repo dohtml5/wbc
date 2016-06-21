@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script>
+
+		function Animal(){  
+		    this.name = "Animal";  
+		    this.showName = function(){  
+		        console.log(this.name); 
+		        console.log(arguments)
+		    };
+		    this.eat = function(x, y) {
+		    	console.log(this.name + ' is eating...' + '--' + x);
+		    };
+		}  
+
+		function Cat(){  
+		    this.name = "Cat";  
+		}  
+		 
+		var animal = new Animal();  
+		var cat = new Cat();  
+  
+		//通过call或apply方法，将原本属于Animal对象的showName()方法交给对象cat来使用了。  
+		//输入结果为"Cat"  
+		// animal.showName.call(cat, 'a', 'b');  // animal.showName();
+		animal.eat.apply(cat, ['a', 'b']);
+
+
+		/////////////////////////////////////////
+
+		/*function Animal() {
+			this.type = 'animal';
+			this.run = function() {
+				console.log(arguments);
+			}
+		}
+
+		function Dog(a, b) {
+			// console.log(a);
+			// console.log(b);
+			Animal.apply(this, arguments);
+		}
+
+		var dog1 = new Dog('aa', 'bb');
+
+		console.log(dog1);*/
+
+		// function Animal() {
+		//     this.type = "animal";
+		//     this.run = function() {
+		//     	console.log((this.name || this.type) + ' running...');
+		//     };
+		//     this.eat = function() {
+		//     	console.log('eating');
+		//     }
+		// }
+
+		// function Dog(name, color) {
+		//     this.name = name;
+		//     this.color = color;
+		//     this.eat = function() {
+		//     	console.log('eat meat');
+		//     }
+		//     /*this.run = function() {
+		//     	console.log('running...');
+		//     }*/
+		// }
+
+		/*function ZangAo() {
+			this.power = 100000;
+		}*/
+
+		/*function Sheep(name, color) {
+			this.name = name;
+		    this.color = color;
+		    this.eat = function() {
+		    	console.log('eat grass');
+		    }
+		}
+
+		Dog.prototype = new Animal();
+		Dog.prototype.constructor = Dog; 
+
+		Sheep.prototype = new Animal();
+
+		var dog1 = new Dog();
+		var sheep1 = new Sheep();*/
+
+
+		// ZangAo.prototype = new Dog();
+
+		/*var dog1 = new Dog('wangcai', 'yellow');
+		dog1.run();*/
+
+		/*var za1 = new ZangAo();
+		za1.run();*/
+
+		/*function Dog(name, color) {
+		}
+
+		Dog.prototype = {
+			name: 'aaa',
+			color: 'gold'
+		};
+
+
+
+		var dog1 = new Dog("wangcai", "yellow");
+		var dog2 = new Dog("doudou", "black");*/
+
+
+		/*function Dog(name, color) {
+		    this.name = name;
+		    this.color = color;
+		}
+
+		Dog.prototype = {
+			type: 'animal',
+			run: function() {
+				console.log(this.name + ' is running...');
+			}
+		};
+
+		var dog1 = new Dog("wangcai", "yellow");
+		var dog2 = new Dog("doudou", "black");*/
+
+		// console.log(Dog.prototype)
+
+
+		/*function Dog(name, color) {
+		    this.name = name;
+		    this.color = color;
+		    this.type = 'animal';
+		    this.run = function() {
+		    	console.log(this.name + ' is running...');
+		    }
+		}
+
+		var dog1 = new Dog("wangcai", "yellow");
+		var dog2 = new Dog("doudou", "black");*/
+
+
+
+		/*function Dog(name, color) {
+		    return {
+		        name: name,
+		        color: color
+		    };
+		}
+
+		var dog1 = Dog("wangcai", "yellow");
+		var dog2 = Dog("doudou", "black");*/
+
+
+
+		// var d = new Date();
+	</script>
+	
+</body>
+</html>

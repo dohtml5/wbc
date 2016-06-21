@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<div id="myDiv">5</div>
+
+	<ul>
+		<li>item1</li>
+		<li>item2</li>
+		<li class="a">item3</li>
+		<li>item4</li>
+		<li class="a">item5</li>
+	</ul>
+
+	<span>my span</span>
+
+	<button>my btn</button>
+
+	<input type="text" class="user">
+	
+	<script src="../../lib/jquery-1.12.1.min.js"></script>
+	<script src="jquery.start.js"></script>
+	<script>
+
+		$('#myDiv, .a, .user, span').setRed();
+
+		// var $myDiv = $('#myDiv');
+		// $myDiv.html( $.toUC('abc') );
+		// $myDiv.text( $.fill0( $myDiv.text() ) );
+	</script>
+</body>
+</html>

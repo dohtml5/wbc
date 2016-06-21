@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>冒泡排序</title>
+</head>
+<body>
+
+    <h1>排序前</h1>
+    <div id="before"></div>
+
+    <h1>排序后</h1>
+    <div id="after"></div>
+
+    
+<script>
+
+    var arr = [5, 9, 20, 11, 29, 8, 5, 17, 15, 3];
+
+    document.getElementById('before').innerHTML = arr.join(' ');
+
+    function bubbleSort(tmpArr) {
+        for (var i=tmpArr.length - 1; i>0; i--) {
+            for (var j=0; j<i; j++) {
+                if (tmpArr[j] > tmpArr[j+1]) {
+                    swap(j, j+1);
+                }
+            }
+        }
+    }
+
+    function swap(a, b) {
+        var tmp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = tmp;
+    }
+
+    bubbleSort(arr);
+
+    document.getElementById('after').innerHTML = arr.join(' ');
+
+</script>
+</body>
+</html>

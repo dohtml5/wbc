@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	请选择去哪里玩：<select id="mySel">
+		<option value="0">请选择</option>
+	</select>
+
+	<button id="genBtn">生成</button>
+	
+	<script>
+		var arr = ["故宫", "长城", "十三陵", "十渡", "圆明园", "颐和园", "世界公园", "玉渊潭", "欢乐谷"];
+
+		var genBtn = document.getElementById('genBtn');
+		var mySel = document.getElementById('mySel');
+
+		genBtn.onclick = function() {
+			var i, 
+				len = arr.length,
+				// optStr = '<option value="0">请选择</option>';
+				optArr = ['<option value="0">请选择</option>'];
+			for (i=0; i<len; i++) {
+				// optStr += '<option value="'+(i+1)+'">' + arr[i] + '</option>';
+				optArr.push('<option value="'+(i+1)+'">' + arr[i] + '</option>');
+			}
+
+			// mySel.innerHTML = optStr;
+			mySel.innerHTML = optArr.join('');
+			console.log(optArr.join(''))
+		};
+
+		/*
+		
+		var str = 'abc';
+
+		str += 'def';
+
+		；
+		var _str = 'abc' + 'def';
+
+		destory str;
+
+		str = _str;
+
+		destory _str;
+
+		*/
+
+	</script>
+</body>
+</html>

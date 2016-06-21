@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+
+        /* :before, :after 伪元素用法总结 */
+
+         div {
+            background-color: red;
+            /*width: 300px;*/
+        }
+        
+        /*div:after {
+            content: 'test';
+        }
+        
+        div:before {
+            content: 'test2';
+        } */
+
+        /* div:first-letter {
+            color: red;
+            font-size: 30px;
+            font-weight: bold;
+        } */
+
+        /* div:first-line {
+            color: red;
+            font-size: 30px;
+            font-weight: bold;
+        } */
+
+        /**********************/
+
+        /* ul {
+            overflow: hidden;
+        } */
+
+        ul, li {
+            list-style: none;
+        }
+        
+        li {
+            float: left;
+            margin-right: 20px;
+        }
+        
+        ul:after {
+            content: '';
+            display: block;
+            clear: both;
+        } 
+
+        .clear {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- <div>
+        锄禾日当午，汗滴禾下土，谁知盘中餐，粒粒皆辛苦。
+    </div> -->
+
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li>
+        <li>item5</li>
+        <!-- <div class="clear"></div> -->
+    </ul>
+    <div>my div</div>
+
+</body>
+</html>

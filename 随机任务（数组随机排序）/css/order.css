@@ -1,0 +1,73 @@
+html, body, ul, ol, li {
+    margin: 0;
+    padding: 0;
+}
+
+ul, ol, li {
+    list-style: none;
+}
+
+.main {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.students, .urls {
+    width: 30%;
+    float: left;
+}
+
+.main li {
+    height: 30px;
+    line-height: 30px;
+    background-color: red;
+    margin: 20px 50px;
+    color: #fff;
+    text-indent: 10px;
+}
+
+.urls li {
+    background-color: green;
+}
+
+body {
+    font-size: 16px;
+    font-family: 微软雅黑;
+}
+
+.btns {
+    text-align: center;
+    margin: 50px;
+}
+
+.btns button {
+    width: 200px;
+    height: 50px;
+    border: none;
+    background-color: #ccc;
+    color: blue;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.clear {
+    clear: both;
+}
+
+.urls {
+    width: 70%;
+}
+
+.info {
+    text-align: center;
+    height: 200px;
+    line-height: 200px;
+    background-color: red;
+    margin-top: 50px;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 90px;
+}

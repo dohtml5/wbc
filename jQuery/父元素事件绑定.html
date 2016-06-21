@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>返回鼠标点击目标元素</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="wp">
+        <button>my btn</button>
+
+        <div>my div</div>
+
+        <span>my span</span>
+    </div>
+
+    <script src="../lib/jquery-1.12.1.min.js"></script>
+    
+    <script>
+        !function(window, document, $, undefined) {
+
+            var $wp = $('.wp');
+
+            $wp.on('click', function(e) {
+
+                alert(e.target);
+
+            });
+            
+        }(window, document, jQuery);
+    </script>
+</body>
+</html>

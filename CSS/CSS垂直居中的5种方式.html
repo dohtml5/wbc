@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 垂直居中的5种方法</title>
+    
+    <style>
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .outer {
+        width: 500px;
+        height: 400px;
+        border: 2px solid blue;
+        margin: 20px auto;
+        position: relative;
+    }
+
+    .outer div {
+        width: 200px;
+        height: 150px;
+        background-color: red;
+    }
+
+    /*demo1*/
+    .valign1 {
+        position: absolute;
+        top: 50%;
+        margin-top: -75px;
+        left: 50%;
+        margin-left: -100px;
+    }
+
+    /*domo2*/
+
+    .table {
+        display: table;
+    }
+
+    .valign2 {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .outer .inner {
+        width: 100px;
+        height: auto;
+        background-color: green;
+    }
+
+    /*demo3*/
+
+    .helper {
+        height: 50%;
+        margin-bottom: -75px;   
+        float: left;
+    }
+
+    .valign3 {
+        clear: both;
+        position: relative;
+    }
+
+    /*demo4*/
+    .valign4 {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    /*demo5*/
+
+    .valign5 {
+        line-height: 400px;
+    }
+
+    </style>
+
+</head>
+<body>
+
+    <h1>(1)绝对定位、有宽高</h1>
+    <hr>
+    <div class="outer">
+        <div class="valign1">test</div>
+    </div>
+
+    <h1>(2)display: table-cell(ie6、7不支持, 宽高可以不固定)</h1>
+    <hr>
+    <div class="outer table">
+        <div class="valign2">
+            <div class="inner">
+                test
+                <br>
+                test2
+            </div>
+        </div>
+    </div>
+
+    <h1>
+        (3)元素外插入一个空元素，硬顶
+        helper高度为父元素一半，
+        margin-bottom为负的待居中元素高度的一半，
+        float是为了让辅助元素没有宽度,
+        因为有float，下面需要清楚浮动。
+
+    </h1>
+    <hr>
+    <div class="outer">
+        <p class="helper"></p>
+        <div class="valign3">
+            test
+        </div>
+    </div>
+
+    <h1>(4)绝对定位，top: 0, bottom: 0(ie6、7不支持)</h1>
+    <hr>
+    <div class="outer">
+        <div class="valign4">
+            test
+        </div>
+    </div>
+
+    <h1>(5)line-height = height(仅单行文本有效)</h1>
+    <hr>
+    <div class="outer valign5">
+        test
+    </div>
+    
+</body>
+</html>

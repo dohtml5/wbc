@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.red {
+			background-color: red;
+		}
+	</style>
+	<script src="../lib/zepto.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			// $('.test').css('background', 'red');
+			$('.test').on('click', function() {
+				var $this = $(this);
+				$this.addClass('red');
+			})
+		});
+	</script>
+</head>
+<body>
+
+	<div class="test">
+		test div
+	</div>
+	
+</body>
+</html>

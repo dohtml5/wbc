@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		html, body {
+			height: 100%;
+		}
+
+		ul, li {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		div {
+			margin: 20px;
+			padding: 20px;
+			border: 1px solid red;
+			position: relative;
+		}
+
+
+
+		ul {
+			position: absolute;
+			background-color: red;
+			display: none;
+		}
+
+		ul > li {
+			height: 30px;
+		}
+	</style>
+</head>
+<body onclick="alert(0)" ondblclick="alert(99)">
+
+	<div id="outer">
+		<ul id="inner">
+			<li>item1</li>
+			<li>item2</li>
+			<li>item3</li>
+			<li>item4</li>
+			<li>item5</li>
+		</ul>
+	</div>
+
+	<hr>
+
+	<div onclick="alert(1)">
+		my div
+		<div onclick="alert(2)">
+			my div2
+			<div id="div3">my div3</div>
+			<div onclick="alert(4)">my div4</div>
+		</div>
+	</div>
+
+	<script>
+		var outer = document.getElementById('outer');
+		var inner = document.getElementById('inner');
+		var lis = inner.getElementsByTagName('li');
+
+		outer.onmouseover = function() {
+			inner.style.display = 'block';
+		};
+
+		outer.onmouseout = function() {
+			inner.style.display = 'none';
+			for (var i=0; i<lis.length; i++) {
+				lis[i].onmouseout = function(e) {
+					e.stopPropagation();
+				}
+			}
+		};
+
+		
+
+
+	/////////////////////
+
+
+		var div3 = document.getElementById('div3');
+		div3.onclick = function(e) {
+			// e.cancelBubble = true;
+			// console.log(e)
+			alert(3);
+			// return false;
+			e.stopPropagation();
+		}
+	</script>
+	
+</body>
+</html>

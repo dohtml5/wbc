@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../lib/jquery-1.12.1.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#loadBtn').on('click', function() {
+				$('#wp').load('../CSS/table.html');
+				// $('#wp').load('http://www.baidu.com');
+			});
+		});
+	</script>
+</head>
+<body>
+
+	<button id="loadBtn">load</button>
+
+	<hr>
+
+	<div id="wp">
+		loading...
+	</div>
+	
+</body>
+</html>

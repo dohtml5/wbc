@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>3列布局</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        .wp {
+            position: relative;
+            min-height: 100%;
+            background-color: #fff;
+        }
+
+        .footer {
+            height: 60px;
+            background-color: yellow;
+            margin-top: -60px;
+            position: relative;
+        }
+
+        .left {
+            width: 200px;
+            float: left;
+            background-color: red;
+            height: 300px;
+        }
+
+        .right {
+            width: 300px;
+            float: right;
+            background-color: green;
+            height: 400px;
+        }
+
+        .main {
+            margin: 0 300px 0 200px;
+            background-color: #009988;
+            height: 350px;
+        }
+
+        .header {
+            height: 50px;
+            background-color: #1b6d85;
+        }
+
+        .sub-wp {
+            position: relative;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .footer-sp {
+            height: 60px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="wp">
+
+        <div class="header">A</div>
+
+        <div class="sub-wp">
+            <div class="left">B</div>
+            <div class="right">C</div>
+            <div class="main">
+                <div>D</div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="footer-sp"></div>
+
+    </div>
+
+    <div class="footer">E</div>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.more {
+			margin: 10px 0 0 80px;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="wp">
+		<div class="orgin">
+			<label>个人爱好：<input id="orginIpt" type="text"></label>
+			<button id="addBtn">增加</button>
+		</div>
+		<div id="moreWp" class="more">
+			<!-- <p>
+				<input type="text">
+				<button>删除</button>
+			</p> -->
+		</div>
+		<div class="more">
+			<button id="submitBtn">确定</button>
+		</div>
+		<div id="result" class="more">
+		</div>
+	</div>
+	
+	<script>
+		var addBtn = document.getElementById('addBtn');
+		var moreWp = document.getElementById('moreWp');
+		var submitBtn = document.getElementById('submitBtn');
+		var orginIpt = document.getElementById('orginIpt');
+		var result = document.getElementById('result');
+
+		submitBtn.onclick = function() {
+			var ipts = moreWp.getElementsByTagName('input'),
+				rArr = [],
+				len = ipts.length;
+
+			for(var i=0; i<len; i++) {
+				rArr.push(ipts[i].value);
+			}
+
+			rArr.unshift(orginIpt.value);
+			result.innerHTML = '你的爱好有：' + rArr.join('-');
+		};
+
+		addBtn.onclick = function() {
+			var newElements = getMoreElements();
+			var len = getTotalCount();
+
+			moreWp.appendChild(newElements);
+			
+			if (len >= 3) {
+				addBtn.disabled = 'disabled';
+				// return;
+			}
+		};
+
+		function getMoreElements() {
+			var p = document.createElement('p'),
+				input = document.createElement('input'),
+				button = document.createElement('button'),
+				delTxt = document.createTextNode('删除'),
+				nbsp = document.createTextNode('\r\n');
+
+			// <input>
+
+			input.type = 'text';
+
+			// <input type="text">
+
+			button.appendChild(delTxt);
+			button.onclick = onDelBtnClick;
+			// <button onclick="onDelBtnClick">
+
+			p.appendChild(input);
+			p.appendChild(nbsp);
+			p.appendChild(button);
+
+			return p;
+		}
+
+		function getTotalCount() {
+			return moreWp.getElementsByTagName('p').length;
+		}
+
+		function onDelBtnClick() {
+
+			// console.log(this);
+
+			var r = confirm('确定要删除吗？');
+			if (r) {
+				moreWp.removeChild(this.parentNode);
+				addBtn.disabled = '';
+			}
+		}
+	</script>
+</body>
+</html>

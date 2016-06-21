@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>无缝滚动效果</title>
+	<link rel="stylesheet" href="../lib/reset.css">
+	<style>
+		.img-scroll {
+			width: 800px;
+			height: 80px;
+			margin: 20px auto;
+			overflow: hidden;
+		}
+
+		.img-scroll ul {
+			overflow: hidden;
+		}
+
+		.img-scroll li {
+			float: left;
+			width: 120px;
+			height: 80px;
+			background-color: red;
+			margin-right: 10px;
+		}
+	</style>
+
+	<script src="../lib/jquery-1.12.1.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			var $ul = $('.img-scroll > ul'),
+				len,
+				width = $ul.find('li').width();
+
+			$ul.append($ul.find('li').clone());
+
+			len = $ul.find('li').length;
+
+			$ul.width(width * len + len * 10);
+			
+			function scroll() {
+				$ul.animate({marginLeft: -width}, 500, function() {
+					$ul
+						.append($ul.find('li:first-child'))
+						.css('margin-left', 0);
+				});
+			}
+
+			setInterval(scroll, 2000);
+
+			// TODO 鼠标悬停，动画停止；鼠标离开，动画继续
+		});
+	</script>
+</head>
+<body>
+	
+	<div class="img-scroll">
+		<ul>
+			<li>item1</li>
+			<li>item2</li>
+			<li>item3</li>
+			<li>item4</li>
+			<li>item5</li>
+		</ul>
+	</div>
+
+</body>
+</html>

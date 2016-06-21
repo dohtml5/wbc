@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			var Person = function(name, hobbies) {
+				this.name = name;
+				this.hobbies = hobbies;
+			};
+			
+			Person.prototype.sayName = function() {
+				console.log(this.name);
+			};
+			
+			Person.prototype.firends = ['aa', 'bb', 'cc'];
+			
+			var h1 = ['a', 'b', 'c'];
+			var h2 = ['d', 'e'];
+			
+			var zs = new Person('张三', h1);
+			var ls = new Person('李四', h2);
+			// var ls = new Person('李四', h1);
+			
+			zs.sayName();
+			ls.sayName();
+			
+			// zs.hobbies = ['x', 'y'];
+			zs.firends.push('dd');
+			// zs.firends = [1, 2, 3];
+			
+			console.log(zs.firends);
+			console.log(ls.firends);
+		</script>
+	</body>
+</html>

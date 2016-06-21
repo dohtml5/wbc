@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/lib/underscore/underscore-min.js"></script>
+	<script src="js/lib/jquery/dist/jquery.min.js"></script>
+	<script src="js/lib/angular/angular.min.js"></script>
+</head>
+<body>
+
+	<div ng-app="testApp" ng-controller="testController">
+		<table border="1">
+			<tr>
+				<th ng-click="showName()">姓名</th>
+				<th>年龄</th>
+			</tr>
+			<tr ng-repeat="user in users">
+				<td>{{user.name}}</td>
+				<td>{{user.age}}</td>
+			</tr>
+		</table>
+	</div>
+
+	<script>
+		var app = angular.module('testApp', []);
+
+		app.controller('testController', function($scope, $http) {
+
+			$scope.showName = function() {
+				alert('test');
+			};
+
+
+		    $http.get("../userMng/server/ajaxUserList.php").success(function (response) {
+		        if (response.success) {
+		        	$scope.users = response.data;
+		        }
+		    });
+		});
+	</script>
+	
+</body>
+</html>

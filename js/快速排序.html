@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>快速排序</title>
+</head>
+<body>
+
+    <h1>排序前</h1>
+    <div id="before"></div>
+
+    <h1>排序后</h1>
+    <div id="after"></div>
+
+    
+<script>
+
+    var arr = [5, 9, 20, 11, 29, 8, 5, 17, 15, 3];
+
+    document.getElementById('before').innerHTML = arr.join(' ');
+
+    function quickSort(tmpArr) {
+
+        var pivotIndex = Math.floor(tmpArr.length / 2);
+    　　var pivot = tmpArr.splice(pivotIndex, 1)[0];
+    　　var left = [];
+    　　var right = [];
+
+    　　for (var i = 0; i < tmpArr.length; i++){
+    　　　　if (tmpArr[i] < pivot) {
+    　　　　　　left.push(tmpArr[i]);
+    　　　　} else {
+    　　　　　　right.push(tmpArr[i]);
+    　　　　}
+    　　}
+
+    　　return quickSort(left).concat([pivot], quickSort(right));
+
+    }
+
+    quickSort(arr);
+
+    document.getElementById('after').innerHTML = arr.join(' ');
+
+</script>
+</body>
+</html>

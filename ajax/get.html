@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../lib/jquery-1.12.1.min.js"></script>
+	<script>
+		$(document).ready(function() {
+
+			$('#loadBtn').on('click', function() {
+				// var url = '../CSS/table.html';
+				// var url = '../json/data.txt';
+				var url = '../userMng/server/ajaxUserList.php';
+
+				$.get(url, {size: 3}, function(response) {
+
+					console.log(response.data)
+
+					// response = eval('(' + response + ')'); // 不推荐
+
+					// response = $.parseJSON(response); // 依赖jQuery
+
+					// response = JSON.parse(response); // JSON.stringify();
+
+					// console.log(response.list.data);
+
+					// $('#wp').html(response);
+				}, 'json');
+			});
+
+		});
+	</script>
+</head>
+<body>
+
+	<button id="loadBtn">load</button>
+
+	<hr>
+
+	<div id="wp">
+		loading...
+	</div>
+	
+</body>
+</html>

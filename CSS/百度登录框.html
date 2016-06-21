@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../lib/reset.css">
+	<style>
+		.masker {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+
+			background-color: #000;
+			opacity: 0.15;
+		}
+
+		.dialog {
+			width: 390px;
+			height: 450px;
+			background-color: #fff;
+
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin: -225px 0 0 -180px;
+		}
+
+		.dlg-header {
+			height: 50px;
+			line-height: 50px;
+			font-size: 16px;
+			font-weight: bold;
+			text-indent: 55px;
+
+			/*background-color: #f7f7f7;
+			background-image: url(img/bd_logo.png);
+			background-repeat: no-repeat;
+			background-position: 20px center; */
+			background: #f7f7f7 url(img/bd_logo.png) 20px center no-repeat;
+
+			position: relative;
+		}
+
+		.icons {
+			background-image: url(img/bd_icons.png);
+		}
+
+		.close {
+			display: block;
+			width: 17px;
+			height: 17px;
+			background-position: -55px -47px;
+
+			position: absolute;
+			right: 20px;
+			top: 18px;
+		}
+
+		.close:hover {
+			background-position: -71px -47px;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="masker-wp">
+		<div class="masker"></div>
+		<div class="dialog">
+			<div class="dlg-header">
+				登录百度账号
+				<i class="icons close"></i>
+			</div>
+
+			<div class="dlg-body">
+				<input type="text" placeholder="手机/邮箱/用户名">
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

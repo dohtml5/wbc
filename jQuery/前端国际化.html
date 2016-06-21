@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>国际化</title>
+	<script src="../lib/jquery-1.12.1.min.js"></script>
+	<script src="../lib/jquery.i18n.properties.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			
+			var doI18N = function(name, path, lang) {
+				lang = lang || navigator.language;
+				jQuery.i18n.properties({
+					name: name,
+					path: path,
+					mode: 'map',
+					language: lang,
+					callback: function() {
+						$('[data-localize]').each(function() {
+							var $this = $(this),
+								val = jQuery.i18n.map[$this.data('localize')];
+							$this.text(val);
+						});
+					}
+				});
+			};
+
+			doI18N('wbc', 'i18n/');
+		});
+	</script>
+</head>
+<body>
+	
+	<h1 data-localize="wbc.title"></h1>
+	<div data-localize="wbc.text"></div>
+	
+</body>
+</html>

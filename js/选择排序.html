@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>选择排序</title>
+</head>
+<body>
+
+    <h1>排序前</h1>
+    <div id="before"></div>
+
+    <h1>排序后</h1>
+    <div id="after"></div>
+
+    
+<script>
+
+    var arr = [5, 9, 20, 11, 29, 8, 5, 17, 15, 3];
+
+    document.getElementById('before').innerHTML = arr.join(' ');
+
+    function selectionSort(tmpArr) {
+        var min;
+        for (var i=0; i<tmpArr.length; i++) {
+            min = i;
+            for (var j=i+1; j<tmpArr.length; j++) {
+                if (tmpArr[j] < tmpArr[min]) {
+                    min = j;
+                    swap(i, min);
+                    console.log(tmpArr.join(' '));
+                }
+            }
+        }
+    }
+
+    function swap(a, b) {
+        var tmp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = tmp;
+    }
+
+    selectionSort(arr);
+
+    document.getElementById('after').innerHTML = arr.join(' ');
+
+</script>
+</body>
+</html>

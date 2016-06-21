@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>原生js实现tab</title>
+		<link rel="stylesheet" type="text/css" href="../lib/reset.css"/>
+		<style>
+			.tab {
+				width: 500px;
+				height: 300px;
+				border: 1px solid red;
+				overflow: hidden;
+			}
+			
+			.tab .tab-header:after {
+				content: '';
+				display: block;
+				clear: both;
+			}
+			
+			.tab .tab-header li {
+				float: left;
+				width: 100px;
+				height: 35px;
+				text-align: center;
+				line-height: 35px;
+				background-color: #ccc;
+				margin-right: 10px;
+				cursor: pointer;
+			}
+			
+			.tab .tab-header li.active {
+				background-color: blue;
+				color: #fff;
+				font-weight: bold;
+			}
+			
+			.tab .tab-body > div {
+				width: 500px;
+				height: 265px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="tab">
+			<ul id="tabHeader" class="tab-header">
+				<li class="active">tab1</li>
+				<li>tab2</li>
+				<li>tab3</li>
+				<li>tab4</li>
+			</ul>
+			
+			<div id="tabBody" class="tab-body">
+				<div>
+					<ul>
+						<li>item1</li>
+						<li>item2</li>
+						<li>item3</li>
+						<li>item4</li>
+						<li>item5</li>
+					</ul>
+				</div>
+				<div>div2</div>
+				<div>div3</div>
+				<div>div4</div>
+			</div>
+		</div>
+		
+		<script src="../lib/wbc.js"></script>
+		<script type="text/javascript">
+			var initTab = function() {
+				var tabHeader = $('tabHeader'),
+					tabBody = $('tabBody'),
+					lis = tabHeader.getElementsByTagName('li'),
+					divs = tabBody.children,
+					i,
+					j,
+					len = lis.length;
+				
+				for (i=0; i<len; i++) {
+					lis[i].setAttribute('index', i);
+					
+					lis[i].onclick = function() {
+						var indx = this.getAttribute('index');
+
+						// console.log(indx)
+						
+						for (j=0; j<len; j++) {
+							lis[j].removeAttribute('class');
+							divs[j].style.display = 'none';
+							// lis[j].className = '';
+						}
+						this.className = 'active';
+						divs[indx].style.display = 'block';
+					}
+				}
+					
+				// console.log(divs);
+			};
+			
+			initTab();
+		</script>
+		
+	</body>
+</html>

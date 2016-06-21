@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>图片放大镜</title>
+	<link rel="stylesheet" href="../lib/reset.css">
+	<style>
+	.img-zoom-wp {
+		width: 450px;
+		height: 530px;
+		margin: 20px 0 0 20px;
+	}
+
+	.img-zoom-wp .big-img-wp {
+		height: 450px;
+		border: 1px solid #ccc;
+		position: relative;
+	}
+
+	.big-img-wp {
+		position: relative;
+	}
+
+	.big-img-wp img {
+		width: 100%;
+	}
+
+	.small-img-wp {
+		position: relative;
+	}
+
+	.small-img-wp .small-img-inner {
+		width: 350px;
+		overflow: hidden;
+		margin: 15px 50px 0 50px;
+	}
+
+	.small-img-wp ul {
+		width: 500px;
+		height: 50px;
+	}
+
+	.small-img-wp li {
+		width: 46px;
+		height: 46px;
+		float: left;
+		border: 2px solid transparent;
+	}
+
+	.small-img-wp li.active {
+		border: 2px solid red;
+	}
+
+	.small-img-wp li img {
+		width: 100%;
+		height: 100%;
+	}
+
+	.small-img-wp a {
+		position: absolute;
+		width: 50px;
+		height: 50px;
+		background-color: #000;
+		opacity: 0.5;
+	}
+
+	.small-img-wp a.prev {
+		left: 0;
+		top: 0;
+	}
+
+	.small-img-wp a.next {
+		right: 0;
+		top: 0;
+	}
+
+	.img-masker {
+		width: 200px;
+		height: 200px;
+		background-color: yellow;
+		opacity: 0.5;
+		border: 1px solid #ccc;
+		position: absolute;
+		visibility: hidden;
+	}
+
+	.img-zoomer {
+		width: 500px;
+		height: 500px;
+		border: 1px solid #ccc;
+		position: absolute;
+		top: -1px;
+		right: -502px;
+		visibility: hidden;
+	}
+
+	.big-img-wp img.tmp-big-img {
+		width: auto;
+		height: auto;
+		display: none;
+	}
+	</style>
+
+	<script src="../lib/jquery-1.12.1.min.js"></script>
+	<script>
+
+		function ImgZoomer(selector) {
+			this.selector = selector;
+			this.init();
+		}
+
+		ImgZoomer.prototype = {
+			$target: null,
+			$bigImgWp: null,
+			$bigImg: null,
+			$prevNext: null,
+			$smallImgUl: null,
+			init: function() {
+				$target = $(this.selector);
+				$bigImgWp = $target.find('.big-img-wp');
+				$bigImg = $bigImgWp.find('img.big-img');
+				$tmpBigImg = $bigImgWp.find('img.tmp-big-img');
+				$imgMasker = $bigImgWp.find('.img-masker');
+				$imgZoomer = $bigImgWp.find('.img-zoomer');
+				$prevNext = $target.find('a.prev, a.next');
+				$smallImgUl = $target.find('.small-img-inner > ul');
+				this.initBigImgWpMouseEvt();
+				this.initSmallImgHover(); // 1
+				this.initPrevNext(); // 2
+			},
+			initBigImgWpMouseEvt: function() {
+				$bigImgWp.on('mouseenter', function() {
+					$imgMasker.add($imgZoomer).css('visibility', 'visible');
+				}).on('mouseleave', function() {
+					$imgMasker.add($imgZoomer).css('visibility', 'hidden');
+				}).on('mousemove', function(e) {
+					// console.log($bigImgWp.offset())
+					var w = $imgMasker.width(), h = $imgMasker.height();
+					var ow = $bigImg.width(), oh = $bigImg.height();
+					var bw = $tmpBigImg.width(), bh = $tmpBigImg.height();
+
+					var scaleX = bw / ow;
+					var scaleY = bh / oh;
+
+					// console.log(scaleX)
+
+					var bh = $bigImgWp.height();
+					var top = e.pageY - $bigImgWp.offset().top - h / 2;
+					var left = e.pageX - $bigImgWp.offset().left - w / 2;
+
+					var btop = e.pageY * scaleY - $imgZoomer.height() / 2;
+					var bleft = e.pageX * scaleX - $imgZoomer.width() / 2;
+
+					top = top < 0 ? 0 : top;
+					if (top + h > bh) {
+						top = bh - h;
+					}
+
+					// TODO left???
+
+					$imgMasker.css({
+						top: top + 'px',
+						left: left + 'px'
+					});
+
+					////////////////////////
+					
+					$imgZoomer.css( "background", "url(" + $tmpBigImg.attr("src") + ") no-repeat");
+					$imgZoomer.css({
+						"background-position": -bleft + "px" + " " + - btop + "px"
+					});
+				});
+			},
+			initSmallImgHover: function() {
+				var $lis = $target.find('.small-img-inner li');
+				$lis.on('mouseover', function() {
+					var $this = $(this);
+					$bigImg.attr('src', $this.find('img').attr('src'));
+					$tmpBigImg.attr('src', $this.find('img').attr('bsrc'));
+					$this.addClass('active').siblings('.active').removeClass('active');
+				});
+			},
+			initPrevNext: function() {
+				$prevNext.on('click', function() {
+					var $this = $(this);
+					var len = $smallImgUl.find('li').length;
+					var mLeft = (len - 7) * 50;
+					if (mLeft <= 0) return;
+					if ($this.hasClass('next')) {
+						$smallImgUl.animate({marginLeft: -mLeft});
+					} else {
+						$smallImgUl.animate({marginLeft: 0});
+					}
+				});
+			}
+		};
+
+	</script>
+
+	<script>
+		$(document).ready(function() {
+			new ImgZoomer('.img-zoom-wp');
+		});
+	</script>
+</head>
+<body>
+
+	<div class="img-zoom-wp">
+		<div class="big-img-wp">
+			<img class="big-img" src="img/m1.jpg">
+			<img class="tmp-big-img" src="img/m11.jpg">
+			<div class="img-masker"></div>
+			<div class="img-zoomer"></div>
+		</div>
+		<div class="small-img-wp">
+			<a class="prev" href="javascript:;"></a>
+			<div class="small-img-inner">
+				<ul>
+					<li class="active"><img src="img/m1.jpg" bsrc="img/m11.jpg" alt=""></li>
+					<li><img src="img/m2.jpg" bsrc="img/m22.jpg" alt=""></li>
+					<li><img src="img/m3.jpg" bsrc="img/m33.jpg" alt=""></li>
+					<li><img src="img/m1.jpg" bsrc="img/m11.jpg" alt=""></li>
+					<li><img src="img/m2.jpg" bsrc="img/m22.jpg" alt=""></li>
+					<li><img src="img/m3.jpg" bsrc="img/m33.jpg" alt=""></li>
+					<li><img src="img/m1.jpg" bsrc="img/m11.jpg" alt=""></li>
+					<li><img src="img/m2.jpg" bsrc="img/m22.jpg" alt=""></li>
+					<li><img src="img/m3.jpg" bsrc="img/m33.jpg" alt=""></li>
+					<li><img src="img/m1.jpg" bsrc="img/m22.jpg" alt=""></li>
+				</ul>
+			</div>
+			<a class="next" href="javascript:;"></a>
+		</div>
+	</div>
+	
+</body>
+</html>

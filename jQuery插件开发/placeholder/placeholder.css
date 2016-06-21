@@ -1,0 +1,19 @@
+.input {
+    position: relative;
+}
+
+.input input {
+    position: relative;
+    background-color: transparent;
+    border: 1px solid #ccc;
+    z-index: 2;
+}
+
+.input .wbc-placeholder {
+    font-size: 13px;
+    color: #aaa;
+    position: absolute;
+    top: 3px;
+    left: 2px;
+    z-index: 1;
+}

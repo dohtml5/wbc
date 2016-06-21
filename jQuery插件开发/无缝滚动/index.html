@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../../lib/reset.css">
+	<link rel="stylesheet" href="imgscroller.css">
+	<script src="../../lib/jquery-1.12.1.min.js"></script>
+</head>
+<body>
+
+	<div class="scroller-wp">
+		<div class="scroller-inner">
+			<div class="scroller">
+				<ul class="scroller-ul">
+	                <li><img src="img/xiax.png" alt=""/></li>
+	                <li><img src="img/xiez.png" alt=""/></li>
+	                <li><img src="img/taihe.png" width="160px" height="90px" alt=""/></li>
+	                <li><img src="img/ship.png" alt=""/></li>
+	                <li><img src="img/xuany.png" alt=""/></li>
+	            </ul>
+			</div>
+		</div>
+		<!-- <a href="javascript:;" class="prev"></a>
+		<a href="javascript:;" class="next"></a> -->
+	</div>
+
+	<script src="jquery.imgscroller.js"></script>
+	
+	<script>
+		$(document).ready(function() {
+			$('.scroller-wp').imgscroller();
+		});
+	</script>
+	
+</body>
+</html>

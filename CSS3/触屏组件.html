@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>触屏小组件</title>
+    <style>
+    /**
+     * CSS样式优先级（高->低）：#, 标签, class
+     */
+
+    input:focus {
+        outline: none;
+    }
+
+    /* 单选按钮 */
+
+    input[type=radio] {
+        background-image: url(img/form.png);
+        -webkit-appearance: none;
+        width: 25px;
+        height: 25px;
+        background-position: 0 -200px;
+    }
+
+    input[type=radio]:checked {
+        background-position: 0 -300px;
+    }
+
+    input[type=radio]:disabled {
+        background-position: 0 -275px;
+    }
+
+    /* 复选按钮 */
+    input[type=checkbox] {
+        background-image: url(img/form.png);
+        -webkit-appearance: none;
+        width: 25px;
+        height: 25px;
+        background-position: 0 0;
+    }
+
+    input[type=checkbox]:checked {
+        background-position: 0 -100px;
+    }
+
+    /* 开关按钮 */
+    input.switch-btn {
+        background-image: url(img/switch.png);
+        width: 57px;
+        height: 24px;
+        -webkit-transition: background-position 0.3s ease-in-out;
+    }
+
+    input.switch-btn:checked {
+        background-image: url(img/switch.png);
+        background-position: -28px 0px;
+    }
+
+    /* 旧版浏览器 */
+    .my-radio {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        background-image: url(img/form.png);
+        background-position: 0 -200px;
+    }
+    
+    .my-radio.on {
+        background-position: 0 -300px;
+    }
+    
+    </style>
+</head>
+<body>
+
+    <input type="radio" name="gender" value="男">
+
+    <input type="radio" name="gender" value="女" disabled="disabled">
+
+    <hr>
+
+    <input type="checkbox">
+
+    <input type="checkbox">
+
+    <hr>
+
+    <input type="checkbox" class="switch-btn">
+
+    <hr>
+    <hr>
+    <div>旧版浏览器中</div>
+
+    <span class="my-radio"></span>
+    <span class="my-radio"></span>
+    <span class="my-radio"></span>
+    <span class="my-radio"></span>
+    <span class="my-radio"></span>
+
+    <script src="../lib/jquery-1.12.1.min.js"></script>
+    <script>
+    !function(window, document, $, undefined) {
+        var init = function() {
+            initRadioBtn();
+            // TODO initCheckBoxBtn();
+        };
+
+        var initRadioBtn = function() {
+            var $target = $('.my-radio');
+            $target.on('click', onRadioBtnClick);
+        };
+
+        var onRadioBtnClick = function() {
+            var $this = $(this);
+            $this.addClass('on').siblings('.on').removeClass('on');
+            // console.log($this)
+        };
+
+        init();
+
+        /*function abc () {
+
+        }*/
+    }(window, document, jQuery);
+    </script>
+</body>
+</html>

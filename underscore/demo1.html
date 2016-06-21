@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			height: 3000px;
+		}
+	</style>
+</head>
+<body>
+
+	&lt;div&gt;my div&lt;/div&gt;
+	
+	<script src="../lib/underscore-min.js"></script>
+
+	<script>
+		var arr = [1, 2, '3', 4, 5, 4, 3];
+
+		var obj = {
+			name: 'abc',
+			age: 20,
+			gender: '女',
+			hello: function() {
+				alert(this.age);
+			}
+		};
+
+		var students = [
+			{
+				name: 'abc1',
+				age: 21,
+				gender: '女'
+			},
+			{
+				name: 'abc2',
+				age: 20,
+				gender: '女'
+			},
+			{
+				name: 'abc3',
+				age: 31,
+				gender: '男'
+			},
+			{
+				name: 'abc4',
+				age: 29,
+				gender: '女'
+			},
+			{
+				name: 'abc5',
+				age: 20,
+				gender: '男'
+			}
+		];
+
+		// console.log(_.escape('<script><\/script>') )
+
+		// console.log(_.uniqueId('wbc_'));
+		// console.log(_.uniqueId('wbc_'));
+
+		// console.log(_.random(arr.length - 1));
+
+		/*_.times(5, function() {
+			console.log('test');
+		});*/
+
+		/*_(3).times(function() {
+			console.log(999);
+		});*/
+
+
+		/*var r = _.extend({name: 'moe', address: 'aaa'}, {age: 50, name: 'wbc'});
+		console.log(r);*/
+
+		// var r = _.allKeys(obj);
+		/*var r = _.functions(obj);
+		console.log(r);*/
+
+		/*var test = _.once(function() {console.log(999999999)});
+
+		test();
+		test();
+		test();
+*/
+		/*var throttled = _.throttle(function() {
+			console.log('test');
+		}, 1000);
+
+		window.onscroll = function() {
+			throttled();
+		}*/
+
+		/*window.onscroll = function() {
+			console.log('test');
+		}*/
+
+
+		// _.defer(function(){ alert('deferred'); });
+
+		/*_.delay(function(t){
+			console.log(t);
+		}, 2000, 'test');*/
+
+
+		/*var func = function(greeting, test){ 
+			// console.log(this)
+			return greeting + ': ' + this.name + ':' + this.gender;
+		};
+
+		func = _.bind(func, students[0], 'hi', 'abc');
+
+		var r = func();
+		console.log(r);*/
+
+
+
+		// var r = _.uniq(arr);
+		// var r = _.union(arr);
+		// console.log(r)
+
+		// console.log(_.first(arr, 2));
+
+		/*var r = _.partition(students, function(obj) {
+			return obj.gender == '女';
+			// return val % 2 == 1;
+		});
+		console.log(r);*/
+
+		// console.log(_.size(obj))
+
+		/*(function(){ 
+			console.log(arguments);
+			console.log(_.toArray(arguments));
+			return _.toArray(arguments).slice(1); 
+		})(1, 2, 3, 4);*/
+
+		// var r = _.shuffle(arr);
+		// var r = _.sample(students);
+		// var r = _.sample(arr, 2);
+		// console.log(r);
+
+		/*var r =_.groupBy([1.3, 2.6, 1.6, 2.1], function(num){ return Math.round(num); });
+
+		console.log(r);*/
+
+		/*var r = students.sort(function(obj1, obj2) {
+			return obj1.age - obj2.age;
+		});
+
+		console.log(r)*/
+
+		/*var r = _.sortBy(students, 'age');
+		console.log(r)*/
+
+
+		// var r = _.min(students, function(s){ return s.age; });
+		// var r = _.max(students, function(s){ return s.age; });
+
+		// console.log(r)
+
+		/*var tmpObj, age = 0;
+
+		for(var i=0; i<students.length; i++) {
+			if (students[i].age > age) {
+				age = students[i].age;
+				tmpObj = students[i];
+			}
+		}
+
+		console.log(tmpObj)*/
+
+		/*var r = _.pluck(students, 'name');
+		console.log(r)*/
+
+		/*TODO
+		var r = _.invoke([[5, 10, 7], [3, 20, 1]], 'sort');
+		console.log(r);*/
+
+		
+
+		/*var r = _.contains(arr, '3');
+
+		console.log(r);*/
+
+		/*var r = _.some(arr, function(item) {
+			return item < 1;
+		});
+
+		console.log(r);*/
+
+		/*var r = _.every(arr, function(item) {
+			return item > 0;
+		});
+
+		console.log(r);*/
+
+		/*var r = _.findWhere(students, {age: 21, gender: '女'});
+
+		console.log(r)*/
+
+		/*var gt23 = _.filter(students, function(item, index) {
+			return item.age >= 23;
+		});
+
+		console.log(gt23);*/
+
+		/*var stu = _.find(students, function(item, index) {
+			return item.name == 'abc3';
+		});
+
+		console.log(stu)*/
+
+		/*var even = _.find(arr, function(num){ 
+			return num % 2 == 0; 
+		});
+
+		console.log(even)*/
+
+		/*var sum = _.reduce(arr, function(memo, num){ return memo + num; }, 0);
+
+		console.log(sum);*/
+
+		/*_.each(arr, function(item, index) {
+			console.log(index);
+		});*/
+
+		/*_.each(obj, function(val, key) {
+			console.log(val);
+		});*/
+
+		/*var opts = _.map(obj, function(val, key) {
+			return '<option value="'+key+'">' + val + '</option>';
+		});
+
+		console.log(opts);*/
+
+	</script>
+</body>
+</html>

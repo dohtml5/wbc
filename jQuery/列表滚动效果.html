@@ -1,0 +1,266 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>列表滚动</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        /* 垂直 */
+
+        .news {
+            width: 200px;
+            height: 300px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+
+        .news li {
+            width: 100%;
+            height: 100px;
+            border-bottom: 1px dotted red;
+        }
+
+        /* 水平 */
+        .news2 {
+            width: 500px;
+            height: 100px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+        }
+
+        .news2 ul {
+            width: 2500px;
+        }
+
+        .news2 li {
+            width: 500px;
+            height: 100px;
+            float: left;
+            background-color: #fffccc;
+        }
+
+        /* 点击切换，非轮播 */
+        .img-slider1 {
+            width: 1000px;
+            height: 200px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .img-slider1 ul {
+            overflow: auto;
+            width: 2500px;
+        }
+
+        .img-slider1 li {
+            width: 248px;
+            height: 200px;
+            background-color: #fffccc;
+            float: left;
+            border: 1px solid #ccc;
+        }
+
+        .img-slider1 .prev, .img-slider1 .next {
+            position: absolute;
+            top: 50%;
+            margin-top: -10px; /*具体数字你懂的*/
+            cursor: pointer;
+            color: red;
+        }
+
+        .img-slider1 .prev {
+            left: 0;
+        }
+
+        .img-slider1 .next {
+            right: 0;
+        }
+
+        .img-slider1 .disabled {
+            color: #000;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+    <!-- 垂直 -->
+    <div class="news">
+        <ul id="targetUl">
+            <li>测试文字测试文字测试文字测试文字测试文字测试文字测试文字1</li>
+            <li>测试文字测试文字测试文字测试文字测试文字测试文字测试文字2</li>
+            <li>测试文字测试文字测试文字测试文字测试文字测试文字测试文字3</li>
+            <li>测试文字测试文字测试文字测试文字测试文字测试文字测试文字4</li>
+            <li>测试文字测试文字测试文字测试文字测试文字测试文字测试文字5</li>
+        </ul>
+    </div>
+    
+    <br>
+    <hr>
+    <br>
+
+    <!-- 水平 -->
+    <div class="news2">
+        <ul id="targetUl2">
+            <li>测试文字测试文字测试文字测试文字测试文字测试文字测试文字1</li>
+            <li>测试文字测试文字测试文字测试文字测试文字测试文字测试文字2</li>
+            <li>测试文字测试文字测试文字测试文字测试文字测试文字测试文字3</li>
+            <li>测试文字测试文字测试文字测试文字测试文字测试文字测试文字4</li>
+            <li>测试文字测试文字测试文字测试文字测试文字测试文字测试文字5</li>
+        </ul>
+    </div>
+
+
+    <br>
+    <hr>
+    <br>
+
+    <!-- 点击切换，非轮播 -->
+    <div id="imgSlider1" class="img-slider1">
+
+        <ul>
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>10</li>
+        </ul>
+
+        <div class="prev disabled">parv</div>
+        <div class="next">next</div>
+
+    </div>
+
+    <br>
+    <hr>
+    <br>
+
+
+
+    <script src="../lib/jquery-1.12.1.min.js"></script>
+    <script>
+    /* 垂直 */
+    !function(window, document, $, undefined) {
+
+        var $targetUl = $('#targetUl');
+        var $li = $targetUl.find('li');
+        var height = $li.height();
+        var timer;
+
+        var doScroll = function() {
+            $targetUl.stop().animate({
+                'margin-top': '-' + height
+            }, 500, function() {
+                $targetUl.append($targetUl.find('li:first-child')).css('margin-top', 0);
+            });
+        };
+
+        timer = setInterval(doScroll, 2000);
+
+        $targetUl
+        .on('mouseenter', function() {
+            clearInterval(timer);
+        })
+        .on('mouseleave', function() {
+            timer = setInterval(doScroll, 2000);
+        });
+
+    }(window, document, jQuery);
+    </script>
+
+    <script>
+    /* 水平 */
+    !function(window, document, $, undefined) {
+
+        var $targetUl = $('#targetUl2');
+        var $li = $targetUl.find('li');
+        var width = $li.width();
+        var timer;
+
+        var doScroll = function() {
+            $targetUl.stop().animate({
+                'margin-left': '-' + width
+            }, 500, function() {
+                $targetUl.append($targetUl.find('li:first-child')).css('margin-left', 0);
+            });
+        };
+
+        timer = setInterval(doScroll, 2000);
+
+        $targetUl
+        .on('mouseenter', function() {
+            clearInterval(timer);
+        })
+        .on('mouseleave', function() {
+            timer = setInterval(doScroll, 2000);
+        });
+
+    }(window, document, jQuery);
+    </script>
+
+    <script>
+        /*点击切换，非轮播*/
+        !function(window, document, $, undefined) {
+
+            var $target = $('#imgSlider1');
+
+            $target.on('click', '.prev, .next', function() {
+                var $this = $(this),
+                    $currLi = $target.find('li.active'),
+                    currIndex = $currLi.index(),
+                    liWidth = $currLi.width(),
+                    len = $target.find('li').length;
+
+                if ($this.hasClass('disabled')) {
+                    return;
+                }
+
+                if ($this.hasClass('next')) {
+                    currIndex++;
+                    if (currIndex == len - 4) {
+                        $target.find('.next').addClass('disabled');
+                        // return;
+                    }
+
+                    $target.find('.prev.disabled').removeClass('disabled');
+
+                } else {
+                    currIndex--;
+                    if (currIndex < 1) {
+                        $target.find('.prev').addClass('disabled');
+                        // return;
+                    }
+
+                    $target.find('.next.disabled').removeClass('disabled');
+
+                }
+
+                $target.find('li:eq('+currIndex+')').addClass('active').siblings('.active').removeClass('active');
+
+                $target.find('ul').animate({
+                    'margin-left': - (liWidth + 2) * currIndex
+                }, 500, function() {
+
+                });
+
+            });
+
+        }(window, document, jQuery);
+    </script>
+</body>
+</html>

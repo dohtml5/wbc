@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>fly</title>
+    <style>
+
+        * {margin:0;padding:0;list-style:none;}
+
+        .wp{
+            width: 1200px;
+            margin: 50px auto 0;
+        }
+
+        .wp>div{
+            width: 320px;
+            float: left;
+            border: 1px solid red;
+            margin-right: 5px;
+            text-align: center;
+        }
+
+        .cart{
+            width: 100px;
+            height: 200px;
+            background-color: #ccc;
+            position: fixed;
+            top: 50%;
+            margin-top: -100px;
+            right: 0;
+        }
+
+        .cart>i{
+            position: absolute;
+            top:38px;
+            right: 0px;
+            background-color: red;
+            color: #fff;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 15px;
+        }
+
+        .cart>span{
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            text-align: center;
+
+            font-size: 20px;
+            color: red;
+            background-color: #fff;
+            margin: 50px 10px 0;
+        }
+        #end{
+            z-index: 2;
+        }
+
+        .shake{
+            z-index: 1;
+            animation:donghua 2s 1s ;
+        }
+
+        .tip{
+            display: inline-block;
+            width: 80px;
+            height: 50px;
+        }
+
+        @keyframes donghua {
+            0%{
+                top:38px;
+                opacity: 1;
+            }
+            50%{
+                 top:-20px;
+                 opacity: 0;
+             }
+            75%{
+                top:38px;
+                opacity: 0;
+            }
+            100%{
+                top:38px;
+                opacity: 1;
+            }
+
+        }
+
+        .u-flyer {display: block;width: 50px;height: 50px;border-radius: 25px;position: fixed;z-index: 9999;}
+
+    </style>
+</head>
+<body>
+
+    <div class="wp">
+        <div class="wp-ing">
+            <img src="img/bi.jpeg" width="300px"  height="300px" alt=""/>
+            <button class="tip">加入购物车</button>
+        </div>
+        <div class="wp-ing">
+            <img src="img/b2.jpeg" width="300px"  height="300px" alt=""/>
+            <button class="tip">加入购物车</button>
+        </div>
+        <div class="wp-ing">
+            <img src="img/b3.jpeg" width="300px"  height="300px" alt=""/>
+            <button class="tip">加入购物车</button>
+        </div>
+        <div class="wp-ing">
+            <img src="img/bi.jpeg" width="300px"  height="300px" alt=""/>
+            <button class="tip">加入购物车</button>
+        </div>
+        <div class="wp-ing">
+            <img src="img/b2.jpeg" width="300px"  height="300px" alt=""/>
+            <button class="tip">加入购物车</button>
+        </div>
+        <div class="wp-ing">
+            <img src="img/b3.jpeg" width="300px"  height="300px" alt=""/>
+            <button class="tip">加入购物车</button>
+        </div>
+        <!--<div class="wp-ing">
+            <img src="img/bi.jpeg" width="300px"  height="300px" alt=""/>
+            <button class="tip">加入购物车</button>
+        </div>
+        <div class="wp-ing">
+            <img src="img/b2.jpeg" width="300px"  height="300px" alt=""/>
+            <button class="tip">加入购物车</button>
+        </div>
+        <div class="wp-ing">
+            <img src="img/b3.jpeg" width="300px"  height="300px" alt=""/>
+            <button class="tip">加入购物车</button>
+        </div>-->
+
+    </div>
+
+    <div class="cart">
+        <i id="end">1</i>
+        <i id="endd">1</i>
+        <span>购物车</span>
+    </div>
+
+
+
+    <script src="../../lib/jquery-1.12.1.min.js"></script>
+    <script src="js/jquery.fly.min.js"></script>
+    <script>
+        $('.tip').on('click', addCart);
+        function addCart(event) {
+
+            var i = $('#end').text();
+
+
+            var $this = $(this);
+            var $src = $this.siblings().attr('src');
+            // console.log($src)
+
+
+            var offset = $('#end').offset(), flyer = $('<img class="u-flyer" src=""/>');
+            flyer.attr('src',$src)
+
+            flyer.fly({
+                start: {
+                    left: event.clientX,
+                    top: event.clientY
+                },
+                end: {
+                    left: offset.left,
+                    top: offset.top,
+                    width: 0,
+                    height: 0
+                }
+            });
+            i++;
+
+            $('#end').html(i);
+
+            $('#endd').addClass('shake');
+            setTimeout(function(){
+                $('#endd').removeClass('shake');
+            },2000);
+        }
+
+    </script>
+
+</body>
+</html>

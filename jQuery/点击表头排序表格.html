@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>表格排序</title>
+    <style>
+        th {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <table border="1" width="500">
+        <thead>
+        <tr>
+            <th>编号</th>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>职位</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>5</td>
+            <td>张三</td>
+            <td>24</td>
+            <td>Web前端</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>李四</td>
+            <td>21</td>
+            <td>交互设计师</td>
+        </tr>
+        <tr>
+            <td>17</td>
+            <td>张大千</td>
+            <td>28</td>
+            <td>交互设计师</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>王二</td>
+            <td>24</td>
+            <td>C++程序员</td>
+        </tr>
+        <tr>
+            <td>22</td>
+            <td>马六</td>
+            <td>30</td>
+            <td>测试员</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <script src="../lib/jquery-1.12.1.min.js"></script>
+    <script>
+    !function(window, document, $, undefined) {
+
+        var $table = $('table');
+        var $ths = $table.find('th');
+        var $tbody = $table.find('tbody');
+        var $trs = $tbody.find('tr');
+        var sArr = [];
+        var index;
+
+        $ths.on('click', function() {
+
+            index = $(this).index();
+
+            for (var i=0; i<$trs.length; i++) {
+                sArr.push($trs[i]);
+            }
+
+            sArr.sort(function(a, b) {
+                return $(a).find('td:eq('+index+')').text() - $(b).find('td:eq('+index+')').text();
+            });
+
+            for (var i=0; i<sArr.length; i++) {
+                $tbody.append(sArr[i]);
+            }
+
+        });
+
+    }(window, document, jQuery);
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+html, body, ul, li {
+	margin: 0;
+	padding: 0;
+}
+
+ul, li {
+	list-style: none;
+}
+
+.img-slider {
+    width: 520px;
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+    margin: 50px auto;
+}
+
+.img-slider a {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #000;
+    top: 50%;
+    margin-top: -15px;
+    opacity: 0.5;
+    display: none;
+}
+
+.img-slider a.next {
+    right: 0;
+}
+
+.img-slider:hover a {
+    display: block;
+}
+
+.img-wp {
+    width: 2600px;
+    overflow: hidden;
+}
+
+.img-wp img {
+    display: block;
+}
+
+.img-wp > div {
+    float: left;
+}
+
+.img-trigger {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    margin-left: -33px;
+}
+
+.img-trigger li {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    float: left;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+.img-trigger li.on {
+    background-color: orange;
+}

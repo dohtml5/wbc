@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/lib/underscore/underscore-min.js"></script>
+	<script src="js/lib/jquery/dist/jquery.min.js"></script>
+	<script src="js/lib/angular/angular.min.js"></script>
+</head>
+<body ng-app="testApp" ng-controller="testController">
+
+	<div>
+		Username: <input type="text" ng-model="user.username">
+		<br>
+		Age: <input type="text" ng-model="user.age">
+		<br>
+		<input type="button" value="提交" ng-click="save()">
+		<button ng-click="set()">设置</button>
+		<button ng-click="clear()">清空</button>
+	</div>
+
+	<hr>
+		<div ng-include="'demo1.html'"></div>
+	<hr>
+
+	<script>
+		var app = angular.module('testApp', []);
+
+		app.controller('testController', function($scope, $http) {
+			$scope.save = function() {
+				console.log($scope.user);
+			};
+
+			$scope.set = function() {
+				$scope.user = {
+					username: 'test',
+					age: 33
+				};
+			};
+
+			$scope.clear = function() {
+				$scope.user = {};
+			};
+		});
+	</script>
+	
+</body>
+</html>

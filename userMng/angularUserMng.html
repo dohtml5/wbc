@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>用户管理 - angular版本</title>
+	<link rel="stylesheet" href="../angular/js/lib/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/angularUserMng.css">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+	<script src="../angular/js/lib/underscore/underscore-min.js"></script>
+	<script src="../angular/js/lib/jquery/dist/jquery.min.js"></script>
+	<script src="../angular/js/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="../angular/js/lib/angular/angular.min.js"></script>
+	<script src="js/angularUserMng.js"></script>
+</head>
+<body ng-app="userList" ng-controller="userListController" >
+
+	<!-- 导航 -->
+	<div ng-include="'tmpl/nav.html'"></div>
+
+	<!-- 菜单 & 用户列表 -->
+	<div class="container">
+		<ul class="nav nav-pills">
+		  <li><a href="javascript:;" ng-click="addNewUser()">新增用户</a></li>
+		  <li class="active"><a href="javascript:;">用户列表</a></li>
+		  <li><a href="javascript:;">统计图表</a></li>
+		</ul>
+
+		<table class="table table-bordered table-striped mt-20">
+			<tr>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>性别</th>
+				<th>电话</th>
+				<th>住址</th>
+				<th>学历</th>
+				<th>爱好</th>
+				<th>照片</th>
+				<th class="action-cell">操作</th>
+			</tr>
+			<tr ng-repeat="user in users">
+				<td>{{user.name}}</td>
+				<td>{{user.age}}</td>
+				<td>{{user.gender}}</td>
+				<td>{{user.mobile}}</td>
+				<td>{{user.address}}</td>
+				<td>{{user.edu}}</td>
+				<td>{{user.hobbies}}</td>
+				<td>{{user.user_img}}</td>
+				<td class="action-cell">
+					<button ng-click="updateUser()" class="btn btn-xs btn-info">修改</button>
+					<button ng-click="delUser()" class="btn btn-xs btn-danger">删除</button>
+				</td>
+			</tr>
+		</table>
+
+		<!-- 用户对话框 -->
+		<div ng-include="'tmpl/userForm.html'"></div>
+
+		<!-- 信息提示对话框 -->
+		<div ng-include="'tmpl/dialog.html'"></div>
+
+	</div>
+	
+</body>
+</html>

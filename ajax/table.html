@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/table.css">
+</head>
+<body>
+
+    <h1>用户管理</h1>
+
+    <hr>
+    <div class="tool-bar">
+        <button id="newUserBtn">新增用户</button>
+        <input id="searchTxt" type="text" placeholder="关键字">
+        <button id="searchBtn">搜索</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>用户名</th>
+                <th>密码</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>邮箱</th>
+                <th>注册日期</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody id="userList">
+            <tr>
+                <td colspan="9">加载中...</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul id="pagingUl" class="paging">
+    </ul>
+
+    <div id="maskerWpId" class="masker-wp">
+        <div class="masker"></div>
+        <div class="dialog">
+            <form>
+                <input type="hidden" name="id">
+                <p>
+                    <label>用户名：<input name="username" type="text"></label>
+                </p>
+                <p>
+                    <label>密码：<input name="password" type="password"></label>
+                </p>
+                <p>
+                    <label>姓名：<input name="name" type="text"></label>
+                </p>
+                <p>
+                    <label>年龄：<input name="age" type="text"></label>
+                </p>
+                <p>
+                    <label for="">性别：</label>
+                    <label><input type="radio" value="男" name="gender" checked>男</label>
+                    <label><input type="radio" value="女" name="gender">女</label>
+                </p>
+                <p>
+                    <label>邮箱：<input name="email" type="text"></label>
+                </p>
+                <p>
+                    <button id="submitBtn" type="button">新增</button>
+                    <button type="button" id="cancelBtn">取消</button>
+                </p>
+            </form>
+        </div>
+    </div>
+    
+    <script src="../lib/jquery-1.12.1.min.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="js/table.js"></script>
+</body>
+</html>

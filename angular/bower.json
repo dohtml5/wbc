@@ -1,0 +1,25 @@
+{
+  "name": "nodeTest",
+  "authors": [
+    "wbc <wbc201605@sina.com>"
+  ],
+  "description": "高端 大气",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "js/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "underscore": "^1.8.3",
+    "jquery": "1.12.4",
+    "angular": "angularjs#1.2.29",
+    "bootstrap": "^3.3.6"
+  }
+}

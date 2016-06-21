@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>WBC欢迎你</title>
+</head>
+<body>
+	
+	<script>
+		var dynaTitle = function() {
+
+			var flag = true;
+
+			setInterval(function() {
+
+				if (flag) {
+					document.title = '【你有新的消息】';
+				} else {
+					document.title = 'WBC欢迎你';
+				}
+
+				flag = !flag;
+
+				// var title = document.title;
+
+				// if (title == 'WBC欢迎你') {
+				// 	document.title = '【你有新的消息】';
+				// } else {
+				// 	document.title = 'WBC欢迎你';
+				// }
+
+
+			}, 500);
+
+		};
+
+		dynaTitle();
+	</script>
+</body>
+</html>

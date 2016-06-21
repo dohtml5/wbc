@@ -1,0 +1,82 @@
+<div id="userDialog" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">{{userDlgTitle}}</h4>
+      </div>
+      <div class="modal-body">
+        
+		<form class="form-horizontal">
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">姓名：</label>
+		    <div class="col-sm-9">
+		      <input type="text" class="form-control" ng-model="user.name">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">年龄：</label>
+		    <div class="col-sm-2">
+		      <input type="text" class="form-control" ng-model="user.age">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">性别：</label>
+		    <div class="col-sm-9">
+		    	<label class="radio-inline">
+				  <input type="radio" name="gender" value="男" ng-model="user.gender"> 男
+				</label>
+				<label class="radio-inline">
+				  <input type="radio" name="gender" value="女" ng-model="user.gender"> 女
+				</label>
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">电话：</label>
+		    <div class="col-sm-9">
+		      <input type="text" class="form-control" ng-model="user.mobile">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">地址：</label>
+		    <div class="col-sm-9">
+		      <input type="text" class="form-control" ng-model="user.address">
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">学历：</label>
+		    <div class="col-sm-3">
+				<select class="form-control" ng-model="user.edu">
+					<option>大专</option>
+					<option>本科</option>
+					<option>硕士</option>
+					<option>博士</option>
+					<option>其它</option>
+				</select>
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label for="" class="col-sm-2 control-label">爱好：</label>
+		    <div class="col-sm-9">
+				<label class="checkbox-inline">
+					<input type="checkbox" ng-true-value="篮球" ng-false-value="" ng-model="user.hobbies.hb1"> 篮球
+				</label>
+				<label class="checkbox-inline">
+					<input type="checkbox" ng-true-value="爬山" ng-false-value="" ng-model="user.hobbies.hb2"> 爬山
+				</label>
+				<label class="checkbox-inline">
+					<input type="checkbox" ng-true-value="音乐" ng-false-value="" ng-model="user.hobbies.hb3"> 音乐
+				</label>
+		    </div>
+		  </div>
+		</form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary" ng-show="!isUpdate" ng-click="saveUser()">保存</button>
+        <button type="button" class="btn btn-primary" ng-show="isUpdate" ng-click="doUpdateUser()">修改</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../lib/city.data-3.js"></script>
+	<script src="../lib/jquery-1.12.1.min.js"></script>
+	<script>
+		$(document).ready(function() {
+
+			var currData = cityData3,
+				provData,
+				cityData;
+
+			$('#prov, #city, #dist').on('change', function() {
+				var $this = $(this),
+					map = {
+						prov: 'city',
+						city: 'dist'
+					},
+					currVal = $this.val(),
+					id = this.id;
+
+				if (id == 'prov') {
+					currData = provData = getChildrenByVal(cityData3, currVal);
+					$('#dist').html('<option value="0">请选择</option>');
+				} else if (id == 'city') {
+					currData = cityData = getChildrenByVal(provData, currVal);
+				}
+
+				renderSel(currData, map[id]);
+			});
+
+			renderSel(currData, 'prov');
+
+			function renderSel(data, selId) {
+				var opts = ['<option value="0">请选择</option>'];
+				$.each(data, function(index, obj) {
+					opts.push('<option value="', obj.value, '">', obj.text, '</option>');
+
+				});
+				$('#' + selId).html(opts.join(''));
+			}
+
+			function getChildrenByVal(data, val) {
+				var children = [];
+				$.each(data, function(index, obj) {
+					if (obj.value == val) {
+						children = obj.children;
+						return true;
+					}
+				});
+				return children;
+			}
+
+		});
+	</script>
+</head>
+<body>
+
+	<label>省：<select id="prov"><option value="0">请选择</option></select></label>
+	<label>市：<select id="city"><option value="0">请选择</option></select></label>
+	<label>区：<select id="dist"><option value="0">请选择</option></select></label>
+	
+</body>
+</html>

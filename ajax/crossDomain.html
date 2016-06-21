@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery 实现Ajax跨域请求</title>
+	<script src="../lib/jquery-1.12.1.min.js"></script>
+</head>
+<body>
+
+	<button id="requestBtn">发送Ajax请求</button>
+
+
+	<script>
+
+		$('#requestBtn').on('click', function() {
+			/*var url = 'http://localhost/demos/userMng/server/ajaxUserList.php?callback=?';
+			$.get(url, function(response) {
+				console.log(response);
+			}, 'json');*/
+
+			/*var url = 'http://localhost/demos/userMng/server/ajaxUserList.php?callback=?';
+			$.getJSON(url, function(response) {
+				console.log(response);
+			});*/
+
+			$.ajax({
+				url: 'http://localhost/demos/userMng/server/ajaxUserList.php?callback=?',
+				data: {size: 5},
+				dataType: 'json',
+				success: function(response) {
+					console.log(response)
+				}
+			});
+		});
+
+		/*function CrossDomain() {
+
+		}
+
+		CrossDomain.init = function() {
+			console.log(999)
+		}
+
+		CrossDomain.init();*/
+
+		// console.log(CrossDomain instanceof Object)
+	</script>
+</body>
+</html>
+
+<!-- 1. 类
+function ClassA() {
+	var a = 1; // 私有
+	this.b = 2;// 公有
+}
+
+var a = new ClassA();
+
+2. 继承
+function ClassB(){
+        this.a = 10;
+        this.run = function(){
+                console.log('函数run被调用');
+        }
+}
+
+function ClassC(){};
+
+ClassC.prototype = new ClassB();//这样ClassC就继承了ClassB的属性和方法不信可以实验下
+
+var t = new ClassC();
+console.log(t.a);//看到没，这里输出的是10 -->

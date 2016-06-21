@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style>
+	html, body, ul, li {
+		margin: 0;
+		padding: 0;
+	}
+
+	ul, li {
+		list-style: none;
+	}
+
+	.right-menu {
+		float: right;
+		margin: 10px;
+	}
+
+	.right-menu li {
+		float: left;
+		margin-left: 20px;
+	}
+
+	.right-menu li.blue-btn {
+		background-color: blue;
+		color: #fff;
+		padding: 3px 8px;
+	}
+
+	.right-menu li.blue-btn:hover .more-menu {
+		display: block;
+	}
+
+	.more-menu {
+		width: 85px;
+		background-color: #ccc;
+
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+
+		display: none;
+	}
+	</style>
+</head>
+<body>
+
+	<ul class="right-menu">
+		<li>item1</li>
+		<li>item2</li>
+		<li>item3</li>
+		<li>item4</li>
+		<li class="blue-btn">
+			item5
+			<div class="more-menu">
+				
+			</div>
+		</li>
+	</ul>
+	
+</body>
+</html>

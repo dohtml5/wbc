@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="wp"></div>
+
+    <script>
+    var wp = document.getElementById('wp');
+
+    var i = 1;
+    var t = setInterval(function(){
+    	if (i > 10) {
+    		clearInterval(t);
+    		return;
+    	}
+    	wp.innerHTML += i;
+    	i++;
+    }, 1000);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+html {
+    font-size: 20px;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #f2f2f2;
+}
+
+.box-wp {
+    width: 5.75rem;
+    height: 5.75rem;
+    margin: 4.9rem auto 0;
+    border-radius: 50%;
+    background: #ecebde url(../img/box.png) center no-repeat;
+    background-size: 50%;
+}
+
+.info {
+    font-size: 0.85rem;
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+.btn {
+    width: 9.9rem;
+    height: 2.05rem;
+    line-height: 2.05rem;
+    font-size: 0.8rem;
+    background-color: #c70000;
+    border-radius: 0.25rem;
+    margin: 1rem auto 0;
+    text-align: center;
+    color: #fff;
+}
+
+/*body {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #f2f2f2;
+}
+
+.box-wp {
+    width: 115px;
+    height: 115px;
+    margin: 98px auto 0;
+    border-radius: 50%;
+    background: #ecebde url(../img/box.png) center no-repeat;
+    background-size: 50%;
+}
+
+.info {
+    font-size: 17px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+.btn {
+    width: 198px;
+    height: 41px;
+    line-height: 41px;
+    font-size: 16px;
+    background-color: #c70000;
+    border-radius: 5px;
+    margin: 20px auto 0;
+    text-align: center;
+    color: #fff;
+}*/

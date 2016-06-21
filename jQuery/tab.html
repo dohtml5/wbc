@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>tab</title>
+	<link rel="stylesheet" href="../lib/reset.css">
+	<style>
+		.tab {
+			width: 500px;
+			height: 300px;
+			margin: 20px auto;
+		}
+
+		.tab .tab-header {
+			overflow: hidden;
+		}
+
+		.tab .tab-header li {
+			width: 80px;
+			height: 50px;
+			background-color: red;
+			float: left;
+			margin-right: 5px;
+		}
+
+		.tab .tab-header li.on {
+			background-color: #ccc;
+		}
+
+		.tab .tab-body {
+			height: 250px;
+			overflow: hidden;
+			background-color: #ccc;
+		}
+
+		.tab .tab-body > div {
+			height: 250px;
+		}
+	</style>
+
+	<script src="../lib/jquery-1.12.1.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			var $tab = $('.tab'),
+				$lis = $tab.find('.tab-header li'),
+				$divs = $tab.find('.tab-body > div'),
+				timer;
+
+			$lis
+				.on('mouseover', function() {
+					var $this = $(this),
+						index = $this.index();
+
+					timer = setTimeout(function() {
+						$this.addClass('on').siblings('.on').removeClass('on');
+						$divs.eq(index).show().siblings(':visible').hide();
+					}, 300);
+				})
+				.on('mouseout', function() {
+					if (timer) {
+						clearTimeout(timer);
+					}
+				});
+		});
+	</script>
+</head>
+<body>
+
+	<div class="tab">
+		<ul class="tab-header">
+			<li class="on">aaa</li>
+			<li>bbb</li>
+			<li>ccc</li>
+		</ul>
+		<div class="tab-body">
+			<div>111</div>
+			<div>222</div>
+			<div>333</div>
+		</div>
+	</div>
+	
+</body>
+</html>

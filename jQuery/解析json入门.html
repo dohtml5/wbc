@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style>
+		table, th, td {
+			border: 1px solid red;
+		}
+	</style>
+
+	<script>
+		var students = [
+			{
+				name: "小李",
+				age: 20,
+				isMarried: false,
+				hobbies: ['篮球', '音乐', '看电影'],
+				parents: {
+					father: {
+						name: '老李',
+						age: 40
+					},
+					mother: {
+						name: '老王',
+						age: 38
+					}
+				},
+				children: null
+			},
+			{
+				name: "小李2",
+				age: 22,
+				isMarried: true,
+				hobbies: ['篮球2', '音乐2', '看电影2'],
+				parents: {
+					father: {
+						name: '老李2',
+						age: 40
+					},
+					mother: {
+						name: '老王2',
+						age: 38
+					}
+				},
+				children: {
+					daughter: {
+						name: '小花',
+						age: 1
+					}
+				}
+			},
+			{
+				name: "小李3",
+				age: 25,
+				isMarried: true,
+				hobbies: ['篮球3', '音乐3', '看电影3'],
+				parents: {
+					father: {
+						name: '老李3',
+						age: 40
+					},
+					mother: {
+						name: '老王3',
+						age: 38
+					}
+				},
+				children: {
+					son: {
+						name: '小小李',
+						age: 2
+					},
+					daughter: {
+						name: '小红',
+						age: 5
+					}
+				}
+			}
+		];
+	</script>
+
+    <script src="../lib/jquery-1.12.1.min.js"></script>
+
+	<script>
+		$(document).ready(function() {
+			var tableObj = {
+				init: function() {
+					var trArr = [];
+					$.each(students, function(index, obj) {
+
+						var parents = obj.parents,
+							pInfo = parents.father.name + '/' + parents.mother.name,
+							children = obj.children,
+							cInfo = [];
+
+						if (children) {
+							if (children.son) {
+								cInfo.push(children.son.name + '(男)');
+								// cInfo = children.son.name + '(男)';
+							}
+							if (children.daughter) {
+								cInfo.push(children.daughter.name + '(女)');
+								// cInfo += '/' + children.daughter.name + '(女)';
+							}
+						} else {
+							cInfo.push('无');
+						}
+
+						trArr.push(
+							'<tr>',
+								'<td>', obj.name, '</td>',
+								'<td>', obj.age, '</td>',
+								'<td>', obj.isMarried ? '已婚' : '未婚', '</td>',
+								'<td>', obj.hobbies.join(' '), '</td>',
+								'<td>父母名字：', pInfo, '</td>',
+								'<td>子女名字：', cInfo.join('/'), '</td>',
+							'</tr>'
+						);
+
+						// console.log(obj)
+
+					});
+
+					$('#myTable tbody').html(trArr.join(''));
+
+					// console.log(trArr)
+				}
+			};
+
+			tableObj.init();
+		});
+	</script>
+</head>
+<body>
+
+	<table id="myTable">
+		<thead>
+			<tr>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>婚否<input type="checkbox" ></th>
+				<th>爱好</th>
+				<th>父母信息</th>
+				<th>子女信息</th>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+	
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标跟随效果</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wp {
+            width: 300px;
+            height: 200px;
+            background-color: #eee;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .tip {
+            background-color: red;
+            border-radius: 5px;
+            padding: 10px;
+            position: absolute;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="wp" data-info="测试一下，我是跟随文字"></div>
+
+    <hr/>
+
+    <div class="wp" data-info="哈哈哈等会儿"></div>
+
+    <div class="tip"></div>
+
+    <script src="../lib/jquery-1.12.1.min.js"></script>
+    
+    <script>
+        !function(window, document, $, undefined) {
+
+            var $tip = $('.tip');
+
+            $('.wp')
+                    .on('mousemove', function(e) {
+
+                        var $this = $(this),
+                            txt = $this.attr('data-info'),
+                            x = e.pageX,
+                            y = e.pageY;
+
+                        $tip.html(txt).show();
+
+                        $tip.css({
+                            left: x + 20,
+                            top: y + 20
+                        });
+
+                    })
+                    .on('mouseleave', function() {
+
+                        $tip.hide();
+
+                    });
+
+        }(window, document, jQuery);
+    </script>
+</body>
+</html>

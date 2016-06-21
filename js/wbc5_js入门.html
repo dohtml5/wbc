@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.red {
+			background-color: red;
+			/*BACKGROUND-COLOR: RED;*/
+		}
+	</style>
+
+	<script>
+		// alert('Hello WBC!');
+	</script>
+	<!-- <script src="js/demo1.js"></script> -->
+</head>
+<body>
+
+	<button onclick="alert('我被点击了5555555555555！')">my btn</button>
+	<button onclick="document.write('<h1>我是一个标题！</h1>')">my btn2</button>
+	<button onclick="change()">my btn3</button>
+
+	<hr>
+
+	<!-- <HR> -->
+
+	<div id="myDiv">
+		loading...
+	</div>
+	
+	<script>
+		function change() {
+			var myDiv = document.getElementById('myDiv');
+			myDiv.innerHTML = '<h1 class="red">我是新填充的内容。。。</h1>';
+		}
+	</script>
+
+	<script>
+		// alert('Hello WBC!');
+	</script>
+
+	<script src="js/demo1.js"></script>
+
+</body>
+</html>

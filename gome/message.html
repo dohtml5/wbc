@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	<title>信息录入</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/message.css" />
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  	<div class="container">
+	    <div class="form-wrp">
+			<!--<form class="form-horizontal">-->
+			<div class="form-group">
+				<label class="col-sm-3 control-label">title：</label>
+				<div class="col-sm-4">
+					<input id="title" type="text" class="form-control">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">pirce：</label>
+				<div class="col-sm-4">
+					<input id="pirce" type="text" class="form-control">
+				</div>
+			</div>
+		  	<div class="form-group">
+				<label class="col-sm-3 control-label">labels：</label>
+				<div class="col-sm-4">
+					<input id="labels" type="text" class="form-control">
+				</div>
+			</div>
+		  	<div class="form-group">
+				<label class="col-sm-3 control-label">comments：</label>
+				<div class="col-sm-4">
+					<input id="comments" type="text" class="form-control">
+				</div>
+			</div>
+		  	<div class="form-group">
+				<label class="col-sm-3 control-label">coupons：</label>
+				<div class="col-sm-4">
+					<input id="coupons" type="text" class="form-control">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">is_recommend：</label>
+				<div class="col-sm-4">
+					<input id="is_recommend" type="text" class="form-control">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">sales：</label>
+				<div class="col-sm-4">
+					<input id="sales" type="text" class="form-control">
+				</div>
+			</div>
+			<div class="form-group">
+		    <label class="col-sm-3 control-label">img：</label>
+		    <div class="upload-btn">
+		    	上传照片
+		    	<form id="upForm" target="formTarge" action="../fileUploading/server/step1.php" 
+		    		method="post" enctype="multipart/form-data">
+		    		<input id="pic" type="file" name="pic"/>
+		    	</form>
+		    	<input type="hidden" id="hiddenFile"/>
+		    </div>
+		    <iframe id="formTarge" class="none" name="formTarge" src="" frameborder="0"></iframe>
+		    <img class="photo" id="photo" src="image/up.png"/>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-3 col-sm-10">
+				<button id="myBtn" type="button" class="btn btn-danger">保存</button>
+				<button id="restBtn" type="button" class="btn btn-danger">重置</button>
+				</div>
+			</div>
+			<!--</form>-->
+		</div>
+	</div>
+	<div id="popup" class="modal fade bs-example-modal-sm" data-backdrop="false">
+	  	<div class="modal-dialog modal-sm">
+	    	<div class="modal-content">
+	      		<div class="modal-body">
+	      			注册成功！
+			    </div>
+	    	</div>
+	  	</div>
+	</div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/message.js"></script>
+  </body>
+</html>
+

@@ -1,0 +1,170 @@
+
+/*  miSlider Core Styles ========================================== */
+/* Version: 0.1.11 */
+
+/*  Resets */
+.mis-stage, .mis-slider, .mis-slide, .mis-container, .mis-container * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.mis-stage, .mis-slider {
+    position: relative;
+    overflow: hidden;
+}
+.mis-stage {
+    width: 100%; /*  Set stage width as desired */
+    text-align: center; /*  Center list navigation */
+}
+    .mis-slider {
+	    list-style: none;
+	    overflow: visible;
+	    height: 100%;
+	    margin-top: 0;
+    }
+        /*  Set slide width and padding */
+        .mis-slide {
+            /*  Set width in pixels to restrict width of slides 
+                for multi-item slider, default is 100%
+                for single-item slider. Use padding to add space 
+                between slides */
+	        width: 100%;
+            height: auto;
+	        padding: 0;
+            display: block;
+            position: relative;
+            float: left;
+            overflow: visible !important;
+        }
+        .js .mis-slide {
+            display: none;
+            opacity: 0;
+        }
+        .mis-slide.mis-current {
+            z-index: 100;
+            display: block;
+        }
+            /*  Slide container - inserted around the contents
+                of each slide by the plugin */
+            .mis-container {
+                display: block;
+                width: auto;
+                height: auto;
+                border: 0;
+            }
+    /*  Style list navigation */
+	.mis-nav-list {
+		position: absolute;
+		bottom: .5em;
+        width: 100%;
+        margin: 0 auto; /* center it */
+        z-index: 300;
+        padding: 0;
+	}
+		.mis-nav-list li {
+			display: inline-block;
+			margin: 0 .25em;
+		}
+        .mis-nav-list li a {
+			display: block;
+			width: 11px;
+			height: 11px;
+			text-indent: 100%; /* Replace text */
+            overflow: hidden;
+            white-space: nowrap;
+			border: 1px solid #eee;
+			border-radius: 7px; /* Make items round */
+			opacity: .3;
+            -webkit-box-shadow: inset 0 0 2px #333;
+            box-shadow: inset 0 0 2px 2px #333;
+            margin: 0 3px;
+		}
+			.mis-nav-list li.mis-current a, .mis-nav-list li a:hover {
+				background: #333;
+			}
+
+    .mis-nav-buttons {
+        display: block;
+        position: absolute;
+        height: 0;
+        top: 0;
+        opacity: 0.5;
+        z-index: 200;
+    }
+        .mis-nav-buttons a {
+            position: absolute;
+            color: #eee;
+            font-size: 0; /* Hide for browser except Android */
+            line-height: .01; /* 0 is inconsistent in Opera */
+            font-family: Verdana, Geneva, sans-serif;
+            font-weight: bold;
+            text-decoration: none;
+            text-indent: -9999px; /* Hide for Android */
+        }
+            .mis-nav-buttons a:hover {
+                color: #ccc;
+            }
+            .mis-nav-buttons a.mis-next {
+                left: auto;
+                right: 0;
+            }
+            .mis-nav-buttons a.mis-prev {
+                left: 0;
+            }
+            .mis-nav-buttons a.mis-prev:before, .mis-nav-buttons a.mis-next:after {
+                content: "\2039"; /* left single angle quote */
+                display: block;
+                font-size: 80px;
+                text-indent: 0;
+            }
+            .mis-nav-buttons a.mis-next:after {
+                content: "\203A"; /* right single angle quote */
+            }
+
+
+/*  Cameo Skin CSS ========================================= */
+
+.mis-stage {
+    background-color: #fff;
+}
+    .mis-slider {
+        /*  Slider element does not need to be a specific height
+            Here we use it to create a stylish bar behind slides */
+        margin-top: 138px;
+        height: 80px;
+        background-color: #eee;
+    }
+        .mis-slider li a {
+            text-decoration: none;
+            color: #666;
+            display: block;
+        }  
+        .mis-slider li figcaption {
+            font-size: 1.125em;
+        }
+        .mis-slider li img {
+            /*  Make max-width of image a little less than width of slide
+                to avoid some browser shinking bugs */
+            max-width: 270px;
+            /*  for really small screens make width 100% */
+            width: 100%;
+            /*  Make image round */
+            border-radius: 135px;
+            border: none;
+        }
+        .mis-slide {
+            /*  Set width in pixels to restrict width of slides 
+                for multi-item slider, default width is 100%
+                for single-item slider. Use padding to add space 
+                between slides */
+	        width: 360px;
+            height: 360px;
+	        padding: 40px;
+            /*  Undo the margin added by slider element */
+            margin-top: -138px
+        }
+    .mis-nav-buttons a {
+        color: #fff; 
+    }

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>文档标题</title>
+	</head>
+
+	<body>
+
+		<div id="myDiv">
+			my div
+			<span id="mySpan">my span</span>
+		</div>
+
+		<!-- <input type="text" name="aaa">
+		<input type="text" name="aaa">
+
+		<button>my Btn2</button>
+		<a id="myLink" href="http://www.baidu.com">我的链接</a>
+		<h1>我的标题</h1> -->
+
+		<!-- <button onclick="this.style.backgroundColor='green'">my btn</button> -->
+
+		<!-- <button id="myBtn">my Btn</button> -->
+
+		<script>
+			var mySpan = document.getElementById('mySpan');
+
+			console.log(mySpan.parentNode.removeChild(mySpan));
+
+			// var myDiv = document.getElementById('myDiv');
+			// var mySpan = document.getElementById('mySpan');
+
+			// myDiv.removeChild(mySpan);
+
+			// console.log(myDiv.innerHTML)
+
+			// myDiv.innerHTML += '<span>我也是一个span</span>';
+
+			// var span = document.createElement('span');
+			// var txt = document.createTextNode('我是一个span');
+			// span.appendChild(txt);
+
+			// myDiv.appendChild(span);
+
+			// var myLink = document.getElementById('myLink');
+
+			// myLink.href = 'http://www.sina.com.cn';
+
+			// var h1 = document.getElementsByTagName('h1')[0];
+
+			// h1.innerHTML = '<span style="color: red">欢迎</span>来到这里。。。';
+			// h1.innerText = '<span style="color: red">欢迎</span>来到这里。。。';
+
+			// for (var i=0; i<10; i++) {
+			// 	document.write('<h1>Hello World!</h1>');
+			// }
+
+			/*var aaas = document.getElementsByName('aaa');
+
+			for(var i=0; i<aaas.length; i++) {
+				aaas[i].style.backgroundColor = 'red';
+			}*/
+
+			// console.log(aaas);
+
+			// var btns = document.getElementsByTagName('button');
+
+			// btns[0].style.backgroundColor = 'red';
+			// btns[1].style.backgroundColor = 'green';
+
+			// console.log(btns)
+
+			// var myBtn = document.getElementById('myBtn');
+			// myBtn.style.backgroundColor = 'red';
+
+
+			// console.log(myBtn);
+
+			// myBtn.onclick = function() {
+			// 	myBtn.style.backgroundColor = 'red';
+			// };
+		</script>
+	</body>
+
+</html>
+
+<!-- 
+
+	var document = {
+
+		getElementById: function(str) {
+			// return Dom对象
+		},
+	
+		html: {
+			head: {
+				meta: {},
+				title: {
+					text: '文档标题'
+				}
+			},
+			body: {
+				a: {
+					href: 'http://www.baidu.com',
+					text: '我的链接'
+				},
+				h1: {}
+			}
+		}
+
+	};
+
+	var obj = {
+		name: 'aaa',
+		age: 20
+	};
+
+ -->

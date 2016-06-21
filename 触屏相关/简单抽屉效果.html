@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        section.page {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        nav.nav li {
+            background-color: #fffccc;
+            height: 30px;
+            line-height: 30px;
+            border-bottom: 1px solid #fff;
+        }
+
+        section.main {
+            background-color: #f2f2f2;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+        }
+
+        header {
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .trigger {
+            width: 40px;
+            height: 40px;
+            background-color: #ddd;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <section class="page">
+        <nav class="nav">
+            <ul>
+                <li>item1</li>
+                <li>item2</li>
+                <li>item3</li>
+                <li>item4</li>
+                <li>item5</li>
+            </ul>
+        </nav>
+
+        <section class="main">
+            <header>
+                <div class="trigger">
+                </div>
+                我是标题
+            </header>
+            main
+        </section>
+    </section>
+
+<script src="../lib/zepto.min.js" charset="utf-8"></script>
+<script>
+    !function(window, document, $, undefined) {
+
+        var showNav = function(flag) {
+            var $target = $('.main');
+            if (flag) {
+                $target.animate({left: "150px"}, 200);
+            } else {
+                $target.animate({left: 0}, 200);
+            }
+        };
+
+        $('section.main')
+            .on('swipeRight', function(e) {
+                showNav(true);
+                e.preventDefault();
+            })
+            .on('swipeLeft', function(e) {
+                showNav(false);
+                e.preventDefault();
+            });
+
+        $('.trigger').on('tap', function(e) {
+            var $target = $('.main');
+            if ($target.css('left') == '0px') {
+                showNav(true);
+            } else {
+                showNav(false);
+            }
+            e.preventDefault();
+        });
+
+    }(window, document, Zepto);
+</script>
+</body>
+</html>

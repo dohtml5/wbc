@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../lib/jquery-1.12.1.min.js"></script>
+	<script>
+		/*$(document).ready(function() {
+			function checkForm() {
+				return false;
+			}
+
+			window.checkForm = checkForm;
+		});*/
+
+		function checkForm() {
+
+			/*var $name = $('input[name=name]');
+
+			if ($.trim($name.val()) == '') {
+				alert('姓名不能为空！');
+				return false;
+			}
+
+			console.log($name.val())*/
+
+			/*var $edu = $('select[name=edu]');
+			if ($edu.val() == 0) {
+				alert('学历不能为空！');
+				return false;
+			}*/
+
+			var $hobbies = $('input[name=hobbies]');
+
+			// if (!checkHobby()) {
+			// 	alert('请选择至少一个爱好！');
+			// 	return false;
+			// }
+
+			if ($('input[name=hobbies]:checked').length == 0) {
+				alert('请选择至少一个爱好！');
+				return false;
+			}
+
+
+			/*
+				如果有至少一个选择，返回true
+				如果都没有选择，返回false
+			*/
+			/*function checkHobby() {
+				var len = $hobbies.length, i;
+				for (i=0; i<len; i++) {
+					if ($hobbies[i].checked) {
+						return true;
+					}
+				}
+				return false;
+			}*/
+
+			/*function checkHobby() {
+				var r = false;
+				$hobbies.each(function() {
+					if (this.checked) {
+						r = true;
+						// return true; // continue;
+					}
+				});
+				return r;
+			}*/
+
+
+			// console.log('Ok')
+			// return false;
+		}
+
+	</script>
+</head>
+<body>
+
+	<h1>用户注册</h1>
+	<a href="server/list.php">用户列表</a>
+	<hr>
+
+	<form action="server/reg.php" method="get" onsubmit="return checkForm()">
+		<div>
+			<label>姓名：<input name="name" type="text"></label>
+		</div>
+
+		<div>
+			<label>年龄：<input name="age" type="text"></label>
+		</div>
+
+		<div>
+			<label>性别：</label>
+			<label><input name="gender" value="男" type="radio" checked>男</label>
+			<label><input name="gender" value="女" type="radio">女</label>
+		</div>
+
+		<div>
+			<label>学历：
+				<select name="edu" id="">
+					<option value="0">请选择</option>
+					<option value="1">大专</option>
+					<option value="2">本科</option>
+					<option value="3">研究生</option>
+					<option value="4">其它</option>
+				</select>
+			</label>
+		</div>
+
+		<div>
+			<label>电话：<input name="mobile" type="text"></label>
+		</div>
+
+		<div>
+			<label>住址：
+				<textarea name="address" id="" cols="30" rows="3"></textarea>
+			</label>
+		</div>
+
+		<div>
+			<label>爱好：</label>
+			<label><input value="听歌" name="hobbies" type="checkbox">听歌</label>
+			<label><input value="篮球" name="hobbies" type="checkbox">篮球</label>
+			<label><input value="看电影" name="hobbies" type="checkbox">看电影</label>
+			<label><input value="打游戏" name="hobbies" type="checkbox">打游戏</label>
+			<label><input value="跑步" name="hobbies" type="checkbox">跑步</label>
+		</div>
+		
+		<button>确定并提交</button>
+
+	</form>
+
+</body>
+</html>

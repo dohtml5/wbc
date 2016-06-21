@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<div class="wp">
+		<p>
+			<label>姓名：<input id="name" type="text"></label>
+		</p>
+		<p>
+			<label>电话：<input id="mobile" type="text"></label>
+		</p>
+		<p>
+			<label>地址：<input id="address" type="text"></label>
+		</p>
+		<p>
+			<button id="saveBtn">保存</button>
+		</p>
+	</div>
+
+	<hr>
+
+	<table border="1">
+		<thead>
+			<tr>
+				<th>姓名</th>
+				<th>电话</th>
+				<th>地址</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody id="tbody">
+			
+		</tbody>
+	</table>
+
+	<script>
+		
+	var ContactList = {
+		currKey: undefined,
+		init: function() {
+			this.initEvt();
+			this.showList();
+		},
+		initEvt: function() {
+			document.getElementById('saveBtn').onclick = this.onSaveBtnClick;
+		},
+		onSaveBtnClick: function() {
+			var name = document.getElementById('name').value;
+			var mobile = document.getElementById('mobile').value;
+			var address = document.getElementById('address').value;
+
+			// var arr = [name, mobile, address];
+			var obj = {
+				name: name,
+				mobile: mobile,
+				address: address
+			};
+
+			if (ContactList.currKey) {
+				localStorage.setItem(ContactList.currKey, JSON.stringify(obj));
+				ContactList.currKey = undefined;
+				document.getElementById('saveBtn').innerHTML = '保存';
+			} else {
+				localStorage.setItem('name' + new Date().getTime(), JSON.stringify(obj));
+			}
+
+			// console.log(arr);
+
+			// check
+
+			// localStorage.setItem('name' + new Date().getTime(), name);
+
+			// localStorage.setItem('name' + new Date().getTime(), JSON.stringify(obj));
+
+			ContactList.showList();
+		},
+		showList: function() {
+			// var name = localStorage.getItem('name');
+			var tbody = document.getElementById('tbody');
+			var len = localStorage.length;
+			var i;
+			var key;
+			var obj;
+			var trs = [];
+
+
+			for (i=0; i<len; i++) {
+				key = localStorage.key(i);
+				obj = JSON.parse(localStorage.getItem(key));
+
+				trs.push(
+					'<tr>', 
+						'<td>', obj.name, '</td>', 
+						'<td>', obj.mobile, '</td>', 
+						'<td>', obj.address, '</td>', 
+						'<td><button ukey="', key, '" onclick="ContactList.onDelBtnClick(this)">删除</button><button ukey="', key, '" onclick="ContactList.onUpdateBtnClick(this)">修改</button></td>', 
+					'</tr>'
+				);
+				// console.log(localStorage.getItem(key))
+			}
+
+			tbody.innerHTML = trs.join('');
+
+			/*if (!name) return;
+
+			tbody.innerHTML = 
+				'<tr>' +
+					'<td>'+name+'</td>' +
+				'</tr>';*/
+		},
+		onDelBtnClick: function(me) {
+			var key = me.getAttribute('ukey');
+			if (confirm('确定要删除该联系人吗？')) {
+				localStorage.removeItem(key);
+				ContactList.showList();
+			}
+		},
+		onUpdateBtnClick: function(me) {
+			var key = me.getAttribute('ukey');
+			var obj = JSON.parse(localStorage.getItem(key));
+
+			// TODO
+
+			ContactList.currKey = key;
+			document.getElementById('saveBtn').innerHTML = '修改';
+
+			document.getElementById('name').value = obj.name;
+
+		}
+	};
+
+	ContactList.init();
+
+	</script>
+
+
+
+	<!-- <div>该页面被访问了<span id="numSpan">0</span>次</div> -->
+	
+	<script>
+		// sessionStorage.setItem('num', 1);
+
+		/*var numSpan = document.getElementById('numSpan');
+		var num = localStorage.getItem('num');
+
+		if (!num) {
+			num = 0;
+		}
+
+		localStorage.setItem('num', ++num);
+		numSpan.innerHTML = num;
+
+		console.log(num);*/
+	</script>
+
+</body>
+</html>

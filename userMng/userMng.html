@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>用户管理系统</title>
+	<link rel="stylesheet" href="../lib/reset.css">
+	<link rel="stylesheet" href="css/userMng.css">
+	<script src="../lib/jquery-1.12.1.min.js"></script>
+	<script src="../lib/underscore-min.js"></script>
+	<script src="js/userMng.js"></script>
+</head>
+<body>
+	
+	<div class="header">
+		用户管理
+	</div>
+
+	<div class="main">
+		<div class="tool-bar">
+			<button id="addUserBtn" class="btn">新增</button>
+		</div>
+		
+		<table id="userTable" class="table">
+			<thead>
+				<tr>
+					<th>姓名</th>
+					<th>年龄</th>
+					<th>性别</th>
+					<th>电话</th>
+					<th>住址</th>
+					<th>学历</th>
+					<th>爱好</th>
+					<th>照片</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				
+			</tbody>
+		</table>
+		
+	</div>
+
+	<div class="masker-wp">
+		<div class="masker"></div>
+		<div class="dialog">
+			<div class="dialog-header">
+				<span class="dig-title">对话框</span>
+				<i id="closeBtn">&times;</i>
+			</div>
+			<div class="dialog-body">
+				<img id="tmpImg" src="img/default.png">
+				<input type="hidden" id="uid">
+				<div>
+					<label>姓名：<input name="name" type="text"></label>
+				</div>
+				<div>
+					<label>年龄：<input name="age" type="text"></label>
+				</div>
+				<div>
+					<label>
+						照片：
+						<div class="upload-btn">
+							上传
+							<form id="uploadForm" target="formTarget" action="../fileUploading/server/step1.php" method="post" enctype="multipart/form-data">
+								<input type="file" name="pic" />
+							</form>
+						</div>
+					</label>
+					<input type="hidden" id="tmpFileName">
+				</div>
+			</div>
+			<div class="dialog-footer">
+				<button id="dlgCancelBtn" class="btn">取消</button>
+				<button id="dlgSaveBtn" class="btn active">确定</button>
+				<button id="dlgUpdateBtn" class="btn active">修改</button>
+			</div>
+		</div>
+	</div>
+
+		<!-- onerror="this.src='img/default.png'" -->
+		
+	<script type="text/template" id="trTpl">
+		<tr>
+			<td><%= name %></td>
+			<td><%= age %></td>
+			<td><%= gender %></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td><img src="../fileUploading/server/uploadImgs/<%= user_img %>"></td>
+			<td>
+				<button uid="<%= id %>" class="btn del-btn">删除</button>
+				<button uid="<%= id %>" class="btn update-btn">修改</button>
+			</td>
+		</tr>
+	</script>
+
+	<iframe id="formTarget" style="display: none" name="formTarget"></iframe>
+</body>
+</html>

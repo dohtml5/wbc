@@ -1,0 +1,30 @@
+.card {
+    width: 200px;
+    height: 290px;
+    position: relative;
+    margin: 30px auto;
+}
+
+.card img {
+    display: block;
+    position: absolute;
+}
+
+/***************************************************/
+
+.flip-1 {
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    transition: transform 1s;
+    -webkit-transition: transform 1s;
+}
+
+.flip-2 {
+    transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+    transition: transform 1s;
+    -webkit-transition: transform 1s;
+}
+
+
+/***************************************************/

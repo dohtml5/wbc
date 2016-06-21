@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../lib/jquery-1.12.1.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('button').on('click', function() {
+				var name = $('#name').val();
+				// check
+				$.get('server/hello.php', {name: name}, function(data) {
+					alert(data);
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+
+	<div>
+		<label>请输入你的名字：<input id="name" type="text"></label>
+	</div>
+	<button>确定</button>
+	
+</body>
+</html>

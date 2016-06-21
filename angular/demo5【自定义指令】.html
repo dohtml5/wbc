@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/lib/underscore/underscore-min.js"></script>
+	<script src="js/lib/jquery/dist/jquery.min.js"></script>
+	<script src="js/lib/angular/angular.min.js"></script>
+</head>
+<body>
+
+	<div ng-app="myApp">
+		<div wbc-directive></div>
+	</div>
+	
+	<script>
+	var app = angular.module("myApp", []);
+	app.directive("wbcDirective", function() {
+	    return {
+	        template : "<h1>自定义指令!</h1>"
+	    };
+	});
+	</script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        html, body, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 微软雅黑;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        .menu-bar {
+            height: 60px;
+            background-color: #111;
+        }
+
+        .menu-bar > ul {
+            margin-left: 120px;
+        }
+
+        .menu-bar > li {
+            position: relative;
+        }
+
+        .menu-bar > ul > li, .menu-bar > ul > li a {
+            float: left;
+            color: #cbcbcb;
+            font-size: 16px;
+            width: 80px;
+            height: 60px;
+            text-align: center;
+            line-height: 60px;
+            text-decoration: none;
+        }
+
+        .menu-bar > ul > li:hover .sub-menu {
+            display: block;
+        }
+
+        .menu-bar li a:hover {
+            color: #ffbe00;
+            background: #303032;
+        }
+
+        .menu-bar .sub-menu {
+            position: absolute;
+            top: 60px;
+            background-color: #303032;
+            width: 130px;
+            padding-bottom: 10px;
+            display: none;
+        }
+
+        .menu-bar .sub-menu li {
+            height: 30px;
+            line-height: 30px;
+            font-size: 14px;
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        .menu-bar .sub-menu li:hover {
+            background: #c7c7c7;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="menu-bar">
+        <ul>
+            <li>
+                <a href="#">原创</a>
+                <ul class="sub-menu">
+                    <li>最新发布</li>
+                    <li>精选推荐</li>
+                    <li>人气最高</li>
+                </ul>
+            </li>
+            <li>灵感</li>
+            <li>素材</li>
+            <li>代码</li>
+            <li>经验</li>
+            <li>导航</li>
+        </ul>
+    </div>
+
+</body>
+</html>

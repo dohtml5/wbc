@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<script>
+	String.prototype.format = function(str1, str2) {
+		var str = this.toString(),
+			vals = '{0}|{1}';
+
+		str = str.replace(new RegExp("{" + vals + "}", "g"), "$1");
+		console.log(str);
+		console.log(arguments);
+	}
+
+	"Nice {0} meet {1}!".format("to", "you");
+	
+</script>
+	
+</body>
+</html>

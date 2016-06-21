@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/lib/underscore/underscore-min.js"></script>
+	<script src="js/lib/jquery/dist/jquery.min.js"></script>
+	<script src="js/lib/angular/angular.min.js"></script>
+</head>
+<body>
+
+	<div ng-app="myApp" ng-controller="myCtrl">
+
+		名: <input type="text" ng-model="firstName"><br>
+		姓: <input type="text" ng-model="lastName"><br>
+		<br>
+		姓名: {{firstName + " " + lastName}}
+
+	</div>
+
+	<script>
+	var app = angular.module('myApp', []);
+	
+	app.controller('myCtrl', function($scope) {
+	    $scope.firstName= "John2";
+	    $scope.lastName= "Doe";
+	    // console.log($scope.firstName);
+	});
+	</script>
+	
+</body>
+</html>

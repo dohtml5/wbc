@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../lib/reset.css">
+	<style>
+		.tab {
+			width: 600px;
+			height: 300px;
+			margin: 20px auto;
+		}
+
+		.tab .tab-header {
+			border-bottom: 1px solid #c8d3de;
+			height: 41px;
+		}
+
+		.tab .tab-header:after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+		.tab .tab-header li {
+			float: left;
+			width: 60px;
+			height: 40px;
+			line-height: 40px;
+			margin-left: 10px;
+			border: 1px solid #c8d3de;
+			text-align: center;
+			background-color: #e8edf0;
+			border-bottom: none;
+		}
+
+		.tab .tab-header li.active {
+			background-color: #fff;
+			height: 41px;
+		}
+
+		.tab .tab-body {
+			height: 126px;
+			overflow: hidden;
+		}
+
+		.tab .tab-body > div {
+			height: 126px;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="tab">
+		<ul class="tab-header">
+			<li class="active">itme1</li>
+			<li>itme2</li>
+			<li>itme3</li>
+			<li>itme4</li>
+			<li>itme5</li>
+			<li>itme6</li>
+			<li>itme7</li>
+		</ul>
+		<div class="tab-body">
+			<div>
+				<h1>body1</h1>
+				<ul>
+					<li>test1</li>
+					<li>test2</li>
+					<li>test3</li>
+				</ul>
+			</div>
+			<div>body2</div>
+			<div>body3</div>
+			<div>body4</div>
+			<div>body5</div>
+			<div>body6</div>
+			<div>body7</div>
+		</div>
+	</div>
+	
+</body>
+</html>

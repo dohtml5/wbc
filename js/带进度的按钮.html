@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.progress-btn {
+			width: 200px;
+			height: 35px;
+			line-height: 35px;
+			border: 1px solid red;
+			text-align: center;
+			cursor: pointer;
+			border-radius: 3px;
+			position: relative;
+			background-color: red;
+			color: #fff;
+		}
+
+		.progress-btn .inner {
+			position: absolute;
+		    left: 0;
+		    top: 0;
+		    height: 100%;
+		    width: 0;
+		    background-color: #000;
+		    opacity: 0.2;
+		    filter: alpha(opacity=20);
+		}
+	</style>
+</head>
+<body>
+
+	<div id="progressBtn" class="progress-btn">
+		<div class="inner"></div>
+		提交
+	</div>
+	
+	<script>
+		var progressBtn = document.getElementById('progressBtn'),
+			inner = progressBtn.getElementsByTagName('div')[0],
+			counter = 0,
+			timer;
+
+		progressBtn.onclick = function() {
+			timer = setInterval(function() {
+				counter++;
+				inner.style.width = counter * 10 + '%';
+				if (counter == 10) {
+					clearInterval(timer);
+				}
+			}, 1000);
+		};
+
+	</script>
+</body>
+</html>

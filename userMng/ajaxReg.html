@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../lib/jquery-1.12.1.min.js"></script>
+	<script src="js/ajaxReg.js"></script>
+</head>
+<body>
+
+	<h1>用户注册</h1>
+	<a href="server/list.php">用户列表</a>
+	<hr>
+	<form>
+		<div>
+			<label>姓名：<input id="name" type="text"></label>
+		</div>
+
+		<div>
+			<label>年龄：<input id="age" type="text"></label>
+		</div>
+
+		<div>
+			<label>性别：</label>
+			<label><input name="gender" value="男" type="radio" checked="checked">男</label>
+			<label><input name="gender" value="女" type="radio">女</label>
+		</div>
+
+		<div>
+			<label>学历：
+				<select id="edu" id="">
+					<option value="0">请选择</option>
+					<option value="1">大专</option>
+					<option value="2">本科</option>
+					<option value="3">研究生</option>
+					<option value="4">其它</option>
+				</select>
+			</label>
+		</div>
+
+		<div>
+			<label>电话：<input id="mobile" type="text"></label>
+		</div>
+
+		<div>
+			<label>住址：
+				<textarea id="address" id="" cols="30" rows="3"></textarea>
+			</label>
+		</div>
+
+		<div>
+			<label>爱好：</label>
+			<label><input value="听歌" name="hobbies" type="checkbox">听歌</label>
+			<label><input value="篮球" name="hobbies" type="checkbox">篮球</label>
+			<label><input value="看电影" name="hobbies" type="checkbox">看电影</label>
+			<label><input value="打游戏" name="hobbies" type="checkbox">打游戏</label>
+			<label><input value="跑步" name="hobbies" type="checkbox">跑步</label>
+		</div>
+		
+		<button type="button" id="submitBtn">确定并提交</button>
+		<input id="resetBtn" type="reset" value="清空">
+
+	</form>
+
+</body>
+</html>

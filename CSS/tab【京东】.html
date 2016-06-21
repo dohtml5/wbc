@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../lib/reset.css">
+	<style>
+		.jd-tab {
+			width: 1210px;
+			margin: 50px auto;
+			border-bottom: 1px solid #c81623;
+			font-size: 12px;
+		}
+
+		.jd-tab ul {
+			border: solid 1px #ededed;
+			float: right;
+			border-bottom: none;
+			height: 35px;
+		}
+
+		.jd-tab:after, .jd-tab ul:after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+		.jd-tab li {
+			float: left;
+			padding: 10px 20px;
+			position: relative;
+			top: -1px;
+			border-color: transparent;
+			border-width: 3px 1px 0 1px;
+			border-style: solid;
+		}
+
+		.jd-tab li:after {
+			content: '';
+			width: 1px;
+			height: 14px;
+			background-color: #ccc;
+			position: absolute;
+			right: -2px;
+			top: 10px;
+		}
+
+		.jd-tab li.active:after, .jd-tab li.last:after {
+			background-color: transparent;
+		}
+
+		.jd-tab li.active {
+			border-color: #c81623;
+			background-color: #fff;
+		}
+
+		.jd-tab li.active a {
+			color: #c81623;
+		}
+
+		.jd-tab a {
+			color: #666;
+		}
+	</style>
+
+	<script src="../lib/jquery-1.12.1.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('.jd-tab li').on('mouseover', function() {
+				var $this = $(this);
+				$this.addClass('active').siblings('.active').removeClass('active');
+			});
+		});
+	</script>
+</head>
+<body>
+
+	<div class="jd-tab">
+		<ul>
+			<li class="active"><a href="#">大牌</a></li>
+			<li><a href="#">男装</a></li>
+			<li><a href="#">女装</a></li>
+			<li><a href="#">鞋靴</a></li>
+			<li><a href="#">箱包钱包</a></li>
+			<li><a href="#">内衣配饰</a></li>
+			<li><a href="#">珠宝首饰</a></li>
+			<li><a href="#">奢品礼品</a></li>
+			<li class="last"><a href="#">奢华腕表</a></li>
+		</ul>
+	</div>
+	
+</body>
+</html>

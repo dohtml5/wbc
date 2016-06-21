@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>js实现jsonp</title>
+</head>
+<body>
+	
+	<button id="myBtn">发送jsonp请求</button>
+
+	<script>
+		var Jsonp = {
+			url: 'http://localhost/demos/userMng/server/ajaxUserList.php?callback=Jsonp.onSuccess',
+			init: function() {
+				this.$('myBtn').onclick = this.sendJsonpRequest;
+			},
+			sendJsonpRequest: function() {
+				var script = document.createElement('script');
+				script.src = Jsonp.url;
+				script.id = 'tmpJsonpId';
+				document.head.appendChild(script);
+				document.head.removeChild(Jsonp.$(tmpJsonpId));
+			},
+			onSuccess: function(response) {
+				console.log(response);
+			},
+			$: function(id) {
+				if (typeof id === 'string') {
+					return document.getElementById(id);
+				} else {
+					return id;
+				}
+			}
+		};
+
+		Jsonp.init();
+	</script>
+</body>
+</html>

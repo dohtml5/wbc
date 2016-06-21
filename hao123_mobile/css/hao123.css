@@ -1,0 +1,518 @@
+html, body, ul, ol, li, h1 {
+	margin: 0;
+	padding: 0;
+}
+
+ul, ol, li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+	font-family: 微软雅黑;
+	background-color: #f6f5fa;
+	height: 3000px;
+    min-width: 1190px;
+}
+
+.icons {
+	background-image: url(../img/icons.png);
+}
+
+.clear {
+	clear: both;
+}
+
+/* top bar */
+.top-bar {
+	height: 28px;
+	line-height: 28px;
+	border-bottom: 1px solid #ccc;
+	background-color: #fff;
+}
+
+.top-bar .tb-inner-wp {
+	width: 1190px;
+	/*overflow: hidden;*/
+	margin: 0 auto;
+}
+
+.top-bar .tb-left {
+	float: left;
+}
+
+.tb-left li {
+	font-size: 12px;
+	color: #8e9999;
+	font-family: SimSun;
+	float: left;
+}
+
+.tb-left span.hover:hover {
+	color: green;
+}
+
+.tb-left span .icons {
+	width: 15px;
+    height: 16px;
+    background-position: -110px 0;
+    display: inline-block;
+    position: relative;
+    top: 4px;
+}
+
+.tb-left span.arrow {
+	border-width: 4px;
+	border-color: #8E9999 transparent transparent transparent;
+	border-style: solid;	
+}
+
+.tb-left .tb-nav {
+	padding: 0 5px;
+	position: relative;
+}
+
+.tb-nav ul {
+	position: absolute;
+    width: 320px;
+    height: 300px;
+    background-color: #fffccc;
+    display: none;
+}
+
+.tb-left .tb-nav:hover {
+	background-color: #ccc;
+}
+
+.top-bar .tb-right {
+	float: right;
+}
+
+.tb-right li {
+	float: left;
+	font-size: 12px;
+	color: #8e9999;
+	font-family: SimSun;
+	margin-right: 10px;
+}
+
+.tb-right li.login {
+	background-color: #ddd;
+	padding: 0 15px;
+}
+
+.tb-right li.mobile .icons {
+	display: inline-block;
+    width: 13px;
+    height: 19px;
+    background-position: -112px -69px;
+    position: relative;
+    top: 4px;
+}
+
+.tb-right li.mobile {
+	position: relative;
+}
+
+.tb-right li.mobile:hover .code {
+	display: block;
+}
+
+.tb-right .code {
+	width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    position: absolute;
+    top: 28px;
+    left: -40px;
+    display: none;
+}
+
+/* logo wp */
+.logo-wp {
+	height: 70px;
+	background-color: #fff;
+}
+
+.logo-inner {
+	width: 1190px;
+	margin: 0 auto;
+}
+
+.logo {
+	width: 300px;
+    height: 40px;
+    line-height: 40px;
+    float: left;
+    background-position: 0px -450px;
+    background-repeat: no-repeat;
+    text-indent: 130px;
+    font-family: 'Microsoft YaHei';
+    font-size: 27px;
+    font-weight: bolder;
+    color: #666;
+    margin-top: 15px;
+}
+
+.search {
+	float: right;
+	margin-top: 15px;
+}
+
+.search > div {
+	float: left;
+}
+
+.search > div.input-wp {
+	border: 2px solid #0aa770;
+	width: 320px;
+    height: 28px;
+    margin-top: 1px;
+}
+
+.search input {
+	border: none;
+}
+
+.search > div.btn {
+	width: 61px;
+    height: 35px;
+    background-position: -63px -505px;
+}
+
+/* nav bar */
+.nav-bar {
+	background-color: #0aa770;
+	height: 40px;
+}
+
+.nav-bar ul {
+	width: 1190px;
+	margin: 0 auto;
+}
+
+.nav-bar li {
+	float: left;
+	height: 40px;
+	line-height: 40px;
+	color: #fff;
+	width: 101px;
+	text-align: center;
+}
+
+.nav-bar li.active {
+	background-color: #118860;
+}
+
+/* main-ad-wp */
+.main-ad-wp {
+	width: 1190px;
+	height: 400px;
+	margin: 20px auto;
+	overflow: hidden;
+}
+
+.main-ad-wp .slider {
+	float: left;
+	width: 883px;
+	border: 1px solid #ccc;
+	position: relative;
+}
+
+.main-ad-wp .slider:hover a {
+	display: block;
+}
+
+.slider a {
+	display: block;
+	width: 50px;
+	height: 150px;
+	background-color: #000;
+	position: absolute;
+	position: absolute;
+    top: 50%;
+    margin-top: -75px;
+    opacity: 0.3;
+    display: none;
+}
+
+.slider a.right {
+	right: 0;
+}
+
+.main-ad-wp ol {
+	position: absolute;
+	bottom: 7px;
+	width: 885px;
+}
+
+.main-ad-wp ol li {
+	float: left;
+	width: 176px;
+	font-size: 12px;
+	background-color: #fff;
+	height: 37px;
+	line-height: 37px;
+	text-align: center;
+	border: 1px solid #ccc;
+	border-top: none;
+	border-left: none;
+	opacity: 0.9;
+}
+
+.main-ad-wp ol li.active {
+	border-bottom: 3px solid #fe5500;
+	height: 35px;
+}
+
+.main-ad-wp .top5 {
+	float: left;
+	width: 300px;
+}
+
+.top5 li {
+	position: relative;
+	margin-left: 20px;
+	overflow: hidden;
+}
+
+.top5 span {
+	float: left;
+	background-color: #F50;
+	color: #fff;
+	width: 23px;
+	height: 20px;
+	text-align: center;
+	line-height: 20px;
+}
+
+.top5 img  {
+	float: left;
+}
+
+.top5 h1 {
+	height: 50px;
+	line-height: 50px;
+	font-size: 20px;
+	color: #333;
+	font-weight: normal;
+	text-indent: 20px;
+}
+
+.top5 a {
+    font: 12px/1.5 arial,SimSun,helvetica,sans-serif;
+    color: #333;
+}
+
+.top5 a:hover {
+	color: red;
+}
+
+.top5 p {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	color: red;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+/* news */
+.news {
+	width: 1190px;
+	margin: 0 auto;
+	padding: 20px 0;
+}
+
+.news h1 {
+	font-size: 24px;
+	font-weight: normal;
+	margin-bottom: 20px;
+}
+
+.news .news-left {
+	float: left;
+	width: 883px;
+	margin-right: 20px;
+}
+
+.news-left .nl-level1 {
+	overflow: hidden;
+}
+
+.news-left .nl-level1 > div, .news-left .nl-level1 > div a {
+	float: left;
+	width: 430px;
+}
+
+.news-left .nl-level1 > div a {
+	font-size: 20px;
+	text-align: center;
+	margin-bottom: 10px;
+	color: #333;
+}
+
+.news-left .nl-level1 > div a:hover {
+	color: #006baf;
+}
+
+.news-left .nl-level1 ul {
+	float: left;
+	font-size: 12px;
+	width: 50%;
+}
+
+.news-left .nl-level1 ul li {
+	height: 28px;
+	line-height: 28px;
+	position: relative;
+	padding-left: 10px;
+}
+
+.news-left .nl-level1 ul li i {
+	position: absolute;
+    width: 3px;
+    height: 3px;
+    background-color: #ccc;
+    top: 50%;
+    margin-top: -1.5px;
+    left: 0;
+}
+
+.zf-img-wp {
+	float: left;
+	width: 105px;
+}
+
+.zf-title {
+	font-size: 14px;
+}
+
+.zf-detail {
+	float: left;
+	width: 300px;
+	font-size: 12px;
+	margin-left: 10px;
+}
+
+.zf-img-wp img {
+	width: 105px;
+	height: 73px;
+	display: block;
+}
+
+.news .news-right {
+	float: left;
+}
+
+.banner1-wp {
+	margin: 10px 0;
+}
+
+.news-right img {
+	width: 287px;
+	height: 120px;
+}
+
+.news-right .nr-item {
+	position: relative;
+	margin-bottom: 20px;
+}
+
+.nr-detail {
+	position: absolute;
+    left: 0;
+    bottom: 0px;
+    background-color: #333;
+    /* width: 100%; */
+    right: 0;
+    text-align: center;
+    height: 25px;
+    line-height: 25px;
+    color: #fff;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* 热门机型  */
+.hot-mobile {
+	width: 1190px;
+	margin: 0 auto;
+}
+
+.hot-mobile span, .hot-mobile ul, .hot-mobile li {
+	float: left;
+}
+
+.hm-header span {
+	font-size: 24px;
+	margin-right: 30px;
+}
+
+.hm-header {
+	overflow: hidden;
+	height: 40px;
+}
+
+.hm-header ul {
+	position: relative;
+	top: 5px;
+}
+
+.hm-header li {
+	background-color: #ccc;
+	width: 102px;
+	height: 28px;
+	text-align: center;
+	line-height: 28px;
+	margin-right: 5px;
+	font-size: 14px;
+}
+
+.hm-header li.active {
+	background-color: orangered;
+	color: #fff;
+}
+
+.hm-wp {
+	border-top: 2px solid #09A66F;
+}
+
+.hm-wp li {
+	height: 310px;
+	width: 237px;
+	background-color: #fff;
+	margin-right: 1px;
+}
+
+.hm-wp li:hover p {
+	color: red;
+}
+
+.hm-wp li img {
+	display: block;
+	margin: 10px auto;
+}
+
+.hm-wp li p {
+	font-size: 12px;
+	margin: 0 12px;
+}
+
+.hm-wp .hm-span-left {
+	float: left;
+	color: red;
+    font-size: 20px;
+    margin-left: 7px;
+    margin-top: 15px;
+}
+
+.hm-wp .hm-span-right {
+	float: right;
+	font-size: 12px;
+	color: #ccc;
+	margin: 20px 7px 0 0;
+}

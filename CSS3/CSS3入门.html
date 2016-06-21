@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.div1 {
+			width: 100px;
+			height: 100px;
+			border: 1px solid red;
+			background-color: red;
+			box-shadow: 5px 5px 5px #000;
+			/*transition: width 2s, height 2s, background-color 2s, transform 2s;*/
+			transition: all 2s;
+			/* border-width: 1px;
+			border-style: solid;
+			border-color: red; */
+
+			/*border-radius: 100px;*/
+			/* border-top-left-radius: 10px;
+			border-bottom-right-radius: 20px; */
+
+			/*border-radius: 10px 20px 30px;*/
+		}
+
+		.div1:hover {
+			width: 200px;
+			height: 200px;
+			background-color: green;
+			transform: rotate(720deg);
+		}
+
+		.btn {
+			width: 200px;
+			height: 50px;
+			line-height: 50px;
+			background-color: #ccc;
+			border: 2px solid #aaa;
+			text-align: center;
+			color: #fff;
+			border-radius: 25px;
+			animation: test 5s;
+		}
+
+		.bus {
+			width: 200px;
+			border-radius: 100px;
+		}
+
+		.bg-size {
+			width: 300px;
+			height: 200px;
+			background-image: url(img/bus.jpg);
+			background-size: 100%;
+			margin: 20px;
+			border: 20px dashed red;
+			padding: 20px;
+			background-origin: border-box;
+    		background-repeat: no-repeat;
+		}
+
+		.text-shadow {
+			font-size: 20px;
+			font-family: 'microsoft yahei';
+			color: red;
+			text-shadow: 2px 2px 2px #000;
+		}
+
+		.test {
+			width: 100px;
+			border: 1px solid;
+			word-wrap: break-word;
+		}
+
+		.trans {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			/*transform: translate(50px, 100px);*/
+			/*transform: rotate(45deg);*/
+			/*transform: scale(2, 2);*/
+			/*transform: skew(0deg, 0deg);*/
+			/*transform: rotateX(45deg);*/
+			/*transform: rotateY(45deg);*/
+			transition: width 2s, height 2s;
+		}
+
+		.trans:hover {
+			width: 500px;
+			height: 500px;
+		}
+
+		@keyframes test {
+			0% {
+				background-color: red;
+				
+			}
+
+			50% {
+				transform: translate(500px, 0) rotate(720deg);
+				/*transform: rotate(720deg);*/
+			}
+
+			70% {
+				transform: translate(500px, 0);
+			}
+
+			100% {
+				background-color: blue;
+			}
+		}
+
+		.box-sizing {
+			width: 500px;
+			height: 200px;
+			border: 1px solid red;
+		}
+
+		.box-sizing > div {
+			float: left;
+			width: 50%;
+			border: 5px solid blue;
+			box-sizing: content-box;
+			/*box-sizing: border-box;*/
+		}
+
+		.overflow {
+			width: 300px;
+			height: 200px;
+			border: 1px solid red;
+			/*overflow: auto;*/
+			overflow-x: hidden;
+			overflow-y: auto;
+		}
+
+		.overflow > div {
+			width: 300px;
+			height: 500px;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="div1">demo</div>
+
+	<hr>
+
+	<div class="btn">我是一个按钮</div>
+
+	<hr>
+
+	<img class="bus" src="img/bus.jpg">
+
+	<hr>
+
+	<div class="bg-size"></div>
+
+	<hr>
+
+	<div class="text-shadow">
+		故人西辞黄鹤楼
+	</div>
+
+	<hr>
+	<p class="test">This paragraph contains a very long word: thisisaveryveryveryveryveryverylongword. The long word will break and wrap to the next line.</p>
+
+	<hr>
+
+	<div class="trans">demo</div>
+
+	<button>my btn</button>
+
+	<hr>
+
+	<div class="box-sizing">
+		<div>1</div>
+		<div>2</div>
+	</div>
+
+	<hr>
+
+	<div class="overflow">
+		<div>inner</div>
+	</div>
+	
+</body>
+</html>

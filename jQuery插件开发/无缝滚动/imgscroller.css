@@ -1,0 +1,42 @@
+.scroller-wp {
+    width: 960px;
+	height: 142px;
+    background-image: url(img/jiaoj2.png);
+    position: relative;
+    margin: 50px auto;
+}
+
+.scroller-wp a {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	background-color: #000;
+	top: 50%;
+	margin-top: -15px;
+}
+
+.scroller-wp a.next {
+	right: 0;
+}
+
+.scroller-inner {
+	width: 948px;
+    height: 94px;
+    overflow: hidden;
+    position: absolute;
+    top: 26px;
+    left: 7px;
+}
+
+.scroller {
+	width: 2400px;
+	overflow: hidden;
+}
+
+.scroller-ul {
+	float: left;
+}
+
+.scroller-ul li {
+	float: left;
+}

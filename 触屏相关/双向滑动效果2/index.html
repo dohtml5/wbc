@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>Document</title>
+    <link rel="stylesheet" href="lib/css/swiper.min.css">
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #navBar .swiper-slide.active {
+            background-color: red;
+            color: #fff;
+        }
+
+        #navBar {
+            float: right;
+            height: 100%;
+        }
+
+        #navBar .swiper-slide {
+            /*height: 50px!important;*/
+            width: 50px;
+            /*line-height: 50px;*/
+            border-radius: 50%;
+            text-align: center;
+        }
+
+        #pageWp {
+            float: left;
+            height: 100%;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="navBar" class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide active">Slide 1</div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+            <div class="swiper-slide">Slide 4</div>
+            <div class="swiper-slide">Slide 5</div>
+            <div class="swiper-slide">Slide 6</div>
+            <div class="swiper-slide">Slide 7</div>
+            <div class="swiper-slide">Slide 8</div>
+            <div class="swiper-slide">Slide 9</div>
+            <div class="swiper-slide">Slide 10</div>
+        </div>
+    </div>
+
+    <div id="pageWp" class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">Page 1</div>
+            <div class="swiper-slide">Page 2</div>
+            <div class="swiper-slide">Page 3</div>
+            <div class="swiper-slide">Page 4</div>
+            <div class="swiper-slide">Page 5</div>
+            <div class="swiper-slide">Page 6</div>
+            <div class="swiper-slide">Page 7</div>
+            <div class="swiper-slide">Page 8</div>
+            <div class="swiper-slide">Page 9</div>
+            <div class="swiper-slide">Page 10</div>
+        </div>
+    </div>
+
+    <script src="../../lib/zepto.min.js" charset="utf-8"></script>
+    <script src="lib/js/swiper.min.js"></script>
+    <script>
+        var pageWp, navBar;
+
+        pageWp = new Swiper('#pageWp', {
+            direction: 'vertical',
+            onSlideChangeEnd: function(swiper){
+                var index = swiper.activeIndex;
+                navBar.slideTo(index, 500, false);
+                activeItem(index);
+            },
+        });
+
+        navBar = new Swiper('#navBar', {
+            slidesPerView: 4,
+            spaceBetween: 5,
+            direction: 'vertical',
+            onClick: function(swiper){
+                var index = swiper.clickedIndex;
+                navBar.slideTo(index, 500, false);
+                pageWp.slideTo(index, 100, false);
+                activeItem(index);
+            },
+            onInit: function() {
+                var $slider = $('#navBar .swiper-slide'),
+                    h = $slider.height();
+                $slider.width(h);
+            }
+        });
+
+        function activeItem(index) {
+            var $navBar = $('#navBar');
+            $navBar
+                .find('.swiper-slide').eq(index).addClass('active')
+                .siblings('.active').removeClass('active');
+        }
+
+    </script>
+
+</body>
+</html>

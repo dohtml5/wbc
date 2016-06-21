@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/lib/underscore/underscore-min.js"></script>
+	<script src="js/lib/jquery/dist/jquery.min.js"></script>
+	<script src="js/lib/angular/angular.min.js"></script>
+</head>
+<body>
+
+	<div ng-app="testApp" ng-controller="testController">
+
+		{{carname | uppercase }}
+
+		<hr>
+		
+		<select name="" id="">
+			<option value="-1">请选择</option>
+			<option value="{{$index}}" ng-repeat="opt in opts">{{opt}}</option>
+		</select>
+
+		<select ng-model="selectedName" ng-options="x for x in opts"></select>
+
+		<hr>
+
+		<table border="1">
+			<tr>
+				<th></th>
+				<th>姓名</th>
+				<th>年龄</th>
+			</tr>
+			<tr ng-repeat="user in users">
+				<td>{{$index}}</td>
+				<td>{{user.name}}</td>
+				<td>{{user.age}}</td>
+			</tr>
+		</table>
+
+	</div>
+
+	<script>
+		var app = angular.module('testApp', []);
+
+		app.controller('testController', function($scope) {
+		    $scope.carname = "Volvo";
+		    $scope.opts = '北京 上海 天津 重庆'.split(' ');
+		    $scope.users = [{name: 'aaa', age: 20}, {name: 'bbb', age: 24}, {name: 'ccc', age: 22}];
+		});
+	</script>
+	
+</body>
+</html>

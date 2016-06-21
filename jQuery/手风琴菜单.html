@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>手风琴菜单</title>
+	<link rel="stylesheet" href="../lib/reset.css">
+	<style>
+		body {
+			background-color: yellow;
+		}
+
+		.shoufq {
+			width: 300px;
+			background: #fff;
+			margin: 50px auto;
+		}
+
+		.shoufq ul {
+			display: none;
+		}
+
+		.shoufq ul li {
+			height: 35px;
+			line-height: 35px;
+			background-color: #999;
+		}
+
+		.shoufq ul li:hover {
+			background-color: red;
+		}
+
+		.shoufq .title {
+			background-color: green;
+			color: #fff;
+			text-indent: 10px;
+			margin-bottom: 1px;
+		}
+
+		.shoufq .title p {
+			height: 35px;
+			line-height: 35px;
+			cursor: pointer;
+		}
+
+		.red {
+			color: red;
+		}
+	</style>
+
+	<script src="../lib/jquery-1.12.1.min.js"></script>
+	<script>
+		$(document).ready(function() {
+
+			var $title = $('.title');
+			$title.on('click', function() {
+				var $this = $(this);
+				$this
+					.find('p').addClass('red')
+					.end()
+					.find('ul').slideToggle()
+					.end()
+					.siblings()
+					.find('p').removeClass('red')
+					.end()
+					.find('ul').slideUp();
+			});
+
+		});
+	</script>
+</head>
+<body>
+	
+	<div class="shoufq">
+		<div class="title">
+			<p>CSS课程</p>
+			<ul>
+				<li>课程1</li>
+				<li>课程2</li>
+				<li>课程3</li>
+				<li>课程4</li>
+				<li>课程5</li>
+			</ul>
+		</div>
+		<div class="title">
+			<p>js课程</p>
+			<ul>
+				<li>课程11</li>
+				<li>课程2</li>
+				<li>课程3</li>
+				<li>课程4</li>
+				<li>课程5</li>
+			</ul>
+		</div>
+		<div class="title">
+			<p>html5课程</p>
+			<ul>
+				<li>课程12</li>
+				<li>课程2</li>
+				<li>课程3</li>
+				<li>课程4</li>
+				<li>课程5</li>
+			</ul>
+		</div>
+		<div class="title">
+			<p>css3课程</p>
+			<ul>
+				<li>课程13</li>
+				<li>课程2</li>
+				<li>课程3</li>
+				<li>课程4</li>
+				<li>课程5</li>
+			</ul>
+		</div>
+		<div class="title">
+			<p>jQuery课程</p>
+			<ul>
+				<li>课程14</li>
+				<li>课程2</li>
+				<li>课程3</li>
+				<li>课程4</li>
+				<li>课程5</li>
+			</ul>
+		</div>
+	</div>
+
+</body>
+</html>

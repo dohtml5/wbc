@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>"无刷新"文件上传</title>
+	<style>
+		div.list-item {
+			margin-bottom: 20px;
+		}
+
+		.upload-btn {
+			display: inline-block;
+			border: 1px solid red;
+			border-radius: 3px;
+			padding: 5px;
+			position: relative;
+		}
+
+		.upload-btn input {
+			position: absolute;
+		    top: 0;
+		    left: 0;
+		    width: 100%;
+		    height: 100%;
+		    opacity: 0;
+		}
+	</style>
+	<script src="../lib/underscore-min.js"></script>
+	<script>
+		window.onload = function() {
+			var pic = document.getElementById('pic');
+			var uploadForm = document.getElementById('uploadForm');
+			var formTarget = document.getElementById('formTarget');
+			var preview = document.getElementById('preview');
+			var submitBtn = document.getElementById('submitBtn');
+			var tmpFileName = document.getElementById('tmpFileName');
+
+			pic.onchange = function() {
+				// console.log(this.value)
+				uploadForm.submit();
+			}
+
+			formTarget.onload = function() {
+				var response = this.contentWindow.document.body.innerHTML;
+
+				if (!response) return;
+
+				// response = JSON.parse(response);
+
+				response = eval('(' + response + ')');
+
+				if (response.success) {
+					preview.src = 'server/uploadImgs/' + response.fileName;
+					tmpFileName.value = response.fileName;
+				}
+
+				// console.log(response)
+
+				// console.log(this.contentWindow.document.body.innerHTML)
+			}
+
+			submitBtn.onclick = function() {
+
+				var data = {
+					username: document.getElementById('username').value,
+					userpic: document.getElementById('tmpFileName').value
+				};
+
+				// check form
+
+				console.log(data)
+
+				// $.get();
+			}
+
+		}
+	</script>
+</head>
+<body>
+
+	<div class="list-item">
+		<label for="">姓名：<input id="username" name="username" type="text"></label>
+	</div>
+	<div class="list-item">
+		<label for="">照片：
+			<div class="upload-btn">
+				上传图片
+				<form id="uploadForm"  target="formTarget" action="server/step1.php" method="post" enctype="multipart/form-data">
+					<input id="pic" name="pic" type="file">
+				</form>
+				<input type="hidden" id="tmpFileName">
+			</div>
+		</label>
+		<img id="preview" src="">
+	</div>
+	<div class="list-item">
+		<input id="submitBtn" type="button" value="提交">
+	</div>
+
+	<iframe id="formTarget" style="display: none" name="formTarget"></iframe>
+	
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="build/jquery.datetimepicker.min.css">
+	<script src="../../lib/jquery-1.12.1.min.js"></script>
+	<script src="build/jquery.datetimepicker.full.min.js"></script>
+</head>
+<body>
+
+	<!-- http://xdsoft.net/jqplugins/datetimepicker/ -->
+
+	Start: <input type="text" id="start">
+	End: <input type="text" id="end">
+
+	<script>
+		var startDate;
+
+		$('#start').datetimepicker({
+			// yearOffset:222,
+			lang:'ch',
+			timepicker:false,
+			format:'Y-m-d',
+			formatDate:'Y-m-d',
+			onShow: function(date) {
+				startDate = date;
+			}
+			// minDate:'-1970/01/02', // yesterday is minimum date
+			// maxDate:'+1970/01/02' // and tommorow is maximum date calendar
+		});
+
+		$('#end').datetimepicker({
+			// yearOffset:222,
+			lang:'ch',
+			timepicker:false,
+			format:'Y-m-d',
+			formatDate:'Y-m-d',
+			onShow: function(date) {
+				this.setOptions({
+					maxDate: startDate.setDate(startDate.getDate() + 30)
+				});
+				// console.log(date)
+				// console.log(startDate)
+			}
+			// minDate:'-1970/01/02', // yesterday is minimum date
+			// maxDate:'+1970/01/02' // and tommorow is maximum date calendar
+		});
+	</script>
+	
+</body>
+</html>

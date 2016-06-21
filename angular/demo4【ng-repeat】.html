@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/lib/underscore/underscore-min.js"></script>
+	<script src="js/lib/jquery/dist/jquery.min.js"></script>
+	<script src="js/lib/angular/angular.min.js"></script>
+</head>
+<body>
+
+	<!-- <div ng-app="" ng-init="names=['Jani','Hege','Kai']">
+	  <p>使用 ng-repeat 来循环数组</p>
+	  <ul>
+	    <li ng-repeat="x in names">
+	      {{ x }}
+	    </li>
+	  </ul>
+	</div> -->
+
+	<div ng-app ng-init="opts=['北京', '上海', '天津', '重庆']">
+		<select>
+			<option value="{{$index}}" ng-repeat="item in opts">
+				{{item}}
+			</option>
+		</select>
+	</div>
+	
+</body>
+</html>

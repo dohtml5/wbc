@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<button id="sendBtn">send request</button>
+	
+	<script>
+		var Jsonp = {
+			init: function() {
+				this.$('sendBtn').onclick = this.sendJsonpRequest;
+			},
+			onSuccess: function(response) {
+				console.log(response);
+			},
+			sendJsonpRequest: function() {
+
+				var url = 'http://localhost/demos/userMng/server/ajaxUserList.php?callback=Jsonp.onSuccess';
+
+				var head = document.head;
+				// var head = document.getElementsByTagName('head')[0];
+
+				var script = document.createElement('script');
+				script.src = url;
+
+				head.appendChild(script);
+
+				head.removeChild(script);
+
+			},
+			$: function(id) {
+				if (typeof id === 'string') {
+					return document.getElementById(id);
+				} else {
+					return id;
+				}
+			}
+		};
+
+		Jsonp.init();
+
+		// ---------------------------
+		// function onSuccess(response) {
+		// 	console.log(response)
+		// }
+	</script>
+</body>
+</html>

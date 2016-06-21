@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../lib/reset.css">
+	<style>
+		.header {
+			height: 300px;
+			background-color: red;
+		}
+
+		.menu {
+			height: 50px;
+			background-color: blue;
+			width: 100%;
+		}
+
+		.menu.fixed {
+			position: fixed;
+			top: 0;
+		}
+
+		.body {
+			height: 1000px;
+			background-color: yellow;
+		}
+
+		.body.fixed {
+			margin-top: 50px;
+		}
+	</style>
+	<script src="../lib/jquery-1.12.1.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$(window).on('scroll', function() {
+				var $menu = $('.menu'),
+					top = $('.header').height(),
+					scrollTop = $(this).scrollTop();
+
+				// console.log(top + '-' + scrollTop)
+
+				if (scrollTop > top) {
+					$menu.add('.body').addClass('fixed');
+				} else {
+					$menu.add('.body').removeClass('fixed');
+				}
+
+			});
+		});
+	</script>
+</head>
+<body>
+	
+	<div class="header"></div>
+
+	<div class="menu"></div>
+
+	<div class="body">
+		<ul>
+			<li>item1</li>
+			<li>item2</li>
+			<li>item3</li>
+			<li>item4</li>
+			<li>item5</li>
+			<li>item6</li>
+			<li>item7</li>
+			<li>item8</li>
+			<li>item9</li>
+			<li>item10</li>
+		</ul>
+	</div>
+
+</body>
+</html>

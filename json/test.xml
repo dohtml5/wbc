@@ -1,0 +1,6 @@
+<person>
+	<name type="nick">小张</name>
+	<name type="real">张三</name>
+	<age>20</age>
+	<address>北京市海淀区西二旗</address>
+</person>

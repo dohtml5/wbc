@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			height: 2000px;
+		}
+	</style>
+</head>
+<body>
+
+	<!-- <button onclick="alert(99)">my btn</button> -->
+	<!-- <button onclick="test()">my btn</button> -->
+	<button id="myBtn">my Btn</button>
+
+	<hr>
+
+	<input id="myTxt" type="text">
+
+	<script>
+		var myBtn = document.getElementById('myBtn');
+		var myTxt = document.getElementById('myTxt');
+
+		myBtn.onmouseout = function() {
+			alert('abc');
+		}
+
+		/*myTxt.onkeyup = function() {
+			console.log('key up: ' + this.value);
+		}
+
+		myTxt.onkeydown = function() {
+			console.log('key down: ' + this.value);
+		}*/
+
+		/*window.onload = function() {
+			console.log('load');
+		}*/
+
+		/*window.onresize = function() {
+			console.log('resize');
+		}*/
+
+		window.onscroll = function() {
+			console.log('scroll');
+		}
+
+		/*var test = function() {
+			// alert(77)
+			return function() {
+				alert(66);
+			}
+		};
+
+		myBtn.onclick = test();*/
+
+		/*myBtn.addEventListener('click', function() {
+			alert(55);
+		}, false);*/
+
+	</script>
+</body>
+</html>
