@@ -8,10 +8,17 @@
 			height: 2000px;
 		}
 	</style>
+
+	<script>
+		window.onload = function() {
+			var myBtn = document.getElementById('myBtn');
+			console.log(myBtn)
+		}
+	</script>
 </head>
 <body>
 
-	<!-- <button onclick="alert(99)">my btn</button> -->
+	<!-- <button onclick="window.alert(99)">my btn</button> -->
 	<!-- <button onclick="test()">my btn</button> -->
 	<button id="myBtn">my Btn</button>
 
@@ -19,13 +26,54 @@
 
 	<input id="myTxt" type="text">
 
-	<script>
-		var myBtn = document.getElementById('myBtn');
-		var myTxt = document.getElementById('myTxt');
+	<select name="" id="mySel">
+		<option value="1">item1</option>
+		<option value="2">item2</option>
+		<option value="3">item3</option>
+		<option value="4">item4</option>
+		<option value="5">item5</option>
+	</select>
 
-		myBtn.onmouseout = function() {
-			alert('abc');
-		}
+	<script>
+		// var myBtn = document.getElementById('myBtn');
+		// var myTxt = document.getElementById('myTxt');
+		// var mySel = document.getElementById('mySel');
+
+		// myTxt.onkeyup = function() { // onkeydown
+		// 	console.log(this.value)
+		// };
+
+		// myBtn.onmouseover = function() {
+		// 	this.style.backgroundColor = 'red';
+		// };
+
+		// myBtn.onmouseout = function() {
+		// 	this.style.backgroundColor = '';
+		// };
+
+		// mySel.onchange = function() {
+		// 	console.log(this.value)
+		// };
+
+		// myTxt.onchange = function() {
+		// 	console.log(this.value)
+		// };
+
+		// myBtn.onclick = function() {
+		// 	alert(66);
+		// };
+
+		// var onBtnClick = function() {
+		// 	alert(22);
+		// };
+
+		// myBtn.onclick = onBtnClick; // on_btn_click
+
+		
+
+		// myBtn.onmouseout = function() {
+		// 	alert('abc');
+		// }
 
 		/*myTxt.onkeyup = function() {
 			console.log('key up: ' + this.value);
@@ -35,26 +83,26 @@
 			console.log('key down: ' + this.value);
 		}*/
 
-		/*window.onload = function() {
-			console.log('load');
-		}*/
+		// window.onload = function() {
+		// 	console.log('load');
+		// };
 
 		/*window.onresize = function() {
 			console.log('resize');
 		}*/
 
-		window.onscroll = function() {
-			console.log('scroll');
-		}
+		// window.onscroll = function() {
+		// 	console.log('scroll');
+		// }
 
-		/*var test = function() {
-			// alert(77)
-			return function() {
-				alert(66);
-			}
-		};
+		// var test = function() {
+		// 	alert(77)
+		// 	// return function() {
+		// 	// 	alert(66);
+		// 	// }
+		// };
 
-		myBtn.onclick = test();*/
+		/*myBtn.onclick = test();*/
 
 		/*myBtn.addEventListener('click', function() {
 			alert(55);
