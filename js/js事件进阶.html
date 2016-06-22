@@ -7,12 +7,35 @@
 		body {
 			height: 2000px;
 		}
+
+		.back2top {
+			position: fixed;
+			right: 10px;
+			bottom: 10px;
+
+			width: 30px;
+			height: 30px;
+			background-color: red;
+
+			cursor: pointer;
+		}
 	</style>
 
 	<script>
 		window.onload = function() {
 			var myBtn = document.getElementById('myBtn');
-			console.log(myBtn)
+			// console.log(myBtn)
+		}
+
+		window.onresize = function() {
+			var w = window.innerWidth;
+			var h = window.innerHeight;
+
+			console.log(w + '-' + h);
+		}
+
+		window.onscroll = function() {
+			// console.log(document.body.scrollTop);
 		}
 	</script>
 </head>
@@ -21,6 +44,7 @@
 	<!-- <button onclick="window.alert(99)">my btn</button> -->
 	<!-- <button onclick="test()">my btn</button> -->
 	<button id="myBtn">my Btn</button>
+	<button id="myBtn2">解除绑定</button>
 
 	<hr>
 
@@ -34,10 +58,38 @@
 		<option value="5">item5</option>
 	</select>
 
+	<div id="back2Top" class="back2top"></div>
+
 	<script>
-		// var myBtn = document.getElementById('myBtn');
+		// 返回顶部
+		// var back2Top = document.getElementById('back2Top');
+		// var timer;
+		// back2Top.onclick = function() {
+		// 	// document.body.scrollTop = 0;
+		// 	timer = setInterval(function() {
+		// 		document.body.scrollTop -= 100;
+		// 		if (document.body.scrollTop <= 0) {
+		// 			clearInterval(timer);
+		// 		}
+		// 		console.log(8)
+		// 	}, 10);
+		// };
+
+
+		var myBtn = document.getElementById('myBtn');
+		var myBtn2 = document.getElementById('myBtn2');
 		// var myTxt = document.getElementById('myTxt');
 		// var mySel = document.getElementById('mySel');
+
+		var test = function() {
+			alert(789);
+		}
+
+		myBtn.addEventListener('click', test, false);
+
+		myBtn2.addEventListener('click', function() {
+			myBtn.removeEventListener('click', test);
+		}, false);
 
 		// myTxt.onkeyup = function() { // onkeydown
 		// 	console.log(this.value)
@@ -59,8 +111,13 @@
 		// 	console.log(this.value)
 		// };
 
-		// myBtn.onclick = function() {
+		// myBtn.onclick = function(e) {
+		// 	// console.log(e);
 		// 	alert(66);
+		// };
+
+		// myBtn2.onclick = function(e) {
+		// 	myBtn.onclick = null;
 		// };
 
 		// var onBtnClick = function() {
