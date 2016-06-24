@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script>
+		function getType(item) {
+			var type = typeof item;
+
+			if (type == 'object' && item instanceof Array) {
+				return 'array';
+			} else {
+				return type;
+			}
+
+			/*if (type == 'object') {
+				if (item instanceof Array) {
+					return 'array';
+				} else {
+					return type;
+				}
+			} else {
+				return type;
+			}*/
+		}
+
+		var r = getType(7);
+
+		console.log(r);
+	</script>
+</body>
+</html>
