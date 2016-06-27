@@ -6,5 +6,21 @@
 </head>
 <body>
 	
+	<h1 id="myH1">test</h1>
+
+	<script>
+		function hello() {
+			alert('hello');
+		}
+
+		var myH1 = document.getElementById('myH1');
+		myH1.onclick = function() {
+			var setH1Btn = window.parent.document.getElementById('setH1Btn');
+			setH1Btn.innerHTML = 'Hello WBC4';
+			window.parent.hello2();
+			// console.log(window.parent)
+		};
+	</script>
+
 </body>
 </html>

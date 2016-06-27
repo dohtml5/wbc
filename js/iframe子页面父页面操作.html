@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<!-- <iframe src="http://www.baidu.com" frameborder="0"></iframe> -->
+	<iframe id="frame1" src="test.html" frameborder="1"></iframe>
+
+	<button id="setH1Btn">set H1</button>
+
+	<script src="../lib/jquery-1.12.1.min.js"></script>
+
+	<script>
+		var setH1Btn = document.getElementById('setH1Btn');
+		setH1Btn.onclick = function() {
+			/*var myH1 = document.getElementById('myH1');
+			myH1.innerHTML = "Hello wbc";*/
+
+			var frame1 = document.getElementById('frame1');
+			var cWin = frame1.contentWindow;
+			var myH1 = cWin.document.getElementById('myH1');
+			myH1.innerHTML = "Hello wbc";
+
+			cWin.hello();
+
+			// console.log(frame1.contentWindow.document.getElementById('myH1'));
+		};
+
+		function hello2() {
+			alert('hello2');
+		}
+
+		// $('#frame1').contents().find('#myH1').html('hello wbc2');
+	</script>
+	
+</body>
+</html>

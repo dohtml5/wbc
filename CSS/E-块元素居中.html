@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			height: 2000px;
+		}
+
+		.outer {
+			width: 500px;
+			height: 300px;
+			background-color: red;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin: -150px 0 0 -250px;
+		}
+
+		.outer > .inner {
+			width: 200px;
+			height: 120px;
+			background-color: green;
+
+			top: 50%;
+			left: 50%;
+			margin-top: -60px;
+			margin-left: -100px;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="outer">
+		<div class="inner"></div>
+	</div>
+	
+</body>
+</html>

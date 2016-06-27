@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.img-wp {
+			width: 765px;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="img-wp">
+		<img data-original="img/1.jpg" alt="" width="765" height="574">
+		<img data-original="img/2.jpg" alt="" width="765" height="574">
+		<img data-original="img/3.jpg" alt="" width="765" height="574">
+		<img data-original="img/4.jpg" alt="" width="765" height="574">
+		<img data-original="img/5.jpg" alt="" width="765" height="574">
+		<img data-original="img/6.jpg" alt="" width="765" height="574">
+	</div>
+	
+	<script src="../../lib/jquery-1.12.1.min.js"></script>
+	<script src="../../lib/jquery.lazyload.min.js"></script>
+	<script>
+		$('.img-wp img').lazyload({event: "click"});
+	</script>
+</body>
+</html>

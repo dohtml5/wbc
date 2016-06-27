@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script>
+		// 5! 5*4*3*2*1
+
+		function jc(num) {
+			if (num <= 1) {
+				return 1;
+			} else {
+				return num * arguments.callee(num - 1);
+				// return num * jc(num - 1);
+				// return 5 * 4 * 3 * 2 * 1
+			}
+
+			/*var sum = 1;
+			for(var i=num; i>=1; i--) {
+				sum *= i;
+			}
+			return sum;*/
+		}
+
+		var r = jc(5);
+		console.log(r);
+	</script>
+</body>
+</html>

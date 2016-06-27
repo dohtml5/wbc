@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.btn {
+			display: block;
+			width: 200px;
+			height: 35px;
+			line-height: 35px;
+			background-color: red;
+			text-align: center;
+			margin: 0 auto;
+			color: #fff;
+			font-weight: bold;
+			border-radius: 3px;
+			text-decoration: none;
+			cursor: pointer;
+			border: none;
+			font-size: 16px;
+		}
+
+		.blue-btn {
+			background-color: blue;
+		}
+
+		.btn.green-btn {
+			background-color: green;
+		}
+
+		.btn:hover {
+			opacity: 0.6; /* ie8 ??? */
+			filter: alpha(opacity=60);
+		}
+	</style>
+</head>
+<body>
+
+	<div class="btn">登录我的账号</div>
+
+	<hr>
+
+	<span class="btn">我的账号2</span>
+
+	<hr>
+
+	<a href="#" class="btn blue-btn">我的账号3</a>
+
+	<hr>
+
+	<button class="btn">我的账号4</button>
+
+	<hr>
+
+	<input class="btn green-btn" type="button" value="我的账号5">
+	
+</body>
+</html>
