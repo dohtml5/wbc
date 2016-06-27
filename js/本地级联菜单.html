@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	省：
+	<select id="prov">
+		<option value="0">请选择</option>
+	</select>
+
+	市：
+	<select id="city">
+		<option value="0">请选择</option>
+	</select>
+
+	<script src="../lib/city.data-3.js"></script>
+	<script>
+
+		function renderOpts(data) {
+			var optArr = [], i, len = data.length;
+			var prov = document.getElementById('prov');
+
+			for (i=0; i<len; i++) {
+				optArr.push('<option value="', data[i].value, '">', data[i].text, '</option>');
+				// console.log(data[i])
+			}
+
+			prov.innerHTML += optArr.join('');
+
+			prov.onchange = function() {
+				var val = this.value;
+
+				var children = getChildren(val, data);
+
+				var optArr = ['<option value="0">请选择</option>'], i, len = children.length;
+				var city = document.getElementById('city');
+
+				for (i=0; i<len; i++) {
+					optArr.push('<option value="', children[i].value, '">', children[i].text, '</option>');
+				}
+
+				city.innerHTML = optArr.join('');
+				// console.log(children)
+			}
+
+			// console.log(optArr)
+		}
+
+		function getChildren(val, data) {
+			var i, len = data.length;
+
+			for (i=0; i<len; i++) {
+				if (data[i].value == val) {
+					return data[i].children;
+				}
+				// console.log(i)
+			}
+
+			/*for (i=0; i<len; i++) {
+				if (data[i].value == val) {
+					// console.log(data[i])
+					result = data[i];
+					break;
+				}
+				console.log(i)
+
+			}
+
+			console.log(result)*/
+
+
+			/*for (var obj in data) {
+				if (data[obj].value == val) {
+					console.log(data[obj]);
+				}
+				console.log(data[obj])
+			}*/
+		}
+
+		renderOpts(cityData3);
+	</script>
+</body>
+</html>
