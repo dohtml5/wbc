@@ -4,7 +4,7 @@
     $host = $_SERVER['HTTP_HOST'];
     
     /*测试环境*/
-    if (strpos($host, '192.168.1.147') > -1) {
+    if (strpos($host, 'localhost') > -1) {
         $param = Array (
             'host' => 'localhost',
             'username' => 'root', 

@@ -1,0 +1,29 @@
+<table class="table table-striped table-bordered table-hover mt-15 mb-0">
+	<tr>
+		<th></th>
+		<th>商品名</th>
+		<th>价格</th>
+		<th>优惠信息</th>
+		<th>已售</th>
+		<th>推荐</th>
+		<th>图片</th>
+		<th>评论</th>
+		<th>标签</th>
+		<th class="action">操作</th>
+	</tr>
+	<tr ng-repeat="list in lists">
+		<td>{{$index + 1}}</td>
+		<td>{{list.title}}</td>
+		<td>{{list.price}}</td>
+		<td>{{list.coupons}}</td>
+		<td>{{list.sales}}</td>
+		<td>{{list.is_recommend}}</td>
+		<td>{{list.img}}</td>
+		<td>{{list.comments}}</td>
+		<td>{{list.labels}}</td>
+		<td class="action">
+			<button ng-click="updateUser()" class="btn btn-warning btn-xs">修改</button>
+			<button class="btn btn-danger btn-xs" ng-click="delUser()">删除</button>
+		</td>
+	</tr>
+</table>
