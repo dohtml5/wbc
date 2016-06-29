@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../lib/reset.css">
+	<style>
+		body {
+			background-color: #ccc;
+		}
+
+		.tab {
+			width: 500px;
+			height: 300px;
+			background-color: #fff;
+			margin: 20px auto;
+		}
+
+		.tab .tab-header {
+			overflow: hidden;
+		}
+
+		.tab .tab-header li {
+			float: left;
+			width: 60px;
+			height: 35px;
+			line-height: 35px;
+			text-align: center;
+			margin-right: 10px;
+			background-color: #aaa;
+		}
+
+		.tab .tab-header li.active {
+			background-color: red;
+			color: #fff;
+		}
+
+		.tab .tab-body {
+			height: 265px;
+			overflow: hidden;
+		}
+
+		.tab .tab-body div {
+			display: none;
+		}
+
+		.tab .tab-body div.active {
+			display: block;
+		}
+
+	</style>
+</head>
+<body>
+	
+	<div class="tab">
+		<ul class="tab-header">
+			<li class="active">item1</li>
+			<li>item2</li>
+			<li>item3</li>
+			<li>item4</li>
+			<li>item5</li>
+		</ul>
+		<div class="tab-body">
+			<div class="active">
+				<h1>tab body1</h1>
+				<h1>tab body1</h1>
+				<h1>tab body1</h1>
+				<h1>tab body1</h1>
+				<h1>tab body1</h1>
+				<h1>tab body1</h1>
+				<h1>tab body1</h1>
+				<h1>tab body1</h1>
+				<h1>tab body1</h1>
+				<h1>tab body1</h1>
+				<h1>tab body1</h1>
+				<h1>tab body1</h1>
+				<h1>tab body1</h1>
+			</div>
+			<div>tab body2</div>
+			<div>tab body3</div>
+			<div>tab body4</div>
+			<div>tab body5</div>
+		</div>
+	</div>
+
+</body>
+</html>

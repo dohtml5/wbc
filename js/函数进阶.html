@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script>
+		/*function test() {
+			console.log(this)
+		}
+
+		test();*/
+
+		/*var test = function() {
+			console.log(this);
+		}
+
+		test();*/
+
+		/*var obj = {
+			name: 'abc',
+			sayName: function() {
+				console.log(this)
+			}
+		};
+
+		obj.sayName();*/
+
+		function test() {
+
+			console.log(arguments instanceof Array)
+
+			// arguments.push(9);
+
+			console.log(arguments.length);	
+			var x = arguments[0];
+			var y = arguments[1];
+
+			var sum = x + y;
+
+			return sum;
+		}
+
+		var r = test(8, 7, 'test');
+		console.log(r)
+	</script>
+</body>
+</html>
