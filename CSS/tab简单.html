@@ -49,18 +49,23 @@
 		}
 
 	</style>
+
+	<script type="text/javascript">
+		
+	</script>
 </head>
 <body>
 	
 	<div class="tab">
-		<ul class="tab-header">
+		<ul id="tabHeader" class="tab-header">
 			<li class="active">item1</li>
 			<li>item2</li>
 			<li>item3</li>
 			<li>item4</li>
 			<li>item5</li>
+			<li>item6</li>
 		</ul>
-		<div class="tab-body">
+		<div id="tabBody" class="tab-body">
 			<div class="active">
 				<h1>tab body1</h1>
 				<h1>tab body1</h1>
@@ -80,8 +85,38 @@
 			<div>tab body3</div>
 			<div>tab body4</div>
 			<div>tab body5</div>
+			<div>tab body6</div>
 		</div>
 	</div>
 
+	<script type="text/javascript">
+	var tabHeader = document.getElementById('tabHeader');
+	var tabBody = document.getElementById('tabBody');
+	var lis = tabHeader.getElementsByTagName('li');
+	var divs = tabBody.getElementsByTagName('div');
+
+	for (var i=0; i<lis.length; i++) {
+		lis[i].setAttribute('index', i);
+		lis[i].onclick = onLiClick;
+		/*lis[i].onclick = function() {
+			this.className = 'active';
+		}*/
+	}
+
+	function onLiClick() {
+		// var id = this.id; // OK
+		var index = this.getAttribute('index');
+		// console.log(index)
+
+		for (var i=0; i<lis.length; i++) {
+			lis[i].className = '';
+			divs[i].style.display = 'none';
+			// console.log(i)
+		}
+		this.className = 'active';
+		divs[index].style.display = 'block';
+	}
+
+	</script>
 </body>
 </html>

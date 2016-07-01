@@ -5,28 +5,34 @@
     <title>Document</title>
     <style type="text/css">
 
+        a:hover {
+            color: red;
+        }
+
         /* :before, :after 伪元素用法总结 */
 
          div {
-            background-color: red;
+            /*background-color: red;*/
             /*width: 300px;*/
         }
         
-        /*div:after {
+        div:after {
             content: 'test';
+            color: red;
         }
         
         div:before {
             content: 'test2';
-        } */
+            font-size: 30px;
+        }
 
-        /* div:first-letter {
+        /*div:first-letter {
             color: red;
             font-size: 30px;
             font-weight: bold;
-        } */
+        }*/ 
 
-        /* div:first-line {
+        /*div:first-line {
             color: red;
             font-size: 30px;
             font-weight: bold;
@@ -38,7 +44,7 @@
             overflow: hidden;
         } */
 
-        ul, li {
+        /*ul, li {
             list-style: none;
         }
         
@@ -51,18 +57,20 @@
             content: '';
             display: block;
             clear: both;
-        } 
+        }
 
         .clear {
             clear: both;
-        }
+        }*/
     </style>
 </head>
 <body>
     
-    <!-- <div>
+    <div>
         锄禾日当午，汗滴禾下土，谁知盘中餐，粒粒皆辛苦。
-    </div> -->
+    </div>
+
+    <hr>
 
     <ul>
         <li>item1</li>
@@ -72,7 +80,12 @@
         <li>item5</li>
         <!-- <div class="clear"></div> -->
     </ul>
+
     <div>my div</div>
+
+    <hr>
+
+    <a href="#">test</a>
 
 </body>
 </html>

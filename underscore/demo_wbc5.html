@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../lib/underscore.js"></script>
+</head>
+<body>
+
+    <script>
+    var arr = [1, 2, 3, 4, 5];
+    var obj = {name: 'aaa', age: 20, gender: '男', email: 'aaa@126.com'};
+
+    // var arr2 = _.map(arr, function(num) { return num * 2; });
+    
+    // var opts = _.map(arr, function(num) { return '<option>' + num + '</option>'} ); 
+    
+    // var opts = _.map(obj, function(v, k) { return '<option>' + k + '</option>'});
+    
+    var r = _.reduce(arr, function(m, v) { return m + v;}, 5);
+
+    console.log(r);
+
+    /*_.each(obj, function(val, index) {
+        console.log(index)
+    });*/
+    </script>
+    
+</body>
+</html>
