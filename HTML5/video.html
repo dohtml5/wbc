@@ -22,14 +22,51 @@
 			width: 100%;
 			height: 100%;
 		}
+
+		.video .play-btn {
+			width: 50px;
+			height: 50px;
+			background-color: red;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin: -25px 0 0 -25px;
+			display: none;
+		}
+
+		.video .play-btn.pause {
+			background-color: blue;
+		}
+
+		.video:hover .play-btn {
+			display: block;
+		}
 	</style>
 </head>
 <body>
 
 	<div class="video">
-		<video src="res/mov.mp4"></video>
+		<video id="video" src="res/mov.mp4"></video>
 		<div class="video-masker"></div>
+		<div id="playBtn" class="play-btn"></div>
 	</div>
+
+	<script>
+	var video = document.getElementById('video');
+	var playBtn = document.getElementById('playBtn');
+	playBtn.onclick = function() {
+		console.log(video)
+
+		if (video.paused) {
+			video.play();
+			this.className += ' pause';
+		} else {
+			video.pause();
+			this.className = 'play-btn';
+		}
+		
+	};
+	</script>
 	
 </body>
 </html>

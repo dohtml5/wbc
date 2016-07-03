@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../lib/reset.css">
+	<style>
+		body {
+			height: 2000px;
+		}
+		#test {
+			width: 300px;
+			height: 200px;
+			background-color: red;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			cursor: move;
+			/*margin: -100px 0 0 -150px;*/
+		}
+	</style>
+</head>
+<body>
+
+	<div id="test">test div</div>
+
+	<script>
+		var MoveDiv = function(){};
+
+		MoveDiv.Move = function(id) {
+		    var o = document.getElementById(id);
+
+		    /*o.onselectstart = function() {
+		        return false;
+		    };*/
+
+		    o.onmousedown = function(e) {
+		        e = e || window.event;
+		        var x = e.layerX || e.offsetX; // layerX ff
+		        var y = e.layerY || e.offsetY;
+
+		        x = x - document.body.scrollLeft;
+		        y = y - document.body.scrollTop;
+
+		        document.onmousemove = function(e) {
+		            e = e || window.event;
+
+		            // console.log(e.clientX);
+		            // console.log(x);
+
+		            o.style.left = (e.clientX - x) + "px";
+		            o.style.top = (e.clientY - y) + "px";
+		        };
+
+		        document.onmouseup = function() {
+		            document.onmousemove = null;
+		        };
+		    };
+		}
+
+		MoveDiv.Move('test');
+
+	</script>
+	
+</body>
+</html>
