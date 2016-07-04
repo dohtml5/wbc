@@ -34,10 +34,6 @@
 			display: none;
 		}
 
-		.video .play-btn.pause {
-			background-color: blue;
-		}
-
 		.video:hover .play-btn {
 			display: block;
 		}
@@ -52,20 +48,25 @@
 	</div>
 
 	<script>
+	
 	var video = document.getElementById('video');
 	var playBtn = document.getElementById('playBtn');
 	playBtn.onclick = function() {
-		console.log(video)
 
 		if (video.paused) {
 			video.play();
-			this.className += ' pause';
+			this.style.backgroundColor = 'blue';
 		} else {
 			video.pause();
-			this.className = 'play-btn';
+			this.style.backgroundColor = 'red';
 		}
 		
 	};
+
+	video.addEventListener('ended', function() {
+		playBtn.style.backgroundColor = 'red';
+	}, false);
+
 	</script>
 	
 </body>
