@@ -37,6 +37,27 @@
 		.video:hover .play-btn {
 			display: block;
 		}
+
+		.video .progress-bar {
+			height: 10px;
+			background-color: red;
+			position: absolute;
+			bottom: 5px;
+			left: 5px;
+			right: 5px;
+			border: 1px solid #fff;
+		}
+
+		.video .progress-bar:after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 10px;
+			width: 50px;
+			background-color: green;
+		}
 	</style>
 </head>
 <body>
@@ -45,6 +66,7 @@
 		<video id="video" src="res/mov.mp4"></video>
 		<div class="video-masker"></div>
 		<div id="playBtn" class="play-btn"></div>
+		<div class="progress-bar"></div>
 	</div>
 
 	<script>
