@@ -1,0 +1,58 @@
+html, body, ul, li, ol, p {
+	margin: 0;
+	padding: 0;
+}
+
+ul, ol, li {
+	list-style: none;
+}
+
+.clear {
+	clear: both;
+}
+
+a {
+	text-decoration: none;
+}
+
+/***************************************/
+.fs-12 {
+	font-size: 12px;
+}
+
+
+/***************************************/
+
+body {
+	background-color: #eee;
+	font-family: '宋体';
+}
+
+.header {
+	width: 1006px;
+	margin: 0 auto;
+	height: 40px;
+	line-height: 40px;
+}
+
+.header .h-left {
+	float: left;
+}
+
+.header .h-right {
+	float: right;
+}
+
+.wp {
+	width: 1006px;
+	background-color: #fff;
+	margin: 0 auto;
+	border: 1px solid #ccc;
+	border-bottom: none;
+
+	height: 2000px; /* ??? */
+}
+
+.h-links a {
+	color: #040000;
+}

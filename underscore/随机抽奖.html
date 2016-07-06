@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../lib/reset.css">
+	<style>
+		#wp {
+			width: 500px;
+			background-color: red;
+			margin: 20px auto;
+		}
+
+		#wp:after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+		#wp ul {
+			float: left;
+			width: 50%;
+		}
+	</style>
+	<script src="../lib/underscore-min.js"></script>
+</head>
+<body>
+
+	<div id="wp">
+		<ul id="left">
+			<li>111</li>
+		</ul>
+
+		<ul id="right">
+			<li>aaa</li>
+		</ul>
+
+		<div>
+			<button id="startBtn" status="start">开始</button>
+		</div>
+	</div>
+
+	<script>
+		function init() {
+			var leftArr = "aaa bbb ccc ddd eee fff ggg".split(' ');
+			var rightArr = "111,222,333,444,555,666,777".split(',');
+
+			var startBtn = document.getElementById('startBtn');
+			var status;
+
+			var left = document.getElementById('left');
+			var right = document.getElementById('right');
+
+			var timer;
+
+			startBtn.onclick = function() {
+				var leftLis, rightLis;
+
+				status = startBtn.getAttribute('status');
+
+				if (status == 'start') {
+					startBtn.innerHTML = '结束';
+
+					timer = setInterval(function() {
+						leftLis = _.map(_.shuffle(leftArr), function(item) {return '<li>' + item + '</li>'});
+						rightLis = _.map(_.shuffle(rightArr), function(item) {return '<li>' + item + '</li>'});
+
+						left.innerHTML = leftLis.join('');
+						right.innerHTML = rightLis.join('');
+					}, 50);
+
+					startBtn.setAttribute('status', 'stop');
+				} else {
+					clearInterval(timer);
+					startBtn.innerHTML = '开始';
+					startBtn.setAttribute('status', 'start');
+				}
+
+			};
+
+
+		}
+
+		init();
+	</script>
+	
+</body>
+</html>

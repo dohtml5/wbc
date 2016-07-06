@@ -1,0 +1,20 @@
+
+#testDiv {
+	color: blue;
+}
+
+.test {
+	color: red;
+}
+
+div {
+	color: green!important;
+}
+
+div#testDiv {
+	color: pink;
+}
+
+#testDiv.test {
+	color: gold;
+}
