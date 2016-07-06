@@ -48,16 +48,33 @@
 			border: 1px solid #fff;
 		}
 
-		.video .progress-bar:after {
+		.video .progress-bar #progress {
 			content: '';
 			display: block;
 			position: absolute;
 			top: 0;
 			left: 0;
 			height: 10px;
-			width: 50px;
+			width: 0px;
 			background-color: green;
 		}
+
+		.video .full-screen {
+			width: 50px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			position: absolute;
+
+			top: 10px;
+			right: 10px;
+			background-color: #000;
+			color: #fff;
+		}
+
+		video::-webkit-media-controls-enclosure {
+            display: none!important;
+        }
 	</style>
 </head>
 <body>
@@ -66,27 +83,49 @@
 		<video id="video" src="res/mov.mp4"></video>
 		<div class="video-masker"></div>
 		<div id="playBtn" class="play-btn"></div>
-		<div class="progress-bar"></div>
+		<div id="progressBar" class="progress-bar"><div id="progress"></div></div>
+		<div id="fullScreenBtn" class="full-screen">全屏</div>
 	</div>
 
 	<script>
 	
 	var video = document.getElementById('video');
 	var playBtn = document.getElementById('playBtn');
+	var fullScreenBtn = document.getElementById('fullScreenBtn');
+	var progressBar = document.getElementById('progressBar');
+	var progress = document.getElementById('progress');
+	var timer;
+
 	playBtn.onclick = function() {
 
 		if (video.paused) {
 			video.play();
 			this.style.backgroundColor = 'blue';
+			timer = setInterval(getProgress, 60);
 		} else {
 			video.pause();
 			this.style.backgroundColor = 'red';
+			clearInterval(timer);
 		}
 		
 	};
 
+	function getProgress(){
+        var percent = video.currentTime / video.duration;
+        var width = progressBar.offsetWidth;
+        progress.style.width = percent * progressBar.offsetWidth + "px";
+        if (percent * progressBar.offsetWidth + 2 > width) {
+        	progress.style.width = '100%';
+        }
+    }
+
 	video.addEventListener('ended', function() {
 		playBtn.style.backgroundColor = 'red';
+		clearInterval(timer);
+	}, false);
+
+	fullScreenBtn.addEventListener('click', function() {
+		video.webkitRequestFullScreen(); // 其他浏览器有兼容方法
 	}, false);
 
 	</script>
