@@ -21,6 +21,7 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
+			z-index: 9999999999;
 		}
 
 		.video .play-btn {
@@ -32,6 +33,7 @@
 			left: 50%;
 			margin: -25px 0 0 -25px;
 			display: none;
+			z-index: 9999999999;
 		}
 
 		.video:hover .play-btn {
@@ -46,6 +48,7 @@
 			left: 5px;
 			right: 5px;
 			border: 1px solid #fff;
+			z-index: 9999999999;
 		}
 
 		.video .progress-bar #progress {
@@ -57,6 +60,7 @@
 			height: 10px;
 			width: 0px;
 			background-color: green;
+			z-index: 9999999999;
 		}
 
 		.video .full-screen {
@@ -70,6 +74,7 @@
 			right: 10px;
 			background-color: #000;
 			color: #fff;
+			z-index: 9999999999;
 		}
 
 		video::-webkit-media-controls-enclosure {
@@ -95,6 +100,7 @@
 	var progressBar = document.getElementById('progressBar');
 	var progress = document.getElementById('progress');
 	var timer;
+	var isFullScreen = false;
 
 	playBtn.onclick = function() {
 
@@ -125,7 +131,15 @@
 	}, false);
 
 	fullScreenBtn.addEventListener('click', function() {
-		video.webkitRequestFullScreen(); // 其他浏览器有兼容方法
+		if (isFullScreen) {
+			video.webkitExitFullscreen();
+			isFullScreen = false;
+			this.innerHTML = '全屏';
+		} else {
+			video.webkitRequestFullScreen(); // 其他浏览器有兼容方法
+			isFullScreen = true;
+			this.innerHTML = '退出';
+		}
 	}, false);
 
 	video.addEventListener('loadedmetadata', function() {
