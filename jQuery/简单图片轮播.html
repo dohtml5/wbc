@@ -50,7 +50,6 @@
 			width: 96px;
 			height: 10px;
 			background-color: red;
-			/*margin: 170px auto 0;*/
 			position: absolute;
 			bottom: 20px;
 			left: 50%;
@@ -87,6 +86,7 @@
 
 			// for
 
+			// 2
 			// $slider.find('a')
 			$('.img-slider > a').on('click', function() {
 				var $this = $(this),
@@ -113,6 +113,7 @@
 				// console.log(currIndex)
 			});
 
+			// 1
 			$ol.find('li').on('click', function() {
 				var $this = $(this),
 					index = $this.index();
@@ -124,6 +125,7 @@
 				});
 			});
 
+			// 4
 			$slider
 				.on('mouseover', function() {
 					clearInterval(timer);
@@ -132,6 +134,7 @@
 					runner();
 				})
 
+			// 3
 			function runner() {
 				timer = setInterval(function() {
 					$slider.find('a.next').trigger('click');

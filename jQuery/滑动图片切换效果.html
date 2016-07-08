@@ -18,23 +18,11 @@
 			position: relative;
 		}
 
-		/* .img-slider ul {
-			width: 3000px;
-		} */
-
 		.img-slider li {
 			width: 500px;
 			height: 200px;
 			float: left;
 		}
-
-		/*  .img-slider li:nth-child(1) {
-					background-color: red;
-				}
-				
-				.img-slider li:nth-child(2) {
-					background-color: green;
-				}  */
 
 		.img-slider a {
 			position: absolute;
@@ -83,8 +71,8 @@
 					});
 				} else {
 					$ul
-						.css('margin-left', -width)
-						.prepend($ul.find('li:last'));
+						.prepend($ul.find('li:last'))
+						.css('margin-left', -width);
 					$ul.animate({marginLeft: 0}, 500);
 				}
 			});
@@ -101,6 +89,7 @@
 			<li>item4</li>
 			<li>item5</li>
 			<li>item6</li>
+			<li>item7</li>
 		</ul>
 		<a href="javascript:;" class="prev"></a>
 		<a href="javascript:;" class="next"></a>

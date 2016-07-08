@@ -51,11 +51,11 @@
 	<script>
 		$(document).ready(function() {
 
-			var $title = $('.title');
+			var $title = $('.shoufq div.title');
 			$title.on('click', function() {
 				var $this = $(this);
 				$this
-					.find('p').addClass('red')
+					.find('p').toggleClass('red')
 					.end()
 					.find('ul').slideToggle()
 					.end()
