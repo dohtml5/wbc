@@ -1,0 +1,176 @@
+html, body, ul, li, ol, p, h1, h2 {
+	margin: 0;
+	padding: 0;
+}
+
+ul, li {
+	list-style: none;
+}
+
+/****************************************/
+body {
+	background: url(../img/bg.jpg);
+}
+
+a {
+	text-decoration: none;
+}
+
+
+/****************************************/
+.header .h-top {
+	background-color: #fefefe;
+	height: 65px;
+	min-width: 1000px;
+}
+
+.header .h-bottom {
+	background-color: #eee;
+	height: 85px;
+	min-width: 1000px;
+}
+
+.nav {
+	height: 55px;
+	line-height: 55px;
+	background-color: #4b9b22;
+	min-width: 1000px;
+}
+
+.wp {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.h-top-right li {
+	float: left;
+	margin-right: 12px;
+}
+
+.fwzt span {
+	font-size: 14px;
+	font-family: 'Microsoft yahei';
+	color: #4b9b22;
+	font-weight: bold;
+}
+
+.logo {
+	width: 134px;
+	height: 53px;
+	background-image: url(../img/logo.png);
+	position: relative;
+    top: -15px;
+    left: 40px;
+}
+
+.nav li {
+	float: left;
+    border-right: 1px solid #fff;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 12px;
+}
+
+.nav li.zoujinnc {
+	width: 300px;
+}
+
+.nav li a {
+	color: #fff;
+	font-size: 14px;
+	font-family: 'Microsoft yahei';
+	padding: 0 22px;
+}
+
+.n-i-title {
+	height: 32px;
+	line-height: 32px;
+	background-image: url(../img/ni-bg.jpg);
+	border-bottom: 1px dotted #000;
+}
+
+.news-notice {
+	margin-top: 10px;
+}
+
+.news-notice .nn-item.first {
+	width: 330px;
+}
+
+.news-notice .nn-item.second {
+	width: 305px;
+	margin: 0 15px;
+}
+
+.news-notice .nn-item.third {
+	width: 285px;
+}
+
+/*************************************/
+.fs-12 {
+	font-size: 12px;
+}
+
+/************************************/
+.c585454 {
+	color: #585454;
+}
+
+/***********************************/
+.mt-10 {
+	margin-top: 10px;
+}
+
+.pt-10 {
+	padding-top: 10px;
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.oh {
+    overflow: hidden;
+}
+
+.news-notice .wp {
+    background-color: #fff;
+}
+
+.n-i-title span {
+    font-size: 16px;
+    font-family: 'Microsoft yahei';
+    color: #4b9b22;
+    margin-left: 10px;
+}
+
+.n-i-title i {
+    font-style: normal;
+    font-size: 14px;
+    color: #dbdbdb;
+    font-family: Arial;
+}
+
+.weather {
+    float: right;
+}
+
+.classify {
+    background-color: #fff;
+}
+
+.classify a {
+    float: left;
+    font-size: 12px;
+    background-color: #4b9b22;
+    color: #fff;
+    width: 65px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    margin-right: 1px;
+}
