@@ -16,16 +16,30 @@
 			position: fixed;
 			right: 50px;
 			bottom: 50px;
+			display: none;
 		}
 	</style>
 
 	<script src="../lib/jquery-1.12.1.min.js"></script>
 	<script>
 		$(document).ready(function() {
-			$('.go2top').on('click', function() {
-				$('body').animate({scrollTop: 100}, 500);
+			var $go2top = $('.go2top');
+			$go2top.on('click', function() {
+				$('body').animate({scrollTop: 0}, 500);
 				// $(window).scrollTop(0);
 			});
+
+			$(window).on('scroll', function() {
+				var $this = $(this);
+				var h = $this.height();
+				var st = $this.scrollTop();
+				
+				if (st > h) {
+					$go2top.show();
+				} else {
+					$go2top.hide();
+				}
+			})
 		});
 	</script>
 </head>
