@@ -9,9 +9,9 @@
 		$(document).ready(function() {
 
 			var currData = cityData3,
-				provData,
-				cityData;
+				provData;
 
+			// $('#prov').add('#city').add('#dist')
 			$('#prov, #city, #dist').on('change', function() {
 				var $this = $(this),
 					map = {
@@ -19,13 +19,14 @@
 						city: 'dist'
 					},
 					currVal = $this.val(),
-					id = this.id;
+					id = this.id; // $this.attr('id')
+					// console.log(id);
 
 				if (id == 'prov') {
-					currData = provData = getChildrenByVal(cityData3, currVal);
+					currData = provData = getChildrenByVal(cityData3, currVal); // !!!
 					$('#dist').html('<option value="0">请选择</option>');
 				} else if (id == 'city') {
-					currData = cityData = getChildrenByVal(provData, currVal);
+					currData = getChildrenByVal(provData, currVal);
 				}
 
 				renderSel(currData, map[id]);
@@ -47,8 +48,9 @@
 				$.each(data, function(index, obj) {
 					if (obj.value == val) {
 						children = obj.children;
-						return true;
+						return false;
 					}
+					// console.log(index)
 				});
 				return children;
 			}

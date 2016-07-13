@@ -58,16 +58,36 @@
 
 // gson.jar    fastjson.jar
 
-var p = '{"age":20,"name":"张三","firends":["李四","王五"],"wife":null,"computer":{"cpu":"i5","memory":"4g"}}';
+// var p = '{"age":20,"name":"张三","firends":["李四","王五"],"wife":null,"computer":{"cpu":"i5","memory":"4g"}}';
 
-// p = eval('(' + p + ')');
+// // p = eval('(' + p + ')');
 
-p = JSON.parse(p);
+// p = JSON.parse(p);
 
-console.log(p);
+// console.log(p);
 
-p = JSON.stringify(p);
+// p = JSON.stringify(p);
 
-console.log(p);
+// console.log(p);
 
-console.log(typeof p)
+// console.log(typeof p)
+
+////////////////////////////////////////////////////////////////////
+
+// {}
+// {"age":20}
+// {"name": "zhangsan","age":20,"hobbies":["a", "b", "c"]}
+
+// []
+// [20]
+// [20, 'test', 23, false]
+
+var json = '{"name": "test", "age": 20, "hobbies": ["a","b","c"]}';
+
+json = $.parseJSON(json);
+
+// json = JSON.parse(json);
+
+// json = eval('(' + json + ')');
+
+console.log(json.hobbies);

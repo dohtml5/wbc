@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>图片轮播 jq(淡入淡出)</title>
+<style type="text/css">
+  body,div,ul,li,a,img{margin: 0;padding: 0;}
+  ul,li{list-style: none;}
+  a{text-decoration: none;}
+ 
+  .wrapper{position: relative;margin: 30px auto;width: 400px;height: 200px;}
+  .banner{width: 400px;height: 200px;overflow: hidden;}
+  .imgList{width:400px;height:200px;z-index: 10;}
+  .imgList li{display: none;}
+  .imgList .imgOn{display: inline;}
+  .bg{position: absolute;bottom: 0;width: 400px;height: 40px;z-index:20;opacity: 0.4;filter:alpha(opacity=40);background: black;}
+  .infoList{position: absolute;left: 10px;bottom: 10px;z-index: 30;}
+  .infoList li{display: none;}
+  .infoList .infoOn{display: inline;color: white;}
+  .indexList{position: absolute;right: 10px;bottom: 5px;z-index: 30;}
+  .indexList li{float: left;margin-right: 5px;padding: 2px 4px;border: 2px solid black;background: grey;cursor: pointer;}
+  .indexList .indexOn{background: red;font-weight: bold;color: white;}
+</style>
+</head>
+<body>
+  <div class="wrapper"><!-- 最外层部分 -->
+    <div class="banner"><!-- 轮播部分 -->
+      <ul class="imgList"><!-- 图片部分 -->
+        <li class="imgOn"><a href="#"><img width="400" height="200" src="http://www.17sucai.com/preview/1162/2013-10-19/%E7%AE%80%E6%B4%81%E7%9A%84%E4%BA%94%E5%B1%8F%E6%B7%A1%E5%85%A5%E6%B7%A1%E5%87%BAjQuery%E7%84%A6%E7%82%B9%E5%9B%BE%E4%BB%A3%E7%A0%81/images/banner_1.jpg" /></a></li>
+        <li><a href="#"><img width="400" height="200" src="http://www.17sucai.com/preview/1162/2013-10-19/%E7%AE%80%E6%B4%81%E7%9A%84%E4%BA%94%E5%B1%8F%E6%B7%A1%E5%85%A5%E6%B7%A1%E5%87%BAjQuery%E7%84%A6%E7%82%B9%E5%9B%BE%E4%BB%A3%E7%A0%81/images/banner_2.jpg" /></a></li>
+        <li><a href="#"><img width="400" height="200" src="http://www.17sucai.com/preview/1162/2013-10-19/%E7%AE%80%E6%B4%81%E7%9A%84%E4%BA%94%E5%B1%8F%E6%B7%A1%E5%85%A5%E6%B7%A1%E5%87%BAjQuery%E7%84%A6%E7%82%B9%E5%9B%BE%E4%BB%A3%E7%A0%81/images/banner_3.jpg" /></a></li>
+        <li><a href="#"><img width="400" height="200" src="http://www.17sucai.com/preview/1162/2013-10-19/%E7%AE%80%E6%B4%81%E7%9A%84%E4%BA%94%E5%B1%8F%E6%B7%A1%E5%85%A5%E6%B7%A1%E5%87%BAjQuery%E7%84%A6%E7%82%B9%E5%9B%BE%E4%BB%A3%E7%A0%81/images/banner_4.jpg" /></a></li>
+        <li><a href="#"><img width="400" height="200" src="http://www.17sucai.com/preview/1162/2013-10-19/%E7%AE%80%E6%B4%81%E7%9A%84%E4%BA%94%E5%B1%8F%E6%B7%A1%E5%85%A5%E6%B7%A1%E5%87%BAjQuery%E7%84%A6%E7%82%B9%E5%9B%BE%E4%BB%A3%E7%A0%81/images/banner_5.jpg" /></a></li>
+      </ul>
+      <div class="bg"></div> <!-- 图片底部背景层部分-->
+      <ul class="infoList"><!-- 图片左下角文字信息部分 -->
+        <li class="infoOn">puss in boots1</li>
+        <li>puss in boots2</li>
+        <li>puss in boots3</li>
+        <li>puss in boots4</li>
+        <li>puss in boots5</li>
+      </ul>
+      <ul class="indexList"><!-- 图片右下角序号部分 -->
+        <li class="indexOn">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+      </ul>
+    </div>
+  </div>
+  <script type="text/javascript" src="../lib/jquery-1.12.1.min.js"></script>
+  <script type="text/javascript">
+  var curIndex = 0; //当前index
+     //  alert(imgLen);
+     // 定时器自动变换2.5秒每次
+  var autoChange = setInterval(function(){ 
+    if(curIndex < $(".imgList li").length-1){ 
+      curIndex ++; 
+    }else{ 
+      curIndex = 0;
+    }
+    //调用变换处理函数
+    changeTo(curIndex); 
+  },2500);
+ 
+  $(".indexList").find("li").each(function(item){ 
+    $(this).hover(function(){ 
+      clearInterval(autoChange);
+      changeTo(item);
+      curIndex = item;
+    },function(){ 
+      autoChange = setInterval(function(){ 
+        if(curIndex < $(".imgList li").length-1){ 
+          curIndex ++; 
+        }else{ 
+          curIndex = 0;
+        }
+        //调用变换处理函数
+        changeTo(curIndex); 
+      },2500);
+    });
+  });
+  function changeTo(num){ 
+    $(".imgList").find("li").removeClass("imgOn").hide().eq(num).fadeIn().addClass("imgOn");
+    $(".infoList").find("li").removeClass("infoOn").eq(num).addClass("infoOn");
+    $(".indexList").find("li").removeClass("indexOn").eq(num).addClass("indexOn");
+  }
+  </script>
+</body>
+</html>

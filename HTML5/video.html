@@ -2,10 +2,11 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<title>Document</title>
 	<style>
-		.video {
-			width: 600px;
+		/*.video {
+			width: 100%;
 			margin: 20px auto;
 			position: relative;
 		}
@@ -79,13 +80,13 @@
 
 		video::-webkit-media-controls-enclosure {
             display: none!important;
-        }
+        }*/
 	</style>
 </head>
 <body>
 
 	<div class="video">
-		<video id="video" src="res/mov.mp4"></video>
+		<video controls id="video" src="res/mov.mp4" webkit-playsinline></video>
 		<div class="video-masker"></div>
 		<div id="playBtn" class="play-btn"></div>
 		<div id="progressBar" class="progress-bar"><div id="progress"></div></div>

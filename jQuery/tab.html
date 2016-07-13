@@ -46,6 +46,14 @@
 				$divs = $tab.find('.tab-body > div'),
 				timer;
 
+			/*$lis.on('mouseover', function() {
+				var $this = $(this),
+					index = $this.index();
+
+				$this.addClass('on').siblings('.on').removeClass('on');
+				$divs.eq(index).show().siblings(':visible').hide();
+			});*/
+
 			$lis
 				.on('mouseover', function() {
 					var $this = $(this),
@@ -54,7 +62,7 @@
 					timer = setTimeout(function() {
 						$this.addClass('on').siblings('.on').removeClass('on');
 						$divs.eq(index).show().siblings(':visible').hide();
-					}, 300);
+					}, 250);
 				})
 				.on('mouseout', function() {
 					if (timer) {
