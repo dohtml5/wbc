@@ -35,6 +35,7 @@ CREATE TABLE IF NOT EXISTS `usermng` (
   `mobile` varchar(20) DEFAULT NULL,
   `address` varchar(200) DEFAULT NULL,
   `hobbies` varchar(200) DEFAULT NULL,
+  `user_img` varchar(200) DEFAULT NULL,
   `regDate` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;

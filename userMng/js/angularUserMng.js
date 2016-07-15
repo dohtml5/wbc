@@ -42,6 +42,8 @@ app.controller('userListController', function($scope, $http) {
 		$scope.dlgTitle = '新增用户';
 		$('#userDlg').modal('show');
 		$scope.userData = {};
+		// $scope.userData.edu = '请选择';
+		$scope.userData.edu = '大专';
 	};
 
 	$scope.saveUser = function() {

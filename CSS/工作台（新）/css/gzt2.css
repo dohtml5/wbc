@@ -1,0 +1,115 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: '微软雅黑';
+    font-size: 12px;
+    background-color: #e7e7e7;
+    /*overflow-y: hidden;*/
+}
+
+.icons {
+    background-image: url(../img/nav-left.png);
+    width: 26px;
+    height: 26px;
+    margin: 0 auto;
+    position: relative;
+    top: 15px;
+}
+
+.top-bar {
+    height: 50px;
+    line-height: 50px;
+    background-color: #4fc2c3;
+    z-index: 9;
+    position: relative;
+}
+
+.top-bar .logo, .top-bar .gongsm {
+    float: left;
+}
+
+.top-bar .logo {
+    background-color: #2BA6A2;
+    width: 65px;
+    height: 50px;
+    background-image: url(../img/logo.png);
+    background-repeat: no-repeat;
+    background-position: 4px 9px;
+}
+
+.top-bar .gongsm {
+    font-size: 16px;
+    color: #fff;
+    margin-left: 35px;
+}
+
+.left-bar {
+    background-color: #fff;
+    width: 65px;
+    height: 100%;
+    /*float: left;*/
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.left-bar ul {
+    margin-top: 50px;
+}
+
+.left-bar li {
+    height: 78px;
+}
+
+.left-bar li.active, .left-bar li:hover {
+    background-color: #4fc2c3;
+    border-left: 4px solid #2BA6A2;
+    color: #fff;
+}
+
+.left-bar .khgl {
+    background-position: 0 0;
+}
+
+.left-bar li.active .khgl, .left-bar li:hover .khgl {
+    background-position: -29px 0;
+}
+
+.left-bar .jdjc {
+    background-position: 0 -29px;
+}
+
+.left-bar li.active .jdjc {
+    background-position: -29px -29px;
+}
+
+.left-bar .label {
+    text-align: center;
+    position: relative;
+    top: 17px;
+}
+
+.left-bar li.active div, .left-bar li:hover div {
+    left: -2px;
+}
+
+.main-wp {
+    width: 1000px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin: 60px auto 0;
+    height: 400px;
+}
+
+.top-bar .user-info {
+    float: right;
+    color: #fff;
+    margin-right: 30px;
+}
