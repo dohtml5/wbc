@@ -273,11 +273,132 @@ console.log(i);*/
 
 // b(1, 2);
 
-var s = "abddefddkjiddkejskdiud";
-var len = s.length;
+// var s = "abddefddkjiddkejskdiud";
+// var len = s.length;
 
-for (var i=0; i<len; i++) {
-	console.log(s.charAt(i));
-}
+// for (var i=0; i<len; i++) {
+// 	console.log(s.charAt(i));
+// }
 
 // console.log(len);
+
+// 阶乘
+
+// var total = 1;
+
+// for (var i=5; i>0; i--) {
+// 	// console.log(i); // 5 4 3 2 1 
+// 	total *= i;
+// }
+
+// console.log(total);
+
+
+////////////////////////////////////////////////////////////////////
+
+// var test2;
+
+// console.log(test2);
+
+// test2(); // undefined();
+// // test();
+
+// // function test() {
+// // 	alert('test');
+// // }
+
+// var test2 = function() {
+// 	alert('test2');
+// };
+
+// test2();
+// test();
+
+////////////////////////////////////////////////////////////////////
+
+// var x = 7;
+
+// var y = 8;
+
+// var z = x + y;
+
+// console.log(z);
+
+// var a = 6;
+
+// var b = 9;
+
+// var c = a + b;
+
+// console.log(c);
+
+// function sum(x, y) {
+// 	// var x = 7, y = 2;
+// 	// console.log('x: ' + x);
+// 	// console.log('y: ' + y);
+// 	// console.log(x + y);
+// 	// var z = x + y;
+// 	// return z;
+
+// 	return x + y;
+
+// 	alert('test');  //???
+
+// }
+
+// function sum2(x, y) {
+// 	alert(x + y);
+// }
+
+// sum(7, 2);
+
+// var r = sum(6, 19); // var x = 15;
+
+// alert(r);
+
+// console.log(r);
+
+// sum(5, 3);
+
+// function sum(x, y, z, a) { // var y;
+
+// 	// console.log(y);
+
+// 	var z = x + y;
+
+// 	// return x + y;
+// }
+
+// var r = sum(8, 3);
+
+// console.log(r);
+
+var getTotal = function(to) {
+	var total = 0;
+	for (var i=0; i<=to; i++) {
+		total += i;
+	}
+	return total;
+};
+
+// var r = getTotal(100);
+var r = getTotal(10);
+
+console.log(r);
+
+
+// 完成下面函数，使之返回任意区间内的偶数的和
+
+function getEvenSum(from, to) {
+	var total = 0;
+	for (var i=from; i<=to; i++) {
+		if (i % 2 == 0) {
+			total += i;
+		}
+	}
+	return total;
+
+}
+
+var r = getEvenSum(3, 50);
+console.log(r);
