@@ -373,32 +373,151 @@ console.log(i);*/
 
 // console.log(r);
 
-var getTotal = function(to) {
-	var total = 0;
-	for (var i=0; i<=to; i++) {
-		total += i;
-	}
-	return total;
-};
+// var getTotal = function(to) {
+// 	var total = 0;
+// 	for (var i=0; i<=to; i++) {
+// 		total += i;
+// 	}
+// 	return total;
+// };
 
-// var r = getTotal(100);
-var r = getTotal(10);
+// // var r = getTotal(100);
+// var r = getTotal(10);
 
-console.log(r);
+// console.log(r);
 
 
 // 完成下面函数，使之返回任意区间内的偶数的和
 
-function getEvenSum(from, to) {
-	var total = 0;
-	for (var i=from; i<=to; i++) {
-		if (i % 2 == 0) {
-			total += i;
-		}
-	}
-	return total;
+// function getEvenSum(from, to) {
+// 	var total = 0;
+// 	for (var i=from; i<=to; i++) {
+// 		if (i % 2 == 0) {
+// 			total += i;
+// 		}
+// 	}
+// 	return total;
 
+// }
+
+// var r = getEvenSum(3, 50);
+// console.log(r);
+
+////////////////////////////////////////////////////////
+
+// function hello(name) {
+
+// 	name = name ? 'Hello ' + name : 'Hello 陌生人';
+
+// 	return name;
+
+// 	/*if (name) {
+// 		name = "Hello " + name;
+// 	} else {
+// 		name = "Hello 陌生人";
+// 	}
+
+// 	return name;*/
+
+// 	// name = name || '陌生人';
+
+// 	// (name == '李四') && (name = '李小四');
+
+// 	// if (name == '李四') {
+// 	// 	name = '李小四';
+// 	// }
+
+// 	// if (!name) {
+// 	// 	name = '陌生人';
+// 	// }
+
+// 	// if (name == undefined) {
+// 	// 	name = '陌生人';
+// 	// }
+
+// 	// return 'Hello ' + name;
+// }
+
+// var r = hello('张三');
+// console.log(r);
+
+///////////////////////////////////////////////////////
+
+// document.write("<h1>test</h1>");
+
+// function table99() {
+// 	document.write('<div>');
+
+// 	for (var j=1; j<=9; j++) {
+// 		for (var i=1; i<=j; i++) {
+// 			document.write('<span>' + i + '&times;' + j + '=' + j * i + '</span>');
+// 		}
+// 		document.write('<br>');
+// 	}
+
+// 	document.write('</div>');
+// }
+
+// table99();
+
+
+///////////////////////////////////////////////////////
+
+// function cf99(){
+// 	document.write('<div>');
+//     for(var i = 1; i < 10; i++){
+//        	for(var j = 1; j <= i; j++){
+//        		document.write('<span>' + j + '*' + i + '=' + i * j + '</span>');
+//        	}
+//        document.write('<br>'); 
+//     }
+//     document.write('</div>');
+// }
+
+// cf99();
+
+//////////////////////////////////////////////////////
+
+// var obj = new Object();
+// // var obj = new Object;
+
+// // var obj = {};
+
+// obj.name = '笔记本';
+// obj.price = 5800;
+
+var obj = {
+	"name": '笔记本',
+	"price": 5900,
+	"brand": 'Dell',
+	"os name": 'windows 10', // os_name, osName
+	getName: function() {
+		alert(this.name);
+		// console.log(this);
+	}	
+};
+
+for (var key in obj) {
+	// console.log(key);
+	console.log(obj[key]);
 }
 
-var r = getEvenSum(3, 50);
-console.log(r);
+// console.log(obj.length);
+
+
+// for (var i=1; i<=10; i++) {
+// 	document.write('<h1>' + i + '</h1>');
+// }
+
+// obj.getName();
+
+// obj.price = 8000;
+// obj["os name"] = "win 8";
+
+// delete obj.brand;
+
+// console.log(obj);
+
+// console.log(obj['brand']);
+// console.log(obj["os name"]);
+
