@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		html, body, ul, li, p, h1, h2 {
+			margin: 0;
+			padding: 0;
+		}
+
+		ul, li {
+			list-style: none;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		/**************************************/
+		/* 1000px 875px */
+
+		body {
+			font-family: 'Microsoft yahei';
+		}
+
+		.header {
+			margin-top: 40px;
+			min-width: 1000px;
+		}
+
+		.header:after, .legend:after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+
+		.logo {
+			width: 186px;
+			height: 71px;
+			background: url(img/bfl/logo.png);
+			float: left;
+		}
+
+		.h-bar {
+			height: 48px;
+			width: 625px;
+			background: #496ec2 url(img/bfl/h-bar.png) no-repeat;
+			float: right;
+			margin-top: 8px;
+		}
+
+		.wp {
+			width: 87.5%;
+			margin: 0 auto;
+		}
+
+		.title {
+			margin-top: 165px;
+			font-size: 60px;
+		}
+
+		.legend {
+			margin-top: 25px;
+		}
+
+		.legend > div {
+			width: 50%;
+			height: 325px;
+			float: left;
+			box-sizing: border-box;
+		}
+
+		.legend > div.l-left {
+			background-color: #ac8de0;
+			border-right: 7.5px solid #fff;
+		}
+
+		.legend > div.l-right {
+			background-color: #f7f7f7;
+			border-left: 7.5px solid #fff;
+			/*margin-left: 15px;*/
+		}
+
+		.detail {
+			width: 100%;
+			height: 490px;
+			background-color: #f7f7f7;
+			margin-top: 15px;
+		}
+
+		.page {
+			width: 130px;
+			height: 30px;
+			background: #496ec2 url(img/bfl/f-bar.png) no-repeat;
+			margin-top: 160px;
+			margin-bottom: 45px;
+			float: right;
+		}
+	
+	</style>
+</head>
+<body>
+	<div class="header">
+		<div class="wp">
+			<div class="logo"></div>
+		</div>
+		<div class="h-bar"></div>
+	</div>
+
+	<div class="wp">
+		<div class="title">
+			爆发力
+		</div>
+
+		<div class="legend">
+			<div class="l-left"></div>
+			<div class="l-right"></div>
+		</div>
+
+		<div class="detail"></div>
+	</div>
+
+	<div class="page"></div>
+</body>
+</html>

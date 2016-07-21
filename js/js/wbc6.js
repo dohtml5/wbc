@@ -486,21 +486,21 @@ console.log(i);*/
 // obj.name = '笔记本';
 // obj.price = 5800;
 
-var obj = {
-	"name": '笔记本',
-	"price": 5900,
-	"brand": 'Dell',
-	"os name": 'windows 10', // os_name, osName
-	getName: function() {
-		alert(this.name);
-		// console.log(this);
-	}	
-};
+// var obj = {
+// 	"name": '笔记本',
+// 	"price": 5900,
+// 	"brand": 'Dell',
+// 	"os name": 'windows 10', // os_name, osName
+// 	getName: function() {
+// 		alert(this.name);
+// 		// console.log(this);
+// 	}	
+// };
 
-for (var key in obj) {
-	// console.log(key);
-	console.log(obj[key]);
-}
+// for (var key in obj) {
+// 	// console.log(key);
+// 	console.log(obj[key]);
+// }
 
 // console.log(obj.length);
 
@@ -520,4 +520,34 @@ for (var key in obj) {
 
 // console.log(obj['brand']);
 // console.log(obj["os name"]);
+
+//////////////////////////////////////////////////////////////
+
+// var Student = {
+// 	name: '张三',
+// 	age: 20
+// };
+
+// Student.gender = '男';
+
+// console.log(Student.name);
+
+// Student.run = function() {
+// 	console.log('running...');
+// }
+
+// Student.run();
+
+// for (var key in Student) {
+// 	console.log(key);
+// 	console.log(Student[key]);
+// }
+
+// Student.age = ++Student.age;
+
+// delete Student.gender;
+
+// console.log(Student);
+
+//////////////////////////////////////////////////////////////////////
 
