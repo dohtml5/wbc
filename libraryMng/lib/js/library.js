@@ -4,6 +4,50 @@
 
 		init: function() {
 			this.initEvent();
+			this.initTable();
+		},
+
+		initTable: function() {
+			var url = '../api/books_list.php';
+			var that = this;
+
+			// console.log(this);
+
+			$.get(url, {}, function(response) {
+
+				// console.log(this);
+
+				if (response.success) {
+					that.renderTable(response.data);
+				} else {
+					alert('数据请求失败，请刷新重试！');
+				}
+
+			}, 'json');
+		},
+
+		renderTable: function(data) {
+
+			var trs = [];
+
+			$.each(data, function(i, obj) {
+				trs.push(
+					'<tr>',
+			          '<td>', obj.name, '</td>',
+			          '<td>', obj.author, '</td>',
+			          '<td>item3</td>',
+			          '<td>item4</td>',
+			          '<td>item5</td>',
+			          '<td>item6</td>',
+			          '<td>item7</td>',
+			          '<td>item8</td>',
+			        '</tr>'
+				);
+			});
+
+			// console.log(trs)
+			$('#booksTable tbody').html(trs.join(''));
+
 		},
 
 		initEvent: function() {
@@ -23,6 +67,10 @@
 				author: $('#author').val()
 			};
 
+			// console.log(this);
+
+			// var that = this;
+
 			// TODO 表单验证
 
 			$.get('../api/books_add.php', data, function(response) {
@@ -36,6 +84,10 @@
 				}
 
 				$('#bookDlg').modal('hide');
+
+				Library.initTable();
+
+				// location.reload();
 
 			}, 'json');
 
