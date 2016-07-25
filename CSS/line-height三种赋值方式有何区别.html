@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>TODO</title>
+
+	<style>
+		div {
+			background-color: red;
+			color: #fff;
+			font-size: 30px;
+			height: 50px;
+		}
+
+		span {
+			font-size: 20px;
+		}
+
+		.div1 {
+			line-height: 30px;
+		}
+
+		.div2 span {
+			line-height: 2em;
+		}
+
+		.div3 span {
+			line-height: 3;
+		}
+
+		.div4 {
+			line-height: 150%;
+		}
+
+		/*
+		1. 带单位：px不用计算，em则会使元素以其父元素font-size值为参考来计算自己的行高
+
+		2. 纯数字：把比例传递给后代，例如父级行高为1.5，子元素字体为18px，则子元素行高为1.5*18=27px
+
+		3. 百分比：将计算后的值传递给后代
+		*/
+	</style>
+</head>
+<body>
+
+	<div>
+		<span>测试文字</span>
+	</div>
+
+	<br>
+
+	<div class="div1">
+		测试文字
+	</div>
+
+	<br>
+
+	<div class="div2">
+		<span>测试文字</span>
+	</div>
+
+	<br>
+
+	<div class="div3">
+		<span>测试文字</span>
+	</div>
+
+	<br>
+
+	<div class="div4">
+		<span>测试文字</span>
+	</div>
+	
+</body>
+</html>

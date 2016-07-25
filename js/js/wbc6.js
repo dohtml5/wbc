@@ -551,3 +551,96 @@ console.log(i);*/
 
 //////////////////////////////////////////////////////////////////////
 
+// 格式化日期
+// function formatDate(date, isDateTime) {
+// 	var y, M, d, h, m, s;
+
+// 	y = date.getFullYear();
+// 	M = date.getMonth() + 1;
+// 	d = date.getDate();
+// 	h = date.getHours();
+// 	m = date.getMinutes();
+// 	s = date.getSeconds();
+
+// 	if (isDateTime) {
+// 		return y + '年' + fill0(M) + '月' + fill0(d) + '日 ' + fill0(h) + ':' + fill0(m) + ':' + fill0(s);
+// 	} else {
+// 		return y + '年' + fill0(M) + '月' + fill0(d) + '日';
+// 	}
+
+// }
+
+// function fill0(num) {
+// 	return num < 10 ? '0' + num : num;
+// }
+
+// var d = formatDate(new Date(), true);
+// console.log(d);
+
+// // 得到上个月的第一天
+// function getFirstDay() {
+// 	var d = new Date();
+// 	d.setMonth(d.getMonth() - 1);
+// 	d.setDate(1);
+
+// 	return formatDate(d);
+// }
+
+// var dd = getFirstDay();
+// console.log(dd);
+
+////////////////////////////////////////////////////////////////////////
+
+// var arr = ['a', 'b', 'c', 1, 2, 3, 4];
+
+// var arr2 = ['张三', '李四', '王五'];
+
+// var arr3 = [23, 8, 6, 2, 19, 5, 20];
+
+// var arr4 = [8, 6, 1, 9, 3, 0];
+
+
+// var compare = function(x, y) {
+// 	return x - y;
+// };
+
+// arr3.sort(compare);
+
+// console.log(arr3);
+
+// for (var i=0; i<arr.length; i++) {
+// 	console.log(arr[i]);
+// }
+
+// for (var i in arr) {
+// 	console.log(arr[i]);
+// }
+
+/////////////////////////////////////////////////////////////////
+
+// var s = ' ';
+
+// var o = {};
+
+// if (o) {
+// 	alert(1);
+// } else {
+// 	alert(2);
+// }
+
+// var d = new Date();
+
+// var names = "吕洋 王慧杰 王瑞宏 苗子棋 闫志强 雷亚超 申庆敏 陈彤彤".split(' ');
+
+// var index = Math.floor(Math.random() * names.length);
+
+// console.log(names[index]);
+
+// var mobileReg = /^1[3|4|5|7|8]\d{9}$/;
+
+// var emailReg =  /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+// if (!emailReg.test('gao_st@126.com')) {
+// 	alert('邮箱格式不正确！');
+// }
+

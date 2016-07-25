@@ -8,6 +8,7 @@
 
     <!-- Bootstrap -->
     <link href="bs/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bs/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
     <link rel="stylesheet" href="lib/css/library.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -116,15 +117,43 @@
             <!-- 表单 -->
             <form class="form-horizontal">
               <div class="form-group">
-                <label class="col-sm-2 control-label">书名：</label>
+                <label class="col-sm-2 control-label pl-0">书名：</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="name" placeholder="请输入书名">
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-2 control-label">作者：</label>
-                <div class="col-sm-3">
+                <label class="col-sm-2 control-label pl-0">作者：</label>
+                <div class="col-sm-10">
                   <input type="text" class="form-control" id="author" placeholder="请输入作者">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label pl-0">出版日期：</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="p_date" placeholder="请输入出版日期">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label pl-0">上架状态：</label>
+                <div class="col-sm-10">
+                  <label class="radio-inline">
+                    <input type="radio" name="status" value="1" checked> 上架
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="status" value="0"> 下架
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label pl-0">借出状态：</label>
+                <div class="col-sm-10">
+                  <label class="radio-inline">
+                    <input type="radio" name="b_status" value="0" checked> 未借出
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="b_status" value="1"> 已借出
+                  </label>
                 </div>
               </div>
             </form>
@@ -132,15 +161,26 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-            <button id="saveBtn" type="button" class="btn btn-primary">保存并入库</button>
+            <button id="saveBtn" type="button" class="btn btn-primary">&nbsp;保存并入库&nbsp;</button>
           </div>
         </div>
       </div>
     </div>
     <!-- 对话框 -->
 
+    <!-- loading -->
+    <div class="masker-wp">
+      <div class="masker"></div>
+      <div class="loading">
+        努力加载中...
+      </div>
+    </div>
+    <!-- loading -->
+
     <script src="bs/jquery-1.11.3.min.js"></script>
     <script src="bs/js/bootstrap.min.js"></script>
+    <script src="bs/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="bs/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
     <script src="lib/js/library.js"></script>
   </body>
 </html>
