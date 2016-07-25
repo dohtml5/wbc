@@ -4,10 +4,28 @@
 
 		$loadingWp: $('.masker-wp'),
 
+		classifyArray: [
+			{"id": 1, name: "历史类"},
+			{"id": 2, name: "文学类"},
+			{"id": 3, name: "科技类"},
+			{"id": 4, name: "军事类"},
+			{"id": 5, name: "小说类"}
+		],
+
 		init: function() {
 			this.initEvent();
 			this.initTable();
 			this.initDatePicker();
+			this.renderClassifySel();
+		},
+
+		renderClassifySel: function() {
+			var data = this.classifyArray; // 替代后台请求数据
+			data.unshift({"id": 0, name: "请选择"});
+			var optsArr = _.map(data, function(obj) {
+				return '<option value="' + obj.id + '">' + obj.name + '</option>';
+			});
+			$('#classify').html(optsArr.join(''));
 		},
 
 		initTable: function() {
@@ -45,14 +63,24 @@
 				var p_date = obj.p_date.split(' ')[0];
 				// p_date = p_date.substring(0, p_date.indexOf(' '));
 
+				var classify_map = {
+					1: "历史类",
+					2: "文学类",
+					3: "科技类",
+					4: "军事类",
+					5: "小说类",
+					0: "未分类"
+				};
+
 				trs.push(
 					'<tr>',
+			          '<td><input type="checkbox" /></td>',
 			          '<td>', obj.name, '</td>',
 			          '<td>', obj.author, '</td>',
 			          '<td>', obj.publisher, '</td>',
 			          '<td>￥', obj.price, '</td>',
 			          '<td>', p_date, '</td>',
-			          '<td>', obj.classify, '</td>',
+			          '<td>', classify_map[obj.classify || 0], '</td>',
 			          '<td>', obj.status ? '上架' : '下架', '</td>',
 			          '<td>', b_status_map[b_status], '</td>',
 			        '</tr>'
@@ -102,7 +130,7 @@
 				publisher: 'test',
 				price: 22.5,
 				p_date: $('#p_date').val(),
-				classify: '临时分类',
+				classify: $('#classify').val(),
 				status: $('input[name=status]:checked').val(),
 				borrow_status: $('input[name=b_status]:checked').val()
 			};
@@ -124,7 +152,8 @@
 				// console.log(typeof response);
 
 				if (response.success) {
-					alert('保存成功！')
+					// alert('保存成功！');
+					Library.resetForm();
 				} else {
 					alert('保存失败，请刷新重试！');
 				}
@@ -138,6 +167,11 @@
 			}, 'json');
 
 			// console.log(data)
+		},
+
+		resetForm: function() {
+			$('#booksForm').trigger('reset');
+			$('#saveBtn').removeClass('submiting');
 		}
 
 	};
