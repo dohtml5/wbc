@@ -158,6 +158,8 @@
             var $src = $this.siblings().attr('src');
             // console.log($src)
 
+            $this.blur();
+
 
             var offset = $('#end').offset(), flyer = $('<img class="u-flyer" src=""/>');
             flyer.attr('src',$src)

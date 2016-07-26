@@ -644,3 +644,134 @@ console.log(i);*/
 // 	alert('邮箱格式不正确！');
 // }
 
+////////////////////////////////////////////////////////////////////////////
+
+// var obj = {
+// 	name: 'aaa'
+// };
+
+// obj.name
+
+// var dom = { // document
+
+// 	getElementById: function(id) {
+// 		// native code
+// 	},
+
+// 	html: {
+// 		head: {
+// 			title: '文档标题'
+// 		},
+// 		body: {
+// 			div: {
+// 				id: 'myDiv',
+// 				innerText: '士大夫'
+// 			},
+// 			span: {
+// 				innerText: 'span'
+// 			},
+// 			ul: {
+// 				li: {},
+// 				li: {},
+// 				li: {},
+// 				li: {},
+// 				li: {}
+// 			}
+// 		}
+// 	}
+// };
+
+// var myDiv = document.getElementById('myDiv');
+
+// myDiv.innerText = '北京天安门';
+
+// myDiv.title = '北京天安门';
+
+// myDiv.style.backgroundColor = 'red';
+
+// myDiv.onclick = function() {
+// 	this.style.backgroundColor = 'red';
+// }
+
+// console.log(myDiv)
+
+// var span = document.getElementsByTagName('span');
+
+// for (var i=0; i<span.length; i++) {
+// 	span[i].innerText = '北京天安门';
+// 	span[i].style.backgroundColor = 'blue';
+// }
+
+// // span.innerText = '北京天安门';
+
+// console.log(span)
+
+// var address = document.getElementsByName('address');
+
+// console.log(address);
+
+// var hello = document.getElementById('hello');
+
+// hello.title = '你好';
+
+// // hello.wbc6 = 'hahahahaha';
+
+// hello.setAttribute('wbc6', 'hahahahaha');
+
+// console.log(hello.wbc);
+
+// console.log(hello.getAttribute('tabindex'));
+
+// // hello.innerHTML = '<i>北京天安门</i>';
+// // hello.innerText = '<i>北京天安门2</i>';
+
+// // var r = hello.innerHTML;
+// var r = hello.innerText;
+
+// console.log(r);
+
+///////////////////////////////////////////////////////
+
+// var div = document.createElement('div');
+// // var h1 = document.createElement('h1');
+
+// var txt = document.createTextNode('我爱北京天安门');
+// div.appendChild(txt);
+// // h1.appendChild(txt);
+
+// // div.setAttribute('wbc', 'hahahahaha');
+
+// /*var attr = document.createAttribute("wbc");
+// attr.value = "wo qu";
+// div.setAttributeNode(attr);*/
+
+// document.body.appendChild(div);
+// document.body.appendChild(h1);
+
+// var hello = document.getElementById('hello');
+
+// // document.body.removeChild(hello);
+
+// hello.parentNode.removeChild(hello);
+
+// console.log(hello.parentNode);
+
+var myUl = document.getElementById('myUl');
+
+// myUl.children[0];
+
+var li = document.createElement('li');
+var txt = document.createTextNode('0');
+
+li.appendChild(txt);
+
+// myUl.insertBefore(li, myUl.children[2]);
+myUl.replaceChild(li, myUl.children[0]);
+
+// myUl.appendChild(li);
+
+// // console.log(myUl.children);
+
+// for (var i=0; i<myUl.children.length; i++) {
+// 	console.log(myUl.children[i]);
+// }

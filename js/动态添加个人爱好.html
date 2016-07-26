@@ -1,3 +1,10 @@
+<!-- 
+说明：
+1. 点击增加按钮，页面新增一个输入框和删除按钮
+2. 最多可以增加5个爱好，等于5个的时候，增加按钮不可用
+3. 点击删除按钮，可以删除删除按钮那一行的爱好
+4. 点击确定按钮，把所有输入的爱好输出到页面
+-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -93,7 +100,8 @@
 
 			// console.log(this);
 
-			var r = confirm('确定要删除吗？');
+			// var r = confirm('确定要删除吗？');
+			var r = true;
 			if (r) {
 				moreWp.removeChild(this.parentNode);
 				addBtn.disabled = '';
