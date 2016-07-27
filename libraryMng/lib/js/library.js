@@ -74,7 +74,7 @@
 
 				trs.push(
 					'<tr>',
-			          '<td><input type="checkbox" /></td>',
+			          '<td><input id="', obj.id, '" class="book-checkbox" type="checkbox" /></td>',
 			          '<td>', obj.name, '</td>',
 			          '<td>', obj.author, '</td>',
 			          '<td>', obj.publisher, '</td>',
@@ -90,6 +90,9 @@
 			// console.log(trs)
 			$('#booksTable tbody').html(trs.join(''));
 
+			// 不推荐 $('#booksTable tbody input[type=checkbox]').on('click', this.onBookCheckBoxClick);
+
+
 			Library.$loadingWp.hide();
 
 		},
@@ -97,6 +100,47 @@
 		initEvent: function() {
 			$('#newBookBtn').on('click', this.onNewBookBtnClick);
 			$('#saveBtn').on('click', this.onSaveBtnClick);
+			// $('#booksTable tbody input[type=checkbox]').on('click', this.onBookCheckBoxClick);
+			// $('#booksTable').on('click', 'tbody input[type=checkbox]', this.onBookCheckBoxClick);
+			$('#booksTable').on('click', '.book-checkbox', this.onBookCheckBoxClick);
+			$('#delBookBtn').on('click', this.onDelBookBtnClick);
+		},
+
+		onDelBookBtnClick: function() {
+
+			var $selectedCheckbox, id;
+
+			if (!confirm('确定要删除该图书吗？')) {
+				return;
+			}
+
+			Library.$loadingWp.show();
+
+			$selectedCheckbox = $('#booksTable input.book-checkbox:checked');
+
+			$selectedCheckbox.each(function() {
+				id = this.id;
+			});
+
+			$.get('../api/books_del.php', {id: id}, function(response) {
+				if (response.success){
+					Library.initTable();
+				} else {
+					alert('删除失败，请刷新重试！');
+				}
+			}, 'json');
+		},
+
+		onBookCheckBoxClick: function() {
+
+			var len = $('#booksTable input.book-checkbox:checked').length;
+			var $delBookBtn = $('#delBookBtn');
+			if (len > 0) {
+				$delBookBtn.removeAttr('disabled');
+			} else {
+				$delBookBtn.attr('disabled', 'disabled');
+			}
+
 		},
 
 		initDatePicker: function() {
