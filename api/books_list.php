@@ -16,6 +16,11 @@ $total = $books_count[0]['count'];
 
 sleep(2);
 
-echo json_encode(Array("success" => true, "total" => $total, "data" => $books, "message" => "请求成功"));
+if ($books) {
+	echo json_encode(Array("success" => true, "total" => $total, "data" => $books, "message" => "请求成功"));
+} else {
+	echo json_encode(Array("success" => false, "total" => 0, "data" => [], "message" => "请求失败"));
+}
+
 
 ?>

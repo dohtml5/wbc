@@ -2,6 +2,8 @@
 
 	var Library = {
 
+		cache: {},
+
 		$loadingWp: $('.masker-wp'),
 
 		classifyArray: [
@@ -85,7 +87,13 @@
 			          '<td>', b_status_map[b_status], '</td>',
 			        '</tr>'
 				);
+
+				Library.cache[obj.id] = obj;
+
 			});
+
+			// console.log(data)
+			// console.log(Library.cache)
 
 			// console.log(trs)
 			$('#booksTable tbody').html(trs.join(''));
@@ -104,11 +112,32 @@
 			// $('#booksTable').on('click', 'tbody input[type=checkbox]', this.onBookCheckBoxClick);
 			$('#booksTable').on('click', '.book-checkbox', this.onBookCheckBoxClick);
 			$('#delBookBtn').on('click', this.onDelBookBtnClick);
+			$('#updateBookBtn').on('click', this.onUpdateBookBtnClick);
+		},
+
+		onUpdateBookBtnClick: function() {
+
+			var $selectedCheckbox = $('#booksTable input.book-checkbox:checked');
+			// var id = $selectedCheckbox.get(0).id;
+			var id = $selectedCheckbox[0].id;
+
+			var currObj = Library.cache[id];
+
+			var $bookDlg = $('#bookDlg');
+
+			$bookDlg.find('#name').val(currObj.name);
+			$bookDlg.find('#classify').val(currObj.classify);
+			$bookDlg.find('input[name=status][value='+currObj.status+']').trigger('click');
+
+			console.log(currObj);
+
+			$('#bookDlg').find('#myModalLabel').html('修改图书').end().modal('show');
+
 		},
 
 		onDelBookBtnClick: function() {
 
-			var $selectedCheckbox, id;
+			var $selectedCheckbox, ids = [];
 
 			if (!confirm('确定要删除该图书吗？')) {
 				return;
@@ -119,10 +148,10 @@
 			$selectedCheckbox = $('#booksTable input.book-checkbox:checked');
 
 			$selectedCheckbox.each(function() {
-				id = this.id;
+				ids.push(this.id);
 			});
 
-			$.get('../api/books_del.php', {id: id}, function(response) {
+			$.get('../api/books_del.php', {ids: ids.join(',')}, function(response) {
 				if (response.success){
 					Library.initTable();
 				} else {
@@ -135,8 +164,15 @@
 
 			var len = $('#booksTable input.book-checkbox:checked').length;
 			var $delBookBtn = $('#delBookBtn');
+			var $updateBookBtn = $('#updateBookBtn');
+
 			if (len > 0) {
 				$delBookBtn.removeAttr('disabled');
+				if (len == 1) {
+					$updateBookBtn.removeAttr('disabled');
+				} else {
+					$updateBookBtn.attr('disabled', 'disabled');
+				}
 			} else {
 				$delBookBtn.attr('disabled', 'disabled');
 			}
@@ -154,7 +190,8 @@
 		},
 
 		onNewBookBtnClick: function() {
-			$('#bookDlg').modal('show');
+			Library.resetForm();
+			$('#bookDlg').find('#myModalLabel').html('新增图书').end().modal('show');
 		},
 
 		onSaveBtnClick: function() {
