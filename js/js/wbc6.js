@@ -756,17 +756,17 @@ console.log(i);*/
 
 // console.log(hello.parentNode);
 
-var myUl = document.getElementById('myUl');
-
-// myUl.children[0];
-
-var li = document.createElement('li');
-var txt = document.createTextNode('0');
-
-li.appendChild(txt);
-
-// myUl.insertBefore(li, myUl.children[2]);
-myUl.replaceChild(li, myUl.children[0]);
+//var myUl = document.getElementById('myUl');
+//
+//// myUl.children[0];
+//
+//var li = document.createElement('li');
+//var txt = document.createTextNode('0');
+//
+//li.appendChild(txt);
+//
+//// myUl.insertBefore(li, myUl.children[2]);
+//myUl.replaceChild(li, myUl.children[0]);
 
 // myUl.appendChild(li);
 
@@ -775,3 +775,43 @@ myUl.replaceChild(li, myUl.children[0]);
 // for (var i=0; i<myUl.children.length; i++) {
 // 	console.log(myUl.children[i]);
 // }
+
+//////////////////////////////////////////////////////////////////////////////////
+
+//var wbcObj = {
+//	name: 'wbc6',
+//	total: 12
+//};
+//
+//function getWbcObj() {
+//	alert('abc');
+//}
+//
+//var wbcTeacher = 'situ';
+
+
+//var linkBtn = document.getElementById("linkBtn");
+//
+//linkBtn.onclick = function() {
+////	window.open('http://www.baidu.com');
+////	location.href = "http://www.baidu.com";
+////	location.reload();
+////	location.replace("http://www.baidu.com");
+//}
+
+
+//function test() {
+//	console.log('test.............');
+//}
+//
+//////test();
+////
+////var timer = setTimeout(test, 5000);
+//
+////setTimeout(function() {
+////	console.log('test2..........');
+////}, 5000);
+//
+//var timer2 = setInterval(test, 2000);
+
+
