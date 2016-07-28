@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>WEB开发大本营</title>
+</head>
+<body>
+
+
+	<script src="js/helper.js"></script>
+	<script>
+		function flashTitle() {
+			var title = document.title;
+
+			setInterval(function() {
+				if (document.title == "WBC") {
+					document.title = title;
+				} else {
+					document.title = "WBC";
+				}
+			}, 500);
+
+		}
+
+		flashTitle();
+	</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#clock {
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+
+	<span id="clock">00:00:00</span>
+
+	<script src="js/helper.js"></script>
+	
+	<script>
+		var initClock = function() {
+			var d = new Date();
+			var arr = Helper.getDateArr(d);
+			var time = Helper.fill0(arr[3]) + ":" + Helper.fill0(arr[4]) + ":" + Helper.fill0(arr[5]);
+			var clock = Helper.dom('clock');
+
+			clock.innerHTML = time;
+		};
+
+		initClock();
+
+		setInterval(initClock, 1000);
+
+	</script>
+</body>
+</html>

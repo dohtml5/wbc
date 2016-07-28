@@ -815,3 +815,21 @@ console.log(i);*/
 //var timer2 = setInterval(test, 2000);
 
 
+//////////////////////////////////////////////////////////
+
+// var str1 = "test";
+
+// var r = Helper.isStartWith(str1, 'u');
+
+// console.log(r);
+
+// var arr = [2, 3, 4, 5, 6];
+
+// for( var i in arr){
+// 	console.log(arr[i]);
+// }
+
+// for (var i = 0; i<arr.length; i++){
+// 	console.log(arr[i]);
+// }
+
