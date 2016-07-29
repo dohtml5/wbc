@@ -2,6 +2,8 @@
 
 	var Library = {
 
+		param: {},
+
 		cache: {},
 
 		$loadingWp: $('.masker-wp'),
@@ -36,9 +38,11 @@
 
 			this.$loadingWp.show();
 
-			// console.log(this);
+			// console.log(Library.param);
 
-			$.get(url, {}, function(response) {
+			// return;
+
+			$.get(url, {query: Library.param.query || ''}, function(response) {
 
 				// console.log(this);
 
@@ -46,6 +50,7 @@
 					that.renderTable(response.data);
 				} else {
 					alert('数据请求失败，请刷新重试！');
+					that.$loadingWp.hide();
 				}
 
 			}, 'json');
@@ -56,6 +61,12 @@
 		renderTable: function(data) {
 
 			var trs = [];
+
+			if (data.length == 0) {
+				alert('暂无查询结果，请更换查询关键字重试！');
+				Library.$loadingWp.hide();
+				return;
+			}
 
 			$.each(data, function(i, obj) {
 
@@ -113,6 +124,13 @@
 			$('#booksTable').on('click', '.book-checkbox', this.onBookCheckBoxClick);
 			$('#delBookBtn').on('click', this.onDelBookBtnClick);
 			$('#updateBookBtn').on('click', this.onUpdateBookBtnClick);
+			$('#searchBtn').on('click', this.onSearchBtnClick);
+		},
+
+		onSearchBtnClick: function() {
+			var txt = $('#searchIpt').val();
+			Library.param.query = txt;
+			Library.initTable();
 		},
 
 		onUpdateBookBtnClick: function() {
@@ -125,13 +143,19 @@
 
 			var $bookDlg = $('#bookDlg');
 
+			Library.resetForm();
+
+			$bookDlg.find('#bookId').val(currObj.id);
 			$bookDlg.find('#name').val(currObj.name);
 			$bookDlg.find('#classify').val(currObj.classify);
 			$bookDlg.find('input[name=status][value='+currObj.status+']').trigger('click');
 
-			console.log(currObj);
+			// console.log(currObj);
 
-			$('#bookDlg').find('#myModalLabel').html('修改图书').end().modal('show');
+			$('#bookDlg')
+				.find('#myModalLabel').html('修改图书').end()
+				.find('#saveBtn').html('确定修改').addClass('update').end()
+				.modal('show');
 
 		},
 
@@ -191,7 +215,10 @@
 
 		onNewBookBtnClick: function() {
 			Library.resetForm();
-			$('#bookDlg').find('#myModalLabel').html('新增图书').end().modal('show');
+			$('#bookDlg')
+				.find('#myModalLabel').html('新增图书').end()
+				.find('#saveBtn').html('保存并入库').removeClass('update').end()
+				.modal('show');
 		},
 
 		onSaveBtnClick: function() {
@@ -199,12 +226,14 @@
 
 			// Library.$loadingWp.show();
 
-			var $this = $(this), data;
+			var $this = $(this), data, url;
 
 			if ($this.hasClass('submiting')) {
 				return;
 			}
-			
+
+			$this.addClass('submiting');
+
 			data = {
 				name: $('#name').val(),
 				author: $('#author').val(),
@@ -216,27 +245,27 @@
 				borrow_status: $('input[name=b_status]:checked').val()
 			};
 
+			// TODO 表单验证
 
-			$this.addClass('submiting');
+			if ($this.hasClass('update')) { // 修改
+				data["id"] = $('#bookId').val();
+				url = '../api/books_update.php';
+			} else { // 新增
+				url = '../api/books_add.php';
+			}
 
 			// console.log(data);
 
 			// return;
 
-
-			// var that = this;
-
-			// TODO 表单验证
-
-			$.get('../api/books_add.php', data, function(response) {
+			$.get(url, data, function(response) {
 
 				// console.log(typeof response);
 
 				if (response.success) {
-					// alert('保存成功！');
 					Library.resetForm();
 				} else {
-					alert('保存失败，请刷新重试！');
+					alert('操作失败，请刷新重试！');
 				}
 
 				$('#bookDlg').modal('hide');

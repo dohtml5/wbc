@@ -20,8 +20,8 @@ $sql = "select * from books where 1=1";
 $sql2 = "select count(*) as count from books where 1=1";
 
 if (isset($query) && $query != '') {
-    $sql .= " and (name like '%".$query."%' ";
-    $sql2 .= " and (name like '%".$query."%' ";
+    $sql .= " and name like '%".$query."%' ";
+    $sql2 .= " and name like '%".$query."%' ";
 }
 
 $sql .= " order by id desc limit $start, $pageSize";
@@ -36,7 +36,7 @@ sleep(2);
 if ($books) {
 	echo json_encode(Array("success" => true, "total" => $total, "data" => $books, "message" => "请求成功"));
 } else {
-	echo json_encode(Array("success" => false, "total" => 0, "data" => [], "message" => "请求失败"));
+	echo json_encode(Array("success" => true, "total" => 0, "data" => [], "message" => "请求失败"));
 }
 
 ?>
