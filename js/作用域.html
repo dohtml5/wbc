@@ -8,15 +8,88 @@
 
 <script>
 
-	function test() {
-		var a = 'abc';
-		return function() {
-			console.log(a);
-		}
+	// 匿名自执行函数
+	/*(function(a) {
+
+		console.log(a);
+
+	})(555);*/
+
+	!function() {
+
+		console.log('abc');
+		
+	}();
+
+	/*function init() {
+
 	}
 
-	var r = test();
-	r();
+	init();*/
+
+
+	/*var a = "abc";
+
+	function test() {
+
+		console.log(a); // abc
+
+		var a = "def"; // def
+
+		console.log(a);
+
+	}
+
+	test();*/
+
+	/*var a = "abc";
+
+	function test() {
+		console.log(a);
+	}
+
+	test();*/
+
+	/*function test() {
+
+		console.log(a);
+
+		var a = 'abc';
+
+		console.log(a);
+	}
+
+	test();
+
+	console.log(a);*/
+
+	/*for (var i=0; i<10; i++) {
+		// console.log(i);
+	}
+
+	console.log(i);*/
+
+	/*var a = "";
+
+	if (a) {
+		var b = 'def';
+	}
+
+	console.log(b);*/
+
+	// var test = "abc";
+
+	/////////////////////////////////////////////////////////////////
+
+	// function test() {
+	// 	var a = 'abc';
+	// 	return function() {
+	// 		console.log(a);
+	// 	}
+	// }
+
+	// var r = test();
+	// r();
 
 	// console.log(a);
 
@@ -154,7 +227,7 @@
 
 	test();*/
 
-	// console.log(a);
+	// console.log(test);
 
 </script>
 	
