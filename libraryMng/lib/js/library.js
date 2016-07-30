@@ -2,7 +2,11 @@
 
 	var Library = {
 
-		param: {},
+		param: {
+			size: 3,
+			page: 0,
+			totalPage: 0
+		},
 
 		cache: {},
 
@@ -38,16 +42,17 @@
 
 			this.$loadingWp.show();
 
-			// console.log(Library.param);
+			$.extend(Library.param, {query: Library.param.query || ''}, {page: Library.param.page});
 
 			// return;
 
-			$.get(url, {query: Library.param.query || ''}, function(response) {
+			$.get(url, Library.param, function(response) {
 
 				// console.log(this);
 
 				if (response.success) {
 					that.renderTable(response.data);
+					that.renderPaging(response);
 				} else {
 					alert('数据请求失败，请刷新重试！');
 					that.$loadingWp.hide();
@@ -56,6 +61,71 @@
 			}, 'json');
 
 			// ???
+		},
+
+		renderPaging: function(response) {
+			var total = response.total,
+				size = Library.param.size,
+				totalPage = Math.ceil(total / size),
+				i,
+				pagingArr = [];
+
+			Library.param.totalPage = totalPage;
+
+			// console.log(Library.param)
+
+			if (Library.param.page == 0) {
+				pagingArr.push(
+					'<li class="disabled" class="first-page">',
+						'<a href="javascript:;" aria-label="Previous">',
+						  '<span aria-hidden="true">&laquo;</span>',
+						'</a>',
+					'</li>',
+					'<li class="disabled" class="prev">',
+						'<a href="javascript:;">',
+						  '<span aria-hidden="true">&lsaquo;</span>',
+						'</a>',
+					'</li>'
+				);
+			} else {
+				pagingArr.push(
+					'<li class="first-page">',
+						'<a href="javascript:;" aria-label="Previous">',
+						  '<span aria-hidden="true">&laquo;</span>',
+						'</a>',
+					'</li>',
+					'<li class="prev">',
+						'<a href="javascript:;">',
+						  '<span aria-hidden="true">&lsaquo;</span>',
+						'</a>',
+					'</li>'
+				);
+			}
+
+			
+
+			for (i=0; i<totalPage; i++) {
+				if (i == Library.param.page) {
+					pagingArr.push('<li page="', i, '" class="active"><a href="javascript:;">', (i + 1), '</a></li>');
+				} else {
+					pagingArr.push('<li page="', i, '"><a href="javascript:;">', (i + 1), '</a></li>');
+				}
+			}
+
+			pagingArr.push(
+				'<li class="next">',
+					'<a href="javascript:;" aria-label="Next">',
+					  '<span aria-hidden="true">&rsaquo;</span>',
+					'</a>',
+				'</li>',
+				'<li class="last-page">',
+					'<a href="javascript:;" aria-label="Next">',
+					  '<span aria-hidden="true">&raquo;</span>',
+					'</a>',
+				'</li>'
+			);
+
+			$('#pagingUl').html(pagingArr.join(''));
 		},
 
 		renderTable: function(data) {
@@ -125,6 +195,57 @@
 			$('#delBookBtn').on('click', this.onDelBookBtnClick);
 			$('#updateBookBtn').on('click', this.onUpdateBookBtnClick);
 			$('#searchBtn').on('click', this.onSearchBtnClick);
+
+			$('#pagingUl').on('click', 'li', this.onPagingLiClick);
+			$('#jumpBtn').on('click', this.onJumpBtnClick);
+		},
+
+		onJumpBtnClick: function() {
+			var $jumpIpt = $('#jumpIpt'),
+				page = $jumpIpt.val();
+			if (isNaN(page)) {
+				alert('请输入一个正常的页数！');
+				$jumpIpt.select();
+				return;
+			}
+
+			if (page > Library.param.totalPage) {
+				page = Library.param.totalPage;
+			}
+
+			if (page < 1) {
+				page = 1;
+			}
+
+			Library.param.page = --page;
+			Library.initTable();
+			$('#jumpIpt').val(page * 1 + 1);
+		},
+
+		onPagingLiClick: function() {
+			var $this = $(this),
+				currPage;
+
+			if ($this.hasClass('disabled')) {
+				return;
+			}
+
+			if ($this.hasClass('first-page')) {
+				currPage = 0;
+			} else if ($this.hasClass('last-page')) {
+				currPage = Library.param.totalPage - 1;
+			} else if ($this.hasClass('prev')) {
+				currPage = --Library.param.page;
+			} else if ($this.hasClass('next')) {
+				currPage = ++Library.param.page;
+			} else {
+				currPage = $this.attr('page');
+			}
+
+			Library.param.page = currPage;
+			Library.initTable();
+
+			$('#jumpIpt').val(currPage * 1 + 1); // parseInt(currPage)
 		},
 
 		onSearchBtnClick: function() {

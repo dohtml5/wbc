@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<title></title>
+		<style type="text/css">
+			* {
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+			
+			html {
+				-ms-touch-action: none;
+			}
+			
+			body,ul,li {
+				padding: 0;
+				margin: 0;
+				border: 0;
+			}
+			
+			body {
+				font-size: 12px;
+				font-family: ubuntu, helvetica, arial;
+				overflow: hidden; /* this is important to prevent the whole page to bounce */
+			}
+			
+			#header {
+				position: absolute;
+				z-index: 2;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 45px;
+				line-height: 45px;
+				background: #CD235C;
+				padding: 0;
+				color: #eee;
+				font-size: 20px;
+				text-align: center;
+				font-weight: bold;
+			}
+			
+			#footer {
+				position: absolute;
+				z-index: 2;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 48px;
+				background: #444;
+				padding: 0;
+				border-top: 1px solid #444;
+			}
+			
+			#wrapper {
+				position: absolute;
+				z-index: 1;
+				top: 45px;
+				bottom: 48px;
+				left: 0;
+				width: 100%;
+				background: #ccc;
+				overflow: hidden;
+			}
+			
+			#scroller {
+				position: absolute;
+				z-index: 1;
+				-webkit-tap-highlight-color: rgba(0,0,0,0);
+				width: 100%;
+				-webkit-transform: translateZ(0);
+				-moz-transform: translateZ(0);
+				-ms-transform: translateZ(0);
+				-o-transform: translateZ(0);
+				transform: translateZ(0);
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				-webkit-text-size-adjust: none;
+				-moz-text-size-adjust: none;
+				-ms-text-size-adjust: none;
+				-o-text-size-adjust: none;
+				text-size-adjust: none;
+			}
+			
+			#scroller ul {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+				width: 100%;
+				text-align: left;
+			}
+			
+			#scroller li {
+				padding: 0 10px;
+				height: 40px;
+				line-height: 40px;
+				border-bottom: 1px solid #ccc;
+				border-top: 1px solid #fff;
+				background-color: #fafafa;
+				font-size: 14px;
+			}
+			
+			/**
+			 *
+			 * Pull down styles
+			 *
+			 */
+			#pullDown, #pullUp {
+				background:#fff;
+				height:40px;
+				line-height:40px;
+				padding:5px 10px;
+				border-bottom:1px solid #ccc;
+				font-weight:bold;
+				font-size:14px;
+				color:#888;
+			}
+			#pullDown .pullDownIcon, #pullUp .pullUpIcon  {
+				display:block; float:left;
+				width:40px; height:40px;
+				background:url(img/pull-icon@2x.png) 0 0 no-repeat;
+				-webkit-background-size:40px 80px; background-size:40px 80px;
+				-webkit-transition-property:-webkit-transform;
+				-webkit-transition-duration:250ms;	
+			}
+			#pullDown .pullDownIcon {
+				-webkit-transform:rotate(0deg) translateZ(0);
+			}
+			#pullUp .pullUpIcon  {
+				-webkit-transform:rotate(-180deg) translateZ(0);
+			}
+			
+			#pullDown.flip .pullDownIcon {
+				-webkit-transform:rotate(-180deg) translateZ(0);
+			}
+			
+			#pullUp.flip .pullUpIcon {
+				-webkit-transform:rotate(0deg) translateZ(0);
+			}
+			
+			#pullDown.loading .pullDownIcon, #pullUp.loading .pullUpIcon {
+				background-position:0 100%;
+				-webkit-transform:rotate(0deg) translateZ(0);
+				-webkit-transition-duration:0ms;
+			
+				-webkit-animation-name:loading;
+				-webkit-animation-duration:2s;
+				-webkit-animation-iteration-count:infinite;
+				-webkit-animation-timing-function:linear;
+			}
+			
+			@-webkit-keyframes loading {
+				from { -webkit-transform:rotate(0deg) translateZ(0); }
+				to { -webkit-transform:rotate(360deg) translateZ(0); }
+			}
+		</style>
+	</head>
+	<body>
+		<div id="header"><a href="http://cubiq.org/iscroll">iScroll</a></div>
+		<div id="wrapper">
+			<div id="scroller">
+				<div id="pullDown">
+					<span class="pullDownIcon"></span><span class="pullDownLabel">Pull down to refresh...</span>
+				</div>
+		
+				<ul id="list">
+					<li>Pretty row 1</li>
+					<li>Pretty row 2</li>
+					<li>Pretty row 3</li>
+					<li>Pretty row 4</li>
+					<li>Pretty row 5</li>
+					<li>Pretty row 6</li>
+					<li>Pretty row 7</li>
+					<li>Pretty row 8</li>
+					<li>Pretty row 9</li>
+					<li>Pretty row 10</li>
+					<li>Pretty row 11</li>
+					<li>Pretty row 12</li>
+					<li>Pretty row 13</li>
+					<li>Pretty row 14</li>
+					<li>Pretty row 15</li>
+					<li>Pretty row 16</li>
+					<li>Pretty row 17</li>
+					<li>Pretty row 18</li>
+					<li>Pretty row 19</li>
+					<li>Pretty row 20</li>
+					<li>Pretty row 21</li>
+					<li>Pretty row 22</li>
+					<li>Pretty row 23</li>
+					<li>Pretty row 24</li>
+					<li>Pretty row 25</li>
+					<li>Pretty row 26</li>
+					<li>Pretty row 27</li>
+					<li>Pretty row 28</li>
+					<li>Pretty row 29</li>
+					<li>Pretty row 30</li>
+					<li>Pretty row 31</li>
+					<li>Pretty row 32</li>
+					<li>Pretty row 33</li>
+					<li>Pretty row 34</li>
+					<li>Pretty row 35</li>
+					<li>Pretty row 36</li>
+					<li>Pretty row 37</li>
+					<li>Pretty row 38</li>
+					<li>Pretty row 39</li>
+					<li>Pretty row 40</li>
+				</ul>
+				<div id="pullUp">
+					<span class="pullUpIcon"></span><span class="pullUpLabel">Pull up to refresh...</span>
+				</div>
+			</div>
+		</div>
+		<div id="footer"></div>
+		
+		<div id="spinner">
+	        <div></div>
+	        <div></div>
+	    </div>
+		
+		<script src="../lib/iscroll-probe.js"></script>
+		<script type="text/javascript">
+			/*var myScroll = new IScroll('#wrapper', { 
+				mouseWheel: true, 
+				probeType: 3,
+				scrollbars: true
+			});
+			
+			myScroll.on('scroll', updatePosition);
+			myScroll.on('scrollEnd', updatePosition);
+			
+			function updatePosition() {
+				console.log(this.y);
+			}*/
+			
+			var myScroll;
+			var pullDownFlag,pullUpFlag;
+			var pullDown,pullUp;
+			var spinner;
+			function positionJudge(){
+			    if(this.y>40){    //判断下拉
+			        pullDown.innerHTML = "放开刷新页面";
+			        pullDownFlag = 1;
+			    }else if(this.y<(this.maxScrollY-40)){   //判断上拉
+			        pullUp.innerHTML = "放开刷新页面";
+			        pullUpFlag = 1;
+			    }
+			}
+			function action(){
+			    if(pullDownFlag==1){
+			        pullDownAction();
+			        pullDown.innerHTML = "下拉刷新…";
+			        pullDownFlag = 0;
+			    }else if(pullUpFlag==1){
+			        pullUpAction();
+			        pullUp.innerHTML = "上拉刷新…";
+			        pullUpFlag = 0;
+			    }
+			}
+			function loaded(){
+			    pullDownFlag = 0;
+			    pullUpFlag = 0;
+			    pullDown = document.getElementById("pullDown");
+			    pullUp = document.getElementById("pullUp");
+			    spinner = document.getElementById("spinner");
+			    myScroll = new IScroll("#wrapper",{
+			        probeType: 3,
+			//        momentum: false,//关闭惯性滑动
+			        mouseWheel: true,//鼠标滑轮开启
+			        scrollbars: true,//滚动条可见
+			        fadeScrollbars: true,//滚动条渐隐
+			        interactiveScrollbars: true,//滚动条可拖动
+			        shrinkScrollbars: 'scale', // 当滚动边界之外的滚动条是由少量的收缩
+			        useTransform: true,//CSS转化
+			        useTransition: true,//CSS过渡
+			        bounce: true,//反弹
+			        freeScroll: false,//只能在一个方向上滑动
+			        startX: 0,
+			        startY: 0,
+			//        snap: "li",//以 li 为单位
+			    });
+			    myScroll.on('scroll',positionJudge);
+			    myScroll.on("scrollEnd",action);
+			}
+			function pullDownAction(){
+			    spinner.style.display = "block";
+			    setTimeout(function(){
+			        var ul = document.getElementById("list");
+			        var lis = ul.getElementsByTagName("li");
+			        for(var i=0;i<lis.length;i++){
+			            lis[i].innerHTML = "下拉刷新";
+			        }
+			        spinner.style.display = "none";
+			        myScroll.refresh();
+			    },1000);
+			}
+			function pullUpAction(){
+			    spinner.style.display = "block";
+			    setTimeout(function(){
+			        var ul = document.getElementById("list");
+			        var lis = ul.getElementsByTagName("li");
+			        for(var i=0;i<lis.length;i++){
+			            lis[i].innerHTML = "上拉刷新";
+			        }
+			        spinner.style.display = "none";
+			        myScroll.refresh();
+			    },1000);
+			}
+			function updatePosition(){
+			pullDown.innerHTML = this.y>>0;
+			}
+			document.addEventListener('touchmove', function (e) {
+			    e.preventDefault();
+			}, false);
+			
+			loaded();
+		</script>
+	</body>
+</html>

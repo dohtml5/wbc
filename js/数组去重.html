@@ -10,11 +10,11 @@
 	<script>
 		var arr1 = [2, 8, 7, '2', 3, 8, 6, 2];
 
-		function uniq2(arr) {
+		/*function uniq2(arr) {
 			var tmpArr = [], i, len = arr.length;
 
 			for (i=0; i<len; i++) {
-				if (!isInArray(tmpArr, arr[i])) { // 在不数组中
+				if (!isInArray(tmpArr, arr[i])) { // 不在数组中
 					tmpArr.push(arr[i]);
 				}
 			}
@@ -30,14 +30,16 @@
 				}
 			}
 			return false;
-		}
+		}*/
 
-		/*function uniq(arr) {
+		function uniq(arr) {
 			var obj = {}, i=0, len = arr.length, key;
 
 			for (; i<len; i++) {
 				obj[arr[i]] = arr[i];
 			}
+
+			// console.log(obj)
 
 			arr.length = 0;
 
@@ -46,9 +48,9 @@
 			}
 
 			return arr;
-		}*/
+		}
 
-		var r = uniq2(arr1);
+		var r = uniq(arr1);
 
 		console.log(r);
 	</script>

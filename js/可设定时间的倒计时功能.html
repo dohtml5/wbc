@@ -1,0 +1,100 @@
+<!-- 
+要求：
+1. 点击“开始倒计时”按钮，开始倒计时，按钮变成“暂停倒计时”
+2. 点击“暂停倒计时”按钮，暂定倒计时，按钮变成“开始倒计时”
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.wp	{
+			width: 300px;
+			margin: 50px auto;
+		}
+
+		.wp h1 {
+			text-align: center;
+		}
+
+		.wp input {
+			width: 120px;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="wp">
+		<h1 id="clock">00:00:00</h1>
+		<div>
+			<input id="time" type="text">
+			<select id="unit">
+				<option value="0">请选择</option>
+				<option value="3600">小时</option>
+				<option value="60">分钟</option>
+				<option value="1">秒</option>
+			</select>
+			<button id="startBtn">开始倒计时</button>
+		</div>
+	</div>
+	
+	<script src="js/helper.js"></script>
+	<script>
+		var countDown = function() {
+			var startBtn = Helper.dom('startBtn');
+			var clock = Helper.dom('clock');
+			
+			startBtn.onclick = function() {
+				var time = Helper.dom('time').value;
+				var unit = Helper.dom('unit').value;
+				var totalSeconds;
+				var h, m, s;
+				var timer;
+
+				if (isNaN(time) || time == '') {
+					alert('请输入一个数字！');
+					return;
+				}
+
+				if (unit == 0) {
+					alert('请选择一个时间单位！');
+					return;
+				}
+
+				totalSeconds = time * unit;
+
+				function runner() {
+
+					if (totalSeconds <= 0) {
+						clearInterval(timer);
+						alert('时间到！');
+					}
+
+					if (totalSeconds <= 10) {
+						clock.style.color = 'red';
+					}
+					
+					h = Math.floor(totalSeconds / 3600);
+
+					m = Math.floor((totalSeconds % 3600) / 60);
+
+					s = totalSeconds % 60;
+
+					clock.innerHTML = Helper.fill0(h) + ":" + Helper.fill0(m) + ":" + Helper.fill0(s);
+
+					totalSeconds--;
+				}
+
+				timer = setInterval(runner, 1000);
+
+				runner();
+
+			}
+		};
+
+		countDown();
+	</script>
+</body>
+</html>

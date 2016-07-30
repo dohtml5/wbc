@@ -4,6 +4,14 @@
 	margin-bottom: 10px;
 }
 
+.mb-0 {
+	margin-bottom: 0;
+}
+
+.mt-10 {
+	margin-top: 10px;
+}
+
 .pl-0 {
 	padding-left: 0;
 }
@@ -50,4 +58,14 @@
 .submiting {
 	opacity: 0.5;
 	background: url(../../img/icon_loading.gif) left center no-repeat;
+}
+
+.page-jumper {
+	float: left;
+    margin-top: 10px;
+}
+
+.page-jumper input {
+	width: 30px;
+    text-align: center;
 }
