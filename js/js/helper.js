@@ -2,6 +2,14 @@
 
 	var Helper = {};
 
+	Helper.html = function(dom, val) {
+        if (arguments.length == 1) {
+            return dom.innerHTML;
+        } else if (arguments.length == 2) {
+            dom.innerHTML = val;
+        }
+    };
+
 	Helper.deepCopy = function(list) {
 		var result;
 

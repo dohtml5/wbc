@@ -9,20 +9,51 @@
 		}
 
 		.back2top {
+			width: 50px;
+			height: 50px;
+			background-color: red;
 			position: fixed;
 			right: 10px;
 			bottom: 10px;
-
-			width: 30px;
-			height: 30px;
-			background-color: red;
-
-			cursor: pointer;
+			display: none;
 		}
 	</style>
 
+	<script src="js/helper.js"></script>
 	<script>
+
 		window.onload = function() {
+
+			var body = document.body;
+
+			body.onclick = function(e) {
+				/*console.log(e.clientX + ':' + e.clientY);
+				console.log(e.pageX + ':' + e.pageY);*/
+			};
+
+			var myText = Helper.dom('myText');
+
+			myText.onkeyup = function(e) {
+//				console.log(e.keyCode);
+			};
+
+			 /*myText.onblur = function() {
+				console.log('blur');
+			};
+
+			myText.onfocus = function() {
+				console.log('focus');
+			};*/
+
+			/*myText.onchange = function() {
+				console.log(this.value);
+			};*/
+
+		};
+
+		//////////////////////////////////////////////////////////////////
+
+		/*window.onload = function() {
 			var myBtn = document.getElementById('myBtn');
 			// console.log(myBtn)
 		}
@@ -36,60 +67,152 @@
 
 		window.onscroll = function() {
 			// console.log(document.body.scrollTop);
-		}
+		}*/
+
+		/////////////////////////////////////////////////
+
+//		window.onload = function() {
+//			var myBtn2 = Helper.dom('myBtn2');
+//
+////			console.log(myBtn2);
+//
+//			myBtn2.onclick = function() {
+//				alert(999);
+//			};
+//
+//		};
+
+		/*window.onhashchange = function() {
+			console.log(9999);
+		};*/
+
+//		window.onresize = function() {
+//			console.log(window.innerWidth);
+//		};
+
+//		window.onscroll = function() {
+//			console.log(document.body.scrollTop);
+//		};
+
+
 	</script>
 </head>
 <body>
 
+    <!--<button onclick="alert(99)">my button</button>-->
+    <button id="myBtn2">my btn2</button>
+
+    <hr>
+
+    <input id="myText" type="text">
+
 	<!-- <button onclick="window.alert(99)">my btn</button> -->
 	<!-- <button onclick="test()">my btn</button> -->
-	<button id="myBtn">my Btn</button>
-	<button id="myBtn2">解除绑定</button>
+	<!--<button id="myBtn">my Btn</button>-->
+	<!--<button id="myBtn2">解除绑定</button>-->
 
-	<hr>
+	<!--<hr>-->
 
-	<input id="myTxt" type="text">
+	<!--<input id="myTxt" type="text">-->
 
-	<select name="" id="mySel">
-		<option value="1">item1</option>
-		<option value="2">item2</option>
-		<option value="3">item3</option>
-		<option value="4">item4</option>
-		<option value="5">item5</option>
-	</select>
+	<!--<select name="" id="mySel">-->
+		<!--<option value="1">item1</option>-->
+		<!--<option value="2">item2</option>-->
+		<!--<option value="3">item3</option>-->
+		<!--<option value="4">item4</option>-->
+		<!--<option value="5">item5</option>-->
+	<!--</select>-->
 
 	<div id="back2Top" class="back2top"></div>
 
+    <!--<script src="js/helper.js"></script>-->
 	<script>
+
+        /*var myBtn2 = Helper.dom('myBtn2');
+        var myText = Helper.dom('myText');
+
+		myBtn2.onclick = function() {
+			alert(99);
+		};*/
+
+//        myText.onkeyup = function() {
+//            console.log(this.value);
+//        };
+
+//        myBtn2.onmouseover = function() {
+//            console.log('over');
+//        };
+//
+//        myBtn2.onmouseout = function() {
+//            console.log('out');
+//        };
+
+//        myBtn2.onmousedown = function() {
+//            console.log('down');
+//        };
+//
+//        myBtn2.onmouseup = function() {
+//            console.log('up');
+//        };
+
+//        myBtn2.ondblclick = function() {
+//            alert(678);
+//        };
+
+//        myBtn2.addEventListener('click', function() {  // event handler
+//            alert(66);
+//        }, false);
+//
+//        myBtn2.onclick = test;
+//
+////        myBtn2.onclick = function() {
+////            alert(88);
+////        };
+//
+//        function test() {
+//            alert(77);
+//        }
+
+        //////////////////////////////////////////////////////////////////
 		// 返回顶部
-		// var back2Top = document.getElementById('back2Top');
-		// var timer;
-		// back2Top.onclick = function() {
-		// 	// document.body.scrollTop = 0;
-		// 	timer = setInterval(function() {
-		// 		document.body.scrollTop -= 100;
-		// 		if (document.body.scrollTop <= 0) {
-		// 			clearInterval(timer);
-		// 		}
-		// 		console.log(8)
-		// 	}, 10);
-		// };
+		 var back2Top = document.getElementById('back2Top');
+		 var timer;
+		 back2Top.onclick = function() {
+		 	// document.body.scrollTop = 0;
+		 	timer = setInterval(function() {
+		 		document.body.scrollTop -= 100;
+		 		if (document.body.scrollTop <= 0) {
+		 			clearInterval(timer);
+		 		}
+//		 		console.log(8)
+		 	}, 10);
+		 };
+
+		window.onscroll = function() {
+			var st = document.body.scrollTop;
+			var h = window.innerHeight; // ??
+			if (st > h) {
+				back2Top.style.display = "block";
+			} else {
+				back2Top.style.display = "none";
+			}
+		};
 
 
-		var myBtn = document.getElementById('myBtn');
-		var myBtn2 = document.getElementById('myBtn2');
+//		var myBtn = document.getElementById('myBtn');
+//		var myBtn2 = document.getElementById('myBtn2');
 		// var myTxt = document.getElementById('myTxt');
 		// var mySel = document.getElementById('mySel');
 
-		var test = function() {
-			alert(789);
-		}
-
-		myBtn.addEventListener('click', test, false);
-
-		myBtn2.addEventListener('click', function() {
-			myBtn.removeEventListener('click', test);
-		}, false);
+//		var test = function() {
+//			alert(789);
+//		}
+//
+//		myBtn.addEventListener('click', test, false);
+//
+//		myBtn2.addEventListener('click', function() {
+//			myBtn.removeEventListener('click', test);
+//		}, false);
 
 		// myTxt.onkeyup = function() { // onkeydown
 		// 	console.log(this.value)

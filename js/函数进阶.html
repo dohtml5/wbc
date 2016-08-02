@@ -6,7 +6,72 @@
 </head>
 <body>
 
+	<div id="test">test div</div>
+
+	<script src="js/helper.js"></script>
 	<script>
+
+		var testDiv = Helper.dom('test');
+		testDiv.onclick = function() {
+			console.log(this);
+		};
+
+
+		function test() {  // window.test
+			console.log(this);
+		}
+
+		test(); // window.test();
+
+		var testObj = {
+			name: 'test obj',
+			test: function() {
+				console.log(this);
+			}
+		};
+
+		testObj.test();
+
+		///////////////////////////////////////////////////////////
+
+		/*var a = 5;
+
+		 var a = 8;
+
+		 alert(a);*/
+
+		/*var abc = function(a) {
+			alert(1);
+		};
+
+		var abc = function(a, b) {
+			alert(2);
+		};
+
+		abc(1);*/
+
+		//var test = function(x, y) {
+			// var x = arguments[0];
+			// var y = arguments[1];
+
+			// arguments.push('test');
+
+			// console.log(arguments instanceof  Array);
+
+			// console.log(arguments.length);
+
+			// console.log(x);
+			// console.log(y);
+			// console.log(arguments);
+		//};
+
+		//function test2() {
+			// arguments
+		//}
+
+		// test('x', 88, false);
+
+		///////////////////////////////////////////////////////////
 		/*function test() {
 			console.log(this)
 		}
@@ -28,9 +93,9 @@
 
 		obj.sayName();*/
 
-		function test() {
+		/*function test() {
 
-			console.log(arguments instanceof Array)
+			console.log(arguments instanceof Array);
 
 			// arguments.push(9);
 
@@ -38,13 +103,15 @@
 			var x = arguments[0];
 			var y = arguments[1];
 
-			var sum = x + y;
+			return x + y;
 
-			return sum;
+//			var sum = x + y;
+//
+//			return sum;
 		}
 
 		var r = test(8, 7, 'test');
-		console.log(r)
+		console.log(r)*/
 	</script>
 </body>
 </html>

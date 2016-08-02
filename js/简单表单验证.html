@@ -28,7 +28,7 @@
 		</div>
 		<br>
 		<div>
-			<label>手机：<input type="text"></label>
+			<label>手机：<input id="mobile" type="text"></label>
 		</div>
 		<br>
 		<div>
@@ -69,7 +69,7 @@
 		var checkForm = function() {
 
 			// 用户名
-			/*var username = $('username');
+			var username = $('username');
 			if (username.value == '') {
 				alert('用户名不能为空！');
 				return false;
@@ -78,15 +78,24 @@
 			if (username.value.length < 6) {
 				alert('用户名长度必须大于等于6位');
 				return false;
-			}*/
+			}
 
 			// 密码...
 
-			/*var edu = $('edu');
+			// 手机
+			var mobile = $('mobile');
+            var mobileRG = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+
+            if (!mobileRG.test(mobile.value)) {
+                alert('请输入正确的手机号！');
+                return false;
+            }
+
+			var edu = $('edu');
 			if (edu.value == 0) {
 				alert('请选择学历！');
 				return false;
-			}*/
+			}
 
 			// var address = $('address');
 
