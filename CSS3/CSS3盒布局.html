@@ -3,7 +3,18 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<style>
+
+	html, body {
+		height: 100%;
+	}
+
+	h1, h2, body {
+		margin: 0;
+		padding: 0;
+	}
+
 	/*.wp {
 		width: 800px;
 	}
@@ -13,16 +24,17 @@
 	}*/
 	
 	.left {
-		width: 300px;
+		/*width: 300px;*/
 		display: -webkit-box;
+		/*display: -moz-box;*/
 		display: box;
 		background-color: red;
 		/*-webkit-box-flex: 1;
 		box-flex: 1;*/
 		-webkit-box-pack: center;
-		box-pack: center;
+		/*box-pack: center;*/
 		-webkit-box-align: center;
-		box-align: center;
+		/*box-align: center;*/
 	}
 	
 	.center {
@@ -35,21 +47,22 @@
 	.right {
 		/*width: 200px;*/
 		background-color: blue;
-		-webkit-box-flex: 1;
-		box-flex: 1;
+		/*-webkit-box-flex: 1;*/
+		/*box-flex: 1;*/
 	} 
 
 	/* CSS3 box*/
 
 	.wp {
-		width: 800px;
-		height: 500px;
+		/*width: 800px;*/
+		/*height: 500px;*/
+		height: 100%;
 		display: -webkit-box;
 		display: box;
-		box-orient: vertical;
+		/*box-orient: vertical;*/
 		background-color: #ccc;
 		/*-webkit-box-orient: horizontal;*/
-		/*-webkit-box-orient: vertical;*/
+		-webkit-box-orient: vertical;
 	}
 	</style>
 </head>
@@ -58,7 +71,7 @@
 	<div class="wp">
 		<div class="left">
 			<!-- left  -->
-			<h1>left</h1>
+			<h1>left33333</h1>
 			<!-- <ul>
 				<li>item1</li>
 				<li>item2</li>

@@ -65,11 +65,11 @@
 			margin: 0;
 			padding: 0;
 		}
-		
+
 		div {
 			text-align: center;
 		}
-		
+
 		.gift-wp {
 			width: 115px;
 			height: 115px;
@@ -81,22 +81,22 @@
 			background-repeat: no-repeat;
 			background-position: center;
 		}
-		
+
 		.success-info {
 			font-size: 17px;
 		}
-		
+
 		.success-info span {
 			color: #c70000;
 			margin: 0 5px;
 			font-weight: bold;
 		}
-		
+
 		.share {
 			font-size: 14px;
 			margin: 12px 0 15px 0;
 		}
-		
+
 		.share-btn {
 			width: 193px;
 			height: 42px;
@@ -107,11 +107,11 @@
 			margin: 0 auto 12px;
 			border-radius: 5px;
 		}
-		
+
 		.tip {
 			font-size: 13px;
 			color: #999;
-		} */
+		}*/
 	</style>
 </head>
 <body>
@@ -140,7 +140,7 @@
             resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
             recalc = function () {
               var clientWidth = docEl.clientWidth;
-              if (!clientWidth) return;
+              if (!clientWidth) { return; }
               docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
             };
 

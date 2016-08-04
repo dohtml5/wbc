@@ -24,14 +24,18 @@
 				len = arr.length,
 				// optStr = '<option value="0">请选择</option>';
 				optArr = ['<option value="0">请选择</option>'];
+//				optArr = [];
 			for (i=0; i<len; i++) {
 				// optStr += '<option value="'+(i+1)+'">' + arr[i] + '</option>';
-				optArr.push('<option value="'+(i+1)+'">' + arr[i] + '</option>');
+//				optArr.push('<option value="'+(i+1)+'">' + arr[i] + '</option>');
+				optArr.push('<option value="', (i+1), '">', arr[i], '</option>');
 			}
+
+			console.log(optArr);
 
 			// mySel.innerHTML = optStr;
 			mySel.innerHTML = optArr.join('');
-			console.log(optArr)
+//			console.log(optArr)
 		};
 
 		/*

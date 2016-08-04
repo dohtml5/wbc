@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<script src="../lib/underscore-min.js" type="text/javascript"></script>
+	<!--<script src="../lib/underscore-min.js" type="text/javascript"></script>-->
 </head>
 <body>
 
@@ -18,18 +18,23 @@
 		</thead>
 
 		<tbody id="tbody">
-			
+			<!--<tr>
+				<td>姓名</td>
+				<td>年龄</td>
+				<td>性别</td>
+				<td>地址</td>
+			</tr>-->
 		</tbody>
 	</table>
 
-	<script id="trTpl" type="text/tmplate">
-		<tr>
-			<td><%=name%></td>
-			<td><%=age%></td>
-			<td><%=gender%></td>
-			<td><%=address%></td>
-		</tr>
-	</script>
+	<!--<script id="trTpl" type="text/tmplate">-->
+		<!--<tr>-->
+			<!--<td><%=name%></td>-->
+			<!--<td><%=age%></td>-->
+			<!--<td><%=gender%></td>-->
+			<!--<td><%=address%></td>-->
+		<!--</tr>-->
+	<!--</script>-->
 
 	<script>
 
@@ -69,27 +74,54 @@
 				age: 30,
 				gender: '男',
 				address: '北京市海淀区'
+			},
+			{
+				name: '郭德纲',
+				age: 40,
+				gender: '男',
+				address: '天津市红桥区'
 			}
 		];
 
-		function renderTable(tmpArr) {
-			var trs = [];
-			var tpl = document.getElementById('trTpl').innerHTML;
-			var compiled = _.template(tpl);
-			var tbody = document.getElementById('tbody');
+		function renderTable() {
+			var i, len = arr.length, trArr = [];
 
-			_.each(tmpArr, function(obj) {
-				// console.log(obj)
-				// console.log(compiled(obj))
-				trs.push(compiled(obj));
-			});
+			for (i=0; i<len; i++) {
+				trArr.push(
+					'<tr>',
+						'<td>', arr[i].name, '</td>',
+						'<td>年龄</td>',
+						'<td>性别</td>',
+						'<td>地址</td>',
+					'</tr>'
+				);
+			}
 
-			tbody.innerHTML = trs.join('');
+			console.log(trArr);
 
-			// console.log(trs)
+			document.getElementById('tbody').innerHTML = trArr.join('');
 		}
 
-		renderTable(arr);
+		window.onload = renderTable;
+
+//		function renderTable(tmpArr) {
+//			var trs = [];
+//			var tpl = document.getElementById('trTpl').innerHTML;
+//			var compiled = _.template(tpl);
+//			var tbody = document.getElementById('tbody');
+//
+//			_.each(tmpArr, function(obj) {
+//				// console.log(obj)
+//				// console.log(compiled(obj))
+//				trs.push(compiled(obj));
+//			});
+//
+//			tbody.innerHTML = trs.join('');
+//
+//			// console.log(trs)
+//		}
+
+//		renderTable(arr);
 		
 
 		/*var tbody = document.getElementsByTagName('tbody')[0],
@@ -119,10 +151,10 @@
 			console.log(item);
 		});*/
 
-		var b = [1, 2, 3];
+		/*var b = [1, 2, 3];
 		var c = _.map(b, function(num){ return '<option>' + num + '</option>'; });
 
-		console.log(c);
+		console.log(c);*/
 	</script>
 	
 </body>
