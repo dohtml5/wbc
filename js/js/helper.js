@@ -2,6 +2,43 @@
 
 	var Helper = {};
 
+	Helper.inArray = function(array, item) {
+		var len = array.length;
+		for (var i=0; i<len; i++) {
+			if (array[i] == item) {
+				return true;
+			}
+		}
+		return false;
+	};
+
+	Helper.domByCls = function(clsName, context) {
+
+		var elements, len, tmpArr, clsNameArr;
+
+		context = context || document.body;
+		elements = context.getElementsByTagName("*");
+		len = elements.length;
+		tmpArr = [];
+		clsNameArr = [];
+
+		//console.log("len:" + len);
+
+		for (var i=0; i<len; i++) {
+			clsNameArr = elements[i].className.split(' ');
+			//if (elements[i].className == clsName) {
+			//if (elements[i].className.indexOf(clsName) > -1) {
+			if (Helper.inArray(clsNameArr, clsName)) {
+				tmpArr.push(elements[i]);
+			}
+			//console.log(elements[i].className);
+		}
+
+		//console.log(elements)
+
+		return tmpArr;
+	};
+
 	Helper.html = function(dom, val) {
         if (arguments.length == 1) {
             return dom.innerHTML;
@@ -28,7 +65,7 @@
 		}
 
 		return result;
-	}
+	};
 
 	Helper.getType = function(item) {
 		if (typeof item == 'object') {
@@ -39,7 +76,7 @@
 		} else {
 			return typeof item;
 		}
-	}
+	};
 
 	Helper.getDateArr = function(date) {
 		var y = date.getFullYear();
@@ -51,7 +88,7 @@
 		var s = date.getSeconds();
 
 		return [y, M, d, h, m, s];
-	}
+	};
 
 	Helper.dom = function(id) {
 		if (typeof id == 'string') {
@@ -59,11 +96,11 @@
 		} else {
 			return id;
 		}
-	}
+	};
 
 	Helper.fill0 = function(num) {
 		return num < 10 ? '0' + num : num;
-	}
+	};
 
 	Helper.isStartWith = function(str, char) {
 
@@ -79,7 +116,7 @@
 
 		return false;*/
 
-	}
+	};
 
 	window.Helper = Helper;
 

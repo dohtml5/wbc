@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h1 id="innerH1">inner</h1>
+
+    <button id="setBtn">set outer H1</button>
+
+    <script src="js/helper.js"></script>
+
+    <script>
+
+        var setBtn = Helper.dom('setBtn');
+        setBtn.onclick = function() {
+            var pWindow = window.parent,
+                pDocument = pWindow.document;
+
+            var outerH1 = pDocument.getElementById('outerH1');
+            outerH1.innerHTML = "Hello WBC";
+
+            pWindow.ptest();
+//              console.log(window.parent.document);
+        };
+
+        function inner() {
+            alert('from inner...');
+        }
+    </script>
+</body>
+</html>

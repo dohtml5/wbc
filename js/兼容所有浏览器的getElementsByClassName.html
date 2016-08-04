@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/helper.js"></script>
+    <script>
+        function test() {
+//            var test1 = document.getElementsByClassName('test');
+//            console.log(test1);
+
+            var test2 = Helper.domByCls('test', Helper.dom('target'));
+            console.log(test2);
+
+        }
+
+        window.onload = test;
+    </script>
+</head>
+<body>
+
+    <div class="test">div</div>
+
+    <span class="test2 test">span2</span>
+
+    <p class="test">p</p>
+
+    <div id="target">
+        <div class="test3 test">test div.....................</div>
+        <span class="test">span5555</span>
+        <span class="test5">span</span>
+    </div>
+
+
+    <div>div2</div>
+
+</body>
+</html>

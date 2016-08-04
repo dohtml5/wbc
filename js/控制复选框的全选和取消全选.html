@@ -6,7 +6,7 @@
 </head>
 <body>
 
-	<input type="checkbox" checked="checked">
+	<input type="checkbox" checked>
 	<input type="radio" checked="checked">
 
 	<hr>
@@ -74,7 +74,7 @@
 					chks[i].checked = status;
 					chks[i].parentNode.parentNode.style.backgroundColor = bgColor;
 				}
-			}
+			};
 
 			for (j=0; j<len; j++) {
 				chks[j].onclick = function() {
