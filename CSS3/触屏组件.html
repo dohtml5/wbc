@@ -48,7 +48,9 @@
         background-image: url(img/switch.png);
         width: 57px;
         height: 24px;
-        -webkit-transition: background-position 0.3s ease-in-out;
+        -webkit-transition: background-position 0.3s;
+        transition: background-position 0.3s;
+
     }
 
     input.switch-btn:checked {
@@ -75,7 +77,9 @@
 
     <input type="radio" name="gender" value="男">
 
-    <input type="radio" name="gender" value="女" disabled="disabled">
+    <input type="radio" name="gender" value="女">
+
+    <input type="radio" name="gender" value="女" disabled>
 
     <hr>
 
