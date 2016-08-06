@@ -7,116 +7,166 @@
 <body>
 	
 
-	<script>
-		var o = new Object();
+<script>
 
-		var arr = new Array();
+//    wbc6
+//    var d = new Date();
+//    var td = new Dog();
 
-		var d = new Date();
+/*var Dog = {
+    name: "doudou",
+    color: "black"
+};*/
 
-		var dog1 = {
-			name: 'wangcai',
-			age: 2,
-			color: 'yellow',
-			eat: function() {
-				console.log(this.name + ' is eating...');
-			}
-		};
+/*function Dog(name, color) {
+     return {
+         name: name,
+         color: color
+     };
+ }
 
-		var dog2 = {
-			name: 'doudou',
-			age: 2.5,
-			color: 'white',
-			eat: function() {
-				console.log(this.name + ' is eating...');
-			}
-		};
+ var d1 = Dog("d1", "yellow");
+ var d2 = Dog("d2", "black");
+ var d3 = Dog("d3", "white");*/
 
-		var dog3 = createDog('xiaohei', 3, 'black');
+function Dog(name, color) {
+    this.name = name;
+    this.color = color;
+    /*this.type = "animal";
+    this.run = function() {
+        console.log("this dog is running...");
+    }*/
+}
 
-		function createDog(name, age, color) {
-			var dog = new Object();
-			dog.name = name;
-			dog.age = age;
-			dog.color = color;
-			dog.eat = function() {
-				console.log(this.name + ' is eating...');
-			}
+Dog.prototype = {
+    type: "animal",
+    run: function() {
+        console.log("this dog is running....");
+    }
+};
 
-			return dog;
-		}
+function Cat(name, color) {
+    this.name = name;
+    this.color = color;
+}
 
-		function Dog(name, age, color) {
+var d1 = new Dog("d1", "black");
+var d2 = new Dog("d2", "gray");
 
-			// console.log(this);
-
-			this.name = name;
-			this.age = age;
-			this.color = color;
-			this.eat = eat;
-			// this.eat = function() {
-			// 	console.log(this.name + ' is eating...');
-			// }
-		}
-
-		// Dog.prototype
-
-		function eat() {
-			console.log(this.name + ' is eating....');
-		}
-
-		var dog4 = new Dog('xiaohua', 1.5, 'black and white');
-		var dog5 = new Dog('mudan', 2.5, 'black');
-		// var dog6 = Dog('shaoyao', 3, 'white');
-
-		var obj = {
-			length: '1.2m',
-			name: 'test'
-		};
-
-		// Dog.call(obj, 'maomao', 4, 'brown');
-		Dog.apply(obj, ['mm2', 2, 'brown']);
+var c1 = new Cat("c1", "yellow");
 
 
-		function Cat() {}
+////////////////////////////////////////////////////////////////////////
 
-		Cat.prototype.name = 'xiaoA';
-		Cat.prototype.age = 2;
-		Cat.prototype.color = 'white';
-		Cat.prototype.run = function() {
-			console.log(this.name + ' is running...');
-		}
+//		var o = new Object();
+//
+//		var arr = new Array();
+//
+//		var d = new Date();
+//
+//		var dog1 = {
+//			name: 'wangcai',
+//			age: 2,
+//			color: 'yellow',
+//			eat: function() {
+//				console.log(this.name + ' is eating...');
+//			}
+//		};
+//
+//		var dog2 = {
+//			name: 'doudou',
+//			age: 2.5,
+//			color: 'white',
+//			eat: function() {
+//				console.log(this.name + ' is eating...');
+//			}
+//		};
+//
+//		var dog3 = createDog('xiaohei', 3, 'black');
+//
+//		function createDog(name, age, color) {
+//			var dog = new Object();
+//			dog.name = name;
+//			dog.age = age;
+//			dog.color = color;
+//			dog.eat = function() {
+//				console.log(this.name + ' is eating...');
+//			}
+//
+//			return dog;
+//		}
+//
+//		function Dog(name, age, color) {
+//
+//			// console.log(this);
+//
+//			this.name = name;
+//			this.age = age;
+//			this.color = color;
+//			this.eat = eat;
+//			// this.eat = function() {
+//			// 	console.log(this.name + ' is eating...');
+//			// }
+//		}
+//
+//		// Dog.prototype
+//
+//		function eat() {
+//			console.log(this.name + ' is eating....');
+//		}
+//
+//		var dog4 = new Dog('xiaohua', 1.5, 'black and white');
+//		var dog5 = new Dog('mudan', 2.5, 'black');
+//		// var dog6 = Dog('shaoyao', 3, 'white');
+//
+//		var obj = {
+//			length: '1.2m',
+//			name: 'test'
+//		};
+//
+//		// Dog.call(obj, 'maomao', 4, 'brown');
+//		Dog.apply(obj, ['mm2', 2, 'brown']);
+//
+//
+//		function Cat() {}
+//
+//		Cat.prototype.name = 'xiaoA';
+//		Cat.prototype.age = 2;
+//		Cat.prototype.color = 'white';
+//		Cat.prototype.run = function() {
+//			console.log(this.name + ' is running...');
+//		}
+//
+//		var cat1 = new Cat();
+//		var cat2 = new Cat();
+//
+//		function Monkey(name, age, color) {
+//			this.name = name;
+//			this.age = age;
+//			this.color = color;
+//		}
+//
+//		Monkey.prototype = {
+//			climb: function() {
+//				console.log(this.name + ' is climbing...');
+//			},
+//			run: function() {
+//				console.log(this.name + ' is running...');
+//			}
+//		};
+//
+//		/*Monkey.prototype.climb = function() {
+//			console.log(this.name + ' is climbing...');
+//		};
+//
+//		Monkey.prototype.run = function() {
+//			console.log(this.name + ' is running...');
+//		};*/
+//
+//		var m1 = new Monkey('dasheng', 500, 'yellow');
+//		var m2 = new Monkey('jiji', 50, 'brown');
+//		var m3 = new Monkey('maomao', 5, 'yellow');
 
-		var cat1 = new Cat();
-		var cat2 = new Cat();
-
-		function Monkey(name, age, color) {
-			this.name = name;
-			this.age = age;
-			this.color = color;
-		}
-
-		Monkey.prototype = {
-			climb: function() {
-				console.log(this.name + ' is climbing...');
-			},
-			run: function() {
-				console.log(this.name + ' is running...');
-			}
-		};
-
-		/*Monkey.prototype.climb = function() {
-			console.log(this.name + ' is climbing...');
-		};
-
-		Monkey.prototype.run = function() {
-			console.log(this.name + ' is running...');
-		};*/
-
-		var m1 = new Monkey('dasheng', 500, 'yellow');
-		var m2 = new Monkey('jiji', 50, 'brown');
-		var m3 = new Monkey('maomao', 5, 'yellow');
-
-	</script>
+</script>
 </body>
 </html>

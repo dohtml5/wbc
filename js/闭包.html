@@ -13,38 +13,97 @@
 		<li>item4</li>
 		<li>item5</li>
 	</ul>
-	
+
+    <hr>
+
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+	<script src="js/helper.js"></script>
 	<script>
 
-		// var myUL = document.getElementById('myUL');
-		// var lis = myUL.children;
+////		var tt;
+//
+//		function test() {
+//			var t = 8;
+////			tt = t;
+////			return t;
+//
+//			/*return function() {
+//				console.log(t);
+//			}*/
+//
+//			var ttt = function() {
+//				console.log(t);
+//			};
+//
+//			return ttt;
+//
+//		}
+//
+//		var tt = test();
+//
+////		console.log(tt);
+//
+//		tt();
 
-		// for (var i=0; i<lis.length; i++) {
+//		console.log(tt);
 
-		// 	(function(i) {
-		// 		lis[i].onclick = function() {
-		// 			alert(i);
-		// 		}
 
-				
-		// 			lis[0].onclick = function() {
-		// 				alert(0);
+
+//		var myUL = Helper.dom('myUL'),
+//			lis = myUL.getElementsByTagName('li'),
+//			len = lis.length;
+
+//		var start = new Date().getTime();
+
+		// 		r[i] = function(num) {
+		// 			return function() {
+		// 				return num;
 		// 			}
-		// 			lis[1].onclick = function() {
-		// 				alert(1);
-		// 			}
-		// 			...
-		// 			lis[4].onclick = function() {
-		// 				alert(4);
-		// 			}
-				
+		// 		}(i);
 
-		// 	})(i);
+//		for (var i=0; i<len; i++) { // let i=0;
+//			lis[i].onclick = (function(n) {
+//				return function() {
+//					alert(n + 1);
+//				}
+//			})(i);
+//		}
 
-		// 	/*lis[i].onclick = function() {
-		// 		alert(i);
-		// 	}*/
-		// }
+//		var end = new Date().getTime();
+//
+//		console.log(end - start);
+
+
+		////////////////////////////////////////////////////////
+
+//		 var myUL = document.getElementById('myUL');
+//		 var lis = myUL.children;
+//
+//		 for (var i=0; i<lis.length; i++) {
+//
+//		 	(function(i) {
+//		 		lis[i].onclick = function() {
+//		 			alert(i);
+//		 		};
+//
+//				/*lis[0].onclick = function() {
+//					alert(0);
+//				}
+//				lis[1].onclick = function() {
+//					alert(1);
+//				}
+//				...
+//				lis[4].onclick = function() {
+//					alert(4);
+//				}*/
+//
+//		 	})(i);
+//
+//		// 	/*lis[i].onclick = function() {
+//		// 		alert(i);
+//		// 	}*/
+//		 }
 		
 		/*var arr = [2, 8, 33, 6, 1, 5];
 
@@ -91,47 +150,79 @@
 		console.log(a);*/
 
 
-		// ???????????????????????????
-		// function createArray() {
-		// 	var r = [];
-		// 	for (var i=0; i<10; i++) {
-		// 		r[i] = function(num) {
-		// 			return function() {
-		// 				return num;
-		// 			}
-		// 		}(i);
+		// 创建一个序列数组
 
-		// 		// r[i] = i;
-		// 		/*r[i] = (function() {
-		// 			return i;
-		// 		})();*/
-		// 	}
-		// 	return r;
-		// }
+//        function createArray() {
+//
+//            var arr = [];
+//
+//            for (var i=0; i<10; i++) {
+//               arr.push(
+//                    (function(n) {
+//                        return function() {
+//                            return n;
+//                        }
+//                    })(i)
+//               );
+//
+////               arr.push(function() {return 0;}, function() {return 1;}, function() {return 1;}...)
+//            }
+//
+//            return arr;
+//
+//        }
+//
+//        var r = createArray();
+//        console.log(r);
 
-		// var r = createArray();
-		// console.log(r);
+//		 function createArray() {
+//		 	var r = [];
+//		 	for (var i=0; i<10; i++) {
+//		 		r[i] = function(num) {
+//		 			return function() {
+//		 				return num;
+//		 			}
+//		 		}(i);
+//
+////                r[i] = i;
+//		 		/*r[i] = (function() {
+//		 			return i;
+//		 		})();*/
+//		 	}
+//		 	return r;
+//		 }
+//
+//		 var r = createArray();
+//		 console.log(r);
 
-		/*var i=1;
+/////////////////////////////////////////////////////////////////////
+
+		/*var i=0;
 		var timer = setInterval(function() {
-			i++
-	
+			i++;
 
-		console.log(i)
+            if (i > 10) {
+                clearInterval(timer);
+                return;
+            }
 
-		},1000)
+		    console.log(i)
 
-		if(i>10) {
-			clsarInterval(timer)
-		}*/
+		},1000);*/
 
-		// for (var i=0; i<10; i++) {
-		// 	(function(j) {
-		// 		setTimeout(function() {
-		// 			console.log(j);
-		// 		}, 1000 * j);
-		// 	})(i);
-		// }
+
+//		 for (var i=0; i<10; i++) {
+//
+//            /* setTimeout(function() {
+//                console.log(i);
+//             }, 1000);*/
+//
+//		 	/*(function(j) {
+//		 		setTimeout(function() {
+//		 			console.log(j);
+//		 		}, 1000 * j);
+//		 	})(i);*/
+//		 }
 		
 
 	</script>

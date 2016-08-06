@@ -16,6 +16,10 @@
 
 		var elements, len, tmpArr, clsNameArr;
 
+		if (document.getElementsByClassName) {
+			return document.getElementsByClassName(clsName);
+		}
+
 		context = context || document.body;
 		elements = context.getElementsByTagName("*");
 		len = elements.length;
