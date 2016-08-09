@@ -5,8 +5,10 @@
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width">
     <title>当当当网</title>
     <link rel="stylesheet" href="css/index.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/index.js"></script>
 </head>
-<body>
+<body ng-app="bookApp" ng-controller="bookController">
 
     <header class="header">
         <a href="javascript:;" class="back-btn"></a>
@@ -17,15 +19,17 @@
         <a href="javascript:;" class="search-btn">搜索</a>
     </header>
 
+    <div class="space"></div>
+
     <section class="search-tip">
         <p>你是不是要找：</p>
         <ul>
-            <li><a href="">测试文本</a></li>
-            <li><a href="">测试文本测试类别</a></li>
-            <li><a href="">测试文本</a></li>
-            <li><a href="">测试文本测试类别</a></li>
-            <li><a href="">测试文本</a></li>
-            <li><a href="">测试文本测试类别</a></li>
+            <li ng-repeat="s in suggest"><a href="">{{s}}</a></li>
+            <!--<li><a href="">测试文本测试类别</a></li>-->
+            <!--<li><a href="">测试文本</a></li>-->
+            <!--<li><a href="">测试文本测试类别</a></li>-->
+            <!--<li><a href="">测试文本</a></li>-->
+            <!--<li><a href="">测试文本测试类别</a></li>-->
         </ul>
     </section>
 
@@ -40,61 +44,22 @@
     </nav>
 
     <section class="book-list">
-        <div class="book">
-            <a href="">
-                <img src="img/book1.jpg" alt="">
-                <div class="detail">
-                    <p class="title">Web前端开发技术——HTML、CSS、JavaScript</p>
-                    <p class="author">聂常红 主编</p>
-                    <p class="price">￥39.00</p>
-                    <p class="classify">当当自营</p>
-                    <span class="fav-num">98.1%好评(157人)</span>
-                    <button class="fav-btn"></button>
-                </div>
-            </a>
-        </div>
 
-        <div class="book">
+        <div ng-click="onBookClick()" class="book" ng-repeat="book in bookList">
             <a href="">
                 <img src="img/book1.jpg" alt="">
                 <div class="detail">
-                    <p class="title">Web前端开发技术——HTML、CSS、JavaScript</p>
-                    <p class="author">聂常红 主编</p>
-                    <p class="price">￥39.00</p>
+                    <p class="title">{{book.name}}</p>
+                    <p class="author">{{book.author}} 主编</p>
+                    <p class="price">￥{{book.price}}</p>
                     <p class="classify">当当自营</p>
                     <span class="fav-num">98.1%好评(157人)</span>
                     <button class="fav-btn"></button>
                 </div>
             </a>
         </div>
+        <div ng-show="showLoadMsg" class="load-more">{{loadMsg}}</div>
 
-        <div class="book">
-            <a href="">
-                <img src="img/book1.jpg" alt="">
-                <div class="detail">
-                    <p class="title">Web前端开发技术——HTML、CSS、JavaScript</p>
-                    <p class="author">聂常红 主编</p>
-                    <p class="price">￥39.00</p>
-                    <p class="classify">当当自营</p>
-                    <span class="fav-num">98.1%好评(157人)</span>
-                    <button class="fav-btn"></button>
-                </div>
-            </a>
-        </div>
-
-        <div class="book">
-            <a href="">
-                <img src="img/book1.jpg" alt="">
-                <div class="detail">
-                    <p class="title">Web前端开发技术——HTML、CSS、JavaScript</p>
-                    <p class="author">聂常红 主编</p>
-                    <p class="price">￥39.00</p>
-                    <p class="classify">当当自营</p>
-                    <span class="fav-num">98.1%好评(157人)</span>
-                    <button class="fav-btn"></button>
-                </div>
-            </a>
-        </div>
     </section>
 
 </body>

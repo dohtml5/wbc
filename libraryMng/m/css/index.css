@@ -32,6 +32,10 @@ a {
     color: inherit;
 }
 
+.space {
+    height: 45px;
+}
+
 /*********************************************************************/
 
 .header {
@@ -93,7 +97,7 @@ a {
 
 /*********************************************************************/
 .search-tip {
-    margin-top: 45px;
+    /* margin-top: 45px; */
     padding-left: 10px;
     font-size: 12px;
     color: #777f86;
@@ -218,4 +222,10 @@ p.fav-num {
     border: none;
     -webkit-appearance: none;
     background-size: contain;
+}
+
+.load-more {
+    text-align: center;
+    font-size: 12px;
+    line-height: 30px;
 }
