@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <title>Document</title>
-    <link rel="stylesheet" href="lib/css/swiper.min.css">
+    <link rel="stylesheet" href="../lib/swiper.min.css">
     <style>
         html, body, #pageWp {
             width: 100%;
@@ -54,10 +54,10 @@
         </div>
     </div>
 
-    <script src="../../lib/zepto.min.js" charset="utf-8"></script>
-    <script src="lib/js/swiper.min.js"></script>
+    <script src="../lib/zepto.min.js" charset="utf-8"></script>
+    <script src="../lib/swiper.min.js"></script>
     <script>
-        var pageWp, navBar;
+        /*var pageWp, navBar;
 
         pageWp = new Swiper('#pageWp', {
             onSlideChangeEnd: function(swiper){
@@ -76,7 +76,7 @@
                 pageWp.slideTo(index, 100, false);
                 activeItem(index);
             }
-        });
+        });*/
 
         function activeItem(index) {
             var $navBar = $('#navBar');
@@ -84,6 +84,31 @@
                 .find('.swiper-slide').eq(index).addClass('active')
                 .siblings('.active').removeClass('active');
         }
+
+        /////////////////////////////////////////////////////////
+
+        var pageWp = new Swiper('#pageWp', {
+            initialSlide: 1,
+            onSlideChangeEnd: function(swiper){
+                var index = swiper.activeIndex;
+                activeItem(index);
+            }
+        });
+        var navBar = new Swiper('#navBar', {
+            slidesPerView: 4,
+            onClick: function(swiper){
+                var index = swiper.clickedIndex;
+                activeItem(index);
+            }
+        });
+
+        $('#navBar').on('click', '.swiper-slide', function() {
+            var index = $(this).index();
+            pageWp.slideTo(index);
+        });
+
+        pageWp.params.control = navBar;
+        navBar.params.control = pageWp;
 
     </script>
 
