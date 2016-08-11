@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<mate name="viewport" content="user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0"></mate>
+		<title></title>
+		<style>
+			html {
+				height: 100%;
+				width: 100%;
+				font-size: 20px;
+			}
+			
+			body {
+				margin: 0;	
+				overflow: hidden;	
+			}
+			
+			header, footer {
+				width: 100%;
+				line-height: 1.5rem;
+				font-size: 1rem;
+				color: #000;
+				border: 1px solid #ccc; 
+				text-align: center;
+				background-color: #ccc;
+				box-sizing: border-box;		
+			}
+			
+			.bd {
+				margin-top: 1rem ;
+				margin-bottom: 0.5rem ;
+				margin-right: -0.5rem ;
+				font-size: 0;
+			}
+			
+			.bd > div {
+				width: 5rem;
+				height: 5rem;
+				/*display: inline-block;*/
+                float: left;
+				margin-right: 0.5rem;
+				margin-bottom: 0.5rem;
+				background-color: red;
+			}
+			
+			/*.active {
+				margin: 0 0 0.5rem 0;
+			}*/
+			
+			
+		</style>
+	</head>
+	<body>
+		
+		<header>头部</header>
+		
+		<section class="bd">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</section>
+		
+		<footer>尾部</footer>
+		
+		<script>
+			(function(doc,win){
+				var docEl = doc.documentElement,
+					resizeEvt = 'orient at ionchange'in window ? 'orient at ionchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth)return;
+						docEl.style.fontSize = 20*(clientWidth/320)+'px';
+					};
+					
+				if(!doc.addEventListener)return;
+				win.addEventListener(resizeEvt,recalc,false);
+				doc.addEventListener('DOMContentLoaded',recalc,false);
+			})(document,window)
+		</script>
+		
+	</body>
+</html>

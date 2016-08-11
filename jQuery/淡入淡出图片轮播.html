@@ -34,6 +34,22 @@
 		.slide-li a:hover{color:#F00;text-decoration:none;}
 		.op li{background:#999999;filter:alpha(opacity=60);opacity:0.6;}
 		.op li.cur{background: red;}
+
+        .prev, .next {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #fff;
+            right: 0;
+            top: 50%;
+            margin-top: -25px;
+            z-index: 999;
+        }
+
+        .prev {
+            right: auto;
+            left: 0;
+        }
 	</style>
 	<script src="../lib/jquery-1.12.1.min.js"></script>
 	<script>
@@ -42,7 +58,8 @@
 		var fadeTransition = function(selector) {
 			var $target = $(selector),
 				$slideLi = $target.find('.slide-li > li'),
-				$sliderPic = $target.find('.slide-pic > li');
+				$sliderPic = $target.find('.slide-pic > li'),
+                timer;
 
 			$sliderPic.each(function(i) {
 				$(this).attr('index', i);
@@ -71,6 +88,28 @@
 				// console.log('oldIndex: ' + oldIndex);
 
 			});
+
+            $target.find('a.next, a.prev').on('click', function() {
+                var $this = $(this);
+                var oldIndex = $slideLi.filter('.cur').index();
+
+                oldIndex++;
+
+                if (oldIndex == $slideLi.length) {
+                    oldIndex = 0;
+                }
+
+                console.log(oldIndex);
+
+                $slideLi.eq(oldIndex).trigger('click');
+
+            });
+
+            timer = setInterval(function() {
+                $target.find('a.next').trigger('click');
+            }, 2000);
+
+            // TODO
 
 		};
 
@@ -110,12 +149,15 @@
 				</li>
 			</ul>
 			<ul class="slide-li op">
-				<li class="cur"></li>
-				<li></li>
-				<li></li>
-				<li></li>
-				<li></li>
+				<li class="cur">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
 			</ul>
+
+            <a class="next" href="javascript:;"></a>
+            <a class="prev" href="javascript:;"></a>
 			<!-- <ul class="slide-li slide-txt">
 				<li class="cur"><a href="#"></a></li>
 				<li><a href="#"></a></li>

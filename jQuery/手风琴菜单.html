@@ -60,9 +60,9 @@
 					.find('ul').slideToggle()
 					.end()
 					.siblings()
-					.find('p').removeClass('red')
+					.find('p.red').removeClass('red')
 					.end()
-					.find('ul').slideUp();
+					.find('ul:visible').slideUp();
 			});
 
 		});

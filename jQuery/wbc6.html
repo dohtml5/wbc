@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div.test.red {
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="test">test div</div>
+    <div class="test red">test div2</div>
+    <div class="test">test div3</div>
+    <span class="test">test span</span>
+    <div class="test">test div4</div>
+    <div class="test">test div5</div>
+    <div class="test">test div6</div>
+
+    <hr>
+
+    <input name="hobby" value="1" type="checkbox">
+    <input name="hobby" value="2" type="checkbox">
+    <input name="hobby" value="3" type="checkbox">
+    <input type="radio">
+
+    <script src="../lib/jquery-3.1.0.min.js"></script>
+    <script>
+        $('div.test').each(function(index, dom) {
+            // console.log(arguments);
+            $(this).attr("title", "test div");
+        });
+    </script>
+</body>
+</html>

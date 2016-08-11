@@ -46,6 +46,18 @@
 				$divs = $tab.find('.tab-body > div'),
 				timer;
 
+            /*$lis.on('click', function() {
+                var $this = $(this),
+                    index = $this.index();
+
+                // console.log(index);
+
+                $this.addClass('on').siblings('.on').removeClass('on');
+
+                $divs.eq(index).show().siblings(':visible').hide();
+
+            });*/
+
 			/*$lis.on('mouseover', function() {
 				var $this = $(this),
 					index = $this.index();
@@ -55,20 +67,23 @@
 			});*/
 
 			$lis
-				.on('mouseover', function() {
-					var $this = $(this),
-						index = $this.index();
+             .on('mouseover', function() {
+                 var $this = $(this),
+                 index = $this.index();
 
-					timer = setTimeout(function() {
-						$this.addClass('on').siblings('.on').removeClass('on');
-						$divs.eq(index).show().siblings(':visible').hide();
-					}, 250);
-				})
-				.on('mouseout', function() {
-					if (timer) {
-						clearTimeout(timer);
-					}
-				});
+                 timer = setTimeout(function() {
+                     $this.addClass('on').siblings('.on').removeClass('on');
+                     $divs.eq(index).show().siblings(':visible').hide();
+                 }, 250);
+             })
+             .on('mouseout', function() {
+
+                 timer && clearTimeout(timer);
+
+                 /*if (timer) {
+                    clearTimeout(timer);
+                 }*/
+             });
 		});
 	</script>
 </head>

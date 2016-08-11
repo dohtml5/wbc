@@ -30,15 +30,24 @@
 	<script src="../lib/jquery-1.12.1.min.js"></script>
 	<script>
 		$(document).ready(function() {
-			$('.trigger').on('click', function() {
+			$('.trigger').on('mouseover', function() { // click
 
 				var $sideMenu = $('.sideMenu');
-				
-				if ($sideMenu.hasClass('r0')) {
+                var left = 0;
+
+                // console.log($sideMenu.css('right'));
+
+                if ($sideMenu.css('right') == '0px') {
+                    left = -50;
+                }
+
+                $sideMenu.animate({right: left}, 500);
+
+				/*if ($sideMenu.hasClass('r0')) {
 					$sideMenu.animate({right: -50}, 500).removeClass('r0');
 				} else {
 					$sideMenu.animate({right: 0}, 500).addClass('r0');
-				}
+				}*/
 
 			});
 		});

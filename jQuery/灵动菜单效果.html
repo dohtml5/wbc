@@ -33,10 +33,14 @@
 	<script src="../lib/jquery-1.12.1.min.js"></script>
 	<script>
 		$(document).ready(function() {
-			$(window).on('scroll', function() {
-				var $menu = $('.menu'),
-					top = $('.header').height(),
-					scrollTop = $(this).scrollTop();
+
+            // window.onscroll = function() {};
+            var $menu = $('.menu'),
+                top = $('.header').height();
+
+            $(window).on('scroll', function() {
+
+                var scrollTop = $(this).scrollTop();
 
 				// console.log(top + '-' + scrollTop)
 
