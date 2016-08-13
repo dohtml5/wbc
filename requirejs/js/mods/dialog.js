@@ -1,7 +1,7 @@
 /**
  * Created by situ on 2016/8/12.
  */
-define(function() {
+define(["mods/datagrid"], function(dg) {
 
     // console.log('dialog...');
 

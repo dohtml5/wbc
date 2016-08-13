@@ -1,0 +1,59 @@
+.masker-wp {
+    display: none;
+}
+
+.masker-wp .masker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.6;
+}
+
+.masker-wp .dialog {
+    width: 500px;
+    height: 300px;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -150px 0 0 -250px;
+}
+
+.masker-wp .dialog-header {
+    height: 40px;
+    background-color: rgba(103, 255, 150, 0.4);
+    position: relative;
+}
+
+.masker-wp i.close {
+    font-style: normal;
+    font-size: 30px;
+    float: right;
+    margin: 4px 4px 0 0;
+    cursor: pointer;
+}
+
+/*.masker-wp .dialog-header i.close {
+    float: right;
+    width: 30px;
+    height: 30px;
+}
+
+.masker-wp .dialog-header i.close:before, .masker-wp .dialog-header i.close:after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 5px;
+    background-color: #000;
+    position: absolute;
+    transform: rotate(45deg);
+    transform-origin: 20% 40%;
+}
+
+.masker-wp .dialog-header i.close:after {
+    transform: rotate(-45deg);
+
+}*/

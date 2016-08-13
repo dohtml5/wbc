@@ -11,4 +11,14 @@ define(function(require, exports, module) {
 
     console.log(r);
 
+    //
+
+    var $ = require("jquery");
+
+    console.log($);
+
+    $('body').append("from nav.js");
+
+    //
+
 });

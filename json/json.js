@@ -1,3 +1,82 @@
+
+//var json = {"name": "abc"};
+
+//var json = '{"name": "abc"}';
+
+
+
+// 数组
+
+//var json = [];
+
+//var json = [1, 2, 3];
+
+//var json = [1, "a", 2, "b"];
+
+//var json = [1, "a", true, {"name": "abc"}, null, [1,2,3]];
+
+// 对象
+
+//var json = {};
+
+//var json = {"name": "test"};
+
+//var json = {"name": "test", "age": 20};
+
+var json = {
+    "name": "test",
+    "age": 20,
+    "friends": [
+        {"name": "aaa"},
+        {"name": "bbb"},
+        {"name": "ccc"}
+    ],
+    isMarried: false,
+    wife: null,
+    parents: {
+        father: "jim",
+        mother: "lily"
+    }
+};
+//
+//var json2 = {
+//    "name": "test2",
+//    "age": 20,
+//    "friends": [
+//        {"name": "aaa"},
+//        {"name": "bbb"},
+//        {"name": "ccc"}
+//    ],
+//    isMarried: false,
+//    wife: null,
+//    parents: {
+//        father: "jim2",
+//        mother: "lily"
+//    }
+//};
+//
+//var json3 = {
+//    "name": "test3",
+//    "age": 20,
+//    "friends": [
+//        {"name": "aaa"},
+//        {"name": "bbb"},
+//        {"name": "ccc"}
+//    ],
+//    isMarried: false,
+//    wife: null,
+//    parents: {
+//        father: "jim",
+//        mother: "lily"
+//    }
+//};
+//
+//var persons = [json, json2, json3];
+//
+//console.log(persons);
+
+///////////////////////////////////////////////////////////////////////
+
 // 值的有序列表，数组
 // []
 
@@ -82,12 +161,12 @@
 // [20]
 // [20, 'test', 23, false]
 
-var json = '{"name": "test", "age": 20, "hobbies": ["a","b","c"]}';
-
-json = $.parseJSON(json);
-
-// json = JSON.parse(json);
-
-// json = eval('(' + json + ')');
-
-console.log(json.hobbies);
+//var json = '{"name": "test", "age": 20, "hobbies": ["a","b","c"]}';
+//
+//json = $.parseJSON(json);
+//
+//// json = JSON.parse(json);
+//
+//// json = eval('(' + json + ')');
+//
+//console.log(json.hobbies);
