@@ -1,14 +1,14 @@
 <?php
 
-	// $username = $_GET["uname"];
-	// $password = $_GET["pword"];
-	$username = $_POST["uname"];
-	$password = $_POST["pword"];
+//    $username = $_GET["user"];
+//    $password = $_GET["key"];
+	$username = $_POST["user"];
+	$password = $_POST["key"];
 
 	if ($username == 'abc' && $password == '123123') {
-		echo 'login success';
+		echo '<script>location.href="../form/main.html"</script>';
 	} else {
-		echo 'login failure, please try again later!';
+		echo 'µ«¬º ß∞‹£¨«Î÷ÿ ‘<a href="../form/wbc5.html">∑µªÿ</a>';
 	}
 
 ?>
