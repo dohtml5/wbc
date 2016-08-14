@@ -8,7 +8,7 @@
 	if ($username == 'abc' && $password == '123123') {
 		echo '<script>location.href="../form/main.html"</script>';
 	} else {
-		echo 'µÇÂ¼Ê§°Ü£¬ÇëÖØÊÔ<a href="../form/wbc5.html">·µ»Ø</a>';
+		echo 'ç™»å½•å¤±è´¥ï¼Œè¯·é‡è¯•<a href="../form/wbc5.html">è¿”å›</a>';
 	}
 
 ?>
