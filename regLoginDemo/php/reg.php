@@ -23,20 +23,11 @@ $id = $db->insert('wbc6_users', $data);
 sleep(2);
 
 if ($id > 0) {
-    echo "用户注册成功，请<a href='../login.html'>登录</a>";
+//    echo "用户注册成功，请<a href='../login.html'>登录</a>";
+    echo "success";
 } else {
-    echo "用户注册失败，请<a href='../reg.html'>重试</a>";
+//    echo "用户注册失败，请<a href='../reg.html'>重试</a>";
+    echo "failure";
 }
 
 ?>
-
-<!doctype html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
-
-</body>
-</html>

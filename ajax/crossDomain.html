@@ -7,12 +7,55 @@
 </head>
 <body>
 
+    <!--<img src="https://www.baidu.com/img/bd_logo1.png">-->
+    <!--<iframe src="" frameborder="0"></iframe>-->
+    <!--<script src=""></script>-->
+
+    <hr>
+
 	<button id="requestBtn">发送Ajax请求</button>
 
 
 	<script>
 
 		$('#requestBtn').on('click', function() {
+
+            var url = "http://localhost/wbc/userMng/server/ajaxUserList.php?callback=?";
+
+            $.ajax({
+                type: 'get',
+                url: url,
+                data: {size: 5},
+                dataType: 'json',
+                success: function(response) {
+                    console.log(response);
+                },
+                error: function() {
+
+                }
+            });
+
+
+
+            /*$.getJSON(url, function(response) {
+
+                console.log(response);
+
+            });*/
+
+            /*$.post(url, {}, function() {
+
+            }, 'json');*/
+
+            /*$.get(url, {}, function(response) {
+
+                console.log(response);
+                // TODO
+
+            }, 'json');*/
+
+            /////////////////////////////////////////////////////////////
+
 			/*var url = 'http://localhost/demos/userMng/server/ajaxUserList.php?callback=?';
 			$.get(url, function(response) {
 				console.log(response);
@@ -23,14 +66,14 @@
 				console.log(response);
 			});*/
 
-			$.ajax({
+			/*$.ajax({
 				url: 'http://localhost/demos/userMng/server/ajaxUserList.php?callback=?',
 				data: {size: 5},
 				dataType: 'json',
 				success: function(response) {
 					console.log(response)
 				}
-			});
+			});*/
 		});
 
 		/*function CrossDomain() {

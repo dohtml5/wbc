@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" href="css/dialog.css">
+
+    <script src="../lib/jquery-3.1.0.min.js"></script>
+    <script src="js/dialog.js"></script>
+    <script>
+
+        $(document).ready(function() {
+
+            var dlg = new Dialog();
+
+            function LoginReg() {}
+
+            LoginReg.prototype = {
+
+                init: function() {
+                    this.initEvent();
+                },
+                initEvent: function() {
+                    $('#loginBtn').on("click", this.onLoginBtnClick);
+                    $('#regBtn').on("click", this.onRegBtnClick);
+                    $('body').on('click', '#doRegBtn', this.onDoRegBtnClick);
+                },
+                onDoRegBtnClick: function() {
+                    /*var name = $('input[name=username]').val();
+                    var key = $('input[name=password]').val();
+                    var email = $('input[name=email]').val();*/
+
+                    var data = {
+                        username: $('input[name=username]').val(),
+                        password: $('input[name=password]').val(),
+                        email: $('input[name=email]').val()
+                    };
+
+                    var url = "php/reg.php";
+
+                    // 表单验证
+
+                    $.post(url, data, function(response) {
+
+                        // console.log(response);
+
+                        if (response == 'success') {
+                            alert('注册成功！');
+                        } else {
+                            alert('咦，你的网络好像有问题，请刷新重试');
+                        }
+                        dlg.close();
+                        // console.log('close');
+
+
+                    });
+
+                    // console.log('close');
+
+                },
+                onLoginBtnClick: function() {
+                    dlg.open({
+                        title: '用户登录',
+                        content: [
+                                '<div>',
+                                    '<div><label>账号：<input type="text" /></label></div>',
+                                '</div>',
+                                '<div>',
+                                    '<div><label>密码：<input type="password" /></label></div>',
+                                '</div>',
+                                '<div><button>登录</button></div>'
+                        ].join('')
+                    });
+                },
+                onRegBtnClick: function() {
+                    dlg.open({
+                        title: '用户注册',
+                        content: $('#regTmpl').html()
+                    });
+                }
+            };
+
+            var lr = new LoginReg();
+            lr.init();
+
+        });
+
+    </script>
+</head>
+<body>
+
+    <h1>我是首页，请<a id="loginBtn" href="javascript:void(0);">登录</a>或<span id="regBtn">注册</span></h1>
+
+    <!--<div class="dialog-wp">
+        <div class="masker"></div>
+        <div class="dialog">
+            <div class="dialog-header">
+                对话框
+            </div>
+            <div class="dialog-body"></div>
+        </div>
+    </div>-->
+
+    <script id="regTmpl" type="text/wbc-tmpl">
+        <div class="reg-form">
+            <div>
+                <label>
+                    账号：<input type="text" name="username">
+                </label>
+            </div>
+
+            <div>
+                <label>
+                    密码：<input type="password" name="password">
+                </label>
+            </div>
+
+            <div>
+                <label>
+                    邮箱：<input type="text" name="email">
+                </label>
+            </div>
+
+            <div>
+                <input id="doRegBtn" type="button" value="注册">
+            </div>
+        </div>
+    </script>
+
+</body>
+</html>

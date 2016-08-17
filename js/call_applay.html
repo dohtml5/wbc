@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <script>
+
+        ////////////////////////////////////////////////////////////////////////
+
+        // 简单用法
+
+        function plus(x, y) {
+            return x + y;
+        }
+
+        function minus(x, y) {
+            return x - y;
+        }
+
+        var n1 = plus.call(null, 3, 5);
+        var n2 = minus.call(null, 8, 6);
+
+        /*var n1 = plus.apply(null, [3, 5]);
+        var n2 = minus.apply(null, [8, 6]);*/
+
+        console.log("n1: " + n1);
+        console.log("n2: " + n2);
+
+        ////////////////////////////////////////////////////////////////////////
+
+        // 实现继承
+        /*function Fun1() {
+            this.name = "abc";
+            this.getName = function() {
+                return "the name is: " + this.name;
+            }
+        }
+
+        function Fun2() {
+            this.name = "def";
+        }
+
+        var f1 = new Fun1();
+        var f2 = new Fun2();
+
+        var name = f1.getName.call(f2);
+        console.log(name);*/
+
+        ////////////////////////////////////////////////////////////////////////
+
+        // 实现多继承
+        /*function Obj1() {
+            this.getName = function() {
+                return this.name;
+            }
+        }
+
+        function Obj2() {
+            this.sayHello = function() {
+                return "Hello: " + this.name + ", Your age is: " + this.age;
+            }
+        }
+
+        function Obj3() {
+            this.name = "abc";
+            this.age = 20;
+            Obj1.call(this);
+            Obj2.call(this);
+        }
+
+        var o3 = new Obj3();
+        console.log(o3.getName());
+        console.log(o3.sayHello());*/
+
+    </script>
+
+</body>
+</html>
+
+<!--
+ECMAScript规范给所有函数都定义了call()与apply()两个方法，
+call() 与 apply() 的第一个参数都是需要调用的函数对象，
+在函数体内这个参数就是this的值，
+剩余的参数是需要传递给函数的值，
+call与apply的不同就是call传的值可以是以逗号分隔的任意参数，
+而apply传的剩余值必须为数组。
+-->

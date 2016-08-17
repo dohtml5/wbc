@@ -1,0 +1,43 @@
+.dialog-wp {
+    display: none;
+}
+
+.dialog-wp .masker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.6;
+}
+
+.dialog-wp .dialog {
+    width: 500px;
+    min-height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -150px 0 0 -250px;
+    background-color: #fff;
+}
+
+.dialog-wp .dialog-header {
+    height: 35px;
+    line-height: 35px;
+    text-indent: 10px;
+    background-color: red;
+    color: #fff;
+}
+
+.dialog-wp .close {
+    font-style: normal;
+    font-size: 22px;
+    position: absolute;
+    right: 5px;
+    cursor: pointer;
+}
+
+.dialog-wp .dialog-body {
+    padding: 10px;
+}
