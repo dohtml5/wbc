@@ -17,10 +17,10 @@
     } else {
         $param = Array (
             'host' => 'sqld.duapp.com',
-            'username' => '8ce3dd7101eca3f3ac3299b3f5446c23', 
-            'password' => 'F7a49d05812f3df12339f0f0067c438d',
-            'db'=> 'QpOWISEDlebkobwEJiLS',
-            'port' => 4050,
+            'username' => '8ce3dd710dd1eca3f3ac3299b3f5446c23',
+            'password' => 'F7a49d05812dff3df12339f0f0067c438d',
+            'db'=> 'QpOWISEDlebkobwseEJiLS',
+            'port' => 4550,
             'charset' => 'utf8'
         );
     }
