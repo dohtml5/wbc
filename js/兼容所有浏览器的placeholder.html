@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        input[type=text] {
+            border: 1px solid #a9a9a9;
+
+        }
+
+        .plh-wp {
+            display: inline-block;
+            position: relative;
+        }
+
+        .plh-wp > input {
+            z-index: 999999;
+            position: relative;
+            background: transparent;
+        }
+
+        .plh-wp > span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-size: 13.3px;
+            color: #a9a9a9;
+            line-height: 21px; /* ?? */
+            text-indent: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <fieldset>
+
+        <legend>文字</legend>
+
+        <input type="text">
+
+    </fieldset>
+
+    <div id="testDiv">test</div>
+
+    <input type="radio">
+
+    <input type="text" placeholder="请输入账号">
+
+    <hr>
+
+    <input type="text" data-plh="请输入密码">
+
+    <hr>
+
+    <input type="text" data-plh="请输入年龄">
+
+    <script>
+        function fixPlaceholder() {
+
+            var input = document.getElementsByTagName('input'),
+                i, len = input.length,
+                plhInfo, span;
+
+            for (i=0; i<len; i++) {
+                plhInfo = input[i].getAttribute('data-plh');
+
+                if (input[i].type != 'text' || !plhInfo) {
+                    continue;
+                }
+
+                input[i].outerHTML = '<div class="plh-wp">' + input[i].outerHTML + '<span></span></div>';
+
+                span = input[i].parentNode.getElementsByTagName('span')[0];
+
+                span.innerHTML = plhInfo;
+
+                input[i].onkeyup = function() {
+                    var val = this.value;
+                    if (val.length == 0) {
+                        this.parentNode.getElementsByTagName('span')[0].style.display = 'block';
+                    } else {
+                        this.parentNode.getElementsByTagName('span')[0].style.display = 'none';
+                    }
+                };
+
+                // console.log(input[i].parentNode.getElementsByTagName('span')[0]);
+
+            }
+
+        }
+
+        fixPlaceholder();
+    </script>
+</body>
+</html>

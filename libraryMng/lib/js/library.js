@@ -198,7 +198,37 @@
 
 			$('#pagingUl').on('click', 'li', this.onPagingLiClick);
 			$('#jumpBtn').on('click', this.onJumpBtnClick);
+
+            $('#chkAll').on('click', this.onChkAllClick);
+
+            $('input[name=status]').on('click', this.onStatusBtnClick);
+            $('input[name=b_status]').on('click', this.onBstatusBtnClick);
 		},
+
+        onStatusBtnClick: function() {
+            var $target = $('input[name=b_status][value=1]');
+            if (this.value * 1) {
+                $target.prop('disabled', false);
+            } else {
+                $target.prop('disabled', true);
+            }
+        },
+
+        onBstatusBtnClick: function() {
+
+        },
+
+        onChkAllClick: function() {
+
+            var $chkItems = $('#booksTable input.book-checkbox');
+
+            if (this.checked) {
+                $chkItems.prop('checked', true);
+            } else {
+                $chkItems.removeProp('checked');
+            }
+
+        },
 
 		onJumpBtnClick: function() {
 			var $jumpIpt = $('#jumpIpt'),
@@ -310,6 +340,7 @@
 			var len = $('#booksTable input.book-checkbox:checked').length;
 			var $delBookBtn = $('#delBookBtn');
 			var $updateBookBtn = $('#updateBookBtn');
+            var $chkAll = $('#chkAll');
 
 			if (len > 0) {
 				$delBookBtn.removeAttr('disabled');
@@ -321,6 +352,14 @@
 			} else {
 				$delBookBtn.attr('disabled', 'disabled');
 			}
+
+            ///////////////////////////////////////////////////////////
+
+            if ($('#booksTable input.book-checkbox').length == len) {
+                $chkAll.prop('checked', true);
+            } else {
+                $chkAll.prop('checked', false);
+            }
 
 		},
 

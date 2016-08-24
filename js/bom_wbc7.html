@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<span id="linkBtn">baidu</span>
+<!--<a href="http://www.baidu.com" target="_self">baidu</a>-->
+
+<script>
+
+    var linkBtn = document.getElementById('linkBtn');
+    var timer;
+
+    timer = setInterval(function() {
+        console.log(999);
+    }, 1000);
+
+    linkBtn.onclick = function() {
+        clearInterval(timer);
+    };
+
+    /*timer = setTimeout(function() {
+        console.log(999);
+    }, 5000);
+
+    linkBtn.onclick = function() {
+        clearTimeout(timer);
+    };*/
+
+    // setTimeout("alert(88)", 3000);
+
+    /*var test = function() {
+      console.log('ddd');
+    };
+
+    setTimeout(test, 3000);*/
+
+    /*setTimeout(function() {
+        console.log('timer...');
+    }, 1000);*/
+
+    /*setInterval(function() {
+        console.log(new Date().getTime());
+    }, 2000);*/
+
+    ///////////////////////////////////////////////////////////
+
+    /*for (var i=0; i<10; i++) {
+        location.reload();
+    }*/
+
+//    var linkBtn = document.getElementById('linkBtn');
+//    linkBtn.onclick = function() {
+//        // window.open('http://www.baidu.com');
+//        // location.href = "http://www.baidu.com";
+//        // location.reload();
+//        // location.replace("http://www.baidu.com");
+//    };
+
+//    var testName = "wbc7";
+//
+//    // alert(testName); // alert(window.testName);
+//
+//    function sayName() {
+//        alert('name');
+//    }
+
+</script>
+</body>
+</html>

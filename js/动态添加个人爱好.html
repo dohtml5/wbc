@@ -21,7 +21,7 @@
 	<div class="wp">
 		<div class="orgin">
 			<label>个人爱好：<input id="orginIpt" type="text"></label>
-			<button id="addBtn">增加</button>
+            <button id="addBtn">增加</button>
 		</div>
 		<div id="moreWp" class="more">
 			<!-- <p>
@@ -56,6 +56,9 @@
 			result.innerHTML = '你的爱好有：' + rArr.join('-');
 		};
 
+        /**
+         * 增加按钮点击事件
+         */
 		addBtn.onclick = function() {
 			var newElements = getMoreElements();
 			var len = getTotalCount();
@@ -73,7 +76,7 @@
 				input = document.createElement('input'),
 				button = document.createElement('button'),
 				delTxt = document.createTextNode('删除'),
-				nbsp = document.createTextNode('\r\n');
+				nbsp = document.createTextNode(' ');
 
 			// <input>
 
@@ -100,12 +103,13 @@
 
 			// console.log(this);
 
-			var r = confirm('确定要删除吗？');
-			if (r) {
+			 var r = confirm('确定要删除吗？');
+            // r = true;
+			 if (r) {
 				moreWp.removeChild(this.parentNode);
-				// addBtn.disabled = '';
-				addBtn.removeAttribute('disabled');
-			}
+				addBtn.disabled = '';
+				// addBtn.removeAttribute('disabled');
+			 }
 		}
 	</script>
 </body>
