@@ -52,21 +52,28 @@
 
     <hr>
 
-    <input type="text" data-plh="请输入密码">
+    <input type="text" placeholder="请输入密码">
 
     <hr>
 
-    <input type="text" data-plh="请输入年龄">
+    <input type="text" placeholder="请输入年龄">
 
     <script>
         function fixPlaceholder() {
 
-            var input = document.getElementsByTagName('input'),
-                i, len = input.length,
-                plhInfo, span;
+            var ipt = document.createElement('input'),
+                    i, len,
+                    plhInfo, span, input;
+
+            if ('placeholder' in ipt) {
+                return;
+            }
+
+            input = document.getElementsByTagName('input');
+            len = input.length;
 
             for (i=0; i<len; i++) {
-                plhInfo = input[i].getAttribute('data-plh');
+                plhInfo = input[i].getAttribute('placeholder');
 
                 if (input[i].type != 'text' || !plhInfo) {
                     continue;

@@ -54,7 +54,7 @@
         ////////////////////////////////////////////////////////////////////////
 
         // 实现多继承
-        function Obj1() {
+        /*function Obj1() {
             this.getName = function() {
                 return this.name;
             }
@@ -76,7 +76,25 @@
 
         var o3 = new Obj3();
         console.log(o3.getName());
-        console.log(o3.sayHello());
+        console.log(o3.sayHello());*/
+
+        var fullname = 'May';
+        var obj = {
+            fullname: 'colin',
+            prop: {
+                fullname: 'rosa',
+                getFullname: function() {
+                    return this.fullname;
+                }
+            }
+        };
+
+        console.log(obj.prop.getFullname());
+        var test = obj.prop.getFullname;
+        console.log(test());
+
+        // 如何让最后一个console.log()输出rose
+        // test.call(obj.prop);
 
     </script>
 

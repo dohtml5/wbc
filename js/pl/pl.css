@@ -1,0 +1,27 @@
+input[type=text] {
+    border: 1px solid #a9a9a9;
+
+}
+
+.plh-wp {
+    display: inline-block;
+    position: relative;
+}
+
+.plh-wp > input {
+    z-index: 999999;
+    position: relative;
+    background: transparent;
+}
+
+.plh-wp > span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 13.3px;
+    color: #a9a9a9;
+    line-height: 21px; /* ?? */
+    text-indent: 2px;
+}
