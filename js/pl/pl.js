@@ -14,7 +14,8 @@
     link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = 'pl/pl.css';
-    document.head.appendChild(link);
+    // document.head.appendChild(link);
+    document.getElementsByTagName('head')[0].appendChild(link);
 
     input = document.getElementsByTagName('input');
     len = input.length;

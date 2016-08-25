@@ -20,32 +20,37 @@
 		var mySel = document.getElementById('mySel');
 
 		genBtn.onclick = function() {
-			var i, 
-				len = arr.length,
-				// optStr = '<option value="0">请选择</option>';
-				optArr = ['<option value="0">请选择</option>'];
-//				optArr = [];
-			for (i=0; i<len; i++) {
-				// optStr += '<option value="'+(i+1)+'">' + arr[i] + '</option>';
-//				optArr.push('<option value="'+(i+1)+'">' + arr[i] + '</option>');
-				optArr.push('<option value="', (i+1), '">', arr[i], '</option>');
-			}
 
-			console.log(optArr);
+           /* var optStr = '';
 
-			// mySel.innerHTML = optStr;
-			mySel.innerHTML = optArr.join('');
-//			console.log(optArr)
+            for (var i=0; i<arr.length; i++) {
+                optStr += '<option>' + arr[i] + '</option>';
+            }
+
+            mySel.innerHTML = optStr;*/
+
+            var optArr = ['<option value="0">请选择</option>'];
+            var len = arr.length;
+
+            for (var i=0; i<len; i++) {
+                optArr.push('<option>', arr[i], '</option>');
+            }
+
+            mySel.innerHTML = optArr.join('');
+
 		};
 
 		/*
-		
+
+		// 字符串是不可变长度的
+		// 数组是可变长度的
+
 		var str = 'abc';
 
 		str += 'def';
 
-		；
-		var _str = 'abc' + 'def';
+        //
+		var _str = str + 'def'; // 'abcdef'
 
 		destory str;
 

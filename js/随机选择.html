@@ -54,14 +54,14 @@
 		startBtn.onclick = function() {
 			len = arr.length;
 
-			startBtn.disabled = 'disabled';
+			// startBtn.disabled = 'disabled';
 			// this.disabled = 'disabled';
 
-			/*console.log(timer);
+			// console.log(timer);
 			if (timer) {
 				return;
 			}
-			console.log(timer);*/
+			// console.log(timer);
 			timer = setInterval(function() {
 				index = Math.floor(Math.random() * len);
 				titleDiv.innerHTML = arr[index];
@@ -71,16 +71,29 @@
 
 		stopBtn.onclick = function() {
 			clearInterval(timer);
-			startBtn.disabled = '';
-			// timer = undefined;
+			// startBtn.disabled = '';
+			timer = null;
 		};
 
 		addBtn.onclick = function() {
 			var input = this.parentNode.getElementsByTagName('input')[0],
-				val = input.value,
-				newArr = val.split('|'),
-				i,
-				len = newArr.length;
+				val, newArr, i,
+				len;
+
+            val = input.value;
+
+            if (val == '') {
+                alert('不能为空！');
+                return;
+            }
+
+            if (val.charAt(0) == '|' || val.charAt(val.length - 1) == '|') {
+                alert('不能以 “|” 结尾或开头');
+                return;
+            }
+
+            newArr = val.split('|');
+            len = newArr.length;
 
 			for (i=0; i<len; i++) {
 				if (isInArray(newArr[i], arr)) {
@@ -96,8 +109,10 @@
 
 			input.value = '';
 
+            stopBtn.click();
+
 			// arr.push(val);
-			// console.log(arr)
+            console.log(arr);
 		};
 
 		var isInArray = function(item, arr) {
