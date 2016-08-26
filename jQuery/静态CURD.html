@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>静态页面实现CURD</title>
+</head>
+<body>
+
+    <button id="addBtn">新增</button>
+    <hr>
+    <table id="theTable" border="1">
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>地址</th>
+            <th>操作</th>
+        </tr>
+        <tr>
+            <td data-col="name">aa</td>
+            <td data-col="age">10</td>
+            <td data-col="address">海淀</td>
+            <td>
+                <button class="updateBtn">修改</button>
+                <button class="delBtn">删除</button>
+            </td>
+        </tr>
+    </table>
+
+    <script src="../lib/jquery-1.12.1.min.js"></script>
+    <script>
+        !function() {
+
+            var $theTable = $('#theTable');
+
+            // 增加
+            $('#addBtn').on('click', function() {
+                $theTable.append(getTr());
+            });
+
+            // 保存
+            $theTable.on('click', '.saveBtn', function() {
+                var $this = $(this),
+                        $tr = $this.parents('tr');
+                var obj = getDataFromTr($tr, 'input');
+                $tr.replaceWith(getTr(obj, 'input'));
+            });
+
+            // 修改
+            $theTable.on('click', '.updateBtn', function() {
+                var $this = $(this),
+                        $tr = $this.parents('tr');
+                var obj = getDataFromTr($tr);
+                $tr.replaceWith(getTr(obj));
+            });
+
+            // 删除
+            $theTable.on('click', '.delBtn', function() {
+                $(this).parents('tr').remove();
+            });
+
+            function getDataFromTr($tr, type) {
+                if (type == 'input') {
+                    return {
+                        name: $tr.find('td[data-col=name] > input').val(),
+                        age: $tr.find('td[data-col=age] > input').val(),
+                        address: $tr.find('td[data-col=address] > input').val()
+                    };
+                } else {
+                    return {
+                        name: $tr.find('td[data-col=name]').text(),
+                        age: $tr.find('td[data-col=age]').text(),
+                        address: $tr.find('td[data-col=address]').text()
+                    };
+                }
+            }
+
+            function getTr(item, type) {
+
+                var isShowSaveBtn = false;
+
+                item = item || {};
+
+                if ($.isEmptyObject(item)) { // 新增
+                    item.name = '<input type="text">';
+                    item.age = '<input type="text">';
+                    item.address = '<input type="text">';
+                    isShowSaveBtn = true;
+                } else {
+                    if (type != 'input') { // 修改
+                        item.name = '<input type="text" value="'+item.name+'">';
+                        item.age = '<input type="text" value="'+item.age+'">';
+                        item.address = '<input type="text" value="'+item.address+'">';
+                        isShowSaveBtn = true;
+                    } else { // 保存
+                        isShowSaveBtn = false;
+                    }
+                }
+
+                console.log(isShowSaveBtn)
+
+                var tr = [
+                    '<tr>',
+                        '<td data-col="name">', item.name, '</td>',
+                        '<td data-col="age">', item.age, '</td>',
+                        '<td data-col="address">', item.address, '</td>',
+                        '<td>',
+                            '<button class="updateBtn">修改</button> ',
+                            '<button class="delBtn">删除</button> ',
+                            isShowSaveBtn ? '<button class="saveBtn">保存</button>' : '',
+                        '</td>',
+                    '</tr>'
+                ];
+                return tr.join('');
+            }
+
+        }();
+    </script>
+
+</body>
+</html>
