@@ -30,7 +30,8 @@
     <script>
         !function() {
 
-            var $theTable = $('#theTable');
+            var $theTable = $('#theTable'),
+                    oldObj;
 
             // 增加
             $('#addBtn').on('click', function() {
@@ -50,6 +51,7 @@
                 var $this = $(this),
                         $tr = $this.parents('tr');
                 var obj = getDataFromTr($tr);
+                oldObj = obj;
                 $tr.replaceWith(getTr(obj));
             });
 
@@ -57,6 +59,20 @@
             $theTable.on('click', '.delBtn', function() {
                 $(this).parents('tr').remove();
             });
+
+            // 取消
+            $theTable.on('click', '.cancelBtn', function() {
+                var $tr = $(this).parents('tr');
+                oldObj = getVal(oldObj);
+                $tr.replaceWith(getTr(oldObj, 'input'));
+            });
+
+            function getVal(obj) {
+                for (var i in obj) {
+                    obj[i] = $(obj[i]).val();
+                }
+                return obj;
+            }
 
             function getDataFromTr($tr, type) {
                 if (type == 'input') {
@@ -96,8 +112,6 @@
                     }
                 }
 
-                console.log(isShowSaveBtn)
-
                 var tr = [
                     '<tr>',
                         '<td data-col="name">', item.name, '</td>',
@@ -107,6 +121,7 @@
                             '<button class="updateBtn">修改</button> ',
                             '<button class="delBtn">删除</button> ',
                             isShowSaveBtn ? '<button class="saveBtn">保存</button>' : '',
+                            isShowSaveBtn ? ' <button class="cancelBtn">取消</button>' : '',
                         '</td>',
                     '</tr>'
                 ];

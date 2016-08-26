@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <title>图书管理 - angularjs版</title>
+
+    <!-- Bootstrap -->
+    <link href="bs/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body ng-app="libraryApp" ng-controller="mainController">
+
+    <!--页面头部-->
+    <div ng-include="'inc/nav.html'"></div>
+
+    <div class="container">
+
+        <!--菜单-->
+        <div ng-include="'inc/menu.html'"></div>
+
+        <br>
+
+        <table class="table table-bordered table-striped table-hover">
+            <tr>
+                <th><input id="chkAll" type="checkbox"></th>
+                <th>书名</th>
+                <th>作者</th>
+                <th>出版社</th>
+                <th>定价</th>
+                <th>出版日期</th>
+                <th>类别</th>
+                <th>上架/下架</th>
+                <th>借出状态</th>
+            </tr>
+            <tr ng-repeat="book in bookList">
+                <td><input type="checkbox"></td>
+                <td>{{book.name}}</td>
+                <td>作者</td>
+                <td>出版社</td>
+                <td>定价</td>
+                <td>出版日期</td>
+                <td>类别</td>
+                <td>上架/下架</td>
+                <td>借出状态</td>
+            </tr>
+        </table>
+
+        <!--分页-->
+        <div ng-include="'inc/paging.html'"></div>
+
+    </div>
+
+
+    <script src="bs/jquery-1.11.3.min.js"></script>
+    <script src="layer/layer.js"></script>
+    <script src="bs/js/bootstrap.min.js"></script>
+
+    <script src="ng/angular.min.js"></script>
+    <script src="ng/angular-route.min.js"></script>
+    <script src="lib/js/library-ng.js"></script>
+
+</body>
+</html>
