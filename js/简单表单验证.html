@@ -6,11 +6,11 @@
 </head>
 <body>
 	
-	<h1>用户注册</h1>
+	<h1 onclick="alert(99)">用户注册</h1>
 
 	<hr>
 
-	<form onsubmit="return checkForm()">
+	<form id="form1" onsubmit="return checkForm()">
 		<div>
 			<!-- <label for="username">用户名：</label>
 			<input id="username" type="text"> -->
@@ -60,7 +60,7 @@
 		<br>
 		<div>
 			<!-- <input type="submit" value="提交"> -->
-			<button>确定并提交</button>
+			<button type="submit">确定并提交</button>
 			<input type="reset" value="清空">
 		</div>
 	</form>
@@ -69,36 +69,38 @@
 		var checkForm = function() {
 
 			// 用户名
-			var username = $('username');
-			if (username.value == '') {
-				alert('用户名不能为空！');
-				return false;
-			}
-
-			if (username.value.length < 6) {
-				alert('用户名长度必须大于等于6位');
-				return false;
-			}
-
-			// 密码...
-
-			// 手机
-			var mobile = $('mobile');
-            var mobileRG = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
-
-            if (!mobileRG.test(mobile.value)) {
-                alert('请输入正确的手机号！');
-                return false;
-            }
-
-			var edu = $('edu');
-			if (edu.value == 0) {
-				alert('请选择学历！');
-				return false;
-			}
-
+//			var username = $('username');
+//			if (username.value == '') {
+//				alert('用户名不能为空！');
+//				return false;
+//			}
+//
+//			if (username.value.length < 6) {
+//				alert('用户名长度必须大于等于6位');
+//				return false;
+//			}
+////
+////			// 密码...
+////
+////			// 手机
+//			var mobile = $('mobile');
+//            // var a = //;
+//            var mobileRG = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+//
+//            if (!mobileRG.test(mobile.value)) {
+//                alert('请输入正确的手机号！');
+//                return false;
+//            }
+////
+//			var edu = $('edu');
+//			if (edu.value == 0) {
+//				alert('请选择学历！');
+//				return false;
+//			}
+//
 			// var address = $('address');
 
+//
 			var hobbies = document.getElementsByName('hobbies');
 			var hbArr = [];
 			for (var i=0; i<hobbies.length; i++) {
@@ -107,13 +109,13 @@
 				}
 				// console.log(hobbies[i].checked)
 			}
-
+//
 			if (hbArr.length == 0) {
 				alert('请选择你的爱好！');
 				return false;
 			}
 
-			// console.log(hbArr)
+			 // console.log(hbArr)
 
 
 			alert('表单提交成功！');
@@ -121,12 +123,12 @@
 		};
 
 		function $(id) {
-			if (typeof id == 'string') {
-				return document.getElementById(id);
-			} else {
-				return id;
-			}
-		}
+            if (typeof id == 'string') {
+                return document.getElementById(id);
+            } else {
+                return id;
+            }
+        }
 	</script>
 
 </body>

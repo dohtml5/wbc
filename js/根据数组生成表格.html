@@ -84,25 +84,28 @@
 		];
 
 		function renderTable() {
+
 			var i, len = arr.length, trArr = [];
 
 			for (i=0; i<len; i++) {
 				trArr.push(
 					'<tr>',
 						'<td>', arr[i].name, '</td>',
-						'<td>年龄</td>',
+						'<td>', arr[i].age, '</td>',
 						'<td>性别</td>',
 						'<td>地址</td>',
 					'</tr>'
 				);
 			}
 
-			console.log(trArr);
+			// console.log(trArr);
 
 			document.getElementById('tbody').innerHTML = trArr.join('');
 		}
 
-		window.onload = renderTable;
+        renderTable();
+
+//		window.onload = renderTable;
 
 //		function renderTable(tmpArr) {
 //			var trs = [];

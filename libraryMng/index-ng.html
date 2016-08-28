@@ -41,7 +41,7 @@
                 <th>借出状态</th>
             </tr>
             <tr ng-repeat="book in bookList">
-                <td><input type="checkbox"></td>
+                <td><input ng-click="onCheckboxClick($event);" type="checkbox"></td>
                 <td>{{book.name}}</td>
                 <td>作者</td>
                 <td>出版社</td>
