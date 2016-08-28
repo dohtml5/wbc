@@ -8,6 +8,20 @@
 
     <!-- Bootstrap -->
     <link href="bs/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .book-form {
+            padding: 10px;
+            display: none;
+        }
+
+        .book-form div {
+            height: 35px;
+        }
+
+        .book-form input {
+            display: inline-block;
+        }
+    </style>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -32,6 +46,7 @@
             <tr>
                 <th><input id="chkAll" type="checkbox"></th>
                 <th>书名</th>
+                <th>封面</th>
                 <th>作者</th>
                 <th>出版社</th>
                 <th>定价</th>
@@ -43,6 +58,7 @@
             <tr ng-repeat="book in bookList">
                 <td><input ng-click="onCheckboxClick($event);" type="checkbox"></td>
                 <td>{{book.name}}</td>
+                <td><img ng-click="showPic()" width="20" src="../fileUploading/server/uploadImgs/{{book.bookPic || '../../../libraryMng/img/book.png'}}"></td>
                 <td>作者</td>
                 <td>出版社</td>
                 <td>定价</td>
@@ -56,6 +72,11 @@
         <!--分页-->
         <div ng-include="'inc/paging.html'"></div>
 
+    </div>
+
+    <div class="book-form">
+        <div>书名：<input type="text" ng-model="book.name"></div>
+        <div>封面：<input type="file" file-model="pic"><input value="上传" type="button" ng-click="savePic()"></div>
     </div>
 
 
