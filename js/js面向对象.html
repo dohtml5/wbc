@@ -9,6 +9,154 @@
 
 <script>
 
+// 封装，多态，继承，抽象
+
+/*var obj = {};
+var obj2 = new Object();
+
+var arr = [];
+var arr2 = new Array();
+
+var fun = function() {};
+
+var date = new Date();
+
+Math.random();
+
+var rg = new RegExp();
+var rg2 = /\d{3}/;*/
+
+/*var obj = {
+    name: 'abc',
+    hello: function() {
+        return this.name;
+    }
+};
+
+obj.hello();
+
+var obj2 = {};
+
+obj2.name = "def";
+
+obj2.hello = function() {
+    return this.name;
+};*/
+
+
+
+////////////////////////////////////////////
+// wbc7
+/*var dog1 = {
+    name: 'dog1',
+    color: 'black'
+};
+
+var dog2 = {
+    name: 'dog2',
+    color: 'yellow'
+};
+
+var cat1 = {
+    name: 'cat1',
+    color: 'white'
+};*/
+
+//function Dog(name, color) {
+//    return {
+//        name: name,
+//        color: color
+//    };
+//
+//    /*var obj = {
+//        name: name,
+//        color: color
+//    };
+//
+//    return obj;*/
+//}
+//
+//var dog1 = Dog('dog1', 'black');
+//var dog2 = Dog('dog2', 'yellow');
+
+//function Dog(name, color) {
+//    this.name = name;
+//    this.color = color;
+////    this.run = function() {
+////        return this.name + ' is running...';
+////    }
+//}
+
+//Dog.prototype = {
+//    type: 'animal',
+//    run: function() {
+//        return this.name + ' is running....';
+//    }
+//};
+//
+//function Cat(name, color) {
+//    this.name = name;
+//    this.color = color;
+//}
+//
+//var dog3 = new Dog('dog3', 'red');
+//var dog4 = new Dog('dog4', 'gray');
+//
+//var cat1 = new Cat('cat1', 'white');
+
+
+/*function Animal() {
+    this.type = 'animal';
+}
+
+function Dog(name, color) {
+    this.name = name;
+    this.color = color;
+}
+
+Dog.prototype = new Animal();
+//Dog.prototype.constructor = Dog;
+
+var dog4 = new Dog('dog4', 'gray');
+var dog5 = new Dog('dog5', 'gray');*/
+
+
+function Animal() {
+}
+
+Animal.prototype = {
+    type: 'animal',
+    run: function() {
+        return this.name + ' is running';
+    }
+};
+
+function Dog(name, color) {
+    this.name = name;
+    this.color = color;
+}
+
+function extend(Child, Parent) {
+    var F = function() {};
+    F.prototype = Parent.prototype;
+    Child.prototype = new F();
+    Child.prototype.constructor = Child;
+    Child.super = Parent.prototype;
+}
+
+extend(Dog, Animal);
+
+var dog6 = new Dog('dog6', 'black');
+
+
+//Dog.prototype = Animal.prototype;
+//
+//var dog4 = new Dog('dog4', 'gray.');
+
+
+
+////////////////////////////////////////////
+
 //    wbc6
 //    var d = new Date();
 //    var td = new Dog();
@@ -29,31 +177,31 @@
  var d2 = Dog("d2", "black");
  var d3 = Dog("d3", "white");*/
 
-function Dog(name, color) {
-    this.name = name;
-    this.color = color;
-    /*this.type = "animal";
-    this.run = function() {
-        console.log("this dog is running...");
-    }*/
-}
+//function Dog(name, color) {
+//    this.name = name;
+//    this.color = color;
+//    /*this.type = "animal";
+//    this.run = function() {
+//        console.log("this dog is running...");
+//    }*/
+//}
 
-Dog.prototype = {
-    type: "animal",
-    run: function() {
-        console.log("this dog is running....");
-    }
-};
-
-function Cat(name, color) {
-    this.name = name;
-    this.color = color;
-}
-
-var d1 = new Dog("d1", "black");
-var d2 = new Dog("d2", "gray");
-
-var c1 = new Cat("c1", "yellow");
+//Dog.prototype = {
+//    type: "animal",
+//    run: function() {
+//        console.log("this dog is running....");
+//    }
+//};
+//
+//function Cat(name, color) {
+//    this.name = name;
+//    this.color = color;
+//}
+//
+//var d1 = new Dog("d1", "black");
+//var d2 = new Dog("d2", "gray");
+//
+//var c1 = new Cat("c1", "yellow");
 
 
 ////////////////////////////////////////////////////////////////////////

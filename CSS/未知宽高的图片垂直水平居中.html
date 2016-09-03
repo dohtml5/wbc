@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div.wp{
+				margin: 50px auto 0;
+				width: 500px;
+				height: 500px;
+				border: 1px solid red;
+				position: relative;
+			}
+			
+			/*ie7及以下不支持*/
+			.img1{
+				position: absolute;
+			    top: 0;
+			    right: 0;
+			    bottom: 0;
+			    left: 0;
+			    margin: auto;
+			}
+			/*///////////////////////////////*/
+			.img2-div{
+				text-align: center;
+			}
+			.img2-span{
+				height: 100%;
+				display: inline-block;
+				vertical-align: middle;
+			}
+			.img2{
+				vertical-align: middle;
+			}
+			
+			.img3-div{
+				display: table;
+				text-align: center;
+			}
+			.img3-span{
+				display: table-cell;
+				vertical-align: middle;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wp">
+			<img class="img1" src="img/bd_logo.png" alt="" />
+		</div>
+		
+		<div class="wp img2-div">
+			<img class="img2" src="img/bd_logo.png" alt="" /><span class="img2-span"></span>
+		</div>
+		
+		<div class="wp img3-div">
+			<span class="img3-span"><img class="img3" src="img/bd_logo.png" alt="" /></span>
+		</div>
+		
+	</body>
+</html>

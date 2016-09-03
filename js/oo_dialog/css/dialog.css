@@ -1,0 +1,53 @@
+#wbcDlg {
+    display: none;
+}
+
+#wbcDlg .masker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000000;
+    opacity: 0.6;
+}
+
+#wbcDlg .wbc-dlg {
+    width: 300px;
+    height: 200px;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -100px 0 0 -150px;
+    z-index: 999;
+}
+
+#wbcDlg .wbc-dlg-header {
+    height: 35px;
+    line-height: 35px;
+    text-indent: 5px;
+    background-color: #000000;
+    color: #fff;
+}
+
+#wbcDlg .close-btn {
+    float: right;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+#wbcDlg .wbc-dlg-body {
+    padding: 10px;
+}
+
+#wbcDlg .wbc-dlg-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+#wbcDlg .wbc-dlg-footer button {
+    margin: 10px 5px;
+}
