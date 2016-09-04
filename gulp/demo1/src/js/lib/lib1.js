@@ -1,9 +1,5 @@
 !function(window, document, undefined) {
-
-	var lib1 = {
-		name: 'abc'
-	};
 	
-	console.log(lib1.name);
+	console.log("this is lib1");
 
 }(window, document);

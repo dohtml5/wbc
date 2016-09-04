@@ -7,15 +7,35 @@ var gulp = require('gulp'),
 	concat = require('gulp-concat'),
 	
 	notify = require('gulp-notify'),
-	plumber = require('gulp-plumber');
+	plumber = require('gulp-plumber'),
+    
+    htmlreplace = require('gulp-html-replace');
 	
+/**
+压缩css文件
+*/
 gulp.task('wbcCssMin', function() {
-	gulp.src('src/css/*.css')
+	gulp.src('src/**/*.css')
 		.pipe(cssver())
 		.pipe(cssmin())
 		.pipe(gulp.dest('dist/css'));
 });
 
+/**
+压缩/合并css文件
+*/
+gulp.task('wbcCssConcat', function() {
+    gulp.src(['src/css/*.css'])
+		.pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
+		.pipe(cssver())
+        .pipe(cssmin())
+		.pipe(concat('all.css'))
+		.pipe(gulp.dest('dist/css'));
+});
+
+/**
+压缩js文件
+*/
 gulp.task('wbcJsMin', function() {
 	gulp.src(['src/js/*.js', 'src/js/lib/*.js', 'src/js/main/*.js'])
 		.pipe(uglify({
@@ -26,6 +46,9 @@ gulp.task('wbcJsMin', function() {
 		.pipe(gulp.dest('dist/js'));
 });
 
+/**
+压缩/合并js文件
+*/
 gulp.task('wbcJsConcat', function() {
 	gulp.src(['src/js/*.js', 'src/js/lib/*.js', 'src/js/main/*.js'])
 		.pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
@@ -37,14 +60,22 @@ gulp.task('wbcJsConcat', function() {
 		.pipe(gulp.dest('dist/js'));
 });
 
-gulp.task('wbcWatch', function() {
-	gulp.watch('src/**/*.js', ['wbcJsConcat']);
-	gulp.watch('src/**/*.css', ['wbcCssMin']);
+/**
+替换html页面文件路径
+*/
+gulp.task('wbcReplace', function() {
+    gulp.src('index.html')
+        .pipe(htmlreplace({
+            'css': 'css/all.css',
+            'js': 'js/all.js'
+        }))
+        .pipe(gulp.dest('dist/'));
 });
 
 /**
-	TODO：
-	1. 合并css文件
-	2. 按顺序压缩js/css文件
-	3. 处理类库文件，比如jQuery
+监控文件变化
 */
+gulp.task('wbcWatch', function() {
+	gulp.watch('src/**/*.js', ['wbcJsConcat']);
+	gulp.watch('src/**/*.css', ['wbcCssConcat']);
+});
