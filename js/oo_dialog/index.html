@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/dialog.css"/>
+    <script src="js/dialog.js"></script>
+    <script>
+        window.onload = function() {
+
+            var dlg = new Dialog({
+                title: '测试对话框',
+                content: '我是对话框',
+                close: true,
+                masker: true
+            });
+
+            var cfm = new Confirm({
+                title: '测试确认框',
+                content: '我是确认框',
+                close: true,
+                masker: true
+            });
+
+            var showDlgBtn = document.getElementById('showDlgBtn');
+            showDlgBtn.onclick = function() {
+
+                dlg.show();
+
+            };
+
+            var showCfmBtn = document.getElementById('showCfmBtn');
+            showCfmBtn.onclick = function() {
+
+                cfm.show();
+
+            };
+
+        };
+    </script>
+</head>
+<body>
+
+    <button id="showDlgBtn">show dialog</button>
+    <button id="showCfmBtn">show confirm</button>
+
+</body>
+</html>
