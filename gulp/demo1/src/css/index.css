@@ -1,0 +1,25 @@
+
+/* 测试css压缩，这行被删除 */
+/*! 测试css压缩，这行被保留 */
+
+#testDiv {
+	color: blue;
+}
+
+.test {
+	color: blue;
+	background-image: url(../img/bus.jpg);
+	width: 20px;
+}
+
+div {
+	color: green!important;
+}
+
+div#testDiv {
+	color: pink;
+}
+
+#testDiv.test {
+	color: gold;
+}
