@@ -1,0 +1,1 @@
+!function(){function n(){console.log("index2...")}n(),console.log("test")}(),!function(){var n=function(){console.log("index1..."),console.log("hahaha...")};n();var o={name:"test888"};console.log(o.name),$("button").on("click",function(){alert("btn clicked")})}();
