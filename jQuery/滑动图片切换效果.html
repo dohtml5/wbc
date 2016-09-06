@@ -59,12 +59,12 @@
 			$('.img-slider > a').on('click', function() {
 				var $this = $(this);
 
-				if ( $('ul:animated').length > 0 ) {
+				/*if ( $('ul:animated').length > 0 ) {
 					return;
-				}
+				}*/
 
 				if ($this.hasClass('next')) {
-					$ul.animate({marginLeft: -width}, 500, function() {
+					$ul.stop().animate({marginLeft: -width}, 500, function() {
 						$ul
 							.append($ul.find('li:first'))
 							.css('margin-left', 0);
@@ -73,7 +73,7 @@
 					$ul
 						.prepend($ul.find('li:last'))
 						.css('margin-left', -width);
-					$ul.animate({marginLeft: 0}, 500);
+					$ul.stop().animate({marginLeft: 0}, 500);
 				}
 			});
 		});
@@ -89,7 +89,6 @@
 			<li>item4</li>
 			<li>item5</li>
 			<li>item6</li>
-			<li>item7</li>
 		</ul>
 		<a href="javascript:;" class="prev"></a>
 		<a href="javascript:;" class="next"></a>

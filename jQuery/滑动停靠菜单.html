@@ -30,26 +30,49 @@
 	<script src="../lib/jquery-1.12.1.min.js"></script>
 	<script>
 		$(document).ready(function() {
-			$('.trigger').on('mouseover', function() { // click
+        
+            var $sideMenu = $('.sideMenu');
+            $('.trigger')
+                .on('mouseenter', function() {
+                    $sideMenu.stop().animate({right: 0}, 500);
+                })
+                .parent()
+                .on('mouseleave', function() {
+                    $sideMenu.stop().animate({right: '-50px'}, 500);
+                });
+            
+            /*$('.trigger').hover(function() {
+                console.log(1)
+            }, function() {
+                console.log(2)
+            });*/
+            
+            /*$('.trigger').click(function() {
+                alert(999)
+            });*/
+        
+            //////////////////////////////
+
+			/*$('.trigger').on('click', function() { // click
 
 				var $sideMenu = $('.sideMenu');
-                var left = 0;
+                var r = 0;
 
                 // console.log($sideMenu.css('right'));
 
                 if ($sideMenu.css('right') == '0px') {
-                    left = -50;
+                    r = -50;
                 }
 
-                $sideMenu.animate({right: left}, 500);
+                $sideMenu.animate({right: r}, 500);
 
-				/*if ($sideMenu.hasClass('r0')) {
-					$sideMenu.animate({right: -50}, 500).removeClass('r0');
-				} else {
-					$sideMenu.animate({right: 0}, 500).addClass('r0');
-				}*/
+				//if ($sideMenu.hasClass('r0')) {
+					//$sideMenu.animate({right: -50}, 500).removeClass('r0');
+				//} else {
+					//$sideMenu.animate({right: 0}, 500).addClass('r0');
+				//}
 
-			});
+			});*/
 		});
 	</script>
 </head>
