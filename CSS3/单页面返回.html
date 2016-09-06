@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.step2 {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: #000;
+			opacity: 0.5;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	
+	<button id="showBtn">show next step</button>
+	
+	<div id="step2" class="step2">
+		step2
+	</div>
+	
+	<script>
+		var showBtn = document.getElementById('showBtn');
+		var step2 = document.getElementById('step2');
+		showBtn.onclick = function() {
+			window.location.hash = 'step2';
+			step2.style.display = 'block';
+		};
+		
+		window.onhashchange = function() {
+			var hash = window.location.hash;
+			if (hash == '') { // 故意这样写，可以按实际情况增加判断
+				step2.style.display = 'none';
+			}
+		};
+	</script>
+	
+</body>
+</html>
