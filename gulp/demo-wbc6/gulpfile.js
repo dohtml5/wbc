@@ -10,7 +10,15 @@ var gulp = require('gulp'),
     notify = require('gulp-notify'),
 	plumber = require('gulp-plumber'),
     
-    htmlreplace = require('gulp-html-replace');
+    htmlreplace = require('gulp-html-replace'),
+	
+	rev = require('gulp-rev-append'),
+	
+	runSequence = require('run-sequence'),
+	
+	assetRev = require('gulp-asset-rev');
+	
+var browserSync = require('browser-sync').create();
 
 gulp.task('autoBuild', function() {
     gulp.watch('src/**/*.js', ['wbcBuildJs']);
@@ -19,15 +27,75 @@ gulp.task('autoBuild', function() {
 });
 
 /**
-    替换html页面中的css/js路径
+	浏览器自动同步
 */
-gulp.task('wbcBuildHtml', function() {
-    gulp.src('src/index.html')
+gulp.task('bsync', function() {
+    browserSync.init({
+        server: {
+            baseDir: "./src"
+        }
+    });
+	
+	gulp.watch("src/*.html").on('change', browserSync.reload);
+});
+
+/**
+*/
+gulp.task('wbcRev3', function() {
+	gulp.src('src/index.html')
+		.pipe(assetRev())
+		.pipe(gulp.dest('dist/'));
+});
+
+gulp.task('wbcBuildHtml3', function() {
+	gulp.src('src/index.html')
         .pipe(htmlreplace({
             'wbc6css': 'css/build.css',
             'wbc6js': 'js/build.js'
         }))
         .pipe(gulp.dest('dist/'));
+		
+	gulp.src('dist/index.html')
+		.pipe(assetRev())
+        .pipe(gulp.dest('dist/'));
+});
+
+/**
+	给页面引入文件添加版本号
+*/
+gulp.task('wbcRev', function() {
+	// gulp.src('src/index.html')
+	gulp.src('dist/index.html')
+		.pipe(rev())
+		.pipe(gulp.dest('dist/'));
+});
+
+/**
+    替换html页面中的css/js路径
+*/
+gulp.task('wbcBuildHtml', function() {
+    gulp.src('src/index.html')
+        .pipe(htmlreplace({
+            'wbc6css': 'css/build.css?rev=@@hash',
+            'wbc6js': 'js/build.js?rev=@@hash'
+        }))
+		// .pipe(rev())
+        .pipe(gulp.dest('dist/'))
+		.pipe(rev())
+        .pipe(gulp.dest('dist/'));
+		
+	/*gulp.src('dist/index.html')
+		.pipe(rev())
+        .pipe(gulp.dest('dist/'));*/
+});
+
+gulp.task('wbcBuildHtml2', function(done) {
+	condition = false;
+	runSequence(
+		['wbcBuildHtml'],
+		['wbcRev'],
+		done
+	);
 });
 
 /**
