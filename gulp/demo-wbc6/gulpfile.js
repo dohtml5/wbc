@@ -20,6 +20,8 @@ var gulp = require('gulp'),
 	
 var browserSync = require('browser-sync').create();
 
+var crypto = require('crypto');
+
 gulp.task('autoBuild', function() {
     gulp.watch('src/**/*.js', ['wbcBuildJs']);
     gulp.watch('src/**/*.css', ['wbcBuildCss']);
@@ -42,21 +44,17 @@ gulp.task('bsync', function() {
 /**
 */
 gulp.task('wbcRev3', function() {
-	gulp.src('src/index.html')
+	gulp.src('src/index3.html')
 		.pipe(assetRev())
 		.pipe(gulp.dest('dist/'));
 });
 
 gulp.task('wbcBuildHtml3', function() {
-	gulp.src('src/index.html')
+	gulp.src('src/index3.html')
         .pipe(htmlreplace({
             'wbc6css': 'css/build.css',
             'wbc6js': 'js/build.js'
         }))
-        .pipe(gulp.dest('dist/'));
-		
-	gulp.src('dist/index.html')
-		.pipe(assetRev())
         .pipe(gulp.dest('dist/'));
 });
 
@@ -73,21 +71,33 @@ gulp.task('wbcRev', function() {
 /**
     替换html页面中的css/js路径
 */
-gulp.task('wbcBuildHtml', function() {
-    gulp.src('src/index.html')
+gulp.task('wbcReplace', function() {
+	var hash = crypto.createHash('md5');
+	var r = hash.digest('hex');
+	
+	gulp.src(['src/index.html', 'src/index2.html'])
+        .pipe(htmlreplace({
+            'wbc6css': 'css/build.css?rev=' + r,
+            'wbc6js': 'js/build.js?rev=' + r
+        }))
+		.pipe(rev())
+        .pipe(gulp.dest('dist/'));
+});
+
+
+/*gulp.task('wbcBuildHtml', function() {
+    gulp.src(['src/index.html', 'src/index2.html'])
         .pipe(htmlreplace({
             'wbc6css': 'css/build.css?rev=@@hash',
             'wbc6js': 'js/build.js?rev=@@hash'
         }))
-		// .pipe(rev())
-        .pipe(gulp.dest('dist/'))
 		.pipe(rev())
         .pipe(gulp.dest('dist/'));
 		
-	/*gulp.src('dist/index.html')
+	gulp.src('dist/index.html')
 		.pipe(rev())
-        .pipe(gulp.dest('dist/'));*/
-});
+        .pipe(gulp.dest('dist/'));
+});*/
 
 gulp.task('wbcBuildHtml2', function(done) {
 	condition = false;
