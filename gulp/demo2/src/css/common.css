@@ -1,0 +1,18 @@
+/**
+	全局样式
+*/
+body {
+	background-image: url(../img/bg.png);
+}
+
+.red {
+	color: red;
+}
+
+.fs30 {
+	font-size: 30px;
+}
+
+.yahei {
+	font-family: 'Microsoft yahei';
+}

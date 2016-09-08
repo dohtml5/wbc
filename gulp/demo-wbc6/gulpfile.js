@@ -16,12 +16,45 @@ var gulp = require('gulp'),
 	
 	runSequence = require('run-sequence'),
 	
-	assetRev = require('gulp-asset-rev');
+	assetRev = require('gulp-asset-rev'),
+	
+	cache = require('gulp-cache'),
+	imagemin = require('gulp-imagemin'),
+	pngquant = require('imagemin-pngquant'),
+	imageminJpegtran = require('imagemin-jpegtran'),
+	imageminGifsicle = require('imagemin-gifsicle'),
+	imageminOptipng = require('imagemin-optipng'),
+	imageminSvgo = require('imagemin-svgo'),
+	gutil = require('gulp-util');
 	
 var browserSync = require('browser-sync').create();
 
 var crypto = require('crypto');
 
+///////////////////////////////////////////////////////////////////////////////
+
+gulp.task('imagemin', function () {
+    gulp.src('src/**/*.{png,jpg,gif,ico}')
+        .pipe(plumber({errorHandler:errrHandler}))
+        .pipe(cache(imagemin({     
+            progressive: true, //类型：Boolean 默认：false 无损压缩jpg图片          
+            svgoPlugins: [{removeViewBox: false}],//不要移除svg的viewbox属性
+            use: [pngquant(),imageminJpegtran({progressive: true})
+            , imageminGifsicle({interlaced: true}),imageminOptipng({optimizationLevel:3}), imageminSvgo()] //使用pngquant深度压缩png图片的imagemin插件          
+        })))
+        .pipe(gulp.dest('dist/'));
+});
+
+function errrHandler( e ){
+    // 控制台发声,错误时beep一下
+    gutil.beep();
+    gutil.log(e);
+    this.emit('end');
+}
+
+/**
+	监控文件修改
+*/
 gulp.task('autoBuild', function() {
     gulp.watch('src/**/*.js', ['wbcBuildJs']);
     gulp.watch('src/**/*.css', ['wbcBuildCss']);
@@ -42,6 +75,7 @@ gulp.task('bsync', function() {
 });
 
 /**
+	给页面引入文件添加版本号的另外一种方式
 */
 gulp.task('wbcRev3', function() {
 	gulp.src('src/index3.html')
@@ -62,8 +96,7 @@ gulp.task('wbcBuildHtml3', function() {
 	给页面引入文件添加版本号
 */
 gulp.task('wbcRev', function() {
-	// gulp.src('src/index.html')
-	gulp.src('dist/index.html')
+	gulp.src('src/index.html')
 		.pipe(rev())
 		.pipe(gulp.dest('dist/'));
 });
@@ -74,6 +107,8 @@ gulp.task('wbcRev', function() {
 gulp.task('wbcReplace', function() {
 	var hash = crypto.createHash('md5');
 	var r = hash.digest('hex');
+	// 其实这个版本号，直接用时间戳也挺好的
+	// var r = new Date().getTime();
 	
 	gulp.src(['src/index.html', 'src/index2.html'])
         .pipe(htmlreplace({
@@ -83,21 +118,6 @@ gulp.task('wbcReplace', function() {
 		.pipe(rev())
         .pipe(gulp.dest('dist/'));
 });
-
-
-/*gulp.task('wbcBuildHtml', function() {
-    gulp.src(['src/index.html', 'src/index2.html'])
-        .pipe(htmlreplace({
-            'wbc6css': 'css/build.css?rev=@@hash',
-            'wbc6js': 'js/build.js?rev=@@hash'
-        }))
-		.pipe(rev())
-        .pipe(gulp.dest('dist/'));
-		
-	gulp.src('dist/index.html')
-		.pipe(rev())
-        .pipe(gulp.dest('dist/'));
-});*/
 
 gulp.task('wbcBuildHtml2', function(done) {
 	condition = false;

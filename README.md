@@ -8,6 +8,7 @@ WEB前端开发培训
 HTML/5、CSS/3 
 Javascript 
 移动WEB APP 
+前端自动化Gulp
 jQuery、AngularJS、requireJS... 
 实战项目案例 
 NodeJS

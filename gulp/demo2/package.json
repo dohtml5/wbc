@@ -1,5 +1,5 @@
 {
-  "name": "demo-wbc6",
+  "name": "demo2",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,25 +9,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.15.0",
     "gulp": "^3.9.1",
-    "gulp-asset-rev": "^0.0.15",
-    "gulp-cache": "^0.4.5",
     "gulp-concat": "^2.6.0",
     "gulp-html-replace": "^1.6.1",
-    "gulp-imagemin": "^3.0.3",
     "gulp-make-css-url-version": "^0.0.13",
     "gulp-minify-css": "^1.2.4",
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.1.0",
     "gulp-rev-append": "^0.1.6",
-    "gulp-uglify": "^2.0.0",
-    "gulp-util": "^3.0.7",
-    "imagemin-gifsicle": "^5.1.0",
-    "imagemin-jpegtran": "^5.0.2",
-    "imagemin-optipng": "^5.2.0",
-    "imagemin-pngquant": "^5.0.0",
-    "imagemin-svgo": "^5.2.0",
-    "run-sequence": "^1.2.2"
+    "gulp-uglify": "^2.0.0"
   }
 }

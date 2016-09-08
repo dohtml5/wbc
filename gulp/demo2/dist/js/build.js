@@ -1,0 +1,1 @@
+!function(){console.log("Welcome to WBC...")}(),!function(){$("button").on("click",function(){alert("button clicked")})}();
