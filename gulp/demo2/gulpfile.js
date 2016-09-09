@@ -46,23 +46,31 @@ gulp.task('jsMin', function() {
 gulp.task('rev', function() {
 	var hash = crypto.createHash('md5');
 	var version = hash.digest('hex');
-	gulp.src('src/**/*.html')
+	gulp.src('src/*.html')
         .pipe(htmlreplace({
             'wbcCss': 'css/build.css?rev=' + version,
             'wbcJs': 'js/build.js?rev=' + version
         }))
 		.pipe(rev())
         .pipe(gulp.dest('dist/'));
+		
+	gulp.src('src/pages/*.html')
+        .pipe(htmlreplace({
+            'wbcCss': '../css/build.css?rev=' + version,
+            'wbcJs': '../js/build.js?rev=' + version
+        }))
+		.pipe(rev())
+        .pipe(gulp.dest('dist/pages/'));
 });
 
 /**
 	移动不需要构建的文件
 */
 gulp.task('copy', function() {
-	gulp.src('src/lib/*')
+	gulp.src('src/lib/**/*')
 		.pipe(gulp.dest('dist/lib'));
 		
-	gulp.src('src/img/*')
+	gulp.src('src/img/**/*')
 		.pipe(gulp.dest('dist/img'));
 });
 

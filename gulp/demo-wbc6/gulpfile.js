@@ -105,10 +105,10 @@ gulp.task('wbcRev', function() {
     替换html页面中的css/js路径
 */
 gulp.task('wbcReplace', function() {
-	var hash = crypto.createHash('md5');
-	var r = hash.digest('hex');
+	var hash = crypto.createHash('md5'); // base64
+	// var r = hash.digest('hex');
 	// 其实这个版本号，直接用时间戳也挺好的
-	// var r = new Date().getTime();
+	var r = new Date().getTime();
 	
 	gulp.src(['src/index.html', 'src/index2.html'])
         .pipe(htmlreplace({
