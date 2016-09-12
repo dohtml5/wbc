@@ -1,3 +1,50 @@
+/*var json = {
+    "name": "zhangsan",
+    "age": 29,
+    "gender": "男",
+    "married": true,
+    "children": ['a', 'b'],
+    "parents": {
+        "father": {
+            "name": "old zhang",
+            "age": 60
+        },
+        "mother": {
+            "name": "lily",
+            "age": 63
+        }
+    }
+};*/
+
+/*var json = [
+    30,
+    "吃饭",
+    true,
+    {"name": "aaa"},
+    [1, 2, 3],
+    null
+];*/
+
+//console.log(json);
+
+/*var school = {
+    "name": "***学校",
+    "address": "***",
+    "xy": [{
+        "name": "***学院"
+    }]
+};*/
+
+var str = '{"name": "zhangsan", "age": 20, "married": false}';
+
+// str = eval('(' + str + ')');
+// str = JSON.parse(str);
+
+str = $.parseJSON(str);
+
+console.log(str);
+
+////////////////////////////////////////////////////////////////////////
 
 //var json = {"name": "abc"};
 
@@ -23,21 +70,21 @@
 
 //var json = {"name": "test", "age": 20};
 
-var json = {
-    "name": "test",
-    "age": 20,
-    "friends": [
-        {"name": "aaa"},
-        {"name": "bbb"},
-        {"name": "ccc"}
-    ],
-    isMarried: false,
-    wife: null,
-    parents: {
-        father: "jim",
-        mother: "lily"
-    }
-};
+//var json = {
+//    "name": "test",
+//    "age": 20,
+//    "friends": [
+//        {"name": "aaa"},
+//        {"name": "bbb"},
+//        {"name": "ccc"}
+//    ],
+//    isMarried: false,
+//    wife: null,
+//    parents: {
+//        father: "jim",
+//        mother: "lily"
+//    }
+//};
 //
 //var json2 = {
 //    "name": "test2",
