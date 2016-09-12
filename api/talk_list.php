@@ -16,10 +16,10 @@ if (!isset($pageSize)) {
 
 $start = $pageSize * $page;
 
-$sql = "select * from talk where 1=1";
-$sql2 = "select count(*) as count from talk where 1=1";
+$sql = "select * from talk, user where talk.uid = user.id";
+$sql2 = "select count(*) as count from talk, user where talk.uid = user.id";
 
-$sql .= " order by id asc limit $start, $pageSize";
+$sql .= " order by talk.id asc limit $start, $pageSize";
 
 $books = $db -> rawQuery($sql);
 
