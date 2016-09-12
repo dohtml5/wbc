@@ -19,7 +19,7 @@ $start = $pageSize * $page;
 $sql = "select * from talk where 1=1";
 $sql2 = "select count(*) as count from talk where 1=1";
 
-$sql .= " order by id desc limit $start, $pageSize";
+$sql .= " order by id asc limit $start, $pageSize";
 
 $books = $db -> rawQuery($sql);
 
