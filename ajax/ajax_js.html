@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<button id="sendBtn">send</button>
+	
+	<script>
+		
+		var sendBtn = document.getElementById('sendBtn');
+		
+		sendBtn.onclick = function() {
+			getData();
+		};
+		
+		function getData() {
+			var xhr = new XMLHttpRequest();
+			xhr.open('get', 'data/data.json?t='+new Date().getTime(), true);
+			xhr.send();
+			
+			xhr.onreadystatechange = function() {
+				var response;
+				if (xhr.readyState == 4 && xhr.status == 200) {
+					response = JSON.parse(xhr.responseText);
+					
+					// document.body.innerHTML += xhr.responseText;
+					// console.log(xhr.responseText);
+					// console.log(response.success)
+					
+					if (response.success) {
+						console.log(response.data);
+					}
+					
+				}
+			};
+		}
+		
+		
+		// console.log(xhr);
+	</script>
+</body>
+</html>

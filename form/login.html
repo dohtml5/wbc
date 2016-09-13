@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>用户登录</title>
+</head>
+<body>
+
+	<h1>用户登录</h1>
+	<hr>
+	<form action="../api/login_demo.php" method="post" onsubmit="return checkForm();">
+		<div>
+			账号：<input id="username" name="user" type="text">
+		</div>
+		<div>
+			密码：<input id="password" name="key" type="password">
+		</div>
+		<div>
+			<input id="loginBtn" type="submit" value="登录">
+			<input type="reset" value="清空">
+		</div>
+	</form>
+
+	<script src="../lib/jquery-1.12.1.min.js"></script> 
+	<script>
+		function checkForm() {
+			var $user = $('#username'),
+				$pswd = $('#password');
+				
+			if ($.trim($user.val()).length == 0) {
+				alert('账号不能为空');
+				$user.focus();
+				return false;
+			}
+			
+			if ($.trim($pswd.val()).length == 0) {
+				alert('密码不能为空');
+				$pswd.focus();
+				return false;
+			}
+			
+			return true;
+		}
+	</script>
+	
+</body>
+</html>

@@ -16,8 +16,8 @@ if (!isset($pageSize)) {
 
 $start = $pageSize * $page;
 
-$sql = "select * from talk, user where talk.uid = user.id";
-$sql2 = "select count(*) as count from talk, user where talk.uid = user.id";
+$sql = "select talk.*, users.name from talk, users where talk.uid = users.id";
+$sql2 = "select count(*) as count from talk, users where talk.uid = users.id";
 
 $sql .= " order by talk.id desc limit $start, $pageSize";
 

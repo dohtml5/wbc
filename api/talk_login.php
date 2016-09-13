@@ -6,7 +6,7 @@ require_once ('util/db.php');
 $u = $_GET['user'];
 @$p = $_GET['pswd'];
 
-$sql = "select * from user where username='$u' and password = '$p'";
+$sql = "select * from users where id='$u' and password = '$p'";
 
 $user = $db -> rawQuery($sql);
 
