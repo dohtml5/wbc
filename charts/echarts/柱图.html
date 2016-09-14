@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/echarts.js"></script>
+</head>
+<body>
+
+    <div id="main" style="width: 600px;height:400px;"></div>
+
+    <script>
+        // 基于准备好的dom，初始化echarts实例
+//        var myChart = echarts.init(document.getElementById('main'));
+
+        ////////////////////////////////
+        // ajax call
+        var response = {
+            "success": true,
+            "message": "请求成功",
+            "data": [
+                {
+                    "title": ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"],
+                    "value": [15, 20, 56, 10, 10, 20]
+                }
+            ]
+        };
+
+        renderCharts();
+
+        function renderCharts() {
+            var myChart = echarts.init(document.getElementById('main'));
+            var option = {
+                title: {
+                    text: 'ECharts 入门示例 - 柱图'
+                },
+                color: ['red'],
+                tooltip: {},
+                legend: {
+                    data:['销量']
+                },
+                xAxis: {
+                    data: response.data[0].title
+                },
+                yAxis: {},
+                series: [{
+                    name: '销量',
+                    type: 'bar',
+                    barWidth: '20px',
+                    data: response.data[0].value
+                }]
+            };
+
+            myChart.setOption(option);
+        }
+        ////////////////////////////////
+
+        // 指定图表的配置项和数据
+        /*var option = {
+            title: {
+                text: 'ECharts 入门示例 - 柱图'
+            },
+            tooltip: {},
+            legend: {
+                data:['销量']
+            },
+            xAxis: {
+                // data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+                data: response.data[0].title
+            },
+            yAxis: {},
+            series: [{
+                name: '销量',
+                type: 'bar',
+                // data: [5, 20, 56, 10, 10, 20]
+                data: response.data[0].value
+            }]
+        };*/
+
+        // 使用刚指定的配置项和数据显示图表。
+//        myChart.setOption(option);
+    </script>
+</body>
+</html>
