@@ -11,9 +11,9 @@
     <table id="theTable" border="1" class="dy-table">
 		<thead>
 			<tr>
-				<th>姓名</th>
-				<th>年龄</th>
-				<th>地址</th>
+				<th len="6">姓名</th>
+				<th len="3">年龄</th>
+				<th len="10">地址</th>
 				<th>
 					操作
 					<button class="addBtn">新增</button>
@@ -37,10 +37,10 @@
     <table id="theTable2" border="1" class="dy-table">
 		<thead>
 			<tr>
-				<th>姓名</th>
-				<th>年龄</th>
-				<th>地址</th>
-				<th>电话</th>
+				<th len="3">姓名</th>
+				<th len="3">年龄</th>
+				<th len="3">地址</th>
+				<th len="3">电话</th>
 				<th>
 					操作
 					<button class="addBtn">新增</button>
@@ -80,9 +80,14 @@
                     var $this = $(this),
                         $tr = $this.parents('tr'),
 						data;
-                    data = getDataFromTr($tr, 'input');
-                    // $tr.replaceWith(getTr(obj, 'input'));
-                    $tr.replaceWith(getTr2($theTable, 'input', data));
+
+                    // 20160918
+                    if (checkForm($tr)) {
+                        data = getDataFromTr($tr, 'input');
+                        // $tr.replaceWith(getTr(obj, 'input'));
+                        $tr.replaceWith(getTr2($theTable, 'input', data));
+                    }
+
                 });
 
                 // 修改
@@ -106,6 +111,22 @@
                     // oldObj = getVal(oldObj);
                     $tr.replaceWith(getTr2($theTable, 'input', oldObj));
                 });
+
+                // 20160918
+                function checkForm($tr) {
+                    var $th = $theTable.find('thead th');
+                    var $td = $tr.find('td');
+                    var rLen, currLen;
+                    for (var i=0; i<$th.length - 1; i++) {
+                        rLen = $($th[i]).attr('len');
+                        currLen = $($td[i]).find('input').val().length;
+                        if (currLen < rLen) {
+                            alert('字段长度不能小于' + rLen);
+                            return false;
+                        }
+                    }
+                    return true;
+                }
 
                 /*function getVal(obj) {
                     for (var i in obj) {
