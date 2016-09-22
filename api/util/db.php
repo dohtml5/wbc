@@ -9,7 +9,7 @@
             'host' => 'localhost',
             'username' => 'root', 
             'password' => '',
-            'db'=> 'test',
+            'db'=> 'shopping',
             'port' => 3306,
             /*'prefix' => 'my_',*/
             'charset' => 'utf8'
