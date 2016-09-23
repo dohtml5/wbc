@@ -4,7 +4,7 @@
 
     @$ids = $_GET['ids'];
 
-	$sql = "delete from goods where id in ($ids)";
+	$sql = "delete from address where id in ($ids)";
 
     sleep(2);
 

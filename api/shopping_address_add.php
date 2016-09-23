@@ -4,6 +4,7 @@
 
 	require_once ('util/db.php');
 
+    // $uid = $_GET["uid"];
 	$prov = $_GET["prov"];
     $city = $_GET["city"];
     $area = $_GET["area"];

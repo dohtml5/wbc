@@ -599,6 +599,19 @@ class MysqliDb
     }
 
     /**
+    * 自定义删除语句
+    */
+    public function doDelete($sql, $numRows = null) {
+        $this->_query = $sql;
+        $stmt = $this->_buildQuery($numRows);
+        $stmt->execute();
+        $this->_stmtError = $stmt->error;
+        $this->reset();
+
+        return ($stmt->affected_rows > 0);
+    }
+
+    /**
      * This method allows you to specify multiple (method chaining optional) AND WHERE statements for SQL queries.
      *
      * @uses $MySqliDb->where('id', 7)->where('title', 'MyTitle');
