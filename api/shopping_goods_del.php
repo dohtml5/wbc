@@ -10,7 +10,9 @@
 
 	$goods = $db -> rawQuery($sql);
 
-	// var_dump($books);
+	var_dump($goods);
+
+    exit;
 
     if (1) {
         echo json_encode(Array("success" => true, "message" => "删除成功"));

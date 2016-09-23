@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>wbc8</title>
+	
+	<style>
+		.test {
+			font-size: 20px;
+			color: red;
+			border: 1px solid blue;
+		}
+		
+		.test2 {
+			color: green;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+
+    <i></i>
+
+    <form id="form1" action="">
+        <input id="user" type="text" name="user">
+        <input type="text" name="pswd" class="test2">
+    </form>
+	
+	<li>abc</li>
+	
+	<hr>
+	
+		<ul id="myUl">
+			<li>item1</li>
+			<li>item2</li>
+			<li>item3</li>
+			<li>item4</li>
+			<li>item5</li>
+		</ul>
+	
+	<hr>
+	
+	<li>def</li>
+
+    <div id="div2">div2</div>
+
+    <div id="myDiv" class="test">
+        <p>hello wbc8</p>
+    </div>
+
+    <span>my span</span>
+    <span class="test2">my span2</span>
+	
+	<hr>
+	
+	<button onclick="alert(999)">my btn</button>
+	<button id="btn2">my btn2</button>
+
+    <script>
+	
+		var myDiv = document.getElementById('myDiv');
+		var btn2 = document.getElementById('btn2');
+		var form1 = document.getElementById('form1');
+		var user = document.getElementById('user');
+		var myUl = document.getElementById('myUl');
+		
+		btn2.onclick = function() {
+		
+			var lis = myUl.getElementsByTagName('li');
+			// var lis = myUl.childNodes;
+			// var lis = myUl.children;
+			
+			// console.log(lis);
+			
+			for (var i=0; i<lis.length; i++) {
+				if (i % 2 == 0) {
+					lis[i].style.color = "red";
+				} else {
+					lis[i].style.color = "green";
+				}
+			}
+		
+			// form1.removeChild(user);
+			// console.log(user.parentNode)
+			// user.parentNode.removeChild(user);
+			
+			// var h1 = document.createElement('h1');
+			// var txt = document.createTextNode('my new h1');
+			// h1.appendChild(txt);
+			
+			// form1.insertBefore(h1, user);
+			// form1.replaceChild(h1, user);
+			
+			/*myDiv.appendChild(h1);*/
+		};
+		
+		// 追加一个span
+		/*var span = document.createElement('span');
+		var txt = document.createTextNode('my new span');
+		span.appendChild(txt);
+		
+		myDiv.appendChild(span);*/
+		
+		/*for (var i=0; i<10; i++) {
+			var span = document.createElement('span');
+			var txt = document.createTextNode('my new span ' + i);
+			span.appendChild(txt);
+			myDiv.appendChild(span);
+		}*/
+		
+		//btn2.onclick = function() {
+			//alert(888);
+		//};
+		
+		/*btn2.onclick = hello;
+		
+		function hello() {
+			alert('hello');
+		}
+		
+		myDiv.style.color = "blue";
+		myDiv.style.fontSize = '50px';
+		myDiv.style.backgroundColor = 'pink';*/
+		
+		// myDiv.title = "abc";
+		
+		// myDiv.className += ' test2';
+		
+		// console.log(myDiv.className);
+		
+		// console.log(myDiv.innerHTML);
+		// console.log(myDiv.innerText);
+	
+		// var div2 = document.getElementById('div2');
+		// div2.innerHTML = "<h1>Hello WBC8</h1>";
+		// div2.innerText = "<h1>Hello WBC8...</h1>";
+	
+		// document.write('<h1>Hello wbc8</h1>');
+
+        // var test = document.getElementsByClassName('test');
+        // console.log(test);
+
+        /*var user = document.getElementsByName('user');
+        console.log(user);*/
+
+        /*var mySpan = document.getElementsByTagName('span');
+        console.log(mySpan);*/
+
+        /*var myDiv = document.getElementById('myDiv3');
+        console.log(myDiv);*/
+
+        /*var _document = {
+            getElementById: function(id) {
+                // ...
+            },
+            html: {
+                head: {
+                    meat: {},
+                    title: {}
+                },
+                body: {
+                    div: {
+                        id: "myDiv",
+                        className: "test",
+                        innerText: "hello wbc8"
+                    },
+                    span: {}
+                }
+            }
+        };
+
+        _document.getElementById('myDiv');*/
+    </script>
+
+</body>
+</html>
