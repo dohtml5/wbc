@@ -74,7 +74,7 @@
             <div class="col-md-6">
                 <div class="btn-group">
                     <button id="newBtn" type="button" class="btn btn-success">新增商品</button>
-                    <button disabled type="button" class="btn btn-warning">修改商品</button>
+                    <button id="updateBtn" disabled type="button" class="btn btn-warning">修改商品</button>
                     <button id="delBtn" disabled type="button" class="btn btn-danger">删除商品</button>
                     <button disabled type="button" class="btn btn-info">下架</button>
                     <button disabled type="button" class="btn btn-info">上架</button>
@@ -137,10 +137,11 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title" id="myModalLabel">新增商品</h4>
+                    <h4 class="modal-title" id="dlgTitle">新增商品</h4>
                 </div>
                 <div class="modal-body">
                     <form id="gForm" class="form-horizontal">
+                        <input type="hidden" id="gid" value="0">
                         <div class="form-group">
                             <label class="col-sm-2 control-label">商品名</label>
                             <div class="col-sm-10">

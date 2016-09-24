@@ -31,7 +31,7 @@ $goods = $db -> rawQuery($sql);
 $goods_count = $db -> rawQuery($sql2);
 $total = $goods_count[0]['count'];
 
-sleep(2);
+// sleep(2);
 
 if ($goods) {
 	echo json_encode(Array("success" => true, "total" => $total, "data" => $goods, "message" => "请求成功"));

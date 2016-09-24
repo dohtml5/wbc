@@ -4,6 +4,7 @@
 !function(window, document, $, undefined) {
 
     var $dlg = $('#goodsDlg');
+    var cache = {};
 
     /**
      * 程序唯一入口
@@ -30,6 +31,7 @@
 
             if (response.success) {
                 renderTable(response);
+                // cache = response.data;
                 layer.closeAll();
             } else {
 
@@ -60,6 +62,8 @@
                 '</tr>'
             );
 
+            cache[obj.id] = obj;
+
         });
 
         $('#goodsTable tbody').html(trArr.join(''));
@@ -70,16 +74,56 @@
         $('#newBtn').on('click', onNewBtnClick);
         $('#saveBtn').on('click', onSaveBtnClick);
         $('#delBtn').on('click', onDelBtnClick);
+        $('#updateBtn').on('click', onUpdateBtnClick);
         $('#goodsTable').on('click', 'tbody input[type=checkbox]', onChkBoxClick);
     };
+
+    var onUpdateBtnClick = function() {
+        var $chkbox = $('#goodsTable tbody input[type=checkbox]:checked');
+        var id = $chkbox[0].id;
+        var obj = cache[id];
+        // var obj = getObjById(id, cache);
+
+        $dlg.find('#title').val(obj.title);
+        $dlg.find('#gid').val(id);
+        // ...
+        $dlg.find('#classify').val(obj.classify);
+        $dlg.find('input[name=status][value="'+obj.status+'"]').trigger('click');
+
+        $dlg.find('#dlgTitle').text('修改商品').end().modal('show');
+
+    };
+
+    /**
+        方法一：写函数遍历得到当前对象
+    */
+    /*var getObjById = function(id, arr) {
+        var len = arr.length;
+        if (len == 0) {
+            return null;
+        }
+        for (var i=0; i<len; i++) {
+            if (arr[i].id == id) {
+                return arr[i];
+            }
+        }
+        return null;
+    };*/
 
     var onChkBoxClick = function() {
         var $chkbox = $('#goodsTable tbody input[type=checkbox]:checked');
         var $delBtn = $('#delBtn');
-        if ($chkbox.length > 0) {
+        var $updateBtn = $('#updateBtn');
+        var len = $chkbox.length;
+
+        if (len > 0) {
             $delBtn.removeAttr('disabled');
+            $updateBtn.attr('disabled', 'disabled');
+            if (len == 1) {
+                $updateBtn.removeAttr('disabled');
+            }
         } else {
-            $delBtn.attr('disabled', 'disabled');
+            $delBtn.add($updateBtn).attr('disabled', 'disabled');
         }
     };
 
@@ -120,8 +164,10 @@
     };
 
     var onSaveBtnClick = function() {
-        var url = '../../../api/shoping_goods_add.php';
+        var url = '../../../api/shopping_goods_add.php';
+        var id = $('#gid').val();
         var data = {
+            // id: $('#gid').val(),
             title: $('#title').val(),
             price: $('#price').val(),
             details: $('#detail').val(),
@@ -129,6 +175,11 @@
             classify: $('#classify').val(),
             status: $('input[name=status]:checked').val()
         };
+
+        if (id != 0) { // 修改
+            url = '../../../api/shopping_goods_update.php';
+            data.id = $('#gid').val();
+        }
 
         // TODO 表单验证
 
@@ -154,7 +205,10 @@
     };
 
     var onNewBtnClick = function() {
-        $dlg.modal();
+        $('#gForm').trigger('reset');
+        $dlg
+        .find('#gid').val(0).end()
+        .find('#dlgTitle').text('新增商品').end().modal('show');
     };
 
     $(document).ready(init);
