@@ -153,3 +153,7 @@ body {
 .layui-layer-msg {
     border: none !important;
 }
+
+.red {
+    background-color: red;
+}

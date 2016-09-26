@@ -10,6 +10,7 @@
             'username' => 'root', 
             'password' => '',
             'db'=> 'shopping',
+            // 'db'=> 'test',
             'port' => 3306,
             /*'prefix' => 'my_',*/
             'charset' => 'utf8'

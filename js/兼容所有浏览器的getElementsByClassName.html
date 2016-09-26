@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <script src="js/helper.js"></script>
-    <script>
-        function test() {
-//            var test1 = document.getElementsByClassName('test');
-//            console.log(test1);
+    <!-- <script src="js/helper.js"></script> -->
+<!--     <script>
+//         function test() {
+// //            var test1 = document.getElementsByClassName('test');
+// //            console.log(test1);
 
-            var test2 = Helper.domByCls('test', Helper.dom('target'));
-            console.log(test2);
+//             var test2 = Helper.domByCls('test', Helper.dom('target'));
+//             console.log(test2);
 
-        }
+//         }
 
-        window.onload = test;
-    </script>
+//         window.onload = test;
+    </script> -->
 </head>
 <body>
 
@@ -28,11 +28,72 @@
     <div id="target">
         <div class="test3 test">test div.....................</div>
         <span class="test">span5555</span>
-        <span class="test5">span</span>
+        <span class="test5 red">span</span>
     </div>
 
 
     <div>div2</div>
+
+    <script>
+        /*var tests = document.getElementsByClassName('test');
+        for (var i=0; i<tests.length; i++) {
+            tests[i].style.backgroundColor = 'red';
+        }*/
+
+        var tests = getElementsByCls('test', document.body);
+        console.log(tests);
+        for (var i=0; i<tests.length; i++) {
+            tests[i].style.backgroundColor = 'red';
+        }
+
+        function getElementsByCls(clsName, context) {
+            var elementsArr = [],
+                elements,
+                cls;
+
+            if (document.getElementsByClassName) {
+                return document.getElementsByClassName(clsName);
+            } else {
+
+                context = context || document;
+
+                elements = context.getElementsByTagName('*');
+
+                for (var i=0; i<elements.length; i++) {
+
+                    cls = elements[i].className;
+
+                    console.log(cls);
+
+                    if (!cls) {
+                        continue;
+                    }
+
+                    if (isInclude(clsName, cls)) {
+                        elementsArr.push(elements[i]);
+                    }
+
+                    /*if (elements[i].className != '') {
+                        console.log(elements[i].className)
+                    }*/
+
+                }
+
+                return elementsArr;
+            }
+        };
+
+        function isInclude(cls, allCls) {
+            var arr = allCls.split(' ');
+            console.log(arr);
+            for (var i=0; i<arr.length; i++) {
+                if (arr[i] == cls) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    </script>
 
 </body>
 </html>

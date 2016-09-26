@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		a {
+			text-decoration: none;
+		}
+	</style>
+</head>
+<body>
+
+	<a href="http://www.baidu.com" target="_self">baidu</a>
+	<span id="bdBtn">baidu2</span>
+	<!-- <span id="myBtn">刷新</span> -->
+
+	<div id="myDiv">
+		加载中...
+	</div>
+
+	<select id="sel">
+		<option value="">请选择</option>
+	</select>
+
+	<hr>
+	
+	<script>
+
+
+		// var renderSel = function() {
+		// 	var arr = ['北京', '上海', '广州', '天津', '重庆', '保定'];
+		// 	// var optArr = [];
+
+		// 	/*for (var i=0; i<arr.length; i++) {
+		// 		optArr.push('<option>', arr[i], '</option>');
+		// 	}*/
+			
+		// 	document.getElementById('sel').innerHTML += '<option>' + arr.join('</option><option>') + '</option>';
+		// 	// document.getElementById('sel').innerHTML += optArr.join('');
+		// 	console.log('<option>' + arr.join('</option><option>') + '</option>');
+		// };
+
+		// renderSel();
+
+		/*var str = "aaa bbb ccc ddd";
+
+		var arr = str.split(' ');
+
+		console.log(arr);
+
+		console.log(arr.join('|'));*/
+
+		// var arr = [];
+
+		// var user = {
+		// 	name: ''
+		// };
+
+		// arr.push('<div>');
+
+		// arr.push('<span>你好：</span>');
+
+		// // user.name && arr.push('<span>', user.name, '</span>');
+
+		// user.name ? arr.push('<span>', user.name, '</span>') : arr.push('<span>陌生人</span>');
+
+		// /*if (user.name) {
+		// 	arr.push('<span>', user.name, '</span>');
+		// } else {
+		// 	arr.push('<span>陌生人</span>');
+		// }*/
+
+		// arr.push('</div>');
+
+		// document.body.innerHTML += arr.join('');
+
+		// console.log(arr.join(''));
+
+		// var bdBtn = document.getElementById('bdBtn');
+		// var timer;
+		// bdBtn.onclick = function() {
+		// 	// window.open('http://www.baidu.com');
+		// 	// window.location.href = "http://www.baidu.com";
+		// 	// window.location.replace("http://www.baidu.com");
+		// 	// window.location.reload();
+
+		// 	/*timer = setTimeout(function() {
+		// 		console.log('test............');
+		// 	}, 2000);*/
+
+		// 	timer = setInterval(function() {
+		// 		console.log('test............');
+		// 	}, 2000);
+
+		// };
+
+		/*function getWinHeight() {
+			return window.innerHeight || document.documentElement.clientHeight;
+		}
+
+		var height = getWinHeight();
+
+		alert(height);*/
+
+		/*var wbcObj = {
+			name: 'wbc8',
+			members: ['a', 'b']
+		};
+
+		var wbc8 = 'hello wbc8';
+
+		var wbc8Hello = function() {
+			alert('wbc8');
+		};*/
+
+		// console.log(window);
+
+	////////////////////////////////////////////////////////////////////
+
+		// function test(name) { // var name = 'abc'; var name;
+		// 	// name = name || '匿名用户';
+		// 	if (!name) {
+		// 		name = '匿名用户';
+		// 	} 
+
+		// 	var info = '';
+
+		// 	name && (info = 'hello ');
+
+		// 	return info + name;
+
+		// }
+
+		// var r = test('abc');
+		// console.log(r);
+
+		// var Clock = {
+		// 	run: function() {
+		// 		var myDiv = document.getElementById('myDiv');
+		// 		var date = new Date();
+		// 		setInterval(function() {
+		// 			date.setSeconds(date.getSeconds() + 1);
+		// 			var dateStr = Clock.getDateStr(date);
+		// 			myDiv.innerHTML = dateStr;
+		// 		}, 1000);
+		// 	},
+		// 	getDateStr: function(d) {
+		// 		return d.getFullYear() + '年' + (d.getMonth() + 1) + '月' + d.getDate() + '日 ' + d.getHours() + ':' + this.fill0(d.getMinutes()) + ':' + this.fill0(d.getSeconds()); 
+		// 	},
+		// 	fill0: function(num) {
+		// 		return num < 10 ? '0' + num : num;
+		// 	}
+		// };
+
+		// Clock.run();
+
+		/*var bdBtn = document.getElementById('bdBtn');
+		var myBtn = document.getElementById('myBtn');
+		bdBtn.onclick = function() {
+			// window.open('http://www.baidu.com');
+			window.location.href="http://www.baidu.com";
+		};
+		myBtn.onclick = function() {
+			location.reload();
+		};*/
+
+		// var myWbc = '2016';
+
+		// var myWbc2 = function() {
+
+		// };
+
+		// window.alert('uuu');
+
+		// setTimeout(function() {
+		// 	alert(99)
+		// }, 2000);
+
+		// var myDiv = document.getElementById('myDiv');
+
+		// setInterval(function() {
+		// 	myDiv.innerHTML = '2016年06月20日 10:18:28';
+		// }, 1000);
+
+		// var console1to10 = function() {
+		// 	var i = 1,
+		// 		timer;
+		// 	timer = setInterval(function() {
+		// 		if (i == 10) {
+		// 			clearInterval(timer);
+		// 		}
+
+		// 		console.log(i);
+		// 		i++;
+
+		// 		/*if (i > 10) {
+		// 			clearInterval(timer);
+		// 		}*/
+		// 	}, 1000);
+		// };
+
+		// console1to10();
+
+
+	</script>
+</body>
+</html>

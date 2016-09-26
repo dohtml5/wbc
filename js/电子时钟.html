@@ -5,7 +5,7 @@
 	<title>Document</title>
 	<style>
 		#clock {
-			font-size: 20px;
+			font-size: 30px;
 		}
 	</style>
 </head>
@@ -13,22 +13,48 @@
 
 	<span id="clock">00:00:00</span>
 
-	<script src="js/helper.js"></script>
-	
+	<!-- 只new一次Date对象的方案 -->
 	<script>
 		var initClock = function() {
-			var d = new Date();
-			var arr = Helper.getDateArr(d);
-			var time = Helper.fill0(arr[3]) + ":" + Helper.fill0(arr[4]) + ":" + Helper.fill0(arr[5]);
-			var clock = Helper.dom('clock');
+			var d = new Date(),
+				h, m, s = d.getSeconds(),
+				clock = document.getElementById('clock');
 
-			clock.innerHTML = time;
+			var timer = function() {
+				h = d.getHours();
+				m = d.getMinutes();
+				s = d.getSeconds();
+				clock.innerHTML = fill0(h) + ":" + fill0(m) + ":" + fill0(s);
+				d.setSeconds(++s);
+			};
+
+			timer();
+
+			setInterval(timer, 1000);
+		};
+
+		var fill0 = function(num) {
+			return num < 10 ? '0' + num : num;
 		};
 
 		initClock();
-
-		setInterval(initClock, 1000);
-
 	</script>
+
+	<!-- <script src="js/helper.js"></script> -->
+	<!-- <script>
+		// var initClock = function() {
+		// 	var d = new Date();
+		// 	var arr = Helper.getDateArr(d);
+		// 	var time = Helper.fill0(arr[3]) + ":" + Helper.fill0(arr[4]) + ":" + Helper.fill0(arr[5]);
+		// 	var clock = Helper.dom('clock');
+
+		// 	clock.innerHTML = time;
+		// };
+
+		// initClock();
+
+		// setInterval(initClock, 1000);
+
+	</script> -->
 </body>
 </html>

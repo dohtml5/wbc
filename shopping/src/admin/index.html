@@ -36,7 +36,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">商品管理</a></li>
-                    <li><a href="#">Link</a></li>
+                    <li><a href="#">类别管理</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
@@ -82,9 +82,9 @@
             </div>
             <div class="col-md-3 col-md-offset-3">
                 <div class="input-group">
-                    <input type="text" class="form-control">
+                    <input id="searchIpt" type="text" class="form-control">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">Go!</button>
+                        <button id="searchBtn" class="btn btn-default" type="button">查找</button>
                     </span>
                 </div>
             </div>
@@ -118,14 +118,14 @@
 
         <!--分页-->
         <nav>
-            <ul class="pagination pull-right">
-                <li><a href="#">&laquo;</a></li>
+            <ul id="pagingUl" class="pagination pull-right">
+                <!-- <li><a href="#">&laquo;</a></li>
                 <li class="active"><a href="#">1</a></li>
                 <li><a href="#">2</a></li>
                 <li><a href="#">3</a></li>
                 <li><a href="#">4</a></li>
                 <li><a href="#">5</a></li>
-                <li><a href="#">&raquo;</a></li>
+                <li><a href="#">&raquo;</a></li> -->
             </ul>
         </nav>
 
@@ -170,11 +170,11 @@
                             <label for="" class="col-sm-2 control-label">类别</label>
                             <div class="col-sm-3">
                                 <select id="classify" class="form-control">
-                                    <option>1</option>
+                                    <!-- <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
                                     <option>4</option>
-                                    <option>5</option>
+                                    <option>5</option> -->
                                 </select>
                             </div>
                         </div>
