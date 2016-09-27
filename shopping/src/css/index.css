@@ -150,10 +150,34 @@ body {
     width: 30px;
 }
 
+.w-80 {
+    width: 80px;
+}
+
+.w-100 {
+    width: 100px;
+}
+
+.w-360 {
+    width: 360px;
+}
+
+.w-420 {
+    width: 420px !important;
+}
+
 .layui-layer-msg {
     border: none !important;
 }
 
 .red {
     background-color: red;
+}
+
+.txt-ellipsis {
+    white-space: nowrap;
+    width: 342px; 
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

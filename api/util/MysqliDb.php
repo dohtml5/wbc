@@ -612,6 +612,18 @@ class MysqliDb
     }
 
     /**
+    * 执行自定义SQL语句
+    */
+    public function execSQL($sql, $numRows = null) {
+        $this->_query = $sql;
+        $stmt = $this->_buildQuery($numRows);
+        $stmt->execute();
+        $this->_stmtError = $stmt->error;
+        $this->reset();
+        return ($stmt->affected_rows > 0);
+    }
+
+    /**
      * This method allows you to specify multiple (method chaining optional) AND WHERE statements for SQL queries.
      *
      * @uses $MySqliDb->where('id', 7)->where('title', 'MyTitle');

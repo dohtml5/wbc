@@ -16,25 +16,25 @@ if (!isset($pageSize)) {
 
 $start = $pageSize * $page;
 
-$sql = "select * from classify where 1=1";
-$sql2 = "select count(*) as count from classify where 1=1";
+$sql = "select * from user where 1=1";
+$sql2 = "select count(*) as count from user where 1=1";
 
 if (isset($query) && $query != '') {
-    $sql .= " and title like '%".$query."%' ";
-    $sql2 .= " and title like '%".$query."%' ";
+    $sql .= " and username like '%".$query."%' ";
+    $sql2 .= " and username like '%".$query."%' ";
 }
 
 $sql .= " order by id desc limit $start, $pageSize";
 
-$classify = $db -> rawQuery($sql);
+$user = $db -> rawQuery($sql);
 
-$classify_count = $db -> rawQuery($sql2);
-$total = $classify_count[0]['count'];
+$user_count = $db -> rawQuery($sql2);
+$total = $user_count[0]['count'];
 
 sleep(2);
 
-if ($classify) {
-	echo json_encode(Array("success" => true, "total" => $total, "data" => $classify, "message" => "请求成功"));
+if ($user) {
+	echo json_encode(Array("success" => true, "total" => $total, "data" => $user, "message" => "请求成功"));
 } else {
 	echo json_encode(Array("success" => false, "total" => 0, "data" => [], "message" => "请求失败"));
 }

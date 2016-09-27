@@ -11,6 +11,7 @@
         page: 0
     };
     var totalPage;
+    var clsCache;
 
     /**
      * 程序唯一入口
@@ -25,15 +26,29 @@
 
     var getTableData = function() {
 
-        var url = "../../../api/shopping_goods_list.php";
+        var url = "../../../api/shopping_goods_list.php",
+            url2 = "../../../api/shopping_classify_list.php";
 
         setTimeout(function() {
             layer.msg('加载中', {icon: 16, time: 0, shade: [0.2, '#000']});
         }, 0);
 
-        $.get(url, param, function(response) {
+        $.when($.getJSON(url, param), $.getJSON(url2)).done(function(resList, resClassify) {
 
-            // console.log(1)
+            if (resList[0].success && resClassify[0].success) {
+                layer.closeAll();
+            } else {
+                layer.msg('暂无查询结果', {offset: 0, shift: 0});
+            }
+
+            clsCache = resClassify[0];
+            renderTable(resList[0]);
+            renderPaging(resList[0]);
+
+        });
+
+        /*
+        $.get(url, param, function(response) {
 
             if (response.success) {
                 // cache = response.data;
@@ -45,9 +60,7 @@
             renderTable(response);
             renderPaging(response);
 
-        }, 'json');
-
-        // console.log(2)
+        }, 'json');*/
 
     };
 
@@ -72,14 +85,16 @@
 
     };
 
-    var renderTable = function(response) {
+    var renderTable = function(resList) {
 
-        var data = response.data,
+        var data = resList.data,
             trArr = [];
 
         $.each(data, function(i, obj) {
 
             var title = obj.title;
+
+            title = title.length > 20 ? title.substr(0, 20) + '...' : title;
 
             if (param.query != '') {
                 title = title.replace(param.query, '<span class="red">' + param.query + '</span>');
@@ -89,11 +104,11 @@
                 '<tr>',
                     '<td><input id="', obj.id, '" type="checkbox"></td>',
                     '<td>', i + 1, '</td>',
-                    '<td>', title, '</td>',
+                    '<td title="', obj.title, '">', title, '</td>',
                     '<td>￥', obj.price, '</td>',
-                    '<td>', obj.details, '</td>',
+                    '<td title="', obj.details, '"><span class="txt-ellipsis w-420">', obj.details, '</span></td>',
                     '<td>', obj.amount, '</td>',
-                    '<td>', obj.classify, '</td>',
+                    '<td>', getNameById(obj.classify, clsCache.data), '</td>',
                 '</tr>'
             );
 
@@ -103,6 +118,18 @@
 
         $('#goodsTable tbody').html(trArr.join(''));
 
+    };
+
+    var getNameById = function(id, arr) {
+        var name;
+        $.each(arr, function(i, obj) {
+            if (obj.id == id) {
+                name = obj.name;
+                return false;
+            }
+        });
+
+        return name;
     };
 
     var bindEvent = function() {
@@ -136,6 +163,7 @@
             txt = $searchIpt.val();
 
         param.query = txt;
+        param.page = 0;
 
         getTableData();
     };
@@ -145,6 +173,8 @@
         var id = $chkbox[0].id;
         var obj = cache[id];
         // var obj = getObjById(id, cache);
+
+        renderClassify();
 
         $dlg.find('#title').val(obj.title);
         $dlg.find('#gid').val(id);
@@ -267,15 +297,33 @@
     };
 
     var onNewBtnClick = function() {
-        getClassifyData();
+
+        renderClassify();
+
         $('#gForm').trigger('reset');
-        $dlg
-        .find('#gid').val(0).end()
-        .find('#dlgTitle').text('新增商品').end().modal('show');
+            $dlg
+            .find('#gid').val(0).end()
+            .find('#dlgTitle').text('新增商品').end().modal('show');
+
+        /*getClassifyData(function() {
+            $('#gForm').trigger('reset');
+            $dlg
+            .find('#gid').val(0).end()
+            .find('#dlgTitle').text('新增商品').end().modal('show');
+        });*/
     };
 
-    var getClassifyData = function() {
+    var renderClassify = function() {
+        var optArr = ['<option value="0">请选择</option>'];
+         $.each(clsCache.data, function(i, obj) {
+            optArr.push('<option value="', obj.id, '">', obj.name, '</option>');
+        });
+        $dlg.find('#classify').html(optArr.join(''));
+    };
+
+    /*var getClassifyData = function(callback) {
         var url = "../../../api/shopping_classify_list.php";
+        layer.msg('加载中', {icon: 16, time: 0, shade: [0.2, '#000']});
         $.get(url, function(response) {
             var optArr = ['<option value="0">请选择</option>'];
             if (response.success) {
@@ -283,11 +331,14 @@
                     optArr.push('<option value="', obj.id, '">', obj.name, '</option>');
                 });
                 $dlg.find('#classify').html(optArr.join(''));
+                // console.log(88)
+                callback();
+                layer.closeAll();
             } else {
                 // TODO
             }
         }, 'json');
-    };
+    };*/
 
     $(document).ready(init);
 
