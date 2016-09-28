@@ -14,16 +14,27 @@
 	<button id="genBtn">生成</button>
 	
 	<script>
-		var arr = ["故宫", "长城", "十三陵", "十渡", "圆明园", "颐和园", "世界公园", "玉渊潭", "欢乐谷"];
+		// var arr = ["故宫", "长城", "十三陵", "十渡", "圆明园", "颐和园", "世界公园", "玉渊潭", "欢乐谷"];
+		var arr = [
+			{"id": 2, "title": "故宫"},
+			{"id": 5, "title": "长城"},
+			{"id": 22, "title": "十三陵"},
+			{"id": 23, "title": "十渡"},
+			{"id": 27, "title": "圆明园"},
+			{"id": 12, "title": "颐和园"},
+			{"id": 9, "title": "世界公园"},
+			{"id": 28, "title": "玉渊潭"}
+		];
 
 		var genBtn = document.getElementById('genBtn');
 		var mySel = document.getElementById('mySel');
 
 		genBtn.onclick = function() {
 
-           /* var optStr = '';
+            /*var optStr = '<option value="0">请选择</option>';
+            var len = arr.length;
 
-            for (var i=0; i<arr.length; i++) {
+            for (var i=0; i<len; i++) {
                 optStr += '<option>' + arr[i] + '</option>';
             }
 
@@ -33,7 +44,7 @@
             var len = arr.length;
 
             for (var i=0; i<len; i++) {
-                optArr.push('<option>', arr[i], '</option>');
+                optArr.push('<option value="', arr[i].id, '">', arr[i].title, '</option>');
             }
 
             mySel.innerHTML = optArr.join('');
@@ -45,9 +56,9 @@
 		// 字符串是不可变长度的
 		// 数组是可变长度的
 
-		var str = 'abc';
+		var str = 'abc';  // length = 3
 
-		str += 'def';
+		str += 'def'; // length = 6
 
         //
 		var _str = str + 'def'; // 'abcdef'
@@ -59,6 +70,22 @@
 		destory _str;
 
 		*/
+
+
+		///////////////////////////////////////////////////////////
+
+		/*var str = '', arr = [];
+
+		var start = new Date().getTime(), end;
+
+		for (var i=0; i<100000; i++) {
+			// str += '|abc';
+			arr.push('|abc');
+		}
+
+		end = new Date().getTime();
+
+		console.log(end - start);*/
 
 	</script>
 </body>
