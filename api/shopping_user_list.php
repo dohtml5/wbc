@@ -4,6 +4,11 @@ require_once ('util/db.php');
 
 @$query = $_GET['query'];
 @$pageSize = $_GET['size'];
+@$status = $_GET['status'];
+
+if (!isset($status)) {
+    $status = 1;
+}
 
 @$page = $_GET['page'];
 if (!isset($page)) {
@@ -16,8 +21,8 @@ if (!isset($pageSize)) {
 
 $start = $pageSize * $page;
 
-$sql = "select * from user where 1=1";
-$sql2 = "select count(*) as count from user where 1=1";
+$sql = "select * from user where 1=1 and status=$status";
+$sql2 = "select count(*) as count from user where 1=1 and status=$status";
 
 if (isset($query) && $query != '') {
     $sql .= " and username like '%".$query."%' ";

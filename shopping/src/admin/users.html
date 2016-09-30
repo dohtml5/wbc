@@ -16,7 +16,7 @@
     <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body ng-app="usersApp" ng-controller="usersController">
 
     <!--顶部导航条-->
     <nav class="navbar navbar-default" role="navigation">
@@ -36,8 +36,8 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li><a href="index.html">商品管理</a></li>
-                    <li class="active"><a href="classify.html">类别管理</a></li>
-                    <li><a href="users.html">用户管理</a></li>
+                    <li><a href="classify.html">类别管理</a></li>
+                    <li class="active"><a href="users.html">用户管理</a></li>
                     <li><a href="classify.html">订单管理</a></li>
                     <!-- <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
@@ -75,9 +75,13 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="btn-group">
-                    <button id="newBtn" type="button" class="btn btn-success">新增</button>
-                    <button id="updateBtn" disabled type="button" class="btn btn-warning">修改</button>
-                    <button id="delBtn" disabled type="button" class="btn btn-danger">删除</button>
+                    <button ng-class="{true: 'btn-success', false: 'btn-default'}[paging.status==1]" ng-click="showUsers()" type="button" class="btn btn-success">用户列表</button>
+                    <button ng-class="{false: 'btn-success', true: 'btn-default'}[paging.status==1]" ng-click="showDisUsers()" type="button" class="btn">用户回收站</button>
+                </div>
+                <div class="btn-group">
+                    <button ng-show="paging.status==1" ng-click="onDelBtnClick()" ng-disabled="params.ids.length==0" type="button" class="btn btn-link">删除用户</button>
+                    <button ng-show="paging.status==0" ng-click="onResuBtnClick()" ng-disabled="params.ids.length==0" type="button" class="btn btn-link">恢复</button>
+                    <button ng-show="paging.status==0" ng-click="" ng-disabled="params.ids.length==0" type="button" class="btn btn-link">彻底删除</button>
                 </div>
             </div>
             <div class="col-md-3 col-md-offset-3">
@@ -90,28 +94,35 @@
             </div>
         </div>
 
-        <table id="classifyTable" class="table table-bordered table-striped table-hover mt-20 mb-0">
-            <thead>
-                <tr>
-                    <th class="w-30"><input type="checkbox"></th>
-                    <th class="w-50">序号</th>
-                    <th class="w-360">类别名称</th>
-                </tr>
-            </thead>
-
-            <tbody></tbody>
+        <table class="table table-bordered table-striped table-hover mt-20 mb-0">
+            <tr>
+                <th class="w-30"><input ng-model="allChkd" ng-checked="params.ids.length==paging.size" type="checkbox"></th>
+                <th class="w-50">序号</th>
+                <th class="">用户名</th>
+                <th class="">邮箱</th>
+                <th class="">电话</th>
+            </tr>
+            <tr ng-repeat="user in userList">
+                <td class="w-30"><input  ng-checked="allChkd" type="checkbox" ng-click="onChkboxClick($event)"></td>
+                <td class="w-50">{{$index + 1 + paging.baseNum}}</td>
+                <td class="">{{user.username}}</td>
+                <td class="">{{user.email}}</td>
+                <td class="">{{user.mobile}}</td>
+            </tr>
         </table>
 
         <!--分页-->
         <nav>
-            <ul id="pagingUl" class="pagination pull-right">
-                <!-- <li><a href="#">&laquo;</a></li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
+            <ul class="pagination pull-right">
+                <li><a href="#">&laquo;</a></li>
+                <li ng-click="onPagingLiClick()" ng-class="{true: 'active'}[$index==paging.page]" ng-repeat="page in pageArr">
+                    <a href="javascript:;">{{page + 1}}</a>
+                </li>
+                <!-- <li><a href="#">2</a></li>
                 <li><a href="#">3</a></li>
                 <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&raquo;</a></li> -->
+                <li><a href="#">5</a></li> -->
+                <li><a href="#">&raquo;</a></li>
             </ul>
         </nav>
 
@@ -148,8 +159,10 @@
 <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
 <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="../../bower_components/layer/layer.js"></script>
+<script src="../../bower_components/angular/angular.min.js"></script>
+
 <script src="js/util.js"></script>
-<script src="js/classify.js"></script>
+<script src="js/users.js"></script>
 
 </body>
 </html>

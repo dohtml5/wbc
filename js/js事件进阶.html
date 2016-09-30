@@ -19,23 +19,23 @@
 		}
 	</style>
 
-	<script src="js/helper.js"></script>
+	<!-- <script src="js/helper.js"></script> -->
 	<script>
 
-		window.onload = function() {
+// 		window.onload = function() {
 
-			var body = document.body;
+// 			var body = document.body;
 
-			body.onclick = function(e) {
-				/*console.log(e.clientX + ':' + e.clientY);
-				console.log(e.pageX + ':' + e.pageY);*/
-			};
+// 			body.onclick = function(e) {
+// 				console.log(e.clientX + ':' + e.clientY);
+// 				console.log(e.pageX + ':' + e.pageY);
+// 			};
 
-			var myText = Helper.dom('myText');
+// 			var myText = Helper.dom('myText');
 
-			myText.onkeyup = function(e) {
-//				console.log(e.keyCode);
-			};
+// 			myText.onkeyup = function(e) {
+// //				console.log(e.keyCode);
+// 			};
 
 			 /*myText.onblur = function() {
 				console.log('blur');
@@ -49,7 +49,7 @@
 				console.log(this.value);
 			};*/
 
-		};
+		// };
 
 		//////////////////////////////////////////////////////////////////
 
@@ -106,6 +106,9 @@
 
     <input id="myText" type="text">
 
+	<div id="back2Top" class="back2top"></div>
+
+
 	<!-- <button onclick="window.alert(99)">my btn</button> -->
 	<!-- <button onclick="test()">my btn</button> -->
 	<!--<button id="myBtn">my Btn</button>-->
@@ -123,10 +126,21 @@
 		<!--<option value="5">item5</option>-->
 	<!--</select>-->
 
-	<div id="back2Top" class="back2top"></div>
-
     <!--<script src="js/helper.js"></script>-->
 	<script>
+
+	var myBtn2 = document.getElementById('myBtn2');
+	var myText = document.getElementById('myText');
+
+	myBtn2.onclick = function() {
+		alert(99);
+	}
+
+	myText.onblur = function() {
+		console.log('blur');
+	}
+
+	/////////////////////////////////////////////////////////////////
 
         /*var myBtn2 = Helper.dom('myBtn2');
         var myText = Helper.dom('myText');
@@ -175,28 +189,28 @@
 
         //////////////////////////////////////////////////////////////////
 		// 返回顶部
-		 var back2Top = document.getElementById('back2Top');
-		 var timer;
-		 back2Top.onclick = function() {
-		 	// document.body.scrollTop = 0;
-		 	timer = setInterval(function() {
-		 		document.body.scrollTop -= 100;
-		 		if (document.body.scrollTop <= 0) {
-		 			clearInterval(timer);
-		 		}
-//		 		console.log(8)
-		 	}, 10);
-		 };
+// 		 var back2Top = document.getElementById('back2Top');
+// 		 var timer;
+// 		 back2Top.onclick = function() {
+// 		 	// document.body.scrollTop = 0;
+// 		 	timer = setInterval(function() {
+// 		 		document.body.scrollTop -= 100;
+// 		 		if (document.body.scrollTop <= 0) {
+// 		 			clearInterval(timer);
+// 		 		}
+// //		 		console.log(8)
+// 		 	}, 10);
+// 		 };
 
-		window.onscroll = function() {
-			var st = document.body.scrollTop;
-			var h = window.innerHeight; // ??
-			if (st > h) {
-				back2Top.style.display = "block";
-			} else {
-				back2Top.style.display = "none";
-			}
-		};
+// 		window.onscroll = function() {
+// 			var st = document.body.scrollTop;
+// 			var h = window.innerHeight; // ??
+// 			if (st > h) {
+// 				back2Top.style.display = "block";
+// 			} else {
+// 				back2Top.style.display = "none";
+// 			}
+// 		};
 
 
 //		var myBtn = document.getElementById('myBtn');

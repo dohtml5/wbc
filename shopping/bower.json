@@ -18,6 +18,7 @@
     "jquery": "1.12.4",
     "bootstrap": "^3.3.7",
     "underscore": "^1.8.3",
-    "layer": "*"
+    "layer": "*",
+    "angular": "angularjs#^1.5.8"
   }
 }

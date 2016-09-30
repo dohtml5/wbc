@@ -21,6 +21,20 @@
 					param.error && param.error(response);
 				}
 			});
+		}, 
+		http: function($http, param) {
+			setTimeout(function() {
+				layer.msg('加载中', {icon: 16, time: 0, shade: [0.2, '#000']});
+			}, 0);
+
+			$http({
+		        url: param.url,
+		        method: param.method || 'get',
+		        params: param.params || {}
+		    }).success(function(response) {
+		       	param.success && param.success(response);
+				layer.closeAll();
+		    });
 		}
 	};
 

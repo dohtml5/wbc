@@ -44,6 +44,26 @@
 				display: block;
 			}
 		</style>
+	</head>
+	<body>
+
+		<a href="#">7777</a>
+		
+		<div class="tab-wp">
+			<div id="tabHeader" class="tab-header">
+				<a class="on" href="javascript:void(0);">新闻</a>
+				<a href="javascript:;">历史</a>
+				<a href="javascript:;">政治</a>
+				<a href="javascript:;">军事</a>
+			</div>
+
+			<div id="tabBody" class="tab-body">
+				<div class="on">111</div>
+				<div>222</div>
+				<div>333</div>
+				<div>444</div>
+			</div>
+		</div>
 
 		<script src="js/helper.js"></script>
 		<script>
@@ -55,6 +75,7 @@
 					len = tabAs.length;
 
 				if (tabAs.length != tabDivs.length) {
+					alert('头部元素个数和主体元素个数不相等！');
 					return;
 				}
 
@@ -76,30 +97,12 @@
 					}
 				}
 
-
-
 			};
 
-			window.onload = renderTab;
-		</script>
-	</head>
-	<body>
-		
-		<div class="tab-wp">
-			<div id="tabHeader" class="tab-header">
-				<a class="on" href="javascript:;">新闻</a>
-				<a href="javascript:;">历史</a>
-				<a href="javascript:;">政治</a>
-				<a href="javascript:;">军事</a>
-			</div>
+			renderTab();
 
-			<div id="tabBody" class="tab-body">
-				<div class="on">111</div>
-				<div>222</div>
-				<div>333</div>
-				<div>444</div>
-			</div>
-		</div>
+			// window.onload = renderTab;
+		</script>
 		
 	</body>
 </html>

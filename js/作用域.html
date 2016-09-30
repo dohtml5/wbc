@@ -8,16 +8,115 @@
 
 <script>
 
+	// 匿名自执行函数
+
+	/*var undefined = 5;
+	console.log(undefined);*/
+
+	!function(window, document, undefined) { // ~-+!
+
+		var a = 'abc';
+
+		function test() {
+			alert(99);
+		}
+
+		document.body;
+
+		var ddd = undefined;
+
+		if (ddd) {
+
+		}
+
+		console.log('init');
+
+	}(window, document);
+
+	// console.log(a);
+
+	// test();
+
+
+
+	// var str = 'abc';
+
+	// function test() {
+
+	// 	console.log(str);
+
+	// 	var str = 'def';
+
+	// 	console.log(str);
+	// }
+
+	// test();
+
+	// var color = 'green';
+
+	// function outer() {
+
+	// 	var color = 'red';
+
+	// 	function inner() {
+
+	// 		var color = 'blue';
+	// 		console.log(color);
+
+	// 	}
+
+	// 	inner();
+
+	// }
+
+	// outer();
+
+
+	// console.log(name2);
+	// console.log(str);
+
+	// var name2 = 'test';
+
+	// function test() {
+
+	// 	console.log(name2);
+
+	// 	var str = 'abc';
+
+	// 	console.log(str);
+
+	// }
+
+	// test();
+
+	// console.log(str);
+
+	// for (var i=0; i<10; i++) {
+	// 	// 
+	// }
+
+	// console.log(i);
+
+	// var a = 6;
+
+	// if (a > 10) {
+	// 	var str = 'abc';
+	// }
+
+	// console.log(str);
+
+	///////////////////////////////////////////////////////////////////
+
     // 匿名自执行函数
 
-    !function() { // ! ~ + -
+    // !function() { // ! ~ + -
 
-        var a = 9;
-        console.log(a);
+    //     var a = 9;
+    //     console.log(a);
 
-    }();
+    // }();
 
-    var a = 100;
+    // var a = 100;
 
 
 
