@@ -4,8 +4,39 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<style>
-		html, body {
-			height: 100%;
+		#menu {
+			background-color: red;
+			color: #fff;
+			height: 50px;
+			line-height: 50px;
+		}
+
+		#menu a {
+			color: inherit;
+			text-decoration: none;
+			float: left;
+			width: 100px;
+			text-align: center;
+			position: relative;
+		}
+
+		#menu a:hover {
+			background-color: #000;
+		}
+
+		#menu a li {
+			width: 150px;
+			margin: 20px 0;
+			border: 1px solid #fff;
+		}
+
+		.inner {
+			position: absolute;
+			top: 50px;
+			left: 0;
+			background-color: #000;
+			color: #fff;
+			display: none;
 		}
 
 		ul, li {
@@ -13,87 +44,266 @@
 			margin: 0;
 			padding: 0;
 		}
-
-		div {
-			margin: 20px;
-			padding: 20px;
-			border: 1px solid red;
-			position: relative;
-		}
-
-		ul {
-			position: absolute;
-			/*top: 60px;*/
-			background-color: red;
-			display: none;
-		}
-
-		ul > li {
-			height: 30px;
-		}
 	</style>
 </head>
-<body onclick="alert(0)">
+<!-- <body onclick="alert(0)"> -->
+<body>
+
+	<!-- <table id="myTable" border="1">
+		<tr>
+			<td>item1</td>
+			<td>item2</td>
+			<td>item3</td>
+			<td>item4</td>
+			<td>item5</td>
+			<td>item6</td>
+			<td>item7</td>
+			<td>item8</td>
+			<td>item9</td>
+			<td>item10</td>
+		</tr>
+		<tr>
+			<td>item1</td>
+			<td>item2</td>
+			<td>item3</td>
+			<td>item4</td>
+			<td>item5</td>
+			<td>item6</td>
+			<td>item7</td>
+			<td>item8</td>
+			<td>item9</td>
+			<td>item10</td>
+		</tr>
+		<tr>
+			<td>item1</td>
+			<td>item2</td>
+			<td>item3</td>
+			<td>item4</td>
+			<td>item5</td>
+			<td>item6</td>
+			<td>item7</td>
+			<td>item8</td>
+			<td>item9</td>
+			<td>item10</td>
+		</tr>
+		<tr>
+			<td>item1</td>
+			<td>item2</td>
+			<td>item3</td>
+			<td>item4</td>
+			<td>item5</td>
+			<td>item6</td>
+			<td>item7</td>
+			<td>item8</td>
+			<td>item9</td>
+			<td>item10</td>
+		</tr>
+		<tr>
+			<td>item1</td>
+			<td>item2</td>
+			<td>item3</td>
+			<td>item4</td>
+			<td>item5</td>
+			<td>item6</td>
+			<td>item7</td>
+			<td>item8</td>
+			<td>item9</td>
+			<td>item10</td>
+		</tr>
+		<tr>
+			<td>item1</td>
+			<td>item2</td>
+			<td>item3</td>
+			<td>item4</td>
+			<td>item5</td>
+			<td>item6</td>
+			<td>item7</td>
+			<td>item8</td>
+			<td>item9</td>
+			<td>item10</td>
+		</tr>
+		<tr>
+			<td>item1</td>
+			<td>item2</td>
+			<td>item3</td>
+			<td>item4</td>
+			<td>item5</td>
+			<td>item6</td>
+			<td>item7</td>
+			<td>item8</td>
+			<td>item9</td>
+			<td>item10</td>
+		</tr>
+		<tr>
+			<td>item1</td>
+			<td>item2</td>
+			<td>item3</td>
+			<td>item4</td>
+			<td>item5</td>
+			<td>item6</td>
+			<td>item7</td>
+			<td>item8</td>
+			<td>item9</td>
+			<td>item10</td>
+		</tr>
+		<tr>
+			<td>item1</td>
+			<td>item2</td>
+			<td>item3</td>
+			<td>item4</td>
+			<td>item5</td>
+			<td>item6</td>
+			<td>item7</td>
+			<td>item8</td>
+			<td>item9</td>
+			<td>item10</td>
+		</tr>
+		<tr>
+			<td>item1</td>
+			<td>item2</td>
+			<td>item3</td>
+			<td>item4</td>
+			<td>item5</td>
+			<td>item6</td>
+			<td>item7</td>
+			<td>item8</td>
+			<td>item9</td>
+			<td>item10</td>
+		</tr>
+	</table> -->
 
 	<!--例子2-->
 
-	<div id="outer">
-		<!--<a href="">我的菜单</a>-->
-		<ul id="inner">
-			<li>item1</li>
-			<li>item2</li>
-			<li>item3</li>
-			<li>item4</li>
-			<li>item5</li>
-		</ul>
+	<div id="menu">
+		<a href="">
+			<span>我的菜单</span>
+			<ul id="inner" class="inner">
+				<li>item1</li>
+				<li>item2</li>
+				<li>item3</li>
+				<li>item4</li>
+				<li>item5</li>
+			</ul>
+		</a>
+		<a href="">我的菜单2</a>
+		<a href="">我的菜单3</a>
 	</div>
 
 	<hr>
 
+	<input id="myTxt" type="text">
+
+	<hr>
+
+	<a id="bd" href="http://www.baidu.com">baidu</a>
+
+	<!-- <hr> -->
+
 	<!--例子1-->
 
-	<div onclick="alert(1)">
+	<!-- <div onclick="alert(1)">
 		my div
 		<div onclick="alert(2)">
 			my div2
 			<div id="div3">my div3</div>
 			<div onclick="alert(4)">my div4</div>
 		</div>
-	</div>
+	</div> -->
 
 	<script>
-		var outer = document.getElementById('outer');
-		var inner = document.getElementById('inner');
-		var lis = inner.getElementsByTagName('li');
 
-		for (var i=0; i<lis.length; i++) {
-			lis[i].onmouseout = function(e) {
-				e.stopPropagation();
+	var myTxt = document.getElementById('myTxt');
+	var bd = document.getElementById('bd');
+
+	myTxt.onclick = function(e) {
+
+		// e = e || window.event;
+
+		alert(8)
+
+		e.preventDefault();
+
+	}
+
+	bd.onclick = function(e) {
+
+		e = e || window.event;
+
+		// e.preventDefault();
+		// window.event.returnValue = false; 
+
+		if (e.preventDefault) {
+			e.preventDefault();
+		} else {
+			window.event.returnValue = false; 
+		}
+
+		alert('hhaha');
+	};
+
+	/*var menu = document.getElementById('menu');
+	var links = menu.getElementsByTagName('a');
+	var len = links.length;
+
+	for (var i=0; i<len; i++) {
+		links[i].onmouseover = function() {
+			var ul = this.getElementsByTagName('ul')[0];
+			if (ul) {
+				ul.style.display = 'block';
 			}
 		}
 
-		outer.onmouseover = function() {
-			inner.style.display = 'block';
-		};
+		links[i].onmouseout = function() {
+			var ul = this.getElementsByTagName('ul')[0];
+			if (ul) {
+				ul.style.display = 'none';
+			}
+		}
 
-		outer.onmouseout = function() {
-			inner.style.display = 'none';
-		};
+	}*/
 
-		
+	///////////////////////////////////////////////////////////////////
 
+		/*var myTable = document.getElementById('myTable');
+
+		myTable.onclick = function(event) {
+
+			var td = event.target;
+
+			console.log(td.innerHTML);
+
+		}*/
+
+	///////////////////////////////////////////////////////////////////
+
+		// var outer = document.getElementById('outer');
+		// var inner = document.getElementById('inner');
+		// var lis = inner.getElementsByTagName('li');
+
+		// for (var i=0; i<lis.length; i++) {
+		// 	lis[i].onmouseout = function(e) {
+		// 		e.stopPropagation();
+		// 	}
+		// }
+
+		// outer.onmouseover = function() {
+		// 	inner.style.display = 'block';
+		// };
+
+		// outer.onmouseout = function() {
+		// 	inner.style.display = 'none';
+		// };
 
 	/////////////////////
 
-
-		var div3 = document.getElementById('div3');
-		div3.onclick = function(e) {
-			// e.cancelBubble = true;
-			// console.log(e)
-			alert(3);
-			// return false;
-			e.stopPropagation();
-		}
+		// var div3 = document.getElementById('div3');
+		// div3.onclick = function(e) {
+		// 	// e.cancelBubble = true;
+		// 	// console.log(e)
+		// 	alert(3);
+		// 	// return false;
+		// 	// e.stopPropagation();
+		// }
 	</script>
 	
 </body>

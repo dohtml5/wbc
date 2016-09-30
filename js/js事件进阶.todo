@@ -25,3 +25,8 @@
  ☐ onsubmit    当表单提交时触发 @critical
 
  ☐ onerror     当发生错误时触发
+
+
+ 事件流:
+   ☐ 捕捉阶段
+   ☐ 冒泡阶段
