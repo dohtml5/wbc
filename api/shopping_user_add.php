@@ -4,17 +4,16 @@
 
 	require_once ('util/db.php');
 
-	$usermobile = $_GET["username"];
+	$username = $_GET["username"];
     $password = $_GET["password"];
     $email = $_GET["email"];
     $mobile = $_GET["mobile"];
     // $now = date("Y-m-d h:i:s");
 
     $data = Array (
-        "usermobile" => $usermobile,
+        "username" => $username,
         "password" => $password,
         "email" => $email,
-        "mobile" => $mobile,
         "mobile" => $mobile,
         "type" => 1
     );
