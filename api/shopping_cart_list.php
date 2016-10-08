@@ -16,20 +16,20 @@ if (!isset($pageSize)) {
 }
 
 if (!isset($uid)) {
-    $uid = 0;
+    $uid = 1;
 }
 
 $start = $pageSize * $page;
 
-$sql = "select * from cart where 1=1 and uid = $uid";
-$sql2 = "select count(*) as count from cart where 1=1 and uid = $uid";
+$sql = "select * from cart, goods where cart.gid=goods.id and uid = $uid";
+$sql2 = "select count(*) as count from cart, goods where cart.gid=goods.id and uid = $uid";
 
 if (isset($query) && $query != '') {
     $sql .= " and title like '%".$query."%' ";
     $sql2 .= " and title like '%".$query."%' ";
 }
 
-$sql .= " order by id desc limit $start, $pageSize";
+$sql .= " order by cart.id desc limit $start, $pageSize";
 
 $cart = $db -> rawQuery($sql);
 
