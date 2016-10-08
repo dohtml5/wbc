@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    // print_r($_SESSION['user'][0]['username']);
+?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -35,7 +39,18 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">首页</a></li>
-                        <li><a href="#about">登录/注册</a></li>
+                        <?php
+                            if (isset($_SESSION['user'][0]['username'])) {
+                        ?>
+                        <li>
+                            <a href="javascript:;">欢迎你：<?php echo $_SESSION['user'][0]['username']; ?> </a>
+                        </li>
+                        <li>
+                            <a id="logout" href="javascript:;">退出</a>
+                        </li>
+                        <?php } else {?>
+                        <li><a href="login.html">登录/注册</a></li>
+                        <?php } ?>
                         <li><a href="#contact">我的订单</a></li>
                         <li><a href="#cart">购物车</a></li>
                     </ul>
@@ -182,5 +197,6 @@
 <!-- js -->
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>
