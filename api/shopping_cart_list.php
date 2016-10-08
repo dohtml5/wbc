@@ -1,10 +1,10 @@
 <?php
-
+session_start();
 require_once ('util/db.php');
 
 @$query = $_GET['query'];
 @$pageSize = $_GET['size'];
-@$classify = $_GET['classify'];
+@$uid = $_SESSION['user'][0]['id'];
 
 @$page = $_GET['page'];
 if (!isset($page)) {
@@ -15,36 +15,31 @@ if (!isset($pageSize)) {
     $pageSize = 20;
 }
 
-if (!isset($classify)) {
-    $classify = '';
+if (!isset($uid)) {
+    $uid = 0;
 }
 
 $start = $pageSize * $page;
 
-$sql = "select * from goods where 1=1";
-$sql2 = "select count(*) as count from goods where 1=1";
+$sql = "select * from cart where 1=1 and uid = $uid";
+$sql2 = "select count(*) as count from cart where 1=1 and uid = $uid";
 
 if (isset($query) && $query != '') {
     $sql .= " and title like '%".$query."%' ";
     $sql2 .= " and title like '%".$query."%' ";
 }
 
-if (isset($classify) && $classify != '') {
-    $sql .= " and classify = $classify";
-    $sql2 .= " and classify = classify";
-}
-
 $sql .= " order by id desc limit $start, $pageSize";
 
-$goods = $db -> rawQuery($sql);
+$cart = $db -> rawQuery($sql);
 
-$goods_count = $db -> rawQuery($sql2);
-$total = $goods_count[0]['count'];
+$cart_count = $db -> rawQuery($sql2);
+$total = $cart_count[0]['count'];
 
 // sleep(2);
 
-if ($goods) {
-	echo json_encode(Array("success" => true, "total" => $total, "data" => $goods, "message" => "请求成功"));
+if ($cart) {
+	echo json_encode(Array("success" => true, "total" => $total, "data" => $cart, "message" => "请求成功"));
 } else {
 	echo json_encode(Array("success" => false, "total" => 0, "data" => [], "message" => "请求失败"));
 }

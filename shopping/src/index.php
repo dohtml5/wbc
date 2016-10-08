@@ -52,7 +52,7 @@
                         <li><a href="login.html">登录/注册</a></li>
                         <?php } ?>
                         <li><a href="#contact">我的订单</a></li>
-                        <li><a href="#cart">购物车</a></li>
+                        <li><a id="cartListBtn" href="javascript:;">购物车(<span id="cartNum">0</span>)</a></li>
                     </ul>
                 </div>
             </div>
@@ -121,25 +121,20 @@
 <div class="container marketing">
 
     <!-- Three columns of text below the carousel -->
-    <div class="row">
-        <div class="col-lg-4">
-            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 140px; height: 140px;">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 140px; height: 140px;">
-            <h2>Heading</h2>
-            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 140px; height: 140px;">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
+    <div id="gList" class="row">
+        <!-- <div class="col-md-3">
+            <div class="thumbnail">
+                <img src="img/bus.jpg">
+                <div class="caption">
+                <h3>商品标题</h3>
+                <p>商品介绍</p>
+                <p>
+                    <a href="javascript:;" class="btn btn-primary" role="button">加入购物车</a>
+                    <a href="javascript:;" class="btn btn-default" role="button">Button</a>
+                </p>
+            </div>
+            </div>
+        </div> -->
     </div><!-- /.row -->
 
 
@@ -194,9 +189,39 @@
 
 </div><!-- /.container -->
 
+<!-- popover -->
+<!-- <div id="cartPop" class="popover bottom">
+    <div class="arrow"></div>
+        <h3 class="popover-title">Popover bottom</h3>
+
+        <div class="popover-content">
+        <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+    </div>
+</div> -->
+<!-- popover -->
+
+<script id="gListTpl" type="text/x-handlebars-template">
+    {{#each data}}
+    <div class="col-md-3">
+        <div class="thumbnail">
+            <img src="img/bus.jpg">
+            <div class="caption">
+            <h3 title="{{title}}">{{strCut title}}</h3>
+            <p>商品介绍</p>
+            <p>
+                <a gid="{{id}}" href="javascript:;" class="btn btn-primary cart-btn" role="button">加入购物车</a>
+                <a href="javascript:;" class="btn btn-default" role="button">Button</a>
+            </p>
+        </div>
+        </div>
+    </div>
+    {{/each}}
+</script>
+
 <!-- js -->
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../bower_components/handlebars/handlebars-v4.0.5.js"></script>
 <script src="js/index.js"></script>
 </body>
 </html>
