@@ -11,6 +11,244 @@
 
 // 封装，多态，继承，抽象
 
+/////////////////////////////////////////////////////////// wbc8
+
+
+// 非构造函数继承
+
+// 方式一
+var Animal = {
+    type: 'animal',
+    food: ['egg', 'banana', [1, 2]],
+    eat: function() {
+        console.log('eating...');
+    }
+};
+
+/*var Dog = {
+    name: 'dog1',
+    kanm: function() {
+        console.log(this.name + ' 正在看门');
+    }
+};*/
+
+/*function object(o) {
+    function F() {};
+    F.prototype = o;
+    return new F();
+}
+
+var Dog = object(Animal);
+
+Dog.name = 'dog1';
+Dog.kanm = function() {
+    console.log(this.name + ' 正在看门');
+}*/
+
+// 方式二 浅复制
+
+/*function extendCopy(Parent) {
+    var Child = {};
+    for (var i in Parent) {
+        Child[i] = Parent[i];
+    }
+    return Child;
+}
+
+var Dog = extendCopy(Animal);
+Dog.name = 'dog1';
+Dog.kanm = function() {
+    console.log(this.name + ' 正在看门');
+}*/
+
+// 方式三 深复制
+
+function deepCopy(Parent, Child) {
+    Child = Child || {};
+
+    for (var i in Parent) {
+        if (typeof Parent[i] == 'object') {
+            Child[i] = (Parent[i] instanceof Array) ? [] : {};
+            /*if (Parent[i] instanceof Array) {
+                Child[i] = [];
+            } else {
+                Child[i] = {};
+            }*/
+            deepCopy(Parent[i], Child[i]);
+        } else {
+            Child[i] = Parent[i];
+        }
+    }
+
+    return Child;
+}
+
+var Dog = deepCopy(Animal);
+
+Dog.food.push('apple');
+
+console.log(Dog);
+console.log(Animal);
+
+// 非构造函数继承
+
+// function Animal() {
+//     this.type = 'animal';
+//     this.color = undefined;
+//     this.eat = function() {
+//         console.log('eating...');
+//     }
+// }
+
+/*function Animal() {
+    this.color = undefined;
+}
+
+Animal.prototype = {
+    type: 'animal',
+    eat: function() {
+        console.log('eating...')
+    }
+};*/
+
+// function Dog(name) {
+//     this.name = name;
+//     this.kanmen = function() {
+//         console.log(this.name + ' 正在看门...');
+//     }
+
+//     Animal.apply(this, arguments);
+    
+// }
+
+// function Cat(name) {
+//     this.name = name;
+//     /*this.zhuals = function() {
+//         console.log(this.name + ' 正在抓老鼠...');
+//     }*/
+// }
+
+// Cat.prototype = {
+//     zhuals: function() {
+//         console.log(this.name + ' 正在抓老鼠...');
+//     }
+// };
+
+// 方法一
+/*Dog.prototype = new Animal();
+Dog.prototype.constructor = Dog;*/
+
+// 方法二
+/*Dog.prototype = Animal.prototype;
+Dog.prototype.constructor = Dog;
+
+Cat.prototype = Animal.prototype;
+Cat.prototype.constructor = Cat;*/
+
+// 方法三
+/*function extend(Child, Parent) {
+    var F = function() {};
+    F.prototype = Parent.prototype;
+    Child.prototype = new F();
+    Child.prototype.constructor = Child;
+}
+
+extend(Dog, Animal);*/
+
+// 方法四
+/*function extend2(Child, Parent) {
+    var c = Child.prototype;
+    var p = Parent.prototype;
+    for (var i in p) {
+        c[i] = p[i];
+    }
+}
+
+extend2(Cat, Animal);
+
+extend2(Dog, Cat);*/
+
+// 方法五
+
+
+
+// var d1 = new Dog('wangcai');
+// var c1 = new Cat('mimi');
+
+// function Dog(name, color) {
+//     this.name = name;
+//     this.color = color;
+//     /*this.type = 'animal';
+//     this.run = function() {
+//         console.log(this.name + " is running...");
+//     }*/
+// }
+
+// Dog.prototype = {
+//     type: 'animal',
+//     run: function() {
+//         console.log(this.name + " is running...")
+//     }
+// };
+
+// var dog5 = new Dog('dog5', 'gray');
+// var dog6 = new Dog('dog6', 'black');
+
+/*var arr = new Array();
+var d = new Date();*/
+
+/*function Dog(name, color) {
+    var obj = {
+        name: name,
+        color: color
+    };
+    return obj;
+}
+
+var dog3 = Dog('dog3', 'yellow');
+var dog4 = Dog('dog4', 'block');*/
+
+/*var Dog = {
+    name: '',
+    color: ''
+};*/
+
+/*var dog1 = {
+    name: 'dog1',
+    color: 'black'
+};
+
+var dog2 = {
+    name: 'dog2',
+    color: 'white'
+}*/
+
+// var a = 1;
+// var b = 2; 
+// var c = 3;
+
+// var obj = {
+//     a: 1,
+//     b: 2, 
+//     c: 3
+// };
+
+// function abc() {
+
+// }
+
+// function abc(x) {
+
+// }
+
+// function abc(x, y) {
+
+// }
+
+// abc(5, 7);
+
+/////////////////////////////////////////////////////////// wbc8
+
 /*var obj = {};
 var obj2 = new Object();
 
@@ -121,32 +359,32 @@ var dog4 = new Dog('dog4', 'gray');
 var dog5 = new Dog('dog5', 'gray');*/
 
 
-function Animal() {
-}
+// function Animal() {
+// }
 
-Animal.prototype = {
-    type: 'animal',
-    run: function() {
-        return this.name + ' is running';
-    }
-};
+// Animal.prototype = {
+//     type: 'animal',
+//     run: function() {
+//         return this.name + ' is running';
+//     }
+// };
 
-function Dog(name, color) {
-    this.name = name;
-    this.color = color;
-}
+// function Dog(name, color) {
+//     this.name = name;
+//     this.color = color;
+// }
 
-function extend(Child, Parent) {
-    var F = function() {};
-    F.prototype = Parent.prototype;
-    Child.prototype = new F();
-    Child.prototype.constructor = Child;
-    Child.super = Parent.prototype;
-}
+// function extend(Child, Parent) {
+//     var F = function() {};
+//     F.prototype = Parent.prototype;
+//     Child.prototype = new F();
+//     Child.prototype.constructor = Child;
+//     Child.super = Parent.prototype;
+// }
 
-extend(Dog, Animal);
+// extend(Dog, Animal);
 
-var dog6 = new Dog('dog6', 'black');
+// var dog6 = new Dog('dog6', 'black');
 
 
 //Dog.prototype = Animal.prototype;

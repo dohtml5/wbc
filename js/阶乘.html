@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script>
+		
+	// 5! = 5 * 4 * 3 * 2 * 1
+
+	function jc(num) {
+		if (num == 1) {
+			return 1;
+		} else {
+			return num * jc(num - 1); // 5 * 4 * 3 * 2 * 1
+		}
+	}
+
+	var d = jc(3);
+	console.log(d);
+
+	</script>
+</body>
+</html>

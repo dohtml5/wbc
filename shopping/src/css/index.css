@@ -218,3 +218,18 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+/*******************************************************************/
+ul.navbar-nav > li > .cart-wp {
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    background-color: #fff;
+    top: 50px;
+    display: none;
+}
+
+ul.navbar-nav > li > a.active {
+    background-color: #fff !important;
+    color: #000 !important;
+}

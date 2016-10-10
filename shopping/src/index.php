@@ -34,7 +34,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">WBC电商网</a>
+                    <a class="navbar-brand" href="#">WBC电商平台</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -52,7 +52,12 @@
                         <li><a href="login.html">登录/注册</a></li>
                         <?php } ?>
                         <li><a href="#contact">我的订单</a></li>
-                        <li><a id="cartListBtn" href="javascript:;">购物车(<span id="cartNum">0</span>)</a></li>
+                        <li>
+                            <a id="cartListBtn" href="javascript:;">购物车(<span id="cartNum">0</span>)</a>
+                            <div class="cart-wp">
+                                
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>

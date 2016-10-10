@@ -6,62 +6,6 @@
 		initGList(getCartList);
 		initEvent();
 
-		// initPopover();
-
-	};
-
-	var initPopover = function(data) {
-		$('#cartListBtn').popover({
-			title: '我的购物车',
-			placement: 'bottom',
-			container: 'body',
-			trigger: 'focus',
-			content: (function() {
-				var trs = [];
-				trs.push(
-					'<table class="table table-bordered">',
-						'<tr>',
-							'<th>序号</th>',
-							'<th>商品名</th>',
-							'<th>价格</th>',
-							'<th>个数</th>',
-						'</tr>'
-				);
-
-				$.each(data, function(i, obj) {
-					trs.push(
-						'<tr>',
-							'<td>', i + 1, '</td>',
-							'<td>', obj.gid, '</td>',
-							'<td>价格</td>',
-							'<td>个数</td>',
-						'</tr>'
-					);
-				});
-
-				trs.push('</table>');
-
-				return trs.join('');
-			})(),
-			html: true
-		});
-
-		/*$('#cartListBtn').on('shown.bs.popover', function () {
-			var html = [
-				'<table class="table table-bordered">',
-					'<tr>',
-						'<th>序号</th>',
-						'<th>商品名</th>',
-						'<th>价格</th>',
-						'<th>个数</th>',
-					'</tr>',
-				'</table>'
-			];
-
-
-
-			$('.popover-content').html(html.join(''));
-		});*/
 	};
 
 	var getCartList = function() {
@@ -70,8 +14,6 @@
 		$.get(url, function(response) {
 			if (response.success) {
 				$('#cartNum').html(response.total);
-				$('#cartListBtn').popover('destroy');
-				initPopover(response.data);
 			} else {
 				// TODO
 			}
@@ -81,18 +23,18 @@
 
 	var initEvent = function() {
 		$('#logout').on('click', onLogoutClick);
-		// $('#cartListBtn').on('click', onCartListBtnClick);
 		$('#gList').on('click', '.cart-btn', onCartBtnClick);
+		// TODO
+		$('#cartListBtn').on('click', onCartListBtnClick);
+		$('#cartListBtn').on('blur', onCartListBtnBlur);
+	};
+
+	var onCartListBtnBlur = function() {
+		$(this).removeClass('active').next('.cart-wp').hide();
 	};
 
 	var onCartListBtnClick = function() {
-		/*$('#cartListBtn').popover({
-			title: '我的购物车',
-			placement: 'bottom',
-			container: 'body',
-			html: true,
-			content: '<table class="table"><tr><td>123</td><td>123</td><td>123</td><td>123</td><td>123</td></tr></table>'
-		});*/
+		$(this).addClass('active').next('.cart-wp').show();
 	};
 
 	var onCartBtnClick = function() {

@@ -12,13 +12,13 @@
 
         // 简单用法
 
-        function plus(x, y) {
+        /*function plus(x, y) {
             return x + y;
         }
 
         function minus(x, y) {
             return x - y;
-        }
+        }*/
 
         /*var n1 = plus.call(null, 3, 5);
         var n2 = minus.call(null, 8, 6);*/
@@ -32,23 +32,28 @@
         ////////////////////////////////////////////////////////////////////////
 
         // 实现继承
-        /*function Fun1() {
-            this.name = "abc";
+        /*function Fun1(name) {
+            this.name = name;
+            // this.color = color;
             this.getName = function() {
-                return "the name is: " + this.name;
+                return "the name is: " + this.name + ', color: ' + this.color;
             }
         }
 
-        function Fun2() {
-            this.name = "def";
+        function Fun2(name, color) {
+            this.name = name;
+            this.color = color;
         }
 
-        var f1 = new Fun1();
+        var f1 = new Fun1('aaa');
         // console.log(f1.getName());
 
-        var f2 = new Fun2();
+        var f2 = new Fun2('bbb', 'gray');
 
-        var name = f1.getName.call(f2);
+        // var n1 = f1.getName.call(f2);
+        var n1 = f1.getName.apply(f2);*/
+
+        /*var name = f1.getName.call(f2);
         console.log(name);*/
 
         ////////////////////////////////////////////////////////////////////////
@@ -78,7 +83,7 @@
         console.log(o3.getName());
         console.log(o3.sayHello());*/
 
-        var fullname = 'May';
+        /*var fullname = 'May';
         var obj = {
             fullname: 'colin',
             prop: {
@@ -89,11 +94,18 @@
             }
         };
 
-        console.log(obj.prop.getFullname());
-        var test = obj.prop.getFullname;
-        console.log(test());
+        // console.log(obj.prop.getFullname());
 
-        // 如何让最后一个console.log()输出rose
+        var test = obj.prop.getFullname;
+
+        var r = test.call(obj.prop);
+
+        console.log(r);*/
+
+        // console.log(test());/**/
+
+        // 如何让最后一个console.log()输出rosa
+
         // test.call(obj.prop);
 
     </script>
