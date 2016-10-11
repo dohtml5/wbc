@@ -30,7 +30,12 @@
 		url = '../../api/shopping_order_add.php';
 
 		$.get(url, data, function(response) {
-			
+			if (response.success) {
+				$myDlg.modal('hide');
+				getCartList();
+			} else {
+				// TODO
+			}
 		}, 'json');
 
 	};

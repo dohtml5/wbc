@@ -36,7 +36,7 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">首页</a></li>
+                        <li class="active"><a href="index.php">首页</a></li>
                         <?php
                             if (isset($_SESSION['user'][0]['username'])) {
                         ?>
@@ -88,7 +88,7 @@
 
     <div>
     	<button id="submitBtn" class="btn btn-danger pull-right">
-    		总金额：<span id="totalMoney">999</span>，提交订单
+    		总金额：<span id="totalMoney">0</span>，提交订单
     	</button>
     </div>
 

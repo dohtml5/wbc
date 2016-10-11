@@ -22,6 +22,8 @@
     sleep(2);
 
     if ($id > 0) {
+        /*$db->where('id', explode(',', $gids), 'IN');
+        $db->delete('cart');*/
         echo json_encode(array("success" => true, "message" => "保存成功"));
     } else {
         echo json_encode(array("success" => false, "message" => "保存失败"));

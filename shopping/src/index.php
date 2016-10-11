@@ -51,12 +51,17 @@
                         <?php } else {?>
                         <li><a href="login.html">登录/注册</a></li>
                         <?php } ?>
+
+                        <?php if ($_SESSION['user'][0]['type'] == 1) { ?>
                         <li><a href="#contact">我的订单</a></li>
                         <li id="cartList">
                             <a href="javascript:;">购物车(<span id="cartNum">0</span>)</a>
                             <div class="cart-wp"></div>
                         </li>
                         <li><a href="#contact">收货地址</a></li>
+                        <?php } else { ?>
+                        <li><a href="admin/index.html">后台管理</a></li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>
