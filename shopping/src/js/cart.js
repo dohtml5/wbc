@@ -1,5 +1,8 @@
 !function(window, document, $, undefined) {
 
+	var $myDlg = $('#myDlg');
+	var $cartListWp = $('#cartListWp');
+
 	var init = function() {
 		initHandleBarsHelper();
 		initEvent();
@@ -8,6 +11,32 @@
 
 	var initEvent = function() {
 		$('#logout').on('click', onLogoutClick);
+		$('#submitBtn').on('click', onSubmitBtnClick);
+		$('#submitBtn2').on('click', onSubmitBtn2Click);
+	};
+
+	var onSubmitBtn2Click = function() {
+		var gids = [], data, url;
+
+		$cartListWp.find('input[name="gItems"]').each(function() {
+			gids.push($(this).attr('gid'));
+		});
+
+		data = {
+			gids: gids.join(','),
+			addressId: $('input[name="address"]:checked').val()
+		};
+
+		url = '../../api/shopping_order_add.php';
+
+		$.get(url, data, function(response) {
+			
+		}, 'json');
+
+	};
+
+	var onSubmitBtnClick = function() {
+		$myDlg.modal('show');
 	};
 
 	var getCartList = function() {
@@ -16,11 +45,20 @@
 		$.get(url, function(response) {
 			if (response.success) {
 				renderCartList(response);
+				renderTotalMoney(response);
 			} else {
 				// TODO
 			}
 		}, 'json');
 
+	};
+
+	var renderTotalMoney = function(response) {
+		var total = 0;
+		$.each(response.data, function(i, obj) {
+			total += obj.count * obj.price;
+		});
+		$('#totalMoney').html(total);
 	};
 
 	var renderCartList = function(response) {

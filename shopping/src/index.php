@@ -56,6 +56,7 @@
                             <a href="javascript:;">购物车(<span id="cartNum">0</span>)</a>
                             <div class="cart-wp"></div>
                         </li>
+                        <li><a href="#contact">收货地址</a></li>
                     </ul>
                 </div>
             </div>
