@@ -2,7 +2,7 @@
 
 	require_once('util/db.php');
 
-    @$ids = $_GET['id'];
+    @$id = $_GET['id'];
 
 	$sql = "delete from cart where id = $id";
 
