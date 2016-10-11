@@ -21,7 +21,7 @@ if (!isset($uid)) {
 
 $start = $pageSize * $page;
 
-$sql = "select * from cart, goods where cart.gid=goods.id and uid = $uid";
+$sql = "select cart.id, amount, classify, count, details, gid, price, status, title, uid from cart, goods where cart.gid=goods.id and uid = $uid";
 $sql2 = "select count(*) as count from cart, goods where cart.gid=goods.id and uid = $uid";
 
 if (isset($query) && $query != '') {
