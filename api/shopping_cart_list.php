@@ -16,7 +16,7 @@ if (!isset($pageSize)) {
 }
 
 if (!isset($uid)) {
-    $uid = 1;
+    $uid = 0;
 }
 
 $start = $pageSize * $page;

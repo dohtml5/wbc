@@ -52,11 +52,9 @@
                         <li><a href="login.html">登录/注册</a></li>
                         <?php } ?>
                         <li><a href="#contact">我的订单</a></li>
-                        <li>
-                            <a id="cartListBtn" href="javascript:;">购物车(<span id="cartNum">0</span>)</a>
-                            <div class="cart-wp">
-                                
-                            </div>
+                        <li id="cartList">
+                            <a href="javascript:;">购物车(<span id="cartNum">0</span>)</a>
+                            <div class="cart-wp"></div>
                         </li>
                     </ul>
                 </div>
@@ -194,17 +192,30 @@
 
 </div><!-- /.container -->
 
-<!-- popover -->
-<!-- <div id="cartPop" class="popover bottom">
-    <div class="arrow"></div>
-        <h3 class="popover-title">Popover bottom</h3>
+<!-- 迷你购物车 -->
+<script id="cartTpl" type="text/x-handlebars-template">
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>序号</th>
+            <th>商品名称</th>
+            <th>价格</th>
+            <th>数量</th>
+            <th></th>
+        </tr>
+        {{#each data}}
+        <tr>
+            <td>{{add1 @index}}</td>
+            <td>{{title}}</td>
+            <td>&yen;{{price}}</td>
+            <td>{{count}}</td>
+            <td><a href="#">删除</a></td>
+        </tr>
+        {{/each}}
+    </table>
+    <a href="cart.php" class="btn btn-danger pull-right">结账</a>
+</script>
 
-        <div class="popover-content">
-        <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
-    </div>
-</div> -->
-<!-- popover -->
-
+<!-- 商品列表 -->
 <script id="gListTpl" type="text/x-handlebars-template">
     {{#each data}}
     <div class="col-md-3">
