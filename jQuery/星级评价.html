@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../lib/reset.css">
+	<style>
+		.star-wp {
+			background-image: url(img/star.png);
+			width: 109px;
+			height: 21px;
+		}
+
+		.star-5 {
+			background-position: 0 -1px;
+		}
+
+		.star-4 {
+			background-position: 0 -25px;
+		}
+
+		.star-3 {
+			background-position: 0 -50px;
+		}
+
+		.star-2 {
+			background-position: 0 -75px;
+		}
+
+		.star-1 {
+			background-position: 0 -100px;
+		}
+
+		.star-0 {
+			background-position: 0 -124px;
+		}
+
+		.star-wp span {
+			float: left;
+			width: 21px;
+			height: 21px;
+		}
+	</style>
+</head>
+<body>
+	
+	<h1>各级别星级展示</h1>
+
+	<hr>
+	<h3>5</h3>
+	<div class="star-wp star-5"></div>
+	<h3>4</h3>
+	<div class="star-wp star-4"></div>
+	<h3>3</h3>
+	<div class="star-wp star-3"></div>
+	<h3>2</h3>
+	<div class="star-wp star-2"></div>
+	<h3>1</h3>
+	<div class="star-wp star-1"></div>
+	<h3>0</h3>
+	<div class="star-wp star-0"></div>
+	<hr>
+
+	<h1>设定星级</h1>
+	<hr>
+	<h3>当前星级：<span id="level">0</span></h3>
+	<div id="starWp" class="star-wp star-0">
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+
+	<hr>
+	<a href="http://dohtml5.duapp.com">欢迎来到WEB开发大本营</a>
+	<hr>
+	
+	<script src="../lib/jquery-1.12.1.min.js"></script>
+	<script>
+		!function(window, document, $, undefined) {
+
+			var $starsWp = $('#starWp'),
+				$stars = $starsWp.find('span');
+
+			$stars.on('mouseover', function() {
+				var $this = $(this),
+					index = $this.index();
+
+				$starsWp.attr('class', 'star-wp star-' + ++index); // index = index + 1
+				$('#level').text(index);
+
+			});
+
+		}(window, document, jQuery);
+	</script>
+</body>
+</html>

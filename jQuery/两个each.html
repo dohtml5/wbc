@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<button onclick="openit()">baidu</button>
+
+	<hr>
+
+	<div>div1</div>
+	<div>div2</div>
+	<div>div3</div>
+	<div>div4</div>
+	<div>div5</div>
+	
+	<script src="../lib/jquery-1.12.1.min.js"></script>
+	<script>
+		// $.each()
+		var obj = {
+			a: 'aa',
+			b: 'bb',
+			c: 'cc'
+		};
+
+		var arr = [1, 2, 3, 4, 5];
+
+		$.each(obj, function(k, v) {
+			console.log(k + ' - ' + v);
+		});
+
+		$.each(arr, function(k, v) {
+			// !!!
+			/*if (k == 3) {
+				continue;
+			}*/
+
+			if (k == 3) {
+				return false;
+			}
+			console.log(k + ' - ' + v);
+		});
+
+
+		// $('selector').each()
+		$('div').each(function(i, item) {
+			console.log(item)
+			console.log(this)
+		});
+
+		///////////////////////////////////////////////////////
+		/*$('button').on('click', function() {
+			window.open('http://www.baidu.com');
+		});*/
+
+		var openit = function() {
+			window.open('http://www.baidu.com');
+		};
+		
+	</script>
+</body>
+</html>
