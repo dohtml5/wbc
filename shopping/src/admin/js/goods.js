@@ -12,6 +12,7 @@
     };
     var totalPage;
     var clsCache;
+    var fd = new FormData();
 
     /**
      * 程序唯一入口
@@ -140,6 +141,24 @@
         $('#searchBtn').on('click', onSearchBtnClick);
         $('#goodsTable').on('click', 'tbody input[type=checkbox]', onChkBoxClick);
         $('#pagingUl').on('click', 'li', onPagingLiClick);
+        $('#pic').on('change', onUploadPicChange);
+    };
+
+    var onUploadPicChange = function() {
+
+        fd.append('pic', this.files[0]);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('post', '../../../api/shopping_file_upload.php');
+        xhr.send(fd);
+
+        xhr.onload = function() {
+            var response;
+            if (this.status == 200 && this.readyState == 4) {
+                response = JSON.parse(this.responseText);
+                $('#tmpPicName').val(response.fileName);
+            }
+        };
     };
 
     var onPagingLiClick = function() {
@@ -265,7 +284,8 @@
             details: $('#detail').val(),
             amount: $('#amount').val(),
             classify: $('#classify').val(),
-            status: $('input[name=status]:checked').val()
+            status: $('input[name=status]:checked').val(),
+            pic: $('#tmpPicName').val()
         };
 
         if (id != 0) { // 修改
@@ -301,6 +321,8 @@
         renderClassify();
 
         $('#gForm').trigger('reset');
+        $('#tmpPicName').val('');
+
             $dlg
             .find('#gid').val(0).end()
             .find('#dlgTitle').text('新增商品').end().modal('show');

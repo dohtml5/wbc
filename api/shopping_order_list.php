@@ -62,6 +62,8 @@ foreach ($order as $key => $value) {
 	$db->where('id', $value['addressId'], '=');
 	$address = $db->get('address');
 
+	// TODO 商品个数
+
 	$order[$key]["goods"] = $goods;
 	$order[$key]["user"] = $user;
 	$order[$key]["address"] = $address;

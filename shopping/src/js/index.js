@@ -75,6 +75,18 @@
 		Handlebars.registerHelper('add1', function(index, options){
 			return index + 1;
 		});
+
+		// 设置图片路径
+		Handlebars.registerHelper('setPicUrl', function(pic, options){
+
+			return pic ? '../../api/uploadImgs/' + pic : 'img/default.png';
+			
+			/*if (pic) {
+				return '../../api/uploadImgs/' + pic;
+			} else {
+				return 'img/default.png';
+			}*/
+		});
 	};
 
 

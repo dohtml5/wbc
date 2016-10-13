@@ -52,14 +52,15 @@
                         <li><a href="login.html">登录/注册</a></li>
                         <?php } ?>
 
-                        <?php if ($_SESSION['user'][0]['type'] == 1) { ?>
+                        <?php if (isset($_SESSION['user']) && $_SESSION['user'][0]['type'] == 1) { ?>
                         <li><a href="#contact">我的订单</a></li>
                         <li id="cartList">
                             <a href="javascript:;">购物车(<span id="cartNum">0</span>)</a>
                             <div class="cart-wp"></div>
                         </li>
                         <li><a href="#contact">收货地址</a></li>
-                        <?php } else { ?>
+                        <?php } ?>
+                        <?php if (isset($_SESSION['user']) && $_SESSION['user'][0]['type'] == 9) { ?>
                         <li><a href="admin/index.html">后台管理</a></li>
                         <?php } ?>
                     </ul>
@@ -226,7 +227,7 @@
     {{#each data}}
     <div class="col-md-3">
         <div class="thumbnail">
-            <img src="img/bus.jpg">
+            <img style="height: 200px;" src="{{setPicUrl pic}}">
             <div class="caption">
             <h3 title="{{title}}">{{strCut title}}</h3>
             <p>商品介绍</p>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script>
+		!function(window, document, undefined) {
+
+			// 锐角，直角，钝角，等腰，等边
+
+			var getTrigonType = function(x, y, z) {
+
+				var r = '', 
+					arr = [x, y, z],
+					s1, s2, s3;
+
+				if (x == y && y == z) {
+					r = '等边'
+				} else if (x == y || x == z || y == z) {
+					r = '等腰';
+				} else {
+					sortIt(arr);
+					s1 = arr[0];
+					s2 = arr[1];
+					s3 = arr[2];
+					if (Math.pow(s1, 2) + Math.pow(s2, 2) == Math.pow(s3, 2)) {
+						r = '直角';
+					} else if (Math.pow(s1, 2) + Math.pow(s2, 2) > Math.pow(s3, 2)) {
+						r = '锐角';
+					} else {
+						r = '钝角';
+					}
+				}
+
+				return r + '三角形';
+			};
+
+			var sortIt = function(arr) {
+				arr.sort(function(a, b) {
+					return a - b;
+				});
+			};
+
+			var type = getTrigonType(5.5, 5, 4);
+			console.log(type);
+
+		}(window, document);
+	</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<form>
+
+		<div>
+			<label for="">书名：</label><input id="bookName" type="text">
+		</div>
+		<div>
+			<label for="">图片：</label><input id="bookPic" type="file" multiple>
+		</div>
+		
+		<input id="submitBtn" type="button" value="提交">
+
+	</form>
+
+	<hr>
+
+	<img id="tmpImg" src="" alt="">
+
+	<script>
+		var submitBtn = document.getElementById('submitBtn');
+
+		submitBtn.onclick = function() {
+
+			// 表单验证
+
+			var fd = new FormData();
+			fd.append('bName', document.getElementById('bookName').value);
+			fd.append('pic', document.getElementById('bookPic').files[0]);
+
+			var xhr = new XMLHttpRequest();
+			xhr.open('post', 'server/step1.php');
+			xhr.send(fd);
+
+			xhr.onload = function() {
+				var response;
+				if (this.status == 200 && this.readyState == 4) {
+					response = JSON.parse(this.responseText);
+					document.getElementById('tmpImg').src = 'server/uploadImgs/' + response.fileName;
+				}
+			};
+
+		};
+
+	</script>
+
+</body>
+</html>
