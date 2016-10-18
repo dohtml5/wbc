@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		
+		ul, li {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		#slides {
+			display:none;
+			position: relative;
+			width: 500px;
+			height: auto;
+	    }
+
+	    .slidesjs-pagination .active {
+	    	background-color: red;
+	    }
+
+	    .slidesjs-previous.slidesjs-navigation, .slidesjs-next.slidesjs-navigation {
+			position: absolute;
+			width: 30px;
+			height: 30px;
+			background-color: #000;
+			top: 50%;
+			margin-top: -15px;
+			z-index: 999;
+			text-indent: -99999px;
+	    }
+
+	    .slidesjs-next.slidesjs-navigation {
+	    	right: 0;
+	    }
+
+	    .slidesjs-pagination {
+	    	position: absolute;
+	    	bottom: 10px;
+	    	z-index: 999;
+			left: 50%;
+			margin-left: -32px;
+	    }
+
+	    .slidesjs-pagination > li {
+			float: left;
+			margin: 0 3px;
+		}
+
+	    .slidesjs-pagination > li > a {
+	    	display: block;
+	    	text-indent: -99999px;
+			width: 10px;
+			height: 10px;
+			background-color: #fff;
+			border-radius: 50%;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div id="slides">
+		<img src="examples/basic-slide/img/example-slide-1.jpg">
+		<img src="examples/basic-slide/img/example-slide-2.jpg">
+		<img src="examples/basic-slide/img/example-slide-3.jpg">
+		<img src="examples/basic-slide/img/example-slide-4.jpg">
+	</div>
+	
+	<script src="../../../lib/jquery-1.12.1.min.js"></script>
+	<script src="source/jquery.slides.min.js"></script>
+	<script>
+		/*$("#slides").slidesjs({
+			play: {
+	          // active: true,
+	          effect: "fade",
+	          pauseOnHover: true,
+	          auto: true,
+	          interval: 2000,
+	          swap: false,
+	          restartDelay: 2000
+	        },
+	        // start: 3,
+	        navigation: {
+	          effect: "fade"
+	        },
+	        pagination: {
+	          effect: "fade"
+	        },
+	        effect: {
+	          fade: {
+	            speed: 400
+	          }
+	        }
+		});*/
+
+		$('#slides').slidesjs({
+			width: 940,
+			height: 528,
+			play: {
+				active: true,
+				auto: true,
+				interval: 4000,
+				swap: true,
+				pauseOnHover: true,
+				restartDelay: 2500
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../../../lib/reset.css">
+	<style>
+		body {
+			background-color: red;
+		}
+
+		.wp {
+			width: 450px;
+			height: 450px;
+			margin: 0 auto;
+		}
+
+		.bg {
+			width: 400px;
+			height: 400px;
+			background-image: url(img/bg.gif);
+			position: relative;
+		}
+
+		.bg-inner {
+			width: 340px;
+			height: 340px;
+			background-image: url(img/bg-inner.png);
+			position: absolute;
+			top: 30px;
+			left: 30px;
+		}
+
+		#playBtn {
+			width: 186px;
+			height: 186px;
+			background-image: url(img/playbtn.png);
+			position: absolute;
+			top: 77px;
+			left: 77px;
+		}
+
+	</style>
+</head>
+<body>
+	
+	<div class="wp">
+		<h2>您已拥有<span id="times">0</span>次抽奖机会，点击立刻抽奖！~</h2>
+		<div class="bg">
+			<div class="bg-inner">
+				<a id="playBtn" href="javascript:;"></a>
+			</div>
+		</div>
+	</div>
+
+	<script src="../../../lib/jquery-1.12.1.min.js"></script>
+	<script src="js/jquery.rotate.min.js"></script>
+	<script>
+		!function(window, document, $, undefined) {
+
+			var flag = false, times = 1;
+
+			$('#times').html(times);
+
+			$('#playBtn').on('click', function() {
+
+				var $this, data, num, angle, msgArr;
+
+				if (flag || times == 0) {
+					if (times == 0) {
+						alert('没有次数了');
+					}
+					return;
+				}
+
+				flag = true;
+
+				$this = $(this);
+				data = [1, 2, 3, 4, 5, 6];
+				num = data[Math.floor(Math.random() * data.length)];
+				msgArr = [
+					null, 
+					'恭喜您获得2000元理财金!', 
+					'谢谢参与~再来一次吧~',
+					'恭喜您获得5200元理财金!',
+					'恭喜您获得100元京东E卡，将在次日以短信形式下发到您的手机上，请注意查收!',
+					'谢谢参与~再来一次吧~',
+					'恭喜您获得1000元理财金!'
+				];
+
+				angle = num * 60 - 60;
+
+				rotateIt(angle, msgArr[num], $this);
+
+			});
+
+			var rotateIt = function(angle, msg, $btn) {
+
+				console.log(arguments);
+
+				$btn.rotate({
+					duration: 6000,
+					angle: 0,
+      				animateTo: angle + 360 * 5,
+      				center: ["50%", "50%"],
+      				callback: function() {
+      					flag = false;
+      					alert(msg);
+      					$btn.rotate(0);
+      					times--;
+      					$('#times').html(times);
+      				}
+				});
+
+			};
+
+		}(window, document, jQuery);
+	</script>
+</body>
+</html>

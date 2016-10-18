@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script>
+
+		function print(num) {
+			console.log(num);
+		}
+
+		print(1);
+		setTimeout(function() {
+			print(2);
+		}, 100);
+		print(3);
+		setTimeout(function() {
+			print(4);
+		}, 0);
+		print(5);
+		
+	</script>
+</body>
+</html>

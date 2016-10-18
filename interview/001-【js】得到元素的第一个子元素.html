@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<div id="myDiv">
+		<span>my span</span>
+		<!-- test -->
+		<a href="">baidu</a>
+	</div>
+
+
+	<script>
+		var myDiv = document.getElementById('myDiv');
+
+		var c = getFirstChild(myDiv.childNodes);
+		console.log(c);
+
+		// console.log(myDiv.children);
+
+		/*var children = myDiv.children;
+		var childNodes = myDiv.childNodes;
+
+		for (var i=0; i<childNodes.length; i++) {
+			console.log(childNodes[i]);
+			console.log(childNodes[i].nodeType);
+		}*/
+
+		function getFirstChild(nodes) {
+			var arr = [];
+			for (var i=0; i<nodes.length; i++) {
+				if (nodes[i].nodeType == 1) {
+					arr.push(nodes[i]);
+				}
+			}
+			return arr[0];
+		}
+
+	</script>
+	
+</body>
+</html>

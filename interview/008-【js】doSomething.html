@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script>
+
+		function doSomething() {
+			console.log(this);
+		}
+
+		var obj = {
+			doSomething2: doSomething
+		};
+
+		var doSomething3 = doSomething;
+
+		var doSomething4 = obj.doSomething2;
+
+		// doSomething();
+		// obj.doSomething2();
+		// doSomething3();
+		// doSomething4();
+		doSomething4.apply("abc", [obj]);
+		
+	</script>
+</body>
+</html>

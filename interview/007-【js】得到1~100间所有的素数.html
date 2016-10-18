@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script>
+
+		function getPrime(num) {
+
+			var i=2, arr = [];
+
+			for(; i<=num; i++) {
+
+				if (isPrime(i)) {
+					arr.push(i);
+				}
+
+			}
+
+			return arr;
+
+		}
+
+		var isPrime = function(num) {
+
+			if (i>2 && i % 2 == 0) {
+				return false;
+			}
+
+			// TODO
+
+			// ----------------------
+
+			for (var i=2; i<num; i++) {
+				if (num % i == 0) {
+					return false;
+				}
+			}
+			return true;
+
+		};
+
+		var r = getPrime(100);
+		console.log(r);
+		
+	</script>
+</body>
+</html>

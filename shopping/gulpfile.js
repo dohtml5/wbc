@@ -23,8 +23,11 @@
 	压缩，合并css
 */
 gulp.task('cssMin', function() {
-	gulp.src('src/**/*.css')
-		.pipe(cssver())
+	gulp.src([
+			'bower_components/bootstrap/dist/css/bootstrap.min.css',
+			'src/css/index.css'
+		])
+		// .pipe(cssver())
 		.pipe(concat('build.css'))
 		.pipe(cssmin())
 		.pipe(gulp.dest('dist/css'));
@@ -34,7 +37,12 @@ gulp.task('cssMin', function() {
 	压缩js
 */
 gulp.task('jsMin', function() {
-	gulp.src('src/js/**/*.js')
+	gulp.src([
+			'bower_components/jquery/dist/jquery.min.js',
+			'bower_components/bootstrap/dist/js/bootstrap.min.js',
+			'bower_components/handlebars/handlebars.min.js',
+			'src/js/index.js'
+		])
 		.pipe(concat('build.js'))
 		.pipe(uglify())
 		.pipe(gulp.dest('dist/js'));
@@ -46,31 +54,26 @@ gulp.task('jsMin', function() {
 gulp.task('rev', function() {
 	var hash = crypto.createHash('md5');
 	var version = hash.digest('hex');
-	gulp.src('src/*.html')
+
+	gulp.src([
+			'src/index.php'
+		])
         .pipe(htmlreplace({
-            'wbcCss': 'css/build.css?rev=' + version,
-            'wbcJs': 'js/build.js?rev=' + version
+            'indexcss': 'css/build.css?rev=' + version,
+            'indexjs': 'js/build.js?rev=' + version
         }))
 		.pipe(rev())
         .pipe(gulp.dest('dist/'));
-		
-	gulp.src('src/pages/*.html')
-        .pipe(htmlreplace({
-            'wbcCss': '../css/build.css?rev=' + version,
-            'wbcJs': '../js/build.js?rev=' + version
-        }))
-		.pipe(rev())
-        .pipe(gulp.dest('dist/pages/'));
 });
 
 /**
 	非压缩文件复制
 */
 gulp.task('copy', function() {
-	gulp.src('src/lib/**/*')
-		.pipe(gulp.dest('dist/lib'));
-		
-	gulp.src('src/img/**/*')
+	gulp.src('bower_components/bootstrap/dist/fonts/*')
+		.pipe(gulp.dest('dist/fonts'));
+
+	gulp.src('src/img/*')
 		.pipe(gulp.dest('dist/img'));
 });
 
@@ -78,5 +81,5 @@ gulp.task('copy', function() {
 	构建入口
 */
 gulp.task('build', ['cssMin', 'jsMin', 'rev', 'copy'], function() {
-	
+	console.log('build success...');
 });

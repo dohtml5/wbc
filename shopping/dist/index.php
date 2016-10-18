@@ -9,10 +9,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>WBC电商平台</title>
-    <!-- build:indexcss -->
-    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/index.css">
-    <!-- endbuild -->
+    <link rel="stylesheet" href="css/build.css?rev=d41d8cd98f00b204e9800998ecf8427e">
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -240,11 +238,7 @@
 </script>
 
 <!-- js -->
-<!-- build:indexjs -->
-<script src="../bower_components/jquery/dist/jquery.min.js"></script>
-<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="../bower_components/handlebars/handlebars.min.js"></script>
-<script src="js/index.js"></script>
-<!-- endbuild -->
+<script src="js/build.js?rev=d41d8cd98f00b204e9800998ecf8427e"></script>
+
 </body>
 </html>

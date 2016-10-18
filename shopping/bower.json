@@ -19,6 +19,7 @@
     "bootstrap": "^3.3.7",
     "underscore": "^1.8.3",
     "layer": "*",
-    "angular": "angularjs#^1.5.8"
+    "angular": "angularjs#^1.5.8",
+    "handlebars": "^4.0.5"
   }
 }
