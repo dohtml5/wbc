@@ -32,34 +32,36 @@
     <div>
         <label>
             性别：
-            <label for="">男</label><input name="gender" type="radio">
-            <label for="">女</label><input name="gender" type="radio">
+            <label for="">男</label><input name="gender" type="radio" value="男">
+            <label for="">女</label><input name="gender" type="radio" value="女">
         </label>
     </div>
     <div>
         <label>
             学历：
-            <select name="" id="">
-                <option value="">大专</option>
-                <option value="">本科</option>
-                <option value="">研究生</option>
+            <select name="edu" id="">
+                <option value="大专">大专</option>
+                <option value="本科">本科</option>
+                <option value="研究生">研究生</option>
             </select>
         </label>
     </div>
     <div>
         <label>介绍：</label>
-        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <textarea name="desc" id="" cols="30" rows="10"></textarea>
     </div>
     <div>
         <label>爱好：</label>
-        <label><input type="checkbox">旅游</label>
-        <label><input type="checkbox">跑步</label>
-        <label><input type="checkbox">音乐</label>
+        <label><input name="hobbies[]" value="旅游" type="checkbox">旅游</label>
+        <label><input name="hobbies[]" value="跑步" type="checkbox">跑步</label>
+        <label><input name="hobbies[]" value="音乐" type="checkbox">音乐</label>
     </div>
     <div>
         <label>照片：</label>
-        <input type="file">
+        <input name="pic" type="file">
     </div>
+
+    <hr>
 
     <div>
         <input type="submit" value="注册">

@@ -15,14 +15,27 @@
 	$username = $_GET["username"];
     $password = $_GET["password"];
     $email = $_GET["email"];
-    // $mobile = $_GET["mobile"];
+    $gender = $_GET["gender"];
+    $edu = $_GET["edu"];
+    $desc = $_GET["desc"];
+    $hobbies = $_GET["hobbies"];
+    $pic = $_GET["pic"];
     // $now = date("Y-m-d h:i:s");
 
     $data = Array(
         "username" => $username,
         "password" => $password,
-        "email" => $email
+        "email" => $email,
+        "gender" => $gender,
+        "edu" => $edu,
+        "desc" => $desc,
+        "hobbies" => implode('|', $hobbies),
+        "pic" => $pic
     );
+
+    /*print_r($data);
+
+    die;*/
 
     $id = $db->insert('reg_login', $data);
 

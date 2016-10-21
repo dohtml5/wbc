@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
 <?php
 /**
  * Created by PhpStorm.
@@ -6,10 +16,19 @@
  * Time: 15:38
  */
 
+session_start();
+
 require_once ('util/db.php');
 
 $username = $_POST['username'];
 $password = $_POST['password'];
+$vcode = $_POST['vcode'];
+$authnum = $_SESSION['authnum_session'];
+
+if ($vcode != $authnum) {
+	echo "验证码不正确，请重新输入";
+	return;
+}
 
 $sql = "select * from reg_login where username='$username' and password='$password'";
 
