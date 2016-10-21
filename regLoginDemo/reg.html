@@ -10,7 +10,7 @@
 
 <hr>
 
-<form action="php/reg.php" method="post">
+<form method="get" action="../api/reg_login_insert.php">
 
     <div>
         <label>
@@ -29,10 +29,42 @@
             邮箱：<input type="text" name="email">
         </label>
     </div>
+    <div>
+        <label>
+            性别：
+            <label for="">男</label><input name="gender" type="radio">
+            <label for="">女</label><input name="gender" type="radio">
+        </label>
+    </div>
+    <div>
+        <label>
+            学历：
+            <select name="" id="">
+                <option value="">大专</option>
+                <option value="">本科</option>
+                <option value="">研究生</option>
+            </select>
+        </label>
+    </div>
+    <div>
+        <label>介绍：</label>
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+    </div>
+    <div>
+        <label>爱好：</label>
+        <label><input type="checkbox">旅游</label>
+        <label><input type="checkbox">跑步</label>
+        <label><input type="checkbox">音乐</label>
+    </div>
+    <div>
+        <label>照片：</label>
+        <input type="file">
+    </div>
 
     <div>
         <input type="submit" value="注册">
         <input type="reset" value="清空">
+        <input type="button" value="返回">
     </div>
 
 </form>
