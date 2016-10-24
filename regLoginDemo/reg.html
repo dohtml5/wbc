@@ -10,11 +10,11 @@
 
 <hr>
 
-<form method="get" action="../api/reg_login_insert.php">
+<form method="post" action="../api/reg_login_insert.php" onsubmit="return checkForm();">
 
     <div>
         <label>
-            账号：<input type="text" name="username">
+            账号：<input id="username" type="text" name="username">
         </label>
     </div>
 
@@ -32,7 +32,7 @@
     <div>
         <label>
             性别：
-            <label for="">男</label><input name="gender" type="radio" value="男">
+            <label for="">男</label><input name="gender" type="radio" value="男" checked>
             <label for="">女</label><input name="gender" type="radio" value="女">
         </label>
     </div>
@@ -40,6 +40,7 @@
         <label>
             学历：
             <select name="edu" id="">
+                <option value="0">请选择</option>
                 <option value="大专">大专</option>
                 <option value="本科">本科</option>
                 <option value="研究生">研究生</option>
@@ -50,7 +51,7 @@
         <label>介绍：</label>
         <textarea name="desc" id="" cols="30" rows="10"></textarea>
     </div>
-    <div>
+    <div id="hobbiesWp">
         <label>爱好：</label>
         <label><input name="hobbies[]" value="旅游" type="checkbox">旅游</label>
         <label><input name="hobbies[]" value="跑步" type="checkbox">跑步</label>
@@ -70,6 +71,48 @@
     </div>
 
 </form>
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script>
+    function checkForm() {
+
+        var data = {
+            username: $('#username').val(),
+            email: $('input[name=email]').val(),
+            hobbies: $('#hobbiesWp input[type=checkbox]')
+        };
+
+        var emailRegExp = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+        var hobbiesFlag = true;
+
+        if ($.trim(data.username) == '') {
+            alert('用户名不能为空！');
+            return false;
+        }
+
+        /*if (!emailRegExp.test(data.email)) {
+            alert('邮箱格式不正确！');
+            return false;
+        }*/
+
+        $.each(data.hobbies, function(i, item) {
+            if (item.checked) {
+                hobbiesFlag = false;
+            }
+        });
+
+        if (hobbiesFlag) {
+            alert('至少选择一个爱好！');
+        }
+
+
+        console.log(data);
+
+        return false;
+
+    }
+</script>
 
 </body>
 </html>
