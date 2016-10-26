@@ -8,7 +8,7 @@
 
     <h1>用户登录</h1>
     <hr>
-    <form action="php/login.php" method="post">
+    <form method="get">
 
         <div>
             <label>
@@ -25,9 +25,18 @@
         <div>
             <input type="submit" value="登录">
             <input type="reset" value="清空">
+            <input id="backBtn" type="button" value="返回">
+            <!-- <button type="button">button</button> -->
         </div>
 
     </form>
+
+    <script src="../lib/jquery-1.12.1.min.js"></script>
+    <script>
+        $('#backBtn').on('click', function() {
+            location.href="commIndex.html";
+        });
+    </script>
 
 </body>
 </html>

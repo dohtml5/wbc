@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script>
+
+		var createList = function() {
+
+			var ul = document.createElement('ul');
+
+			var arr = [1, 'test', 'test2', 4];
+
+			for (var i=0; i<arr.length; i++) {
+				ul.appendChild(createLi(arr[i]));
+			}
+
+			/*ul.appendChild(createLi(1));
+			ul.appendChild(createLi('test'));
+			ul.appendChild(createLi('test2'));
+			ul.appendChild(createLi(4));*/
+
+			document.body.appendChild(ul);
+
+		};
+
+		var createLi = function(txt) {
+			var li = document.createElement('li');
+			var txt = document.createTextNode(txt);
+			li.appendChild(txt);
+			return li;
+		};
+
+		createList();
+		bindClickEvent();
+
+		function bindClickEvent() {
+			var ul = document.getElementsByTagName('ul')[0],
+				lis = ul.getElementsByTagName('li');
+
+			for (var i=0; i<lis.length; i++) {
+				lis[i].onclick = (function(n) {
+					// alert(i);
+					return function() {
+						alert(n);
+					};
+				})(i);
+
+				/*
+
+				lis[0].onclick = function() {
+					alert(0);
+				}
+
+				lis[1].onclick = function() {
+					alert(1);
+				}
+
+				*/
+			}
+
+			console.log(lis)
+		}
+		
+	</script>
+</body>
+</html>

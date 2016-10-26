@@ -1,0 +1,22 @@
+{
+  "name": "wbc8_bower",
+  "homepage": "https://github.com/dohtml5/wbc",
+  "authors": [
+    "situ <gao_st@126.com>"
+  ],
+  "description": "wbc8",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.12.4",
+    "underscore": "^1.8.3",
+    "bootstrap": "^3.3.7"
+  }
+}

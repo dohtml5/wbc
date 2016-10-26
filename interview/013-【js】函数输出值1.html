@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script>
+
+		var foo = function() {
+			console.log(this.a);
+		};
+
+		var obj = {
+			a: 2,
+			foo: foo
+		};
+
+		var obj2 = {
+			a: 5
+		}
+
+		var a = 10;
+		var bar = obj.foo;
+		// var bar2 = foo.bind(obj);
+		// var bar3 = foo.call(obj);
+
+		// bar();
+		// bar2();
+		// bar3();
+		// foo();
+		// obj.foo();
+		setTimeout(bar, 0);
+		
+	</script>
+</body>
+</html>
