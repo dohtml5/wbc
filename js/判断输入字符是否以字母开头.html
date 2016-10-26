@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#msg {
+			display: none;
+			background-color: #f00;
+		}
+	</style>
+</head>
+<body>
+
+	<label>输入框：</label>
+
+	<input id="ipt" type="text">
+
+	<p id="msg">输入字符必须以字母开头！</p>
+
+	<script>
+		
+	var ipt = document.getElementById('ipt');
+	var msg = document.getElementById('msg');
+	ipt.onblur = function() {
+		var val = this.value;
+
+		if (isStartWithString2(val)) {
+			msg.style.display = 'none';
+		} else {
+			msg.style.display = 'block';
+		}
+	};
+
+	function isStartWithString(str) {
+		var reg = /^([a-zA-Z].+)$/;
+		return reg.test(str);
+	}
+
+	function isStartWithString2(str) {
+		var fchar = str.charAt(0),
+			charCode = fchar.charCodeAt();
+
+		if (charCode >= 65 && charCode <= 122) {
+
+			if (charCode > 90 && charCode < 97) {
+				return false;
+			}
+
+			return true;
+
+		}
+
+		return false;
+	}
+
+	</script>
+	
+</body>
+</html>

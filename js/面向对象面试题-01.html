@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script>
+		
+		function Vehicle() {}
+
+		Vehicle.prototype = {
+			drive: function() {
+				console.log('drive');
+			},
+			park: function() {
+				console.log('park');
+			}
+		};
+
+		function Car() {
+			this.park = function() {
+				console.log('parking');
+			}
+		}
+
+		extend(Car, Vehicle);
+
+		var car1 = new Car();
+		car1.drive();
+		car1.park();
+
+		function extend(Child, Parent) {
+		    var F = function() {};
+		    F.prototype = Parent.prototype;
+		    Child.prototype = new F();
+		    Child.prototype.constructor = Child;
+		}
+
+
+	</script>
+</body>
+</html>
