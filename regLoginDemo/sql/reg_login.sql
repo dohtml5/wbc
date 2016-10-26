@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
--- 主机: localhost
--- 生成日期: 2016 年 08 月 14 日 08:01
--- 服务器版本: 5.6.12-log
--- PHP 版本: 5.4.12
+-- Host: 127.0.0.1
+-- Generation Time: 2016-10-21 08:49:19
+-- 服务器版本： 5.6.17
+-- PHP Version: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,31 +17,37 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- 数据库: `test`
+-- Database: `test`
 --
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `wbc6_users`
+-- 表的结构 `reg_login`
 --
 
-CREATE TABLE IF NOT EXISTS `wbc6_users` (
+CREATE TABLE IF NOT EXISTS `reg_login` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL,
-  `email` varchar(20) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `gender` varchar(5) NOT NULL,
+  `edu` varchar(10) NOT NULL,
+  `desc` varchar(500) NOT NULL,
+  `hobbies` varchar(50) NOT NULL,
+  `pic` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
--- 转存表中的数据 `wbc6_users`
+-- 转存表中的数据 `reg_login`
 --
 
-INSERT INTO `wbc6_users` (`id`, `username`, `password`, `email`) VALUES
-(1, 'chy', '123456', 'chy@126.com'),
-(3, 'sqm', 'qwe123', 'sqm@sohu.com'),
-(4, 'ly', '123123', 'ly@sina.com');
+INSERT INTO `reg_login` (`id`, `username`, `password`, `email`, `gender`, `edu`, `desc`, `hobbies`, `pic`) VALUES
+(1, 'wbc1', '123123', 'wbc1@wbc.com', '', '', '', '', ''),
+(2, 'wbc2', 'qweqwe', 'wbc2@wbc.com', '', '', '', '', ''),
+(3, 'wbc3', 'asdsa', 'wbc3@123.com', '', '', '', '', ''),
+(4, 'wbc4', '123123', 'wbc4@dsf.com', '', '', '', '', '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

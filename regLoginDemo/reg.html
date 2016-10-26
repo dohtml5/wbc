@@ -10,11 +10,11 @@
 
 <hr>
 
-<form>
+<form method="post" action="../api/reg_login_insert.php" onsubmit="return checkForm();">
 
     <div>
         <label>
-            账号：<input type="text" name="username">
+            账号：<input id="username" type="text" name="username">
         </label>
     </div>
 
@@ -29,6 +29,7 @@
             邮箱：<input type="text" name="email">
         </label>
     </div>
+<<<<<<< .mine
     <div>
         <label>
             性别：
@@ -61,12 +62,92 @@
         <input type="file">
     </div>
 
+=======
+    <div>
+        <label>
+            性别：
+            <label for="">男</label><input name="gender" type="radio" value="男" checked>
+            <label for="">女</label><input name="gender" type="radio" value="女">
+        </label>
+    </div>
+    <div>
+        <label>
+            学历：
+            <select name="edu" id="">
+                <option value="0">请选择</option>
+                <option value="大专">大专</option>
+                <option value="本科">本科</option>
+                <option value="研究生">研究生</option>
+            </select>
+        </label>
+    </div>
+    <div>
+        <label>介绍：</label>
+        <textarea name="desc" id="" cols="30" rows="10"></textarea>
+    </div>
+    <div id="hobbiesWp">
+        <label>爱好：</label>
+        <label><input name="hobbies[]" value="旅游" type="checkbox">旅游</label>
+        <label><input name="hobbies[]" value="跑步" type="checkbox">跑步</label>
+        <label><input name="hobbies[]" value="音乐" type="checkbox">音乐</label>
+    </div>
+    <div>
+        <label>照片：</label>
+        <input name="pic" type="file">
+    </div>
+>>>>>>> .theirs
+
+    <hr>
+
     <div>
         <input type="submit" value="注册">
         <input type="reset" value="清空">
+        <input type="button" value="返回">
     </div>
 
 </form>
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script>
+    function checkForm() {
+
+        var data = {
+            username: $('#username').val(),
+            email: $('input[name=email]').val(),
+            hobbies: $('#hobbiesWp input[type=checkbox]')
+        };
+
+        var emailRegExp = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+        var hobbiesFlag = true;
+
+        if ($.trim(data.username) == '') {
+            alert('用户名不能为空！');
+            return false;
+        }
+
+        /*if (!emailRegExp.test(data.email)) {
+            alert('邮箱格式不正确！');
+            return false;
+        }*/
+
+        $.each(data.hobbies, function(i, item) {
+            if (item.checked) {
+                hobbiesFlag = false;
+            }
+        });
+
+        if (hobbiesFlag) {
+            alert('至少选择一个爱好！');
+        }
+
+
+        console.log(data);
+
+        return false;
+
+    }
+</script>
 
 </body>
 </html>

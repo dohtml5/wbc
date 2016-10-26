@@ -1,0 +1,20 @@
+{
+  "name": "regLoginDemo",
+  "homepage": "https://github.com/dohtml5/wbc",
+  "authors": [
+    "situ <gao_st@126.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
